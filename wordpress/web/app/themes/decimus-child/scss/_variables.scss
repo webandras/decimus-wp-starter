@@ -20,11 +20,8 @@ $small-size: 0.75rem;
 }
 
 $blue:  #375a7f !default;
-//$blue: rgb(75, 112, 206);
 $success: #2e8b36;
-//$info: #ffe7c7;
 $info: #ffe7c7;
-//$error: #e25555;
 $error: #e25555;
 
 
@@ -47,3 +44,5 @@ $error: #e25555;
     padding: 1rem;
     background: $error;
 }
+
+$base-fonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Tahoma, Arial, sans-serif;

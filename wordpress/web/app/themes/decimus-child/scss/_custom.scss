@@ -25,6 +25,7 @@
         }
     }
 }
+
 .widget.widget_block,
 .widget-area section.widget {
     margin-bottom: .5rem !important;
@@ -57,6 +58,7 @@
     width: 60px;
     height: 60px;
 }
+
 .profile-img-small,
 .avatar {
     width: 45px;
@@ -73,6 +75,7 @@
     .modal-content {
         .modal-header {
             padding: 1rem;
+
             h5.modal-title {
                 font-size: 1rem;
             }
@@ -86,6 +89,7 @@
     #commentsubmit {
         padding-top: 8px !important;
     }
+
     .comment-form-cookies-consent {
         .form-check-label {
             font-size: $small-size;
@@ -114,6 +118,7 @@
             margin-bottom: 0;
             padding-left: 0.5rem;
         }
+
         .comment-content {
             .card {
                 .card-body {
@@ -121,6 +126,7 @@
                         display: flex;
                         align-items: center;
                     }
+
                     .comment-meta {
                         time {
                             font-size: $small-size;
@@ -165,7 +171,7 @@ ul.children {
 
 
 #content {
-    //min-height: unset;
+    min-height: 100vh;
 }
 
 .error-404.not-found {

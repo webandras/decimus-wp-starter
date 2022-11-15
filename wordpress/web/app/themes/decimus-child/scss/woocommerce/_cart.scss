@@ -1,20 +1,6 @@
 .shop_table.shop_table_responsive.cart.woocommerce-cart-form__contents {
-    thead {
-    }
-    tbody {
-
-    }
     .product-subtotal {
         display: none;
-    }
-}
-
-.cart_totals .shop_table .order-total,
-.cart_totals .shop_table .order-total .td {
-}
-
-@media (max-width: 768px) {
-    .woocommerce table.shop_table_responsive tr:nth-child(2n) td, .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
     }
 }
 
@@ -29,7 +15,7 @@ input[name="coupon_code"] {
 
 button[name="apply_coupon"] {
     padding-top: 8px !important;
-    padding-bottom: 4px !important;
+    padding-bottom: 8px !important;
 }
 
 @media (min-width: 768px) {

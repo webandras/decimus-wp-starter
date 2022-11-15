@@ -52,28 +52,14 @@ button[name="save_address"] {
 
 .woocommerce-form__label.woocommerce-form__label-for-checkbox.checkbox.form-check {
     label {
-        font-size: 0.875rem;
+        font-size: $medium-size;
         padding-left: 2px;
         display: inline-block;
     }
 }
 
-.shop_table.woocommerce-checkout-review-order-table {
-    thead {
-    }
-
-    tbody {
-    }
-
-    tfoot {
-    }
-}
-
-
 .woocommerce-checkout-payment.card {
     margin-bottom: 30px;
-    .card-body {
-    }
 }
 
 #payment .payment_methods > .woocommerce-PaymentMethod > label::before,
@@ -112,4 +98,22 @@ button[name="save_address"] {
 
 .woocommerce-billing-fields > .woocommerce-billing-fields__field-wrapper > p {
     margin-bottom: 2rem !important;
+}
+
+.checkout-button-container {
+    display: flex;
+    justify-items: center;
+
+    @media (max-width: 992px) {
+        #place_order {
+            width: fit-content;
+        }
+    }
+
+    @media (max-width: 567px) {
+        #place_order {
+            width: 100%;
+        }
+    }
+
 }

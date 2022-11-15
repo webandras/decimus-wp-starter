@@ -1,6 +1,6 @@
 .content-area {
     .woocommerce-MyAccount-navigation {
-        font-size: 0.875rem;
+        font-size: $medium-size;
 
         .list-group {
             .list-group-item.list-group-item-action {
@@ -18,22 +18,15 @@
 
 .woocommerce-MyAccount-content {
     .alert {
-        font-size: 0.875rem;
+        font-size: $medium-size;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         width: fit-content;
     }
 }
 
-.woocommerce-Input.woocommerce-Input--email.input-text.form-control,
-.woocommerce-Input.woocommerce-Input--password.input-text.form-control,
-.woocommerce-Input.woocommerce-Input--text.input-text.form-control {
-    &:focus {
-    }
-}
-
 .woocommerce-form-row.woocommerce-form-row--wide.form-row {
     em {
-        font-size: 0.75rem;
+        font-size: $small-size;
     }
 }

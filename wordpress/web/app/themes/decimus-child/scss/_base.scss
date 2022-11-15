@@ -1,7 +1,7 @@
 body,
 html {
     font-size: $base-size;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Tahoma, Arial, sans-serif;
+    font-family: $base-fonts;
     line-height: 1.5;
     margin: 0;
     padding: 0;
@@ -171,9 +171,6 @@ td {
     padding: 0.25rem 0.5rem;
 }
 
-tr:nth-child(even) {
-}
-
 
 hr {
     margin: 0;
@@ -187,11 +184,6 @@ a {
 a:focus,
 a:hover {
     text-decoration: none;
-}
-
-a:focus,
-a:focus img {
-
 }
 
 article > a {
@@ -227,10 +219,6 @@ optgroup,
 textarea {
     font-size: 1rem;
     line-height: 1.5;
-}
-
-button {
-
 }
 
 fieldset {

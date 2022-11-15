@@ -22,21 +22,14 @@
     border-radius: 25px;
 }
 
-.nav-link:hover {
-}
-
-.navbar-nav > a {
-}
-
-.navbar-dark .navbar-nav .nav-link {
-}
 .breadcrumb {
-    font-size: 0.75rem !important;
+    font-size: $small-size !important;
     margin: 0;
     padding: 0;
     background: transparent !important;
     border-color: transparent !important;
 }
+
 .site-main nav.breadcrumb {
     margin-bottom: 0;
     font-size: $small-size;
@@ -54,18 +47,3 @@
     padding-right: 0.5rem;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
-    display: inline-block;
-    background-image: url("assets/chevron.svg");
-    background-size: 14px 14px;
-    height: 14px;
-    width: 14px;
-    content: " ";
-}
-
-.breadcrumb-home-icon {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    top: -3px;
-}

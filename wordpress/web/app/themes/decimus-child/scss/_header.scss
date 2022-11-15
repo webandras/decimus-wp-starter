@@ -8,8 +8,6 @@ header {
 
     .top-nav-search {
         .searchform.input-group {
-            input {
-            }
             button {
                 height: 40px;
                 line-height: 40px;
@@ -22,12 +20,11 @@ header {
         a {
             color: currentColor;
             text-decoration: none;
-            &:hover {
-            }
         }
 
         .contact-info {
             text-align: left;
+
             a {
                 font-size: 0.75rem;
             }
@@ -40,7 +37,6 @@ header {
             align-items: center;
             margin-right: 1rem;
         }
-
     }
 
     #navbarCollapse {
@@ -56,10 +52,6 @@ header {
             top: 3px;
             position: relative;
         }
-
-    }
-
-    .navbar-dark .navbar-toggler {
     }
 
     .navbar-dark .navbar-toggler-icon {
@@ -68,6 +60,7 @@ header {
 
     #nav-main {
         height: 56px;
+
         .menu-item:last-child .nav-link {
             padding-right: 8px !important;
         }
@@ -83,6 +76,7 @@ header {
 
     #offcanvas-cart {
         overflow-x: hidden !important;
+
         .cart-list {
             padding-bottom: 0 !important;
         }
@@ -97,9 +91,6 @@ header {
         font-style: normal;
         font-weight: normal;
         font-size: 12px !important;
-    }
-
-    .shopping-bag i {
     }
 
     .shopping-bag {
@@ -117,14 +108,6 @@ header {
         width: 180px;
     }
 
-    .dropdown-menu {
-        a {
-
-        }
-        .dropdown-item:focus, .dropdown-item:hover {
-        }
-    }
-
     .header-actions {
         button {
             display: flex;
@@ -138,6 +121,7 @@ header {
 
     .offcanvas-header {
         padding: 1rem;
+
         h5 {
             font-size: 1rem;
         }
@@ -145,6 +129,7 @@ header {
 
     .offcanvas-body {
         padding-top: 1rem;
+
         #decimus-navbar {
             li {
                 .nav-link {
@@ -156,9 +141,6 @@ header {
         }
     }
 
-    .btn-outline-secondary {
-    }
-
     .search-container {
         display: flex;
         justify-content: flex-end;
@@ -167,6 +149,5 @@ header {
             max-width: 320px;
         }
     }
-
 
 }
