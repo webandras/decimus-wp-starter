@@ -121,8 +121,7 @@ do_action('woocommerce_before_mini_cart'); ?>
             ?>
         </p>
 
-        <!--<p class="text-light small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'decimus'); ?></p>-->
-        <p class="small shipping-text">Kérlek menj a pénztár oldalra a megrendelés leadásához...</p>
+        <p class="small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'decimus'); ?></p>
 
         <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
