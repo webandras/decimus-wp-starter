@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-    <div id="content" class="site-content container-fluid side-padding py-5 mt-4">
+    <div id="content" class="site-content container-fluid side-padding narrow-content py-5 mt-4">
         <div id="primary" class="content-area">
 
             <main id="main" class="site-main">

@@ -9,13 +9,13 @@
 
 get_header();
 ?>
-    <div id="content" class="site-content container-fluid side-padding mt-5 py-5">
+    <div id="content" class="site-content container-fluid side-padding narrow-content mt-5 py-5">
         <div id="primary" class="content-area">
 
             <main id="main" class="site-main">
 
                 <section class="error-404 not-found">
-                    <div class="page-404  align-center">
+                    <div class="page-404 align-center">
 
                         <h1 class="mb-3 h3 mt-2"><?php _e('The page you are looking for does not exist', 'decimus') ?></h1>
                         <!-- Remove this line and place some widgets -->

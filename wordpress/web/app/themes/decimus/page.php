@@ -15,16 +15,16 @@
 get_header();
 ?>
 
-    <div id="content" class="site-content container-fluid side-padding py-5 mt-4">
+    <div id="content" class="site-content container-fluid side-padding narrow-content py-5 mt-4">
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
             <?php bs_after_primary(); ?>
 
             <div class="row">
-                <div class="col-12 narrow-content">
+                <div class="col-12">
 
-                    <main id="main" class="site-main narrow-content">
+                    <main id="main" class="site-main">
 
                         <header class="entry-header">
                             <?php the_post(); ?>
