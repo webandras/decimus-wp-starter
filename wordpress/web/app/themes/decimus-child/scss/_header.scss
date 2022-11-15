@@ -36,6 +36,12 @@ header {
             display: flex;
             align-items: center;
             margin-right: 1rem;
+
+            @media (max-width: 991px) {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
         }
     }
 
@@ -98,9 +104,13 @@ header {
     }
 
     .navbar-nav .nav-link.active {
-        padding-top: 20px;
         font-weight: 600;
-        border-bottom: 10px solid rgba(255, 255, 255, 0.3);
+
+        @media (min-width: 992px) {
+            border-bottom: 10px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+            border-bottom: 10px solid rgba(255, 255, 255, 0.3);
+        }
     }
 
     .logo {
