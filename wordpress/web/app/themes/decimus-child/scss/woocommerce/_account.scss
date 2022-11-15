@@ -1,0 +1,39 @@
+.content-area {
+    .woocommerce-MyAccount-navigation {
+        font-size: 0.875rem;
+
+        .list-group {
+            .list-group-item.list-group-item-action {
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+}
+
+.woocommerce-account {
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+.woocommerce-MyAccount-content {
+    .alert {
+        font-size: 0.875rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: fit-content;
+    }
+}
+
+.woocommerce-Input.woocommerce-Input--email.input-text.form-control,
+.woocommerce-Input.woocommerce-Input--password.input-text.form-control,
+.woocommerce-Input.woocommerce-Input--text.input-text.form-control {
+    &:focus {
+    }
+}
+
+.woocommerce-form-row.woocommerce-form-row--wide.form-row {
+    em {
+        font-size: 0.75rem;
+    }
+}

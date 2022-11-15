@@ -1,0 +1,71 @@
+.navbar {
+    padding: 0 !important;
+}
+
+.navbar-nav > a {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-pills .nav-link {
+    border-radius: 25px;
+}
+
+.nav-link:hover {
+}
+
+.navbar-nav > a {
+}
+
+.navbar-dark .navbar-nav .nav-link {
+}
+.breadcrumb {
+    font-size: 0.75rem !important;
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+.site-main nav.breadcrumb {
+    margin-bottom: 0;
+    font-size: $small-size;
+
+    a {
+        font-size: $small-size;
+    }
+}
+
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: 0.25rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::after {
+    padding-right: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    background-image: url("assets/chevron.svg");
+    background-size: 14px 14px;
+    height: 14px;
+    width: 14px;
+    content: " ";
+}
+
+.breadcrumb-home-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: -3px;
+}

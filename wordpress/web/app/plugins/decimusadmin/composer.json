@@ -1,0 +1,15 @@
+{
+    "name": "gulacsi/decimus-theme-admin",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Gulácsi András",
+            "email": "guland@protonmail.com"
+        }
+    ],
+    "require": {
+        "zircote/swagger-php": "^3.2",
+        "fzaninotto/faker": "^1.9",
+        "katzgrau/klogger": "dev-master"
+    }
+}

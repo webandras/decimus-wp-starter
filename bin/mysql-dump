@@ -1,0 +1,6 @@
+#!/bin/bash
+set -a
+source .env
+
+docker-compose exec mysql bash -c "exec mysqldump --databases "${DB_NAME}" -u"${DB_USER}" -p"${DB_PASSWORD}" > dump.sql"
+docker cp ${APP_NAME}-mysql:dump.sql ./db/dump.sql

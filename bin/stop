@@ -1,0 +1,7 @@
+#!/bin/bash
+set -a
+source .env
+
+docker-compose -f docker-compose.yml stop "$@"
+systemctl start apache2 mysql
+

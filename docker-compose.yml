@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: ${APP_NAME}-nginx
+    restart: unless-stopped
+    ports:
+      - ${NGINX_PORT}:80
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - wordpress
+      - mysql
+
+  mysql:
+    image: mariadb:10.2
+    container_name: ${APP_NAME}-mysql
+    volumes: # data to map to the container
+      - wordpress_data:/var/lib/mysql
+      #- ./db/db.sql:/docker-entrypoint-initdb.d/db.sql
+    restart: unless-stopped
+    environment: # mysql options
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    ports:
+      - "33060:3306"
+
+  wordpress:
+    container_name: ${APP_NAME}-wordpress
+    build:
+      context: ./.docker/wordpress
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./wordpress:/var/www/html:cached
+      - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DEBUG: 1
+    extra_hosts:
+      - host.docker.internal:host-gateway
+
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    container_name: "${APP_NAME}-phpmyadmin"
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql:${MYSQL_PORT}
+    ports:
+      - ${PHPMYADMIN_PORT}:80
+
+volumes:
+  wordpress_data: {} # persist db data in native named volume

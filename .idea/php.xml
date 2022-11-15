@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <PhpCSConfiguration beautifier_path="$PROJECT_DIR$/wordpress/vendor/bin/phpcbf" tool_path="$PROJECT_DIR$/wordpress/vendor/bin/phpcs" />
+    </phpcs_settings>
+  </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentysixteen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-language/hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-language/core-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/oscarotero/env" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/woocommerce-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/classic-editor-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/movabletype-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/tumblr-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/livejournal-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/wpcat2tag-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/roots/bedrock-autoloader" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/wordpress-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/roots/wordpress-core-installer" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/bbpress-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/roots/wp-password-bcrypt" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/hello-dolly-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/classic-widgets-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/buddypress-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/akismet-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-plugin-language/blogger-importer-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/roots/wp-config" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/composer" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni/composer-dropin-installer" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentythirteen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentyseventeen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentytwentytwo-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentyfourteen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentynineteen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentytwentyone-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentyeleven-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentytwenty-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentyten-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentyfifteen-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/koodimonni-theme-language/twentytwelve-hu_hu" />
+      <path value="$PROJECT_DIR$/wordpress/vendor/scssphp/scssphp" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+</project>

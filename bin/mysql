@@ -1,0 +1,4 @@
+#!/bin/bash
+set -a
+source .env
+docker-compose exec mysql bash -c "mysql -u"${DB_USER}" -p"${DB_PASSWORD}""
