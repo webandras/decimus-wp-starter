@@ -22,29 +22,29 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_mini_cart'); ?>
 
-<?php if (!WC()->cart->is_empty()) : ?>
+<?php if ( !WC()->cart->is_empty() ) : ?>
 
     <div class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
         <?php
         do_action('woocommerce_before_mini_cart_contents');
 
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-            $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+            $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
             $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
 
-            if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
-                $product_name      = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
-                $thumbnail         = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
-                $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
+            if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key) ) {
+                $product_name = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
+                $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
+                $product_price = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
                 $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
-        ?>
+                ?>
                 <div class="woocommerce-mini-cart-item border-bottom p-3 <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
 
                     <div class="row">
 
                         <div class="item-image col-3">
                             <div class="mt-1">
-                                <?php if (empty($product_permalink)) : ?>
+                                <?php if ( empty($product_permalink) ) : ?>
                                     <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                                     ?>
                                 <?php else : ?>
@@ -57,7 +57,7 @@ do_action('woocommerce_before_mini_cart'); ?>
                         </div>
 
                         <div class="item-name col-7">
-                            <?php if (empty($product_permalink)) : ?>
+                            <?php if ( empty($product_permalink) ) : ?>
                                 <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                                 ?>
                             <?php else : ?>
@@ -73,7 +73,6 @@ do_action('woocommerce_before_mini_cart'); ?>
                                 ?>
                             </div>
                         </div>
-
 
 
                         <div class="remove col-2 text-end">
@@ -96,9 +95,8 @@ do_action('woocommerce_before_mini_cart'); ?>
                     <!--row-->
 
 
-
                 </div>
-        <?php
+                <?php
             }
         }
 
@@ -107,29 +105,29 @@ do_action('woocommerce_before_mini_cart'); ?>
     </div>
 
 
-    <?php if (true) { ?>
-    <div class="cart-footer text-center position-absolute bottom-0 p-3 w-100">
+    <?php if ( true ) { ?>
+        <div class="cart-footer text-center position-absolute bottom-0 p-3 w-100">
 
-        <p class="woocommerce-mini-cart__total total">
-            <?php
-            /**
-             * Hook: woocommerce_widget_shopping_cart_total.
-             *
-             * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-             */
-            do_action('woocommerce_widget_shopping_cart_total');
-            ?>
-        </p>
+            <p class="woocommerce-mini-cart__total total">
+                <?php
+                /**
+                 * Hook: woocommerce_widget_shopping_cart_total.
+                 *
+                 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
+                 */
+                do_action('woocommerce_widget_shopping_cart_total');
+                ?>
+            </p>
 
-        <p class="small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'decimus'); ?></p>
+            <p class="small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'decimus'); ?></p>
 
-        <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
+            <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
-        <div class="woocommerce-mini-cart__buttons buttons"><?php do_action('woocommerce_widget_shopping_cart_buttons'); ?></div>
+            <div class="woocommerce-mini-cart__buttons buttons"><?php do_action('woocommerce_widget_shopping_cart_buttons'); ?></div>
 
-        <?php do_action('woocommerce_widget_shopping_cart_after_buttons'); ?>
+            <?php do_action('woocommerce_widget_shopping_cart_after_buttons'); ?>
 
-    </div>
+        </div>
     <?php } ?>
 
 <?php else : ?>
