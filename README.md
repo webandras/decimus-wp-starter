@@ -9,8 +9,7 @@ Images used for the services:
 
 `wp-cli` and `xdebug` support included.
 
-**For custom domain and ssl support, use `feature/ssl_custom_domain` branch. See the readme on that branch for user
-guide.**
+**For custom domain and ssl support, you will find the instructions at the end of this readme file.**
 
 ## Setup
 
@@ -18,23 +17,28 @@ guide.**
 
 2. Create `wordpress` folder in root. Bedrock will be installed here.
 
-3. Run `docker-compose up --build`. There are useful shell commands in `bin` folder.
+3. Run `set- a; source .env; docker-compose up --build`.
 
 4. Create a new Bedrock project:
 
 `bin/composer create-project roots/bedrock`
 
 5. Unfortunately, Bedrock will create the project into a subfolder inside the `wordpress` folder, so you need to
-   copy the subfolder content into the `wordpress` folder. And delete the subfolder afterwards.
+   have the sub-folder content in the `wordpress` folder.
 
 6. Make sure the `.env` credentials are correct (in wordpress folder) and match with the variable defined in `.env` in
-   the root folder
-   You can customize the DB_PREFIX to increase security (See "Change table prefixes" section further below).
+   the root folder.
+
+You can also customize the DB_PREFIX to increase security.
+See "Change table prefixes" section further below to change prefix for tables in an existing wp database.
 
 ## WP CLI
 
-Run `bin/wp` to enter the `wordpress` container. Simply run `wp`.
-The wp-cli is run by the www-data user, not by root (otherwise, it would be a huge security risk).
+Run `bin/wp` to enter the `wordpress` container. Simply run `wp` here.
+The wp-cli is run by the www-data user, not by root (otherwise, it would be a security risk).
+
+*Note: There are other useful shell commands in `bin` folder as well.*
+
 ## DB
 
 Add your sql dump files into the db folder to be imported.
@@ -45,9 +49,9 @@ Copy the sql file inside the mysql container:
 
 `docker cp ./db/dump.sql container_id:/var/dump.sql`
 
-After that, import the sql to the database (inside the mysql container):
+After that, import the sql to the database inside the mysql container:
 
-`mysql -u wordpress -p wordpress  < /var/dump.sql`
+`mysql -u wordpress -p wordpress < /var/dump.sql`
 
 Replace urls:
 
@@ -55,9 +59,12 @@ Replace urls:
 
 Or use PhpMyAdmin for a small database.
 
-## PHP 8.0, 8.1
+*Note: `bin/mysql-import` is not working.*
 
-There are deprecation and other warnings!
+## PHP 8.0/8.1
+
+There are deprecation and other warnings which will be eventually fixed in future WordPress and Bedrock releases...
+
 
 ## Change table prefixes
 
@@ -108,14 +115,21 @@ This works better for Docker:
 `wordpress/config/environments/development.php` -> `Config::define('FS_METHOD', 'direct');`
 
 *TODO: More work on these issues:*
-You may need to change permissions for wordpress folder. There are still permission issues.
+You may need to change permissions for wordpress folder. There are still permission issues on Linux.
 
-However, for production, the folders use the permission 755, and 644 for the files! 777 is a very bad and dangerous idea for production.
+However, for production, the folders use the permission 755, and 644 for the files! 777 is a dangerous idea for production.
+
+### Docker notes
+
+For Linux, you may have to use sudo if your Docker is not configured to be used as a non-root user.
+There are useful bash scripts in bin folder (bin/start, bin/down, etc.) which are useful.
 
 
 ## Change Language
 
-In composer.json changer these packages:
+This is a bit tricky for Bedrock, but it works.
+
+In composer.json changer these packages with your preferred language set like this:
 ```
 "koodimonni-language/hu_hu": "*",
 "koodimonni-plugin-language/woocommerce-hu_hu": "6.7.0",
@@ -123,7 +137,7 @@ In composer.json changer these packages:
 to your language and versions.
 See more at: https://wp-languages.github.io/ and https://discourse.roots.io/t/install-update-wordpress-languages-with-composer/2021
 
-Copy the needed files to `wordpress/app/languages`. Also create themes and plugins subfolders, and copy the right files in the appropriate place.
+Copy the needed files to `wordpress/app/languages`. Also create themes and plugins sub-folders, and copy the right files in the appropriate place.
 
 `wordpress/vendor/koodimonni-language`
 
@@ -144,6 +158,32 @@ Copy the needed files to `wordpress/app/languages`. Also create themes and plugi
   https://quadlayers.com/create-woocommerce-pages/
 
 
+## Custom domain and ssl certificate (not tested 100% yet)
 
+Steps:
+
+1. Set up your .env variables in root-folder .env
+
+2. Create SSL certificate for your `APP_DOMAIN`
+
+First:
+
+You may need a different executable for **mkcert**. Copy your mkcert executable into `.docker/nginx` folder. Links:
+
+- Windows: https://github.com/FiloSottile/mkcert#windows
+- Mac: https://github.com/FiloSottile/mkcert#macos
+- Linux: https://github.com/FiloSottile/mkcert#linux or use the pre-build binaries (recommended): https://github.com/FiloSottile/mkcert/releases
+
+Then run `bin/setup-ssl`.
+
+3. Add domain alias for `127.0.0.1` (e.g. in `/etc/hosts`)
+
+4. Make sure `server_name` (there is 2 of them), ssl_certificate, and ssl_certificate_key is correct in `.docker/nginx/default-ssl.conf`! Although, the script will replace these values with the `APP_DOMAIN` if the default values are `wordpress.local` `.docker/nginx/default-ssl.conf`.
+
+5. Now you can build the docker project:
+
+`(set -a;source .env;docker-compose -f docker-compose-ssl.yml up --build)`
+
+Continue with step #4 at the **Setup section**.
 
     

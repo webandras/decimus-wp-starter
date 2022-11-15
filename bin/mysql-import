@@ -2,4 +2,5 @@
 set -a
 source .env
 
-docker-compose exec mysql bash -c "mysql -hmysql -uwordpress -p"${DB_PASSWORD}" "${DB_NAME}" < ./db/dump.sql"
+echo "This will not work. TODO: workaround or delete this script."
+# docker-compose exec mysql bash -c "mysql -hmysql -uwordpress -p"${DB_PASSWORD}" "${DB_NAME}" < ./db/dump.sql"

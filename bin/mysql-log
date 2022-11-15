@@ -1,0 +1,7 @@
+#!/bin/bash
+set -a
+source .env
+
+echo "--- MySQL logs ---"
+docker logs "${APP_NAME}"-mysql --tail ${TAIL_COUNT} --details
+exit

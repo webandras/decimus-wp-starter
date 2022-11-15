@@ -1,0 +1,11 @@
+#!/bin/bash
+set -a
+source .env
+
+cd ./.docker/nginx || exit
+
+# generate ssl certs
+./mkcert-v1.4.3-linux-amd64 ${APP_DOMAIN}
+
+# replace server names, and certificate filenames for the custom domain
+sed -i -e "s/wordpress.local/${APP_DOMAIN}/g" ./default-ssl.conf
