@@ -72,7 +72,7 @@ export default {
 
     data() {
         return {
-            route: 'admin',
+            route: 'woocommerce',
         };
     },
 
