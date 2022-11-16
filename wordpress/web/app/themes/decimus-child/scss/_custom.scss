@@ -23,6 +23,12 @@
         ol.wp-block-latest-comments {
             padding-left: 0;
         }
+
+        article {
+            .wp-block-latest-comments__comment-meta {
+                font-size: $small-size;
+            }
+        }
     }
 }
 

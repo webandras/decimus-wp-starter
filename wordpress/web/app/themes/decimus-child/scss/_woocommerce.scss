@@ -223,3 +223,10 @@ i.sui.sui-user {
     }
 }
 
+.woocommerce-cart table.cart {
+    button[name="update_cart"] {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+}
+
