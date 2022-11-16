@@ -29,7 +29,7 @@ if ( !$checkout->is_registration_enabled() && $checkout->is_registration_require
 
 ?>
 
-<form name="checkout" method="post" class="checkout woocommerce-checkout mt-5"
+<form name="checkout" method="post" class="checkout woocommerce-checkout mt-3"
       action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
     <?php if ( $checkout->get_checkout_fields() ) : ?>
@@ -53,7 +53,7 @@ if ( !$checkout->is_registration_enabled() && $checkout->is_registration_require
     <?php endif; ?>
 
     <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
-    <div class="col-12 col-lg-6 offset-lg-1">
+    <div class="col-12 col-lg-5 offset-lg-1">
         <h3 id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
 
         <?php do_action('woocommerce_checkout_before_order_review'); ?>

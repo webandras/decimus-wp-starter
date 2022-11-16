@@ -13,7 +13,7 @@ function decimus_child_add_share_to_products(): void
 // hooks to the product data tab
 add_action('woocommerce_product_options_general_product_data', 'decimus_child_product_video_field');
 // Adds a video field at the product data tab
-function decimus__child_product_video_field(): void
+function decimus_child_product_video_field(): void
 {
     $args = array(
         'id' => 'product_video_field',
@@ -41,7 +41,6 @@ function decimus_child_product_video_field_save(int $post_id): void
 add_filter('woocommerce_product_tabs', 'decimus_child_new_product_tab');
 function decimus_child_new_product_tab(array $tabs): array
 {
-
     // Adds the new tab
     if ( !empty(get_the_content()) ) {
         $tabs['video_tab'] = array(
@@ -60,8 +59,9 @@ function decimus_child_new_product_tab_content(): void
 
     // The new tab content
     echo '<h2 class="h4">' . __('Video', 'decimus') . '</h2>';
-    echo $product_video ? '<div id="product-video-container" class="ratio ratio-16x9">' . $product_video . '</div>' : '<p>' . __('Nincs feltöltve videó a termékhez.', 'decimus') . '</p>';
-    echo $product_video ? '<div id="product-video-container" class="ratio ratio-16x9">' . $product_video . '</div>' : '<p>' . __('Nincs feltöltve videó a termékhez.', 'decimus') . '</p>';
+    echo $product_video ?
+        '<div id="product-video-container" class="ratio ratio-16x9">' . $product_video . '</div>'
+        : '<p>' . __('No video available for this product.', 'decimus') . '</p>';
 
 }
 

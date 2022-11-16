@@ -103,31 +103,7 @@ do_action('woocommerce_before_mini_cart'); ?>
         ?>
     </div>
 
-    <!--<div>
-        <h3 class="modal-title" id="exampleModalLongTitle">Regisztráció</h3>
-
-        <div class="row">
-            <div class="col-12">
-                <h5>Kapcsolatfelvétel</h5>
-                <ul class="no-bullets medium-size">
-                    <li>
-                        <a href="tel:+36203516077">(20) 351 6077</a>
-                    </li>
-                    <li>
-                        <a href="mailto:baratszilvi1@gmail.com">baratszilvi1@gmail.com</a>
-                    </li>
-                    <li>
-                        <a href="https://m.me/baratszilvifeeling">Messenger üzenet</a>
-                    </li>
-                </ul>
-
-                <?php //echo do_shortcode('[contact-form-7 id="141" title="Kapcsolatfelvétel"]'); ?>
-
-            </div>
-        </div>
-    </div>-->
-
-    <div class="cart-footer bg-light text-center position-absolute bottom-0 p-3 w-100">
+    <div class="cart-footer text-center position-absolute bottom-0 p-3 w-100">
 
         <p class="woocommerce-mini-cart__total total">
             <?php

@@ -24,7 +24,7 @@ do_action('woocommerce_before_account_navigation');
 ?>
 
 
-<div class="row mt-3">
+<div class="row mt-1">
     <!-- End in my-account.php -->
     <div class="col-md-4">
         <nav class="woocommerce-MyAccount-navigation" role="navigation">
