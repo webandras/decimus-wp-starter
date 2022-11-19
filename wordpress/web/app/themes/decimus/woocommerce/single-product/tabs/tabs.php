@@ -49,7 +49,7 @@ if ( !empty($product_tabs) ) : ?>
             <?php foreach ($product_tabs_reordered as $key => $product_tab) { ?>
                 <?php
                 // hide some tabs here
-                if ( $key !== "description" ) { ?>
+                if ( $key !== "description" && isset($product_tab) ) { ?>
                     <li class="<?php echo esc_attr($key); ?>_tab" id="tab-title-<?php echo esc_attr($key); ?>"
                         role="tab" aria-controls="tab-<?php echo esc_attr($key); ?>">
                         <a href="#tab-<?php echo esc_attr($key); ?>">
@@ -62,7 +62,7 @@ if ( !empty($product_tabs) ) : ?>
         <?php foreach ($product_tabs_reordered as $key => $product_tab) { ?>
             <?php
             // hide tab content here
-            if ( $key !== "description" ) { ?>
+            if ( $key !== "description" && isset($product_tab) ) { ?>
                 <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr($key); ?> panel entry-content wc-tab"
                      id="tab-<?php echo esc_attr($key); ?>" role="tabpanel"
                      aria-labelledby="tab-title-<?php echo esc_attr($key); ?>">
