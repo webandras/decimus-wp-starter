@@ -2,3 +2,4 @@ db/*.sql
 db/*.sql*
 .env
 .idea
+*.txt
