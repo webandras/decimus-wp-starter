@@ -16,13 +16,13 @@
 get_header();
 ?>
 
-    <div id="content" class="site-content container-fluid side-padding py-5 mt-1">
+    <div id="content" class="site-content container-fluid narrow-content side-padding py-5 mt-4">
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
             <?php bs_after_primary(); ?>
 
-            <main id="main" class="site-main narrow-content pt-3 mt-2">
+            <main id="main" class="site-main mt-2">
                 <!-- Breadcrumb -->
                 <?php woocommerce_breadcrumb(); ?>
                 <div class="row">
