@@ -7,7 +7,7 @@
 
 
 // Woocommerce Templates
-function decimus_add_woocommerce_support()
+function decimus_add_woocommerce_support(): void
 {
     add_theme_support('woocommerce');
 }
@@ -19,7 +19,7 @@ add_action('after_setup_theme', 'decimus_add_woocommerce_support');
 // Woocommerce Lightbox
 add_action('after_setup_theme', 'decimus');
 
-function decimus()
+function decimus(): void
 {
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
@@ -30,7 +30,7 @@ function decimus()
 
 
 // Register Ajax Cart
-function decimus_register_ajax_cart()
+function decimus_register_ajax_cart(): void
 {
     require_once('ajax-cart/ajax-add-to-cart.php');
 }
@@ -40,7 +40,7 @@ add_action('after_setup_theme', 'decimus_register_ajax_cart');
 
 
 // Scripts and Styles
-function decimus_wc_scripts()
+function decimus_wc_scripts(): void
 {
     // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
     $modificated = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/css/woocommerce-style.css'));
@@ -61,7 +61,7 @@ add_action('wp_enqueue_scripts', 'decimus_wc_scripts');
 //Scripts and styles End
 
 
-// Minicart Header
+// Mini cart header
 if ( !function_exists('decimus_mini_cart') ) :
 
     function decimus_mini_cart($fragments)
@@ -85,7 +85,7 @@ if ( !function_exists('decimus_mini_cart') ) :
     add_filter('woocommerce_add_to_cart_fragments', 'decimus_mini_cart');
 
 endif;
-// Minicart Header End
+// Mini cart header End
 
 
 // Forms
@@ -101,7 +101,7 @@ endif;
  * @return mixed
  */
 if ( !function_exists('decimus_wc_form_field_args') ) {
-    function decimus_wc_form_field_args($args, $key, $value = null)
+    function decimus_wc_form_field_args(array $args, $key, $value = null): array
     {
         // Start field type switch case.
         switch ($args['type']) {
@@ -179,7 +179,7 @@ if ( !is_admin() && !function_exists('decimus_wc_review_ratings_enabled') ) {
      *
      * @return bool
      */
-    function decimus_wc_reviews_enabled()
+    function decimus_wc_reviews_enabled(): bool
     {
         return 'yes' === get_option('woocommerce_enable_reviews');
     }
@@ -191,7 +191,7 @@ if ( !is_admin() && !function_exists('decimus_wc_review_ratings_enabled') ) {
      *
      * @return bool
      */
-    function decimus_wc_review_ratings_enabled()
+    function decimus_wc_review_ratings_enabled(): bool
     {
         return decimus_wc_reviews_enabled() && 'yes' === get_option('woocommerce_enable_review_rating');
     }
@@ -203,11 +203,11 @@ if ( !is_admin() && !function_exists('decimus_wc_review_ratings_enabled') ) {
 // WooCommerce Breadcrumb
 if ( !function_exists('decimus_woocommerce_breadcrumbs') ) :
     add_filter('woocommerce_breadcrumb_defaults', 'decimus_woocommerce_breadcrumbs');
-    function decimus_woocommerce_breadcrumbs()
+    function decimus_woocommerce_breadcrumbs(): array
     {
         return array(
             'delimiter' => ' &nbsp;&#47;&nbsp; ',
-            'wrap_before' => '<nav class="breadcrumb small-size mb-0 mt-0 pt-2 ps-3 pb-2 small rounded" itemprop="breadcrumb">',
+            'wrap_before' => '<nav class="breadcrumb small-size mb-0 mt-0 pt-3 ps-3 pb-2 small rounded" itemprop="breadcrumb">',
             'wrap_after' => '</nav>',
             'before' => '',
             'after' => '',
@@ -221,7 +221,7 @@ endif;
 // Optional Telephone
 if ( !function_exists('decimus_phone_optional') ) :
 
-    function decimus_phone_optional($address_fields)
+    function decimus_phone_optional(array $address_fields): array
     {
         $address_fields['billing_phone']['required'] = false;
         return $address_fields;
@@ -233,7 +233,7 @@ endif;
 
 
 // Bootstrap Billing forms
-function decimus_wc_bootstrap_form_field_args($args, $key, $value)
+function decimus_wc_bootstrap_form_field_args(array $args, $key, $value): array
 {
 
     $args['input_class'][] = 'form-control';
@@ -257,7 +257,7 @@ remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 // Remove CSS and/or JS for Select2 used by WooCommerce, see https://gist.github.com/Willem-Siebe/c6d798ccba249d5bf080.
 add_action('wp_enqueue_scripts', 'decimus_dequeue_styles_and_scripts_select2', 100);
 
-function decimus_dequeue_styles_and_scripts_select2()
+function decimus_dequeue_styles_and_scripts_select2(): void
 {
     if ( class_exists('woocommerce') ) {
         wp_dequeue_style('selectWoo');
@@ -275,12 +275,12 @@ function decimus_dequeue_styles_and_scripts_select2()
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
 
-function decimus_woocommerce_widget_shopping_cart_button_view_cart()
+function decimus_woocommerce_widget_shopping_cart_button_view_cart(): void
 {
     echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-warning d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
-function decimus_woocommerce_widget_shopping_cart_proceed_to_checkout()
+function decimus_woocommerce_widget_shopping_cart_proceed_to_checkout(): void
 {
     echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="btn btn-primary d-block">' . esc_html__('Checkout', 'woocommerce') . '</a>';
 }
@@ -294,7 +294,7 @@ add_action('woocommerce_widget_shopping_cart_buttons', 'decimus_woocommerce_widg
 remove_action('woocommerce_cart_is_empty', 'wc_empty_cart_message', 10);
 add_action('woocommerce_cart_is_empty', 'decimus_empty_cart_message', 10);
 
-function decimus_empty_cart_message()
+function decimus_empty_cart_message(): void
 {
     $html = '<div class="cart-empty alert alert-info">';
     $html .= wp_kses_post(apply_filters('wc_empty_cart_message', __('Your cart is currently empty.', 'woocommerce')));
@@ -313,7 +313,7 @@ if ( !function_exists('decimus_woocommerce_content') ) {
      * which people can add to their themes to add basic woocommerce support.
      * without hooks or modifying core templates.
      */
-    function decimus_woocommerce_content()
+    function decimus_woocommerce_content(): void
     {
         if ( is_singular('product') ) {
 
