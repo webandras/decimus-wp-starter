@@ -86,10 +86,11 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                         <div class="col-12 col-sm-6 contact-info">
                             <a class="me-2" href="tel:<?php echo $phone ?>"
                                rel="noreferrer noopener"
-                               target="_blank" title="Hívj fel minket!"><i
-                                        class="fas fa-phone-alt"></i><?php echo $phone ?></a>
+                               target="_blank" title="<?php _e('Hívj fel minket!', 'decimus') ?>"><i
+                                        class="fas fa-phone-alt me-1"></i><?php echo $phone ?></a>
                             <a class="" href="mailto:<?php echo $email ?>"
-                               title="Üzenj nekünk!"><i class="fas fa-envelope"></i><?php echo $email ?></a>
+                               title="<?php _e('Üzenj nekünk!', 'decimus') ?>"><i
+                                        class="fas fa-envelope me-1"></i><?php echo $email ?></a>
                         </div>
 
                         <div class="d-none d-sm-block col-sm-6 text-end">
@@ -151,8 +152,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                             <hr class="">
 
-                            <nav class="nav flex-column mb-3 text-center d-block d-lg-none"
-                                 style="margin-right: 25px !important;line-height: 2;">
+                            <nav class="nav d-flex flex-column mb-3 text-center d-lg-none lh-lg">
                                 <a class="base-size" href="tel:<?php echo $phone ?>" rel="noreferrer noopener"
                                    target="_blank"
                                    title="Hívj fel!"><?php echo $phone ?></a>
