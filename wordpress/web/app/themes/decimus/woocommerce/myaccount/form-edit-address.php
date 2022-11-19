@@ -27,6 +27,11 @@ do_action('woocommerce_before_edit_account_address_form'); ?>
 
     <form method="post">
 
+        <div class="mb-2">
+            <a href="<?php echo wc_get_page_permalink('myaccount') . 'edit-address' ?>"
+               class="woocommerce-button btn btn-sm btn-outline-primary"><?php _e('Go back', 'decimus') ?></a>
+        </div>
+
         <h3><?php echo apply_filters('woocommerce_my_account_edit_address_title', $page_title, $load_address); ?></h3><?php // @codingStandardsIgnoreLine ?>
 
         <div class="woocommerce-address-fields">
