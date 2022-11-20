@@ -1,30 +1,5 @@
 <?php
 
-/* Create admin user if you lost your previous user password
-if you can't receive emails, or wp-cli does not work in Bedrock.
-Or create user in sql
-Delete this in production!
-function decimus_admin_account()
-{
-    $user = 'o5oJXojP037x';
-    $pass = 'I9@6pF&tM8Ju';
-    $email = 'guland@protonmail.com';
-    if (!username_exists($user) && !email_exists($email))
-    {
-        $user_id = wp_create_user($user, $pass, $email);
-        $user = new WP_User($user_id);
-        $user->set_role('administrator');
-    }
-}
-add_action('init', 'decimus_admin_account');
-*/
-
-/*
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-*/
-
 // style and scripts
 add_action('wp_enqueue_scripts', 'decimus_child_enqueue_styles');
 function decimus_child_enqueue_styles(): void
