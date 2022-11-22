@@ -57,6 +57,7 @@
     "koodimonni-language/hu_hu": "*",
     "koodimonni-language/core-hu_hu": "*",
     "koodimonni-plugin-language/woocommerce-hu_hu":"*",
+    "wpackagist-plugin/wp-dummy-content-generator": "^2.1",
     "ext-json": "*"
   },
   "require-dev": {
