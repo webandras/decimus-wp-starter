@@ -31,7 +31,7 @@ endif;
 
 // Category
 if ( ! function_exists( 'decimus_category' ) ) :
-	function decimus_category() {
+	function decimus_category(): void {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -188,14 +188,14 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links mt-2">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links text-muted small-size mt-3">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}
     add_filter( "term_links-post_tag", 'decimus_add_tag_class');
 
-    function decimus_add_tag_class($links): string {
-        return str_replace('<a href="', '<a class="badge bg-primary text-white" href="', $links);
+    function decimus_add_tag_class($links): array|string {
+        return str_replace('<a href="', '<a class="badge bg-secondary text-white" href="', $links);
     }
 endif;
 // Tags End
