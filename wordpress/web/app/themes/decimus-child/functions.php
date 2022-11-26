@@ -8,6 +8,7 @@ function decimus_child_enqueue_styles(): void
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
     // custom.js
+    wp_enqueue_script('slick-slider', get_stylesheet_directory_uri() . '/js/slick.min.js', false, '', true);
     wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', false, '', true);
 
     // only compile to css in dev env

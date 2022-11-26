@@ -118,4 +118,14 @@ jQuery(document).ready(function ($) {
         }
         lastScrollTop = st;
     });
+
+
+    $(".front-slider").slick({
+        arrows: true,
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+
 });
