@@ -3,17 +3,16 @@
  * My Orders - Deprecated
  *
  * @deprecated 2.6.0 this template file is no longer used. My Account shortcode uses orders.php.
+ * @package WooCommerce\Templates
  */
 
-if ( !defined('ABSPATH') ) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 $my_orders_columns = apply_filters('woocommerce_my_account_my_orders_columns', array(
-    'order-number' => __('Order', 'woocommerce'),
-    'order-date' => __('Date', 'woocommerce'),
-    'order-status' => __('Status', 'woocommerce'),
-    'order-total' => __('Total', 'woocommerce'),
+    'order-number' => esc_html__('Order', 'woocommerce'),
+    'order-date' => esc_html__('Date', 'woocommerce'),
+    'order-status' => esc_html__('Status', 'woocommerce'),
+    'order-total' => esc_html__('Total', 'woocommerce'),
     'order-actions' => '&nbsp;',
 ));
 

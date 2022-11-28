@@ -13,7 +13,7 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
+ * @package WooCommerce\Templates
  * @version 2.6.0
  */
 
@@ -36,7 +36,7 @@ do_action('woocommerce_before_account_payment_methods', $has_methods); ?>
             <?php endforeach; ?>
         </tr>
         </thead>
-        <?php foreach ($saved_methods as $type => $methods) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited ?>
+        <?php foreach ($saved_methods as $type => $methods) : // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited ?>
             <?php foreach ($methods as $method) : ?>
                 <tr class="payment-method<?php echo !empty($method['is_default']) ? ' default-payment-method' : ''; ?>">
                     <?php foreach (wc_get_account_payment_methods_columns() as $column_id => $column_name) : ?>

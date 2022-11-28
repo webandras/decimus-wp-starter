@@ -11,7 +11,7 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
+ * @package WooCommerce\Templates
  * @version 3.5.0
  */
 
@@ -42,7 +42,7 @@ if ( !$checkout->is_registration_enabled() && $checkout->is_registration_require
                 <?php do_action('woocommerce_checkout_billing'); ?>
             </div>
 
-            <div class="mb-4">
+            <div class="row mb-4">
                 <?php do_action('woocommerce_checkout_shipping'); ?>
             </div>
         </div>
