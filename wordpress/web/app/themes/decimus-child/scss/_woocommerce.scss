@@ -260,3 +260,8 @@ span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
     font-size: 1rem;
 }
 
+.woocommerce-form-login {
+    .woocommerce-form-row {
+        max-width: 400px;
+    }
+}
