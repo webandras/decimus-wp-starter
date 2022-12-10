@@ -78,6 +78,22 @@ header {
             font-size: 0.75rem !important;
             padding: 0.75rem !important;
         }
+
+        button {
+            display: flex;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 450px) {
+            transform: scale(0.82);
+            margin-right: -14px;
+        }
+    }
+
+    .navbar-brand.xs.d-md-none {
+        @media screen and (max-width: 450px) {
+            margin-right: 0;
+        }
     }
 
     #offcanvas-cart {
@@ -116,13 +132,6 @@ header {
     .logo {
         height: auto;
         width: 180px;
-    }
-
-    .header-actions {
-        button {
-            display: flex;
-            align-items: center;
-        }
     }
 
     .offcanvas {
