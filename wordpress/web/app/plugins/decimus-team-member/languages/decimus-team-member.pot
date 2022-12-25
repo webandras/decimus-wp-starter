@@ -1,0 +1,177 @@
+# Copyright (C) 2020 András Gulácsi
+# This file is distributed under the same license as the Company Team Members plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Company Team Members 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/company-team\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-08-13T23:44:32+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: company-team\n"
+
+#. Plugin Name of the plugin
+#: company-team.php:130
+msgid "Company Team Members"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://example.com/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Company Team Members plugin"
+msgstr ""
+
+#. Author of the plugin
+msgid "András Gulácsi"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/SalsaBoy990"
+msgstr ""
+
+#: company-team.php:131
+msgid "Company Team"
+msgstr ""
+
+#: company-team.php:140
+msgid "Add new team member"
+msgstr ""
+
+#: company-team.php:141
+msgid "Add new"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:8
+msgid "Name"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:11
+#: pages/company_team_list.php:38
+msgid "Position"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:14
+#: pages/company_team_edit.php:71
+#: pages/company_team_insert.php:43
+#: pages/company_team_list.php:39
+msgid "Department"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:17
+#: pages/company_team_list.php:40
+msgid "Works since"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:20
+msgid "Phone"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:23
+#: pages/company_team_list.php:37
+msgid "Email"
+msgstr ""
+
+#: pages/company-team-shortcode-table.php:49
+msgid "placeholder image"
+msgstr ""
+
+#: pages/company_team_edit.php:29
+msgid "Edit company team member details"
+msgstr ""
+
+#: pages/company_team_edit.php:36
+msgid "Member details"
+msgstr ""
+
+#: pages/company_team_edit.php:44
+#: pages/company_team_insert.php:16
+#: pages/company_team_list.php:34
+msgid "Last name"
+msgstr ""
+
+#: pages/company_team_edit.php:48
+#: pages/company_team_insert.php:20
+#: pages/company_team_list.php:35
+msgid "First name"
+msgstr ""
+
+#: pages/company_team_edit.php:52
+#: pages/company_team_insert.php:24
+msgid "Profile Photo"
+msgstr ""
+
+#: pages/company_team_edit.php:59
+#: pages/company_team_insert.php:31
+#: pages/company_team_list.php:36
+msgid "Phone number"
+msgstr ""
+
+#: pages/company_team_edit.php:63
+#: pages/company_team_insert.php:35
+msgid "Email address"
+msgstr ""
+
+#: pages/company_team_edit.php:67
+#: pages/company_team_insert.php:39
+msgid "Position at the company"
+msgstr ""
+
+#: pages/company_team_edit.php:75
+#: pages/company_team_insert.php:47
+msgid "Works Since"
+msgstr ""
+
+#: pages/company_team_edit.php:80
+msgid "Update"
+msgstr ""
+
+#: pages/company_team_edit.php:81
+msgid "Cancel"
+msgstr ""
+
+#: pages/company_team_edit.php:82
+msgid "Delete"
+msgstr ""
+
+#: pages/company_team_insert.php:1
+msgid "Add new company team member"
+msgstr ""
+
+#: pages/company_team_insert.php:8
+msgid "Add member details"
+msgstr ""
+
+#: pages/company_team_insert.php:52
+#: pages/company_team_list.php:24
+msgid "Add new member"
+msgstr ""
+
+#: pages/company_team_list.php:21
+msgid "Manage Company Team Members"
+msgstr ""
+
+#: pages/company_team_list.php:32
+msgid "Action"
+msgstr ""
+
+#: pages/company_team_list.php:33
+msgid "Profile img"
+msgstr ""
+
+#: pages/company_team_list.php:66
+msgid "Edit"
+msgstr ""
+
+#: utils/save_data.php:69
+msgid "Download table in JSON"
+msgstr ""
+
+#: utils/save_data.php:180
+msgid "Download table in CSV"
+msgstr ""

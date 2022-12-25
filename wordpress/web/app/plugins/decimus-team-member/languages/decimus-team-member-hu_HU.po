@@ -1,0 +1,166 @@
+# Copyright (C) 2020 András Gulácsi
+# This file is distributed under the same license as the Company Team Members plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Company Team Members 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/company-team\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-08-13T23:44:32+02:00\n"
+"PO-Revision-Date: 2020-08-13 23:56+0200\n"
+"X-Generator: Poedit 2.4.1\n"
+"X-Domain: company-team\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: hu_HU\n"
+
+#. Plugin Name of the plugin
+#: company-team.php:130
+msgid "Company Team Members"
+msgstr "Céges csapattagok"
+
+#. Plugin URI of the plugin
+msgid "https://example.com/"
+msgstr "https://example.com/"
+
+#. Description of the plugin
+msgid "Company Team Members plugin"
+msgstr "Céges Csapattagok bővítmény"
+
+#. Author of the plugin
+msgid "András Gulácsi"
+msgstr "Gulácsi András"
+
+#. Author URI of the plugin
+msgid "https://github.com/SalsaBoy990"
+msgstr "https://github.com/SalsaBoy990"
+
+#: company-team.php:131
+msgid "Company Team"
+msgstr "Céges Csapat"
+
+#: company-team.php:140
+msgid "Add new team member"
+msgstr "Új csapattag hozzáadása"
+
+#: company-team.php:141
+msgid "Add new"
+msgstr "Új hozzáadása"
+
+#: pages/company-team-shortcode-table.php:8
+msgid "Name"
+msgstr "Név"
+
+#: pages/company-team-shortcode-table.php:11 pages/company_team_list.php:38
+msgid "Position"
+msgstr "Pozíció"
+
+#: pages/company-team-shortcode-table.php:14 pages/company_team_edit.php:71
+#: pages/company_team_insert.php:43 pages/company_team_list.php:39
+msgid "Department"
+msgstr "Részleg"
+
+#: pages/company-team-shortcode-table.php:17 pages/company_team_list.php:40
+msgid "Works since"
+msgstr "Mióta dolgozik"
+
+#: pages/company-team-shortcode-table.php:20
+msgid "Phone"
+msgstr "Telefon"
+
+#: pages/company-team-shortcode-table.php:23 pages/company_team_list.php:37
+msgid "Email"
+msgstr "E-mail"
+
+#: pages/company-team-shortcode-table.php:49
+msgid "placeholder image"
+msgstr "helykitöltő kép"
+
+#: pages/company_team_edit.php:29
+msgid "Edit company team member details"
+msgstr "Csapattag adatainak szerkesztése"
+
+#: pages/company_team_edit.php:36
+msgid "Member details"
+msgstr "Tag adatai"
+
+#: pages/company_team_edit.php:44 pages/company_team_insert.php:16
+#: pages/company_team_list.php:34
+msgid "Last name"
+msgstr "Vezetéknév"
+
+#: pages/company_team_edit.php:48 pages/company_team_insert.php:20
+#: pages/company_team_list.php:35
+msgid "First name"
+msgstr "Keresztnév"
+
+#: pages/company_team_edit.php:52 pages/company_team_insert.php:24
+msgid "Profile Photo"
+msgstr "Profilkép"
+
+#: pages/company_team_edit.php:59 pages/company_team_insert.php:31
+#: pages/company_team_list.php:36
+msgid "Phone number"
+msgstr "Telefonszám"
+
+#: pages/company_team_edit.php:63 pages/company_team_insert.php:35
+msgid "Email address"
+msgstr "E-mail cím"
+
+#: pages/company_team_edit.php:67 pages/company_team_insert.php:39
+msgid "Position at the company"
+msgstr "Cégnél betöltött pozíció"
+
+#: pages/company_team_edit.php:75 pages/company_team_insert.php:47
+msgid "Works Since"
+msgstr "Mióta dolgozik"
+
+#: pages/company_team_edit.php:80
+msgid "Update"
+msgstr "Frissít"
+
+#: pages/company_team_edit.php:81
+msgid "Cancel"
+msgstr "Mégsem"
+
+#: pages/company_team_edit.php:82
+msgid "Delete"
+msgstr "Töröl"
+
+#: pages/company_team_insert.php:1
+msgid "Add new company team member"
+msgstr "Új csapattag hozzáadása"
+
+#: pages/company_team_insert.php:8
+msgid "Add member details"
+msgstr "Csapattag adatainak megadása"
+
+#: pages/company_team_insert.php:52 pages/company_team_list.php:24
+msgid "Add new member"
+msgstr "Új tag hozzáadása"
+
+#: pages/company_team_list.php:21
+msgid "Manage Company Team Members"
+msgstr "A céges csapattagok kezelése"
+
+#: pages/company_team_list.php:32
+msgid "Action"
+msgstr "Művelet"
+
+#: pages/company_team_list.php:33
+msgid "Profile img"
+msgstr "Profilkép"
+
+#: pages/company_team_list.php:66
+msgid "Edit"
+msgstr "Szerkeszt"
+
+#: utils/save_data.php:69
+msgid "Download table in JSON"
+msgstr "Táblázat letöltése JSON-ba"
+
+#: utils/save_data.php:180
+msgid "Download table in CSV"
+msgstr "Táblázat letöltése CSV-be"

@@ -1,0 +1,181 @@
+/* general */
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-half {
+    margin-bottom: 0.75rem;
+}
+
+.mt-half {
+    margin-top: 0.75rem;
+}
+
+.mb-1 {
+    margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+    margin-top: 3rem;
+}
+
+.mt-1 {
+    margin-top: 1.5rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 0.75rem;
+}
+
+#wpfooter {
+    display: none;
+}
+
+/* delete button styling */
+button.team-member.button-danger {
+    color: #dc3232;
+    border-color: #dc3232;
+    background: #f3f5f6;
+    vertical-align: top;
+}
+
+button.team-member.button-danger:hover {
+    color: #f3f5f6;
+    border-color: #f3f5f6;
+    background: #dc3232;
+    vertical-align: top;
+}
+
+.wp-core-ui .button-group button {
+    margin: 0 4px;
+}
+
+/* Adjust icon positions */
+.team-member.dashicons.dashicons-plus {
+    margin-top: 5px;
+    margin-right: 2px;
+}
+
+.team-member.dashicons.dashicons-edit {
+    margin-top: 5px;
+    margin-right: 2px;
+}
+
+/* Company team table styling */
+/* shortcode table view */
+div.team-member-wrapper {
+    overflow-x: scroll;
+    width: 98%;
+}
+
+table.team-member.widefat {
+    table-layout: auto;
+}
+
+table.team-member.widefat > thead th {
+    font-weight: bold;
+    /*color: #23282d;*/
+    color: #464b50;
+}
+
+table.team-member.widefat > tbody td {
+    font-size: 16px;
+}
+
+table.team-member td.small-col {
+    min-width: 75px;
+}
+
+
+table.team-member td {
+    vertical-align: middle;
+}
+
+table.team-member td.medium-col {
+    min-width: 150px;
+}
+
+
+table.team-member td .small-image {
+    width: 64px;
+    height: 64px;
+}
+
+table.team-member td .auto-image {
+    width: 100%;
+    height: auto;
+}
+
+table.team-member .image-table {
+    width: 150px;
+    height: auto;
+}
+
+/* shortcode list view */
+ul.team-member.grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    list-style-type: none;
+    list-style-image: none;
+    margin: 2em 0;
+    padding: 0;
+    grid-gap: 1em;
+    text-align: left;
+}
+
+@media (max-width: 542px) {
+    ul.team-member.grid-list {
+        justify-items: center;
+    }
+}
+
+ul.team-member.grid-list li {
+    max-width: 240px;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+ul.team-member.grid-list li ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.team-member.grid-list li ul li {
+    margin-bottom: 4px;
+}
+
+ul.team-member.grid-list li > img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+}
+
+ul.team-member.grid-list li > h2 {
+    font-size: 1.5rem;
+}
+
+div.team-member.list-heading {
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+div.team-member.list-heading h2 {
+    margin-bottom: 0.25rem;
+}
+
+img.team-member.small-img {
+    width: 200px;
+    height: auto;
+}
+
+.decimus-team-member-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
