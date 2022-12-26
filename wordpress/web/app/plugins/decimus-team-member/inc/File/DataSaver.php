@@ -51,8 +51,8 @@ final class DataSaver implements MemberInterface
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
-        $download_link = plugin_dir_url(__FILE__) . 'download/' . $filename . '.json';
-        $filepath = plugin_dir_path(__FILE__) . 'download/' . $filename . '.json';
+        $download_link = dirname(__FILE__, 3) . '/download/' . $filename . '.json';
+        $filepath = dirname(__FILE__,3) . '/download/' . $filename . '.json';
 
         // Write to file
         try {
@@ -93,8 +93,8 @@ final class DataSaver implements MemberInterface
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
-        $download_link = plugin_dir_url(__FILE__) . 'download/' . $filename . '.csv';
-        $filepath = plugin_dir_path(__FILE__) . 'download/' . $filename . '.csv';
+        $download_link = dirname(__FILE__, 3) . '/download/' . $filename . '.csv';
+        $filepath = dirname(__FILE__, 3) . '/download/' . $filename . '.csv';
 
 
         // Write to file

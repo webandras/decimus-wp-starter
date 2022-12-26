@@ -112,17 +112,15 @@ if ( current_user_can('manage_options') ) {
             </tbody>
         </table>
     </div>
+    <?php
+    if ( current_user_can('manage_options') ) {
+        $saver = new DataSaver();
+
+        $saver->save_to_json('company_team', $json_data);
+        $saver->save_to_csv('company_team', $form_data);
+    }
+    ?>
 </div>
-<?php
-
-if ( current_user_can('manage_options') ) {
-    /*  $ag_company_team_save_data = new DataSaver();
-
-      $ag_company_team_save_data->save_to_json('company_team', $json_data);
-
-      $ag_company_team_save_data->save_to_csv('company_team', $form_data);*/
-}
-?>
 
 <br>
 <br>
