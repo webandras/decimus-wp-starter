@@ -100,3 +100,94 @@ require_once get_template_directory() . '/inc/widgets/post-archives.php';
 require_once get_template_directory() . '/inc/widgets/post-categories.php';
 require_once get_template_directory() . '/inc/widgets/post-tags.php';
 require_once get_template_directory() . '/inc/widgets/recent-posts.php';
+
+
+/**
+ * @param array $args
+ * @return string
+ *
+ * args:
+ * $lowercase === 0|1
+ * $uppercase === 0|1
+ * $numbers === 0|1
+ * $symbols === 0|1
+ * $pwd_length
+ */
+function generate_safe_password(array $args): string
+{
+
+    extract($args);
+
+    if (
+        $lowercase === 0 &&
+        $uppercase === 0 &&
+        $numbers === 0 &&
+        $symbols === 0
+    ) {
+        return '';
+    }
+
+    // simple error handling
+    if ( !is_numeric($pwd_length) && is_integer($pwd_length) ) {
+        wp_die('Password length argument should be an integer!');
+    }
+
+    // $pwd_length = filter_var($pwd_length, FILTER_VALIDATE_INT);
+    $pwd_length = filter_var($pwd_length, FILTER_SANITIZE_NUMBER_INT);
+
+    // small letters
+    $lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+
+    // CAPITAL LETTERS
+    $uppercaseChars = strtoupper($lowercaseChars);
+
+    // numerics
+    $numberChars = '1234567890';
+
+    // special characters
+    $symbolChars = '`~!@#$%^&*()-_=+]}[{;:,<.>/?\'"\|';
+
+    $charset = '';
+
+    // Contains specific character groups
+    if ( $lowercase ) {
+        $charset .= $lowercaseChars;
+    }
+    if ( $uppercase ) {
+        $charset .= $uppercaseChars;
+    }
+    if ( $numbers ) {
+        $charset .= $numberChars;
+    }
+    if ( $symbols ) {
+        $charset .= $symbolChars;
+    }
+
+    // store password
+    $password = '';
+
+    // Loop until the preferred length reached
+    for ($i = 0; $i < $pwd_length; $i++) {
+        // get randomized length with cryptographically secure integers
+        $_rand = random_int(0, strlen($charset) - 1);
+
+        // returns part of the string
+        $password .= substr($charset, $_rand, 1);
+    }
+
+    return $password;
+}
+
+/**
+ *
+ */
+function generate_unique_filename($filename_length): string
+{
+    return generate_safe_password([
+            'pwd_length' => $filename_length,
+            'lowercase' => 1,
+            'uppercase' => 1,
+            'numbers' => 1,
+            'symbols' => 0,
+        ]) . time();
+}

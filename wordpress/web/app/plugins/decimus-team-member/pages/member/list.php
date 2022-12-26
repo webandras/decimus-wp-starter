@@ -116,8 +116,15 @@ if ( current_user_can('manage_options') ) {
     if ( current_user_can('manage_options') ) {
         $saver = new DataSaver();
 
-        $saver->save_to_json('company_team', $json_data);
-        $saver->save_to_csv('company_team', $form_data);
+        if (!get_option(self::EXPORT_FILENAME)) {
+            $filename = wp_hash_password(generate_unique_filename(15));
+            add_option(self::EXPORT_FILENAME, $filename);
+        } else {
+            $filename = get_option(self::EXPORT_FILENAME);
+        }
+
+        $saver->save_to_json($filename, $json_data);
+        $saver->save_to_csv($filename, $form_data);
     }
     ?>
 </div>

@@ -51,8 +51,8 @@ final class DataSaver implements MemberInterface
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
-        $download_link = dirname(__FILE__, 3) . '/download/' . $filename . '.json';
-        $filepath = dirname(__FILE__,3) . '/download/' . $filename . '.json';
+        $download_link = plugin_dir_url(dirname(__FILE__, 2)) . 'download/' . $filename . '.json';
+        $filepath = dirname(__FILE__, 3) . '/download/' . $filename . '.json';
 
         // Write to file
         try {
@@ -93,7 +93,7 @@ final class DataSaver implements MemberInterface
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
-        $download_link = dirname(__FILE__, 3) . '/download/' . $filename . '.csv';
+        $download_link = plugin_dir_url(dirname(__FILE__, 2)) . 'download/' . $filename . '.csv';
         $filepath = dirname(__FILE__, 3) . '/download/' . $filename . '.csv';
 
 
@@ -107,21 +107,17 @@ final class DataSaver implements MemberInterface
             }
 
             // all prop names as comma separated values
-            $csv_header = $form_data[0]->id . $delimiter .
-                $form_data[0]->profile_photo . $delimiter .
-                $form_data[0]->last_name . $delimiter .
-                $form_data[0]->first_name . $delimiter .
-                $form_data[0]->phone . $delimiter .
-                $form_data[0]->email . $delimiter .
-                $form_data[0]->position . $delimiter .
-                $form_data[0]->department . $delimiter .
-                $form_data[0]->works_since;
+            $csv_header = 'Id' . $delimiter .
+                'Profilkép' . $delimiter .
+                'Családnév' . $delimiter .
+                'Keresztnév' . $delimiter .
+                'Telefon' . $delimiter .
+                'E-mail' . $delimiter .
+                'Pozíció' . $delimiter .
+                'Részleg' . $delimiter .
+                'Kezdés dátuma';
 
-
-            // The ISO-8859-2 encoding is specific to Hungarian language
-            fwrite($result, iconv('utf-8', 'ISO-8859-2', "$csv_header\r\n"));
-            // uncomment next line to use utf-8 encoding
-            // fwrite($result, utf8_encode($csv_header) . "\r\n");
+            fwrite($result, iconv('utf-8', 'utf-8', "$csv_header\r\n"));
 
             foreach ($form_data as $row) {
                 $tmp_row = $row->id . $delimiter .
@@ -133,7 +129,9 @@ final class DataSaver implements MemberInterface
                     $row->position . $delimiter .
                     $row->department . $delimiter .
                     $row->works_since;
-                fwrite($result, iconv('utf-8', 'ISO-8859-2', "$tmp_row\r\n"));
+                // The ISO-8859-2 encoding is specific to Hungarian language
+                fwrite($result, iconv('utf-8', 'utf-8', "$tmp_row\r\n"));
+                // uncomment next line to use utf-8 encoding
                 // fwrite($result, utf8_encode($tmp_row) . "\r\n");
             }
 
