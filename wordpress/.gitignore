@@ -3,6 +3,7 @@ web/app/plugins/*
 !web/app/plugins/decimusadmin/
 !web/app/plugins/custom-taxonomy-image/
 !web/app/plugins/vuecommerce/
+!web/app/plugins/decimus-team-member/
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
 web/app/themes/twentytwentythree/
