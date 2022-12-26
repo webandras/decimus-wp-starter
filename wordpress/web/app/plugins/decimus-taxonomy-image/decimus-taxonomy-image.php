@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Decimus Category and Taxonomy Image
- * Plugin URI: https://andrasgulacsi.hu
+ * Plugin URI: https://github.com/SalsaBoy990/decimus-wp-starter/tree/master/wordpress/web/app/plugins/decimus-taxonomy-image
  * Description: Decimus Category and Taxonomy Image Plugin allow you to add image with category/taxonomy. With REST API endpoint to get image from options table.
  * Version: 1.0.2
  * Author: András Gulácsi
- * Author URI: https://decimus.hu
+ * Author URI: https://github.com/SalsaBoy990
  * License: GPLv2
  * Text Domain: decimus-taxonomy-image
  * Domain Path: /lang

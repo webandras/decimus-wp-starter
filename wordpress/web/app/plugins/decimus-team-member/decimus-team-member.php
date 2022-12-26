@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Decimus Team Members
-Plugin URI: https://github.com/SalsaBoy990/company-team-members
+Plugin URI: https://github.com/SalsaBoy990/decimus-wp-starter/tree/master/wordpress/web/app/plugins/decimus-team-member
 Description: Decimus Team Members plugin
 Version: 1.0.0
 Author: András Gulácsi

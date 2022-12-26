@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Decimus Theme Admin Plugin
- * Plugin URI: https://decimus.hu
+ * Plugin URI: https://github.com/SalsaBoy990/decimus-wp-starter/tree/master/wordpress/web/app/plugins/decimusadmin
  * Description: Decimus Theme Admin Plugin
  * Version: 1.0.0
  * Author: András Gulácsi
- * Author URI: https://decimus.hu
+ * Author URI: https://github.com/SalsaBoy990
  * License: LGPL 3.0
  * Text Domain: decimus-admin
  * Domain Path: /lang
