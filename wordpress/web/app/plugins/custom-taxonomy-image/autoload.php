@@ -15,7 +15,7 @@
 spl_autoload_register(function ($class) {
 
     // project-specific namespace prefix
-    $prefix = 'Guland\\CustomTaxonomyImage\\';
+    $prefix = 'Guland\\DecimusTaxonomyImage\\';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/includes/';
