@@ -181,8 +181,8 @@ trait Validate
 
         // new path for the image in media folder
         $timestamp = time();
-        $new_file_path = $wordpress_upload_dir['path'] . '/' . $profile_picture['name'] . '-' . $timestamp;
-        $new_file_url = $wordpress_upload_dir['url'] . '/' . $profile_picture['name'] . '-' . $timestamp;
+        $new_file_path = $wordpress_upload_dir['path'] . '/' . $timestamp . '-' . $profile_picture['name'];
+        $new_file_url = $wordpress_upload_dir['url'] . '/' . $timestamp . '-' . $profile_picture['name'];
 
         if ( empty($profile_picture) ) {
             wp_die('File is not selected.');
