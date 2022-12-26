@@ -1,8 +1,9 @@
 <?php
 
-namespace Guland\CustomTaxonomyImage;
+namespace Guland\DecimusTaxonomyImage;
 
-use Guland\CustomTaxonomyImage\API\Route as Route;
+use Guland\DecimusTaxonomyImage\API\Route as Route;
+use Guland\DecimusTaxonomyImage\Interface\TaxonomyImageInterface;
 
 // Exit if accessed directly
 if ( !defined('ABSPATH') ) exit;
@@ -11,11 +12,9 @@ if ( !defined('ABSPATH') ) exit;
 /**
  * Implements custom images for taxonomies
  */
-final class CustomTaxonomyImage
+final class DecimusTaxonomyImage implements TaxonomyImageInterface
 {
     use Route;
-
-    private const TEXT_DOMAIN = 'custom-taxonomy-image';
 
     // class instance
     private static $instance;
@@ -43,7 +42,7 @@ final class CustomTaxonomyImage
         // load translation files
         add_action('plugins_loaded', array($this, 'load_text_domain'));
 
-        $this->options = get_option('cti_options');
+        $this->options = get_option(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS);
 
         // which taxonomies to apply taxonomy images
         if ( $this->options ) {
@@ -113,7 +112,8 @@ final class CustomTaxonomyImage
     public function edit_category_image($taxonomy): void
     { ?>
         <tr class="form-field">
-            <th scope="row" style="vertical-align: top;"><label for="tag-image"><?php _e('Image', self::TEXT_DOMAIN); ?></label></th>
+            <th scope="row" style="vertical-align: top;"><label
+                        for="tag-image"><?php _e('Image', self::TEXT_DOMAIN); ?></label></th>
             <td>
                 <?php
                 if ( get_option('_category_image-' . $taxonomy->term_id) != '' ) { ?>
@@ -169,7 +169,7 @@ final class CustomTaxonomyImage
     public function category_image_save($term_id): void
     {
         if ( isset($_POST['tag-image']) ) {
-            update_option('_category_image-' . $term_id, $_POST['tag-image']);
+            update_option('_category_image-' . $term_id, sanitize_url($_POST['tag-image']));
         }
     }
 
@@ -181,10 +181,10 @@ final class CustomTaxonomyImage
     public function options_menu(): void
     {
         add_options_page(
-            __('Taxonomy Image settings', self::TEXT_DOMAIN),
-            __('Taxonomy Image', self::TEXT_DOMAIN),
+            __('Decimus Taxonomy Image Settings', self::TEXT_DOMAIN),
+            __('Decimus Taxonomy Image', self::TEXT_DOMAIN),
             'manage_options',
-            'aft-options',
+            'decimus-taxonomy-image-options',
             array($this, 'options')
         );
         add_action('admin_init', array($this, 'register_settings'));
@@ -193,19 +193,19 @@ final class CustomTaxonomyImage
     // Register plugin settings
     public function register_settings(): void
     {
-        register_setting('cti_options', 'cti_options', array($this, 'options_validate'));
+        register_setting(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS, self::DECIMUS_TAXONOMY_IMAGE_OPTIONS, array($this, 'options_validate'));
         add_settings_section(
-            'cti-settings',
+            'dti_section',
             __('Taxonomy Image settings', self::TEXT_DOMAIN),
             array($this, 'section_text'),
-            'cti-options'
+            'decimus-taxonomy-image-options'
         );
         add_settings_field(
-            'cti_checked_taxonomies',
-            __('Taxonomy Image settings', self::TEXT_DOMAIN),
+            'dti_checked_taxonomies',
+            __('Image settings', self::TEXT_DOMAIN),
             array($this, 'checked_taxonomies'),
-            'cti-options',
-            'cti-settings'
+            'decimus-taxonomy-image-options',
+            'dti_section'
         );
     }
 
@@ -221,11 +221,11 @@ final class CustomTaxonomyImage
     // Included taxonomies checkboxes
     public function checked_taxonomies(): void
     {
-        $options = get_option('cti_options');
+        $options = get_option(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS);
 
         $disabled_taxonomies = array('nav_menu', 'link_category', 'post_format');
         foreach (get_taxonomies() as $tax) : if ( in_array($tax, $disabled_taxonomies) ) continue; ?>
-            <input type="checkbox" name="cti_options[checked_taxonomies][<?php echo $tax ?>]"
+            <input type="checkbox" name="<?php echo self::DECIMUS_TAXONOMY_IMAGE_OPTIONS ?>[checked_taxonomies][<?php echo $tax ?>]"
                    value="<?php echo $tax ?>" <?php checked(isset($options['checked_taxonomies'][$tax])); ?> /> <?php echo $tax; ?>
             <br/>
         <?php endforeach;
@@ -242,16 +242,17 @@ final class CustomTaxonomyImage
     // Plugin option page
     public function options(): void
     {
-        if ( !current_user_can('manage_options') )
+        if ( !current_user_can('manage_options') ) {
             wp_die('You do not have sufficient permissions to access this page.');
-        $options = get_option('cti_options');
+        }
+        $options = get_option(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS);
         ?>
         <div class="wrap">
 
-            <h2><?php _e('Taxonomy Image', self::TEXT_DOMAIN); ?></h2>
+            <h2><?php _e('Decimus Taxonomy Image', self::TEXT_DOMAIN); ?></h2>
             <form method="post" action="options.php">
-                <?php settings_fields('cti_options'); ?>
-                <?php do_settings_sections('cti-options'); ?>
+                <?php settings_fields(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS); ?>
+                <?php do_settings_sections('decimus-taxonomy-image-options'); ?>
                 <?php submit_button(); ?>
             </form>
         </div>
@@ -263,5 +264,10 @@ final class CustomTaxonomyImage
     public function get_wp_term_image($term_id)
     {
         return get_option('_category_image-' . $term_id);
+    }
+
+    public function delete_plugin()
+    {
+        delete_option(self::DECIMUS_TAXONOMY_IMAGE_OPTIONS);
     }
 }
