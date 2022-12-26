@@ -1,6 +1,6 @@
 <?php
 
-namespace Guland\CustomTaxonomyImage\API;
+namespace Guland\DecimusTaxonomyImage\API;
 
 use WP_REST_Server;
 use WP_REST_Response;
@@ -33,7 +33,7 @@ trait Route
         if ( !current_user_can('edit_posts') ) {
             return new \WP_Error(
                 'rest_unauthorized',
-                esc_html__('Unauthorized.', GULAND_CTI_TEXT_DOMAIN),
+                'Unauthorized.',
                 array('status' => 401)
             );
         }
@@ -57,7 +57,7 @@ trait Route
                 array(
                     'status' => 400,
                     'message' => 'rest_bad_request',
-                    'description' => __('Missing parameter \'option_name\'', GULAND_CTI_TEXT_DOMAIN),
+                    'description' => 'Missing parameter \'option_name\'',
                     'image_url' => null
                 ),
                 400
@@ -80,7 +80,7 @@ trait Route
                     array(
                         'status' => 200,
                         'message' => 'OK',
-                        'description' => __('Taxonomy image url returned successfully', GULAND_CTI_TEXT_DOMAIN),
+                        'description' => 'Taxonomy image url returned successfully',
                         'image_url' => $opt
                     ),
                     200
@@ -90,7 +90,7 @@ trait Route
                     array(
                         'status' => 404,
                         'message' => 'rest_not_found',
-                        'description' => __('Option not found.', GULAND_CTI_TEXT_DOMAIN),
+                        'description' => 'Option not found.',
                         'image_url' => null
                     ),
                     404
@@ -102,7 +102,7 @@ trait Route
                 array(
                     'status' => 403,
                     'message' => 'rest_forbidden',
-                    'description' => __('Forbidden. Only taxonomy image options can be accessed through this route', GULAND_CTI_TEXT_DOMAIN),
+                    'description' => 'Forbidden. Only taxonomy image options can be accessed through this route',
                     'image_url' => null
                 ),
                 403
