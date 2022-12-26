@@ -58,7 +58,9 @@
     "koodimonni-language/core-hu_hu": "*",
     "koodimonni-plugin-language/woocommerce-hu_hu":"*",
     "wpackagist-plugin/wp-dummy-content-generator": "^2.1",
-    "ext-json": "*"
+    "ext-json": "*",
+    "ext-fileinfo": "*",
+    "ext-iconv": "*"
   },
   "require-dev": {
     "koodimonni/composer-dropin-installer": "dev-master",
