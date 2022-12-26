@@ -1,7 +1,7 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/decimusadmin/
-!web/app/plugins/custom-taxonomy-image/
+!web/app/plugins/decimus-taxonomy-image/
 !web/app/plugins/vuecommerce/
 !web/app/plugins/decimus-team-member/
 !web/app/plugins/.gitkeep
