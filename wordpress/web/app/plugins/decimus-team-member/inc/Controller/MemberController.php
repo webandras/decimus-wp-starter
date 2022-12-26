@@ -205,7 +205,7 @@ class MemberController extends Member implements ControllerInterface
             if ( !empty($_POST) ) {
                 $this->form_action();
             } else {
-                include DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/pages/company_team_insert.php';
+                include DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/pages/member/insert.php';
             }
         } catch (PermissionsException|Exception $ex) {
             echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '</p></div>';

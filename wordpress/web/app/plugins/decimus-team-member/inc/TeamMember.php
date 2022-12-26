@@ -105,11 +105,12 @@ final class TeamMember implements MemberInterface
     {
         add_menu_page(
             __('Team Members', self::TEXT_DOMAIN), // page title
-            __('All Team Members', self::TEXT_DOMAIN), // menu title
+            __('Decimus Team Members', self::TEXT_DOMAIN), // menu title
             'manage_options', // capability
             'team-member-list', // menu slug
             array(self::$controller, 'list_table'), // callback
-            'dashicons-groups' // icon
+            'dashicons-groups', // icon
+            4
         );
 
         add_submenu_page(
@@ -118,7 +119,7 @@ final class TeamMember implements MemberInterface
             __('Add new', self::TEXT_DOMAIN),  // menu title
             'manage_options', // capability
             'team-member-insert', // menu slug
-            array(self::$controller, 'insert_record') // callback
+            array(self::$controller, 'add_form') // callback
         );
     }
 
