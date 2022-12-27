@@ -2,6 +2,10 @@
 set -a
 source .env
 
-docker-compose -f docker-compose.yml stop "$@"
-systemctl start apache2 mysql
+if [ "${SSL}" == "on" ]; then
+  docker-compose -f docker-compose-ssl.yml stop "$@"
+else
+  docker-compose -f docker-compose.yml stop "$@"
+fi
 
+systemctl start apache2 mysql

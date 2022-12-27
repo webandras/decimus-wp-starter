@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find wordpress/web/app/ -type d -exec chmod 755 {} \; # Change directory permissions rwxr-xr-x
+find wordpress/web/app/ -type f -exec chmod 644 {} \; # Change file permissions rw-r--r--

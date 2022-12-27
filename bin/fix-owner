@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chown www-data:www-data wordpress/web/app -R

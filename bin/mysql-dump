@@ -2,5 +2,9 @@
 set -a
 source .env
 
-docker-compose exec mysql bash -c "exec mysqldump --databases "${DB_NAME}" -u"${DB_USER}" -p"${DB_PASSWORD}" > dump.sql"
-docker cp ${APP_NAME}-mysql:dump.sql ./db/dump.sql
+# shellcheck disable=SC2006
+# current_date=`date+"%Y_%m_%d"`
+current_date=$(date +%Y_%m_%d)
+
+docker-compose exec mysql bash -c "exec mysqldump --databases ${DB_NAME} -u${DB_USER} -p${DB_PASSWORD} > dump_${current_date}.sql"
+docker cp ${APP_NAME}-mysql:dump_"${current_date}".sql ./db/dump_"${current_date}".sql

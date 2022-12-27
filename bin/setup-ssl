@@ -2,10 +2,12 @@
 set -a
 source .env
 
-cd ./.docker/nginx || exit
+cd ./.docker/nginx/ssl || exit
 
 # generate ssl certs
 ./mkcert-v1.4.3-linux-amd64 ${APP_DOMAIN}
+
+cd ..
 
 # replace server names, and certificate filenames for the custom domain
 sed -i -e "s/wordpress.local/${APP_DOMAIN}/g" ./default-ssl.conf
