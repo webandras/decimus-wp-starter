@@ -37,6 +37,9 @@ See "Change table prefixes" section further below to change prefix for tables in
 Run `bin/wp` to enter the `wordpress` container. Simply run `wp` here.
 The wp-cli is run by the www-data user, not by root (otherwise, it would be a security risk).
 
+After testing some wp commands, it turns out that the user creation (wp user create ...) is not working and produces an
+error.  TODO: need to find cause. Maybe caused by Bedrock.
+
 *Note: There are other useful shell commands in `bin` folder as well.*
 
 ## DB
@@ -64,7 +67,6 @@ Or use PhpMyAdmin for a small database.
 ## PHP 8.0/8.1
 
 There are deprecation and other warnings which will be eventually fixed in future WordPress and Bedrock releases...
-
 
 ## Change table prefixes
 
@@ -114,37 +116,37 @@ WHERE option_name LIKE 'wp_%';
 This works better for Docker:
 `wordpress/config/environments/development.php` -> `Config::define('FS_METHOD', 'direct');`
 
-*TODO: More work on these issues:*
-You may need to change permissions for wordpress folder. There are still permission issues on Linux.
-
-However, for production, the folders use the permission 755, and 644 for the files! 777 is a dangerous idea for production.
+You may need to change permissions for wordpress folder. However, for production, use permission 755 for folders, and
+644 for the files! 777 is a dangerous idea for production.
 
 ### Docker notes
 
 For Linux, you may have to use sudo if your Docker is not configured to be used as a non-root user.
 There are useful bash scripts in bin folder (bin/start, bin/down, etc.) which are useful.
 
-
 ## Change Language
 
 This is a bit tricky for Bedrock, but it works.
 
 In composer.json changer these packages with your preferred language set like this:
+
 ```
 "koodimonni-language/hu_hu": "*",
 "koodimonni-plugin-language/woocommerce-hu_hu": "6.7.0",
 ```
-to your language and versions.
-See more at: https://wp-languages.github.io/ and https://discourse.roots.io/t/install-update-wordpress-languages-with-composer/2021
 
-Copy the needed files to `wordpress/app/languages`. Also create themes and plugins sub-folders, and copy the right files in the appropriate place.
+to your language and versions.
+See more at: https://wp-languages.github.io/
+and https://discourse.roots.io/t/install-update-wordpress-languages-with-composer/2021
+
+Copy the needed files to `wordpress/app/languages`. Also create themes and plugins sub-folders, and copy the right files
+in the appropriate place.
 
 `wordpress/vendor/koodimonni-language`
 
 `wordpress/vendor/koodimonni-plugin-language`
 
 `wordpress/vendor/koodimonni-theme-language`
-
 
 ## Useful resources
 
@@ -157,8 +159,7 @@ Copy the needed files to `wordpress/app/languages`. Also create themes and plugi
 - Auto create woocommerce pages
   https://quadlayers.com/create-woocommerce-pages/
 
-
-## Custom domain and ssl certificate (not tested 100% yet)
+## Custom domain and ssl certificate
 
 Steps:
 
@@ -172,13 +173,16 @@ You may need a different executable for **mkcert**. Copy your mkcert executable 
 
 - Windows: https://github.com/FiloSottile/mkcert#windows
 - Mac: https://github.com/FiloSottile/mkcert#macos
-- Linux: https://github.com/FiloSottile/mkcert#linux or use the pre-build binaries (recommended): https://github.com/FiloSottile/mkcert/releases
+- Linux: https://github.com/FiloSottile/mkcert#linux or use the pre-build binaries (
+  recommended): https://github.com/FiloSottile/mkcert/releases
 
 Then run `bin/setup-ssl`.
 
 3. Add domain alias for `127.0.0.1` (e.g. in `/etc/hosts`)
 
-4. Make sure `server_name` (there is 2 of them), ssl_certificate, and ssl_certificate_key is correct in `.docker/nginx/default-ssl.conf`! Although, the script will replace these values with the `APP_DOMAIN` if the default values are `wordpress.local` `.docker/nginx/default-ssl.conf`.
+4. Make sure `server_name` (there is 2 of them), ssl_certificate, and ssl_certificate_key is correct
+   in `.docker/nginx/default-ssl.conf`! Although, the script will replace these values with the `APP_DOMAIN` if the
+   default values are `wordpress.local` `.docker/nginx/default-ssl.conf`.
 
 5. Now you can build the docker project:
 
