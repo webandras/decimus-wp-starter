@@ -58,6 +58,9 @@
     "koodimonni-language/core-hu_hu": "*",
     "koodimonni-plugin-language/woocommerce-hu_hu":"*",
     "wpackagist-plugin/wp-dummy-content-generator": "^2.1",
+    "wpackagist-plugin/contact-form-7":"5.7.1",
+    "wpackagist-plugin/contact-form-7-honeypot":"2.1.1",
+    "wpackagist-plugin/flamingo":"2.3",
     "ext-json": "*",
     "ext-fileinfo": "*",
     "ext-iconv": "*"
