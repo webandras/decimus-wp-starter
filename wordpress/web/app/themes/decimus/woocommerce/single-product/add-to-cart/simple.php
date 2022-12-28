@@ -51,6 +51,12 @@ if ( $product->is_in_stock() ) : ?>
             <i class="fa fa-shopping-cart"></i>
         </button>
 
+        // TODO: make a setting in decimusadmin to either torn on or turn off registration form popup
+        <button type="submit" id="register-form-button" name="add-to-cart" data-bs-toggle="modal" data-bs-target="#registerToEvent"
+                value="<?php echo esc_attr($product->get_id()); ?>"
+                class="single_add_to_cart_button alt btn btn-primary"><?php _e('Register to event', 'decimus') ?>
+        </button>
+
         <?php do_action('woocommerce_after_add_to_cart_button'); ?>
     </form>
 

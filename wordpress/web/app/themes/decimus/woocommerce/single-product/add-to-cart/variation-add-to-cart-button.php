@@ -29,6 +29,12 @@ global $product;
     <button type="submit"
             class="single_add_to_cart_button btn btn-primary"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 
+    // TODO: make a setting in decimusadmin to either torn on or turn off registration form popup
+    <button type="submit" data-bs-toggle="modal" data-bs-target="#registerToEvent"
+            class="single_add_to_cart_button btn btn-primary"><?php echo esc_html('Register'); ?></button>
+
+
+
 
     <?php do_action('woocommerce_after_add_to_cart_button'); ?>
 

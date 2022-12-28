@@ -129,3 +129,35 @@ jQuery(document).ready(function ($) {
   // Alert links
   $(".alert a").addClass("alert-link");
 }); // jQuery End
+
+/*
+* Decimus popup modal when adding item to the cart
+* */
+jQuery(document).ready(function ($) {
+  var modalElem = document.getElementById("registerToEvent");
+  if (modalElem) {
+    var registrationModal = new bootstrap.Modal(
+        document.getElementById("registerToEvent"),
+        {keyboard: false}
+    );
+
+    console.log(registrationModal);
+
+    function updateEventsDataForModal() {
+      var eventName = $("#offcanvas-cart .item-name > strong > a").text().trim();
+      var eventDetails = $(
+          "#offcanvas-cart .item-name .item-quantity > .quantity"
+      ).text();
+
+      $('form.wpcf7-form input[name="event-name"]').val(eventName);
+      $('form.wpcf7-form input[name="event-details"]').val(eventDetails);
+    }
+
+    $("#register-form-button").on("click", function () {
+      setTimeout(updateEventsDataForModal, 4000);
+      registrationModal.show();
+    });
+
+  }
+
+}); // jQuery End

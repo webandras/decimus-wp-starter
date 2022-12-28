@@ -58,8 +58,14 @@ function decimus_scripts(): void
     // Fontawesome
     wp_enqueue_style('fontawesome', get_template_directory_uri() . '/css/lib/fontawesome.min.css', array(), $modificated);
 
+    // Contact form styles
+    wp_enqueue_style('bs5-contactform-style', get_template_directory_uri() . '/inc/components/bs5-contact-form-7/css/contactform-style.css', array(), $modificated);
+
     // Bootstrap JS
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), $modificated, true);
+
+    // Contact form script
+    wp_enqueue_script('bs5-contactform', get_template_directory_uri() . '/inc/components/bs5-contact-form-7/js/contactform-script.js', array(), $modificated, true);
 
     // Theme JS
     wp_enqueue_script('decimus-script', get_template_directory_uri() . '/js/theme.js', array(), $modificated, true);
