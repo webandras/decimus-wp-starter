@@ -359,3 +359,77 @@ if ( !function_exists('decimus_woocommerce_content') ) {
         }
     }
 }
+
+/**
+ * Reorder product data tabs
+ */
+// add_filter( 'woocommerce_product_tabs', 'decimus_woocommerce_reorder_tabs', 98 );
+function decimus_woocommerce_reorder_tabs($tabs): array
+{
+
+    // Additional information first
+    $tabs['additional_information']['priority'] = 5;
+    // Description second
+    $tabs['description']['priority'] = 10;
+    // Reviews third
+    $tabs['video_tab']['priority'] = 15;
+
+    return $tabs;
+}
+
+/*
+ * See https://stackoverflow.com/a/35689563
+ * woocommerce_payment_complete_order_status  is only triggered when an online payment is required.
+ * change the paid order status (that is set by the payment gateway for paid orders) to "completed"
+ * basically disabling the "processing" paid order status
+ *
+ * General information
+ * https://woocommerce.com/document/woocommerce-order-status-control/
+ * */
+add_action('woocommerce_payment_complete_order_status', 'decimus_auto_complete_virtual_paid_order', 10, 3);
+/*function wc_auto_complete_order($status, $order_id, $order)
+{
+    return 'completed';
+}*/
+
+/*
+ * See https://quadlayers.com/autocomplete-woocommerce-orders/
+ * Only for virtual products
+ *
+ * A different solution based on shipping method: https://stackoverflow.com/questions/48303688/woocommerce-autocomplete-paid-orders-based-on-shipping-method/48306674#48306674
+ * */
+function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $order)
+{
+    $current_status = $order->get_status();
+    // We only want to update the status to 'completed' if it's coming from one of the following statuses:
+    $allowed_current_statuses = array('on-hold', 'pending', 'failed');
+
+    if ( 'processing' === $payment_status && in_array($current_status, $allowed_current_statuses) ) {
+
+        $order_items = $order->get_items();
+
+        // Create an array of products in the order
+        $order_products = array_filter(array_map(function ($item) {
+            // Get associated product for each line item
+            return $item->get_product();
+        }, $order_items), function ($product) {
+            // Remove non-products
+            return !!$product;
+        });
+
+        if ( count($order_products > 0) ) {
+            // Check if each product is 'virtual'
+            $is_virtual_order = array_reduce($order_products, function ($virtual_order_so_far, $product) {
+                return $virtual_order_so_far && $product->is_virtual();
+            }, true);
+
+            if ( $is_virtual_order ) {
+                $payment_status = 'completed';
+            }
+        }
+    }
+    return $payment_status;
+}
+
+
+
