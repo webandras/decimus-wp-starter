@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') ) {
         <p class="h2">
             <?php esc_html_e('Hello', 'decimus'); ?><?php global $current_user;
             wp_get_current_user();
-            echo '' . $current_user->display_name . "\n";
+            echo ' ' . $current_user->display_name . "\n";
             ?>
         </p>
         <p><?php esc_html_e('Here you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.', 'decimus'); ?></p>
