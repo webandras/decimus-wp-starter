@@ -5,17 +5,43 @@
 
 get_header(); ?>
 
+<?php
+$global_request = new WP_REST_Request('GET', '/decimus/v1/frontend/global');
+$global_response = rest_do_request($global_request);
+$global_data = rest_get_server()->response_to_data($global_response, true);
+
+// check if we received the data from the endpoint
+$have_global_data = isset($global_data) && isset($global_data['data']);
+$global_options = $have_global_data ? $global_data['data']['option_value'] : [];
+
+$enable_blog_sidebar = isset($global_options['enable_blog_sidebar']) ? intval($global_options['enable_blog_sidebar']) : 0;
+
+?>
+
 <div id="content" class="site-content container-fluid side-padding narrow-content py-5 mt-3">
     <div id="primary" class="content-area">
+
+        <?php if (!$enable_blog_sidebar) { ?>
+        <div class="row">
+        <div class="col-md-10 offset-md-1 col-xxl-8 offset-xxl-2">
+        <?php } ?>
 
         <!-- Hook to add something nice -->
         <?php bs_after_primary(); ?>
 
         <?php the_breadcrumb(); ?>
 
-        <div class="row">
-            <div class="col-md-8 col-xxl-9">
+        <?php if (!$enable_blog_sidebar) { ?>
+        </div>
+        </div>
+        <?php } ?>
 
+        <div class="row">
+            <?php if ($enable_blog_sidebar) { ?>
+            <div class="col-md-8 col-xxl-9">
+            <?php } else { ?>
+            <div class="col-md-10 offset-md-1 col-xxl-8 offset-xxl-2">
+            <?php } ?>
                 <main id="main" class="site-main">
 
                     <header class="entry-header">
@@ -60,7 +86,9 @@ get_header(); ?>
                 </main> <!-- #main -->
 
             </div><!-- col -->
-            <?php get_sidebar(); ?>
+            <?php if ($enable_blog_sidebar) { ?>
+                <?php get_sidebar(); ?>
+            <?php } ?>
         </div><!-- row -->
 
     </div><!-- #primary -->
