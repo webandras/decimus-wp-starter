@@ -265,3 +265,13 @@ span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
         max-width: 400px;
     }
 }
+
+.modal-header {
+    .btn-close {
+        color: #000;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
