@@ -16,7 +16,7 @@
         <div class="mb-40 w-500">
             <h3>Docs, issue reporting</h3>
             <p>
-                Documentation is available on <a href="https://github.com/SalsaBoy990/decimus-wordpress-theme"
+                Documentation is available on <a href="https://github.com/SalsaBoy990/decimus-wp-starter"
                                                  target="_blank"
                                                  rel="noopener noreferrer">GitHub
                 <font-awesome-icon icon="link" size="sm"/>
