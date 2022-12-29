@@ -17,7 +17,7 @@
         }
 
         a {
-            font-size: $small-size;
+            font-size: $medium-size;
         }
 
         ol.wp-block-latest-comments {
@@ -239,4 +239,11 @@ ul.children {
         }
     }
 }
+
+.tags-links {
+    a.badge {
+        font-size: $small-size;
+    }
+}
+
 
