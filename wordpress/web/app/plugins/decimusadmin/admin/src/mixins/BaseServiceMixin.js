@@ -23,7 +23,7 @@ export default {
         showAlertCallback(delay = 3000) {
             this.showAlertSettings = true;
             const successTimeout = setTimeout(() => {
-                //this.showAlertSettings = false;
+                this.showAlertSettings = false;
                 this.apiResponse = {};
                 clearTimeout(successTimeout);
             }, delay);
@@ -47,12 +47,12 @@ export default {
                 });
 
                 const responseData = response.data;
-                console.log(responseData);
+                //console.log(responseData);
 
                 if (responseData.status === 200) {
                     // get the data
                     this.settings = responseData.data;
-                    console.log(this.settings);
+                    //console.log(this.settings);
 
                     // re-initialize value
                     this.areSettingsUpdated = false;
@@ -74,21 +74,19 @@ export default {
          */
         async updateSettings(event) {
 
-            console.log({event });
+            //console.log({event });
             event.preventDefault();
             try {
                 this.areSettingsUpdated = true;
 
-                console.log(this.settings.option_value);
+                //console.log(this.settings.option_value);
 
                 //const restURL = process.env.NODE_ENV === 'development' ? process.env.VUE_APP_REST_API_PATH : this.wpData.rest_url;
-                /* eslint-disable no-unused-vars */
                 const restURL = this.decimusAdminData.rest_url;
-                /* eslint-disable no-unused-vars */
                 const path = `${this.namespace}/${this.route}`;
                 const newSettings = this.settings.option_value;
 
-                console.log(JSON.stringify(newSettings));
+                //console.log(JSON.stringify(newSettings));
 
                 const decimusNonce = this.decimusAdminData.decimus_nonce;
                 // `headers` are custom headers to be sent
@@ -102,7 +100,7 @@ export default {
                 );
                 this.apiResponse = response.data;
 
-                console.log(this.apiResponse);
+                //console.log(this.apiResponse);
 
                 // hide saving button, show alert for a timeout
                 this.areSettingsUpdated = false;
