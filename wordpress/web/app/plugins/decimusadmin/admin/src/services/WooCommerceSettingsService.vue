@@ -35,7 +35,19 @@
                             <span>Enable product videos</span>
                         </label>
                     </p>
+                    <p>
+                        <label class="main-label">Event registration popup form</label>
 
+                        <label for="event_registration">
+                            <input
+                                name="event_registration"
+                                v-model.number="settings.option_value.event_registration"
+                                type="checkbox"
+                                value="1"
+                            />
+                            <span>Enable popup form</span>
+                        </label>
+                    </p>
 
                 </div>
             </div>

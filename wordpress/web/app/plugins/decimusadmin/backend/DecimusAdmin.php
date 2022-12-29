@@ -14,6 +14,7 @@ use Guland\DecimusAdmin\Database\Migration\M001 as M001;
 use Guland\DecimusAdmin\Database\Migration\M002 as M002;
 use Guland\DecimusAdmin\Database\Seeder\S001 as S001;
 use Guland\DecimusAdmin\Database\Seeder\S002 as S002;
+use Guland\DecimusAdmin\Database\Seeder\S003 as S003;
 
 // REST API endpoints
 use Guland\DecimusAdmin\API\Admin\AdminAdminController as AdminAdminController;
@@ -48,6 +49,7 @@ final class DecimusAdmin
     // DB seeders
     use S001;
     use S002;
+    use S003;
 
 
     // Text domain for i18n
@@ -83,7 +85,7 @@ final class DecimusAdmin
 
     // DB version
     private const DB_VERSION_NAME = 'decimus_admin_db_version';
-    private const DB_VERSION = 1001;
+    private const DB_VERSION = 1002;
     private const DB_MIGRATIONS_RUN = 'decimus_migrations_run';
     protected array $migrations = [];
 
@@ -170,6 +172,7 @@ final class DecimusAdmin
             // execute sql migrations not yet run in case of plugin updates
             try {
                 $migrations_run_already = unserialize(get_option(self::DB_MIGRATIONS_RUN));
+                $migrations_run_already = is_array($migrations_run_already)? $migrations_run_already : [];
 
                 // iterate through all versions, run migrations if needed
                 for ($i = 1000; $i <= self::DB_VERSION; $i++) {
@@ -181,11 +184,10 @@ final class DecimusAdmin
                         self::update_migrations_run(1001);
                     }
 
-                    /*if ( !array_search(1002, $migrations_run_already, true) ) {
-                        self::alter_theme_options_table_003();
+                    if ( !array_search(1002, $migrations_run_already, true) ) {
                         self::seed_theme_options_table_003();
                         self::update_migrations_run(1002);
-                    }*/
+                    }
                 }
 
                 self::update_db_version();
