@@ -55,12 +55,12 @@
                 <ul>
                     <?php if ( $phone ) : ?>
                         <li>
-                            <a href="<?php echo 'tel:' . esc_attr($phone_field); ?>"><?php echo esc_html($phone_field); ?></a>
+                            <a href="<?php echo 'tel:' . esc_attr(str_replace(' ', '', $phone_field)) ?>"><?php echo esc_html($phone_field); ?></a>
                         </li>
                     <?php endif; ?>
                     <?php if ( $email ) : ?>
                         <li>
-                            <a href="<?php echo 'mailto:' . esc_url($email_field); ?>"><?php echo esc_html($email_field); ?></a>
+                            <a href="<?php echo 'mailto:' . sanitize_email($email_field); ?>"><?php echo esc_html($email_field); ?></a>
                         </li>
                     <?php endif; ?>
                 </ul>

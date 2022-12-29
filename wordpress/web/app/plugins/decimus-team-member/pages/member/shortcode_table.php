@@ -71,7 +71,7 @@
 
           <?php if ($phone) { ?>
             <td>
-                <a href="<?php echo esc_html('tel:'. $phone_field); ?>">
+                <a href="<?php echo 'tel:' . esc_attr(str_replace(' ', '', $phone_field)) ?>">
                     <?php echo esc_html($phone_field); ?>
                 </a>
             </td>
