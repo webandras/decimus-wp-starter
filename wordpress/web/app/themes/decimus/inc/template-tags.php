@@ -188,7 +188,7 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links text-muted small-size mt-3">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links text-muted medium-size mt-3">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}
