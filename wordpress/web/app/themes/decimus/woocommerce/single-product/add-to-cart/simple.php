@@ -23,6 +23,16 @@ if ( !$product->is_purchasable() ) {
     return;
 }
 
+$woocommerce_request = new WP_REST_Request('GET', '/decimus/v1/frontend/woocommerce');
+$woocommerce_response = rest_do_request($woocommerce_request);
+$woocommerce_data = rest_get_server()->response_to_data($woocommerce_response, true);
+
+// check if we received the data from the endpoint
+$have_woocommerce_data = isset($woocommerce_data) && isset($woocommerce_data['data']);
+$woocommerce_options = $have_woocommerce_data ? $woocommerce_data['data']['option_value'] : [];
+
+$event_registration = isset($woocommerce_options['event_registration']) ? intval($woocommerce_options['event_registration']) : null;
+
 echo wc_get_stock_html($product); // WPCS: XSS ok.
 
 if ( $product->is_in_stock() ) : ?>
@@ -46,16 +56,18 @@ if ( $product->is_in_stock() ) : ?>
         do_action('woocommerce_after_add_to_cart_quantity');
         ?>
 
-        <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
-                class="single_add_to_cart_button alt btn btn-primary"><?php echo esc_html($product->single_add_to_cart_text()); ?>
-            <i class="fa fa-shopping-cart"></i>
-        </button>
-
-        // TODO: make a setting in decimusadmin to either torn on or turn off registration form popup
-        <button type="submit" id="register-form-button" name="add-to-cart" data-bs-toggle="modal" data-bs-target="#registerToEvent"
-                value="<?php echo esc_attr($product->get_id()); ?>"
-                class="single_add_to_cart_button alt btn btn-primary"><?php _e('Register to event', 'decimus') ?>
-        </button>
+        <?php if ( $event_registration ) { ?>
+            <button type="submit" id="register-form-button" name="add-to-cart" data-bs-toggle="modal"
+                    data-bs-target="#registerToEvent"
+                    value="<?php echo esc_attr($product->get_id()); ?>"
+                    class="single_add_to_cart_button alt btn btn-primary"><?php _e('Register to event', 'decimus') ?>
+            </button>
+        <?php } else { ?>
+            <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
+                    class="single_add_to_cart_button alt btn btn-primary"><?php echo esc_html($product->single_add_to_cart_text()); ?>
+                <i class="fa fa-shopping-cart"></i>
+            </button>
+        <?php } ?>
 
         <?php do_action('woocommerce_after_add_to_cart_button'); ?>
     </form>
