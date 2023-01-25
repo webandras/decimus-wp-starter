@@ -30,9 +30,9 @@ function decimus_child_remove_scripts(): void
 
     // check if we received the data from the endpoint
     $have_global_data = isset($global_data) && isset($global_data['data']);
-    $global_options = $have_global_data ? $global_data['data']['option_value'] : [];
+    $global_options = $have_global_data && isset($global_data['data']['option_value']) ? $global_data['data']['option_value'] : [];
 
-    $skin = $have_global_data ? esc_attr($global_options['skin']) : 'lux';
+    $skin = $have_global_data && isset($global_options['skin']) ? esc_attr($global_options['skin']) : 'lux';
 
     // Dequeue parent bootstrap.min.css
     wp_dequeue_style('bootstrap');

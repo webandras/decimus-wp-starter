@@ -54,7 +54,7 @@ add_filter('excerpt_length', 'decimus_child_excerpt_length', 999);
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-function decimus_child_excerpt_length($length)
+function decimus_child_excerpt_length(int $length): int
 {
     return 30;
 }
@@ -62,7 +62,7 @@ function decimus_child_excerpt_length($length)
 
 // Custom breadcrumb
 if ( !function_exists('the_breadcrumb') ) {
-    function the_breadcrumb()
+    function the_breadcrumb(): void
     {
         if ( !is_home() ) {
             echo '<nav class="breadcrumb mt-3 mb-0 p-2 px-0 small rounded">';

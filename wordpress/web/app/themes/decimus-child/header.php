@@ -18,7 +18,7 @@ $contact_data = rest_get_server()->response_to_data($contact_response, true);
 
 // check if we received the data from the endpoint
 $have_contact_data = isset($contact_data) && isset($contact_data['data']);
-$contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
+$contact_options = $have_contact_data && isset($contact_data['data']['option_value']) ? $contact_data['data']['option_value'] : [];
 
 $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
 $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
@@ -32,7 +32,7 @@ $header_data = rest_get_server()->response_to_data($header_response, true);
 
 // check if we received the data from the endpoint
 $have_header_data = isset($header_data) && isset($header_data['data']);
-$header_options = $have_header_data ? $header_data['data']['option_value'] : [];
+$header_options = $have_header_data && isset($header_data['data']['option_value']) ? $header_data['data']['option_value'] : [];
 
 $cart = isset($header_options['cart_button']) && intval($header_options['cart_button']);
 $account = isset($header_options['account_button']) && intval($header_options['account_button']);
@@ -283,7 +283,9 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                     </div>
                 </div>
                 <div class="cart-list">
+                    <?php if (function_exists('woocommerce_mini_cart')) { ?>
                     <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
+                    <?php  } ?>
                 </div>
             </div>
         </div>
