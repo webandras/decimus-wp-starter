@@ -54,5 +54,6 @@ $show_single_product_meta = isset($woocommerce_options['show_single_product_meta
 
         <?php do_action('woocommerce_product_meta_end'); ?>
 
+        <?php // echo do_shortcode('[addtoany]'); ?>
     </div>
 <?php } ?>

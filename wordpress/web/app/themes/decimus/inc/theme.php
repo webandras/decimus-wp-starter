@@ -8,7 +8,7 @@ if ( !function_exists('decimus_setup') ) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    function decimus_setup()
+    function decimus_setup(): void
     {
         /*
          * Make theme available for translation.
@@ -80,7 +80,7 @@ add_action('after_setup_theme', 'decimus_content_width', 0);
 // Widgets
 if ( !function_exists('decimus_widgets_init') ) :
 
-    function decimus_widgets_init()
+    function decimus_widgets_init(): void
     {
 
         // Top Nav
@@ -207,7 +207,7 @@ add_filter('widget_text', 'do_shortcode');
 // Amount of posts/products in category
 if ( !function_exists('decimus_wpsites_query') ) :
 
-    function decimus_wpsites_query($query)
+    function decimus_wpsites_query($query): void
     {
         if ( $query->is_archive() && $query->is_main_query() && !is_admin() ) {
             $query->set('posts_per_page', 24);
@@ -221,7 +221,7 @@ endif;
 
 
 // Pagination Categories
-function decimus_pagination($pages = '', $range = 2)
+function decimus_pagination($pages = '', $range = 2): void
 {
     $showitems = ($range * 2) + 1;
     global $paged;
@@ -300,7 +300,7 @@ function decimus_style_loader_tag($tag)
 
 // Breadcrumb
 if ( !function_exists('the_breadcrumb') ) :
-    function the_breadcrumb()
+    function the_breadcrumb(): void
     {
         if ( !is_home() ) {
             echo '<nav class="breadcrumb mb-4 mt-2 bg-light py-2 px-3 small rounded">';
@@ -324,7 +324,7 @@ endif;
 
 
 // Comment Button
-function decimus_comment_form($args)
+function decimus_comment_form($args): array
 {
     $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
     return $args;
@@ -335,7 +335,7 @@ add_filter('comment_form_defaults', 'decimus_comment_form');
 
 
 // Password protected form
-function decimus_pw_form()
+function decimus_pw_form(): string
 {
     $output = '
 		  <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="form-inline">' . "\n"
@@ -371,7 +371,7 @@ add_filter('pre_user_description', 'wp_filter_post_kses');
 
 
 // Hook after #primary
-function bs_after_primary()
+function bs_after_primary(): void
 {
     do_action('bs_after_primary');
 }

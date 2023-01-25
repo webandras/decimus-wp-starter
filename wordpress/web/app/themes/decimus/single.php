@@ -12,7 +12,7 @@ $global_data = rest_get_server()->response_to_data($global_response, true);
 
 // check if we received the data from the endpoint
 $have_global_data = isset($global_data) && isset($global_data['data']);
-$global_options = $have_global_data ? $global_data['data']['option_value'] : [];
+$global_options = $have_global_data && isset($global_data['data']['option_value']) ? $global_data['data']['option_value'] : [];
 
 $enable_blog_sidebar = isset($global_options['enable_blog_sidebar']) ? intval($global_options['enable_blog_sidebar']) : 0;
 

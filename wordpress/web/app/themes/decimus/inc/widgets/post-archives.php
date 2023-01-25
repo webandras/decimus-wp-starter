@@ -60,7 +60,7 @@ class Decimus_Post_Archives_Widget extends WP_Widget
 
     }
 
-    public function update($new_instance, $old_instance)
+    public function update($new_instance, $old_instance): array
     {
 
         $instance = [];
@@ -74,7 +74,7 @@ class Decimus_Post_Archives_Widget extends WP_Widget
      *
      * @return string template
      */
-    private function get_the_post_archives($period = 'yearly', $post_type = 'post'): string
+    private function get_the_post_archives(string $period = 'yearly', string $post_type = 'post'): string
     {
         $args = [
             'type' => $period,

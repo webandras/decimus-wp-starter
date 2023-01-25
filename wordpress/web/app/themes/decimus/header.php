@@ -42,7 +42,7 @@
 
     <header id="masthead" class="site-header">
 
-        <div class="fixed-top bg-header">
+        <div class="fixed-top bg-header bg-light">
 
             <nav id="nav-main" class="navbar navbar-expand-lg navbar-light">
 
@@ -50,11 +50,11 @@
 
                     <!-- Navbar Brand -->
                     <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg"
-                                alt="logo" class="logo xs"></a>
+                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.jpg"
+                                alt="logo" class="logo xs" style="max-height: 40px;"></a>
                     <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg"
-                                alt="logo" class="logo md"></a>
+                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.jpg"
+                                alt="logo" class="logo md" style="max-height: 40px;"></a>
 
                     <!-- Offcanvas Navbar -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">

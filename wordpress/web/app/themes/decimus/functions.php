@@ -14,7 +14,7 @@ if ( !defined('ABSPATH') ) {
 
 // Register Bootstrap 5 Nav Walker
 if ( !function_exists('decimus_register_navwalker') ) :
-    function decimus_register_navwalker()
+    function decimus_register_navwalker(): void
     {
         require_once('inc/class-bootstrap-5-navwalker.php');
         // Register Menus
@@ -28,7 +28,7 @@ add_action('after_setup_theme', 'decimus_register_navwalker');
 
 // Register Comment List
 if ( !function_exists('decimus_register_comment_list') ) :
-    function decimus_register_comment_list()
+    function decimus_register_comment_list(): void
     {
         // Register Comment List
         require_once('inc/comment-list.php');

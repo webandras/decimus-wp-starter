@@ -40,7 +40,7 @@ class Decimus_Recent_Posts_Widget extends WP_Widget
         }
 
         echo '<div class="recent-articles-content">';
-        echo $this->get_the_recent_posts(absint($instance['number_of_posts']));
+        echo $this->get_the_recent_posts(absint($instance['number_of_posts'] ?? 5));
         echo '</div>';
 
         echo $args['after_widget'];

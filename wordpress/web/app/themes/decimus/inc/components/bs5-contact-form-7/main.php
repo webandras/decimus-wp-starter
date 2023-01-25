@@ -19,7 +19,7 @@ add_filter('wpcf7_form_elements', function ($content) {
 
 // Disable Contact Form 7 Styles
 add_action('wp_print_styles', 'wps_deregister_styles', 100);
-function wps_deregister_styles()
+function wps_deregister_styles(): void
 {
     wp_deregister_style('contact-form-7');
 }
@@ -29,7 +29,7 @@ add_action('wp_footer', 'decimus_load_session_data_for_checkout', 9999);
 function decimus_load_session_data_for_checkout(): void
 {
     global $wp;
-    if ( is_checkout() && empty($wp->query_vars['order-pay']) && !isset($wp->query_vars['order-received']) ) {
+    if ( function_exists('is_checkout') && is_checkout() && empty($wp->query_vars['order-pay']) && !isset($wp->query_vars['order-received']) ) {
         echo '<script>/* put data to inputs from session */
         jQuery(document).ready(function ($) {
             var userDataFromSession = sessionStorage.getItem("currentUserData");

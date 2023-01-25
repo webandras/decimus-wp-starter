@@ -19,15 +19,15 @@ $global_data = rest_get_server()->response_to_data($global_response, true);
 
 // check if we received the data from the endpoint
 $have_global_data = isset($global_data) && isset($global_data['data']);
-$global_options = $have_global_data ? $global_data['data']['option_value'] : [];
+$global_options = $have_global_data && isset($global_data['data']['option_value']) ? $global_data['data']['option_value'] : [];
 
-$scroll_to_top_arrow = $have_global_data ? esc_attr($global_options['enable_scroll_to_top_arrow']) : true;
+$scroll_to_top_arrow = $have_global_data ? esc_attr(isset($global_options['enable_scroll_to_top_arrow']) && $global_options['enable_scroll_to_top_arrow']) : true;
 
 ?>
 
 <footer>
 
-    <div class="decimus-footer">
+    <div class="decimus-footer bg-light">
         <div class="container">
 
             <!-- Top Footer Widget -->
@@ -95,7 +95,7 @@ $scroll_to_top_arrow = $have_global_data ? esc_attr($global_options['enable_scro
         </div>
     </div>
 
-    <div class="decimus-info text-muted border-top py-2 text-center">
+    <div class="decimus-info text-muted border-top py-2 text-center bg-light">
         <div class="container">
             <small>&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
         </div>

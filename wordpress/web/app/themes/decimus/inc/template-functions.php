@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function decimus_body_classes( $classes ) {
+function decimus_body_classes( $classes ): array {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -29,7 +29,7 @@ add_filter( 'body_class', 'decimus_body_classes' );
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function decimus_pingback_header() {
+function decimus_pingback_header(): void {
 	if ( is_singular() && pings_open() ) {
 		printf( '<link rel="pingback" href="%s">', esc_url( get_bloginfo( 'pingback_url' ) ) );
 	}

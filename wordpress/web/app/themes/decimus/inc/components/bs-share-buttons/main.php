@@ -38,12 +38,12 @@ function bs_share_buttons($content) {
         $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$bs_url;
         $whatsappURL = 'whatsapp://send?text='.$bs_subject.' '.$bs_title . ' ' . $bs_url;
         $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$bs_url.'&amp;title='.$bs_title;
-        $redditURL = 'http://reddit.com/submit?url='.$bs_url.'&amp;title='.$bs_title;
-        $tumblrURL = 'http://www.tumblr.com/share/link?url='.$bs_url.'&amp;title='.$bs_title;
+        $redditURL = 'https://reddit.com/submit?url='.$bs_url.'&amp;title='.$bs_title;
+        $tumblrURL = 'https://www.tumblr.com/share/link?url='.$bs_url.'&amp;title='.$bs_title;
         $bufferURL = 'https://bufferapp.com/add?url='.$bs_url.'&amp;text='.$bs_title;
-        $mixURL = 'http://www.stumbleupon.com/submit?url='.$bs_url.'&amp;text='.$bs_title;
-        $vkURL = 'http://vkontakte.ru/share.php?url='.$bs_url.'&amp;text='.$bs_title;
-        $mailURL = 'mailto:?Subject='.$bs_subject.' '.$bs_title.'&amp;Body='.$bs_title.' '.$bs_url.'';
+        $mixURL = 'https://www.stumbleupon.com/submit?url='.$bs_url.'&amp;text='.$bs_title;
+        $vkURL = 'https://vkontakte.ru/share.php?url='.$bs_url.'&amp;text='.$bs_title;
+        $mailURL = 'mailto:?Subject='.$bs_subject.' '.$bs_title.'&amp;Body='.$bs_title.' '.$bs_url;
         
        if(!empty($bs_thumb)) {
             $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$bs_url.'&amp;media='.$bs_thumb[0].'&amp;description='.$bs_title;
@@ -79,5 +79,5 @@ function bs_share_buttons($content) {
 };
 
 
-// This will create a wordpress shortcode [share-buttons].
+// This will create a WordPress shortcode [share-buttons].
 add_shortcode('bs-share-buttons','bs_share_buttons');

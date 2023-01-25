@@ -24,7 +24,11 @@ get_header();
 
             <main id="main" class="site-main mt-2">
                 <!-- Breadcrumb -->
-                <?php woocommerce_breadcrumb(); ?>
+                <?php
+                if (function_exists('woocommerce_breadcrumb')) {
+	                woocommerce_breadcrumb();
+                }
+                 ?>
                 <div class="row">
                     <div class="col">
                         <?php decimus_woocommerce_content(); ?>
@@ -45,11 +49,11 @@ $contact_data = rest_get_server()->response_to_data($contact_response, true);
 
 // check if we received the data from the endpoint
 $have_contact_data = isset($contact_data) && isset($contact_data['data']);
-$contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
+$contact_options = $have_contact_data && isset($contact_data['data']['option_value']) ? $contact_data['data']['option_value'] : [];
 
 $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
 $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
-$messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
+$messenger = isset($contact_options['messenger']) ? esc_url($contact_options['messenger']) : '';
 
 ?>
 

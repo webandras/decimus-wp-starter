@@ -64,16 +64,16 @@ function bs_post_page_grid_list_locate_template( $template_name, $template_path 
  *
  * @param string 	$template_name			Template to load.
  * @param array 	$args					Args passed for the template file.
- * @param string 	$string $template_path	Path to templates.
+ * @param string 	$template_path           Path to templates.
  * @param string	$default_path			Default path to template files.
  */
-function bs_post_page_grid_list_get_template( $template_name, $args = array(), $tempate_path = '', $default_path = '' ) {
+function bs_post_page_grid_list_get_template( string $template_name, array $args = array(), string $template_path = '', string $default_path = '' ): void {
 
 	if ( is_array( $args ) && isset( $args ) ) :
 		extract( $args );
 	endif;
 
-	$template_file = bs_post_page_grid_list_locate_template( $template_name, $tempate_path, $default_path );
+	$template_file = bs_post_page_grid_list_locate_template( $template_name, $template_path, $default_path );
 
 	if ( ! file_exists( $template_file ) ) :
 		_doing_it_wrong( __FUNCTION__, sprintf( '<code>%s</code> does not exist.', $template_file ), '1.0.0' );
@@ -94,17 +94,17 @@ function bs_post_page_grid_list_get_template( $template_name, $args = array(), $
  * @since 1.0.0
  */
 
-function bs_post_page_grid() {
+function bs_post_page_grid(): void {
 
-	return bs_post_page_grid_list_get_template( 'grid.php' );
+	bs_post_page_grid_list_get_template( 'grid.php' );
 
 }
 add_action('wp_head', 'bs_post_page_grid');
 
 
-function bs_post_page_list() {
+function bs_post_page_list(): void {
 
-    return bs_post_page_grid_list_get_template( 'list.php' );
+    bs_post_page_grid_list_get_template( 'list.php' );
 
 }
 add_action('wp_head', 'bs_post_page_list');

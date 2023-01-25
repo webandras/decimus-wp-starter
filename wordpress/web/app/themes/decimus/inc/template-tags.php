@@ -194,7 +194,7 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 	}
     add_filter( "term_links-post_tag", 'decimus_add_tag_class');
 
-    function decimus_add_tag_class($links): array|string {
+    function decimus_add_tag_class($links) {
         return str_replace('<a href="', '<a class="badge bg-secondary text-white" href="', $links);
     }
 endif;
@@ -245,7 +245,7 @@ if ( ! function_exists( 'decimus_ie_alert' ) ) :
 	/**
 	 * Displays an alert if page is browsed by Internet Explorer
 	 */
-	function decimus_ie_alert() {
+	function decimus_ie_alert(): void {
             $ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
             if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0') !== false && strpos($ua, 'rv:11.0') !== false)) {
                 echo '
