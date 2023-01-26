@@ -62,8 +62,8 @@ div.wc-block-grid__product-title {
     }
 
     @media (max-width: 692px) {
-        width: 94%;
-        max-width: 94%;
+        width: 92%;
+        max-width: 92%;
     }
 }
 
@@ -82,8 +82,12 @@ div.wc-block-grid__product-title {
 /* TAB PANELS */
 // Overwrite nav tabs at single product page
 .woocommerce-tabs ul.tabs li a {
-    padding: 0 0.75rem !important;
+    padding: 0 1rem !important;
     display: block;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    padding: 0;
 }
 
 .woocommerce-tabs.wc-tabs-wrapper {
@@ -91,6 +95,15 @@ div.wc-block-grid__product-title {
         margin-left: 45.5%;
         max-width: 54.5%;
     }
+
+    @media (max-width: 576px) {
+        overflow-x: scroll;
+    }
+
+    .tabs.wc-tabs {
+        width: fit-content;
+    }
+
 }
 
 

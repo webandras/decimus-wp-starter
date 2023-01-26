@@ -140,7 +140,6 @@
 .btn-tumblr,
 .btn-buffer,
 .btn-mix,
-.btn-vk,
-.btn-print {
+.btn-vk {
 	display: none !important;
 }

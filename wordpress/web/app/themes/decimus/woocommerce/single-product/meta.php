@@ -54,6 +54,10 @@ $show_single_product_meta = isset($woocommerce_options['show_single_product_meta
 
         <?php do_action('woocommerce_product_meta_end'); ?>
 
-        <?php // echo do_shortcode('[addtoany]'); ?>
+        <?php
+        echo '<div class="pt-2 pb-4">';
+        echo '<p class="small-size mb-1"><b>' . __('Share:', 'decimus') . '</b></p>';
+        echo do_shortcode('[bs-share-buttons]');
+        echo '</div>'; ?>
     </div>
 <?php } ?>

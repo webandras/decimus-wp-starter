@@ -431,5 +431,8 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
     return $payment_status;
 }
 
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+add_action('woocommerce_after_single_product', 'woocommerce_output_related_products', 20);
+
 
 
