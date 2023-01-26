@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.0.0
+ * @version 7.0.1
  */
 
 defined('ABSPATH') || exit;
@@ -31,7 +31,7 @@ do_action('woocommerce_before_shipping_calculator'); ?>
                        class="screen-reader-text"><?php esc_html_e('Country / region:', 'woocommerce'); ?></label>
                 <select name="calc_shipping_country" id="calc_shipping_country"
                         class="country_to_state country_select form-select" rel="calc_shipping_state">
-                    <option value=""><?php esc_html_e('Select a country / region&hellip;', 'woocommerce'); ?></option>
+                    <option value="default"><?php esc_html_e('Select a country / region&hellip;', 'woocommerce'); ?></option>
                     <?php
                     foreach (WC()->countries->get_shipping_countries() as $key => $value) {
                         echo '<option value="' . esc_attr($key) . '"' . selected(WC()->customer->get_shipping_country(), esc_attr($key), false) . '>' . esc_html($value) . '</option>';
