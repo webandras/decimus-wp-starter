@@ -38,7 +38,7 @@ Run `bin/wp` to enter the `wordpress` container. Simply run `wp` here.
 The wp-cli is run by the www-data user, not by root (otherwise, it would be a security risk).
 
 After testing some wp commands, it turns out that the user creation (wp user create ...) is not working and produces an
-error.  TODO: need to find cause. Maybe caused by Bedrock.
+error. TODO: need to find cause. Maybe caused by Bedrock.
 
 *Note: There are other useful shell commands in `bin` folder as well.*
 
@@ -122,7 +122,8 @@ You may need to change permissions for wordpress folder. However, for production
 ### Docker notes
 
 For Linux, you may have to use sudo if your Docker is not configured to be used as a non-root user.
-There are useful bash scripts in bin folder (bin/start, bin/down, etc.) which are useful.
+
+There are useful bash scripts in bin folder (bin/start, bin/down, etc.)
 
 ## Change Language
 
@@ -189,5 +190,36 @@ Then run `bin/setup-ssl`.
 `(set -a;source .env;docker-compose -f docker-compose-ssl.yml up --build)`
 
 Continue with step #4 at the **Setup section**.
+
+
+## Mailcatcher for local e-mail testing
+
+
+1. See the `mailcatcher` in the docker-compose files.
+
+2. Change `sendmail_path` in php.ini (php --ini). And reload php.ini by restarting services (`bin/restart`). Should be like this:
+
+`sendmail_path = /usr/local/bin/mhsendmail`
+
+[mhsendmail](https://github.com/mailhog/mhsendmail) - A sendmail replacement which forwards mail to an SMTP server.
+In our case to Mailcatcher's SMTP local server.
+
+3. Install `"wpackagist-plugin/wp-mail-smtp":"3.7.0"` with Composer inside the WordPress service.
+
+4. Configure SMTP:
+
+Setup "from address", and "name". Choose the "Other SMTP" option.
+
+Set these:
+- SMTP Host: **mailcatcher**
+- SMTP Port: **1025**
+
+No need for encryption.
+Auto TLS -> Off.
+Authentication -> None.
+
+5. Send out a test email.
+
+6. Access Mailcatcher UI at localhost:1081
 
     
