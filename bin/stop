@@ -8,4 +8,4 @@ else
   docker-compose -f docker-compose.yml stop "$@"
 fi
 
-systemctl start apache2 mysql
+sudo systemctl start apache2 mysql
