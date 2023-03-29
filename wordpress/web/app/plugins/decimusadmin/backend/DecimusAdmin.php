@@ -171,11 +171,15 @@ final class DecimusAdmin
 
             // execute sql migrations not yet run in case of plugin updates
             try {
-                $migrations_run_already = unserialize(get_option(self::DB_MIGRATIONS_RUN));
-                $migrations_run_already = is_array($migrations_run_already)? $migrations_run_already : [];
 
                 // iterate through all versions, run migrations if needed
                 for ($i = 1000; $i <= self::DB_VERSION; $i++) {
+                    $migrations_run_already = $this->get_migrations_run();
+
+                    if (empty($migrations_run_already)) {
+                        throw new Exception('Something wrong with migrations run array because it is empty.');
+                    }
+
                     // if this version's migration has not yet run
                     if ($i === 1000 && !in_array(1001, $migrations_run_already, true) ) {
                         self::alter_theme_options_table_002();
@@ -301,5 +305,10 @@ final class DecimusAdmin
 
             return $migrations_run_already;
         }
+    }
+
+    private function get_migrations_run(): array {
+        $migrations_run_already = unserialize(get_option(self::DB_MIGRATIONS_RUN));
+        return is_array($migrations_run_already)? $migrations_run_already : [];
     }
 }
