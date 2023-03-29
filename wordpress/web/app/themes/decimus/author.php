@@ -44,8 +44,6 @@ get_header();
                                         <div class="col">
                                             <div class="card-body">
 
-                                                <?php decimus_category_badge(); ?>
-
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
@@ -68,8 +66,15 @@ get_header();
                                                     <?php the_excerpt(); ?> <a class="read-more"
                                                                                href="<?php the_permalink(); ?>"><?php _e('Read more', 'decimus'); ?></a>
                                                 </div>
+
+                                                <hr>
+                                                <div class="d-flex flex-wrap" style="column-gap: 1em;">
+                                                <!-- Categories -->
+                                                <?php decimus_category_badge(); ?>
+
                                                 <!-- Tags -->
                                                 <?php decimus_tags(); ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

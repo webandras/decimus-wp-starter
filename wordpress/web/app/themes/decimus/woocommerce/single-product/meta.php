@@ -56,7 +56,7 @@ if ( is_class_activated() ) {
 
         <?php do_action('woocommerce_product_meta_end'); ?>
 
-        <div class="pt-2 pb-4">;
+        <div class="pt-2 pb-4">
             <p class="small-size mb-1">
                 <b><?php echo __('Share:', 'decimus') ?></b>
             </p>

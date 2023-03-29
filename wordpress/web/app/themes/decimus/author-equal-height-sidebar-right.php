@@ -41,8 +41,6 @@ get_header();
 
                                             <div class="card-body d-flex flex-column">
 
-                                                <?php decimus_category_badge(); ?>
-
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
                                                         <?php the_title(); ?>
@@ -68,6 +66,10 @@ get_header();
                                                     <a class="read-more"
                                                        href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
+
+                                                <hr>
+                                                <!-- Categories -->
+                                                <?php decimus_category_badge(); ?>
 
                                                 <?php decimus_tags(); ?>
 

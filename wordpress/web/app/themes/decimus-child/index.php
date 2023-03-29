@@ -22,7 +22,7 @@ get_header();
 
             <main id="main" class="site-main">
 
-                <div class="front-slider">
+                <div class="front-slider bg-light mb-6">
 
                     <!-- Header -->
                     <div class="decimus-header pt-5 text-center">
@@ -65,21 +65,23 @@ get_header();
                                                     <div class="card-body">
                                                         <div class="row mb-2">
                                                             <div class="col-10">
+                                                                <!-- Category badge -->
                                                                 <?php decimus_category_badge(); ?>
                                                             </div>
                                                             <div class="col-2 text-end">
                                                                 <!-- Featured -->
-                                                                <div class="badge bg-danger"><span class=""><i
-                                                                                class="fas fa-star"></i></i></span>
+                                                                <div class="badge bg-danger"><span class=""><i class="fas fa-star"></i></i></span>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <!-- Title -->
                                                         <h2 class="blog-post-title">
                                                             <a href="<?php the_permalink(); ?>">
                                                                 <?php the_title(); ?>
                                                             </a>
                                                         </h2>
+
                                                         <!-- Meta -->
                                                         <?php if ( 'post' === get_post_type() ) : ?>
                                                             <small class="disabled text-muted mb-3 d-inline-block">
@@ -96,6 +98,8 @@ get_header();
                                                             <?php the_excerpt(); ?> <a class="read-more"
                                                                                        href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                         </div>
+
+                                                        <hr>
                                                         <!-- Tags -->
                                                         <?php decimus_tags(); ?>
                                                     </div>
@@ -128,15 +132,16 @@ get_header();
                                         ?>
                                         <div class="col">
                                             <div class="card-body">
-                                                <div class="mb-2">
-                                                    <?php decimus_category_badge(); ?>
-                                                </div>
+                                                <!-- Category badge -->
+                                                <?php decimus_category_badge(); ?>
+
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
                                                         <?php the_title(); ?>
                                                     </a>
                                                 </h2>
+
                                                 <!-- Meta -->
                                                 <?php if ( 'post' === get_post_type() ) : ?>
                                                     <small class="disabled text-muted mb-3 d-inline-block">
@@ -153,6 +158,8 @@ get_header();
                                                     <?php the_excerpt(); ?> <a class="read-more"
                                                                                href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
+
+                                                <hr>
                                                 <!-- Tags -->
                                                 <?php decimus_tags(); ?>
                                             </div>

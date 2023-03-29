@@ -35,13 +35,13 @@ get_header();
 
                                             <div class="card-body d-flex flex-column">
 
-                                                <?php decimus_category_badge(); ?>
-
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
                                                         <?php the_title(); ?>
                                                     </a>
                                                 </h2>
+
+                                                <?php decimus_category_badge(); ?>
 
                                                 <?php if ( 'post' === get_post_type() ) : ?>
                                                     <small class="text-muted mb-2">
@@ -63,6 +63,7 @@ get_header();
                                                        href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
 
+                                                <hr>
                                                 <?php decimus_tags(); ?>
 
                                             </div>

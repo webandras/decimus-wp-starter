@@ -65,6 +65,8 @@ get_header();
                                                     <?php the_excerpt(); ?> <a class="read-more"
                                                                                href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
+
+                                                <hr>
                                                 <!-- Tags -->
                                                 <?php decimus_tags(); ?>
                                             </div>

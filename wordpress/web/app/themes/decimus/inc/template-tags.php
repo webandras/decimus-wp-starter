@@ -14,11 +14,12 @@ if ( ! function_exists( 'decimus_category_badge' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
             echo '<div class="category-badge mb-2">';
+            echo '<span class="text-muted small-size">' . __('Category: ', 'decimus') . '</span>';
             $thelist = '';
 			$i = 0;
             foreach( get_the_category() as $category ) {
 		      if ( 0 < $i ) $thelist .= ' ';
-						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-primary text-white">' . $category->name.'</a>';
+						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge border text-body">' . $category->name.'</a>';
 						    $i++;
             }
             echo $thelist;	
@@ -188,14 +189,14 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links text-muted medium-size mt-3">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( '<div class="tags-links text-muted small-size">' . esc_html__( 'Tagged %1$s', 'decimus' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 	}
     add_filter( "term_links-post_tag", 'decimus_add_tag_class');
 
     function decimus_add_tag_class($links) {
-        return str_replace('<a href="', '<a class="badge bg-secondary text-white" href="', $links);
+        return str_replace('<a href="', '<a class="badge border text-body" href="', $links);
     }
 endif;
 // Tags End

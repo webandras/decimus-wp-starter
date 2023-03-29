@@ -63,6 +63,8 @@ get_header();
                                             <a class="read-more"
                                                href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                         </div>
+
+                                        <hr>
                                         <?php decimus_tags(); ?>
 
                                     </div><!-- card-body -->
