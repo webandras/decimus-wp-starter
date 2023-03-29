@@ -235,6 +235,7 @@ ul.children {
     .post-thumbnail {
         img {
             height: 340px;
+            width: auto;
             object-fit: contain;
         }
     }
