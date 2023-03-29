@@ -50,6 +50,7 @@ trait S002
         // In case of an error
         if ( !$succeed || $wpdb->last_error !== '' ) {
             print_r($wpdb->last_error);
+            die;
         }
     }
 }
