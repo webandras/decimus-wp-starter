@@ -38,6 +38,11 @@ export default {
     --snow: #e2e0e0
 }
 
+.toplevel_page_decimus-admin #wpwrap {
+  height: 0;
+  min-height: 0;
+}
+
 /* General styles */
 .mb-20 {
     margin-bottom: 20px;
@@ -113,23 +118,24 @@ export default {
     margin-top: -18.2px;
     display: grid;
     grid-template-columns: 270px 1fr;
+    grid-template-rows: 1fr;
     grid-template-areas: "sidebar main-content";
     column-gap: 50px;
+    height: 100vh;
 }
 
 /* Main sections */
 #vue-admin-app .sidebar {
     width: 212px;
-    position: fixed;
-    padding-left: 58px;
+    padding-left: 24px;
     grid-area: sidebar;
     background-color: var(--lightgray);
-    height: calc(100vh);
+    height: fit-content;
 }
 
 #vue-admin-app .main-content {
     grid-area: main-content;
-    padding-bottom: 91px;
+    padding-bottom: 60px;
 }
 
 #vue-admin-app .main-content-heading {
@@ -144,7 +150,7 @@ export default {
 }
 
 #vue-admin-app .sidebar .sidebar-heading {
-    margin-top: 81px;
+    margin-top: 53px;
     margin-bottom: 32px;
     font-family: var(--fonts);
     font-style: normal;
