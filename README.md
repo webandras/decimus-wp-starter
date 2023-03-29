@@ -223,3 +223,60 @@ Authentication -> None.
 6. Access Mailcatcher UI at localhost:1081
 
     
+## Resolve WordPress loopback error
+
+It is breaking the scheduled events, and can cause WP REST API errors as well.
+
+A loopback request is simply a request that WordPress is trying to make to itself.
+Loopback requests are used to run scheduled events (`wp-cron.php`).
+Loopback requests need to function correctly in order to ensure your website remains stable
+
+
+### 1. PHP-FPM pm.max_children should be at least 2.
+
+Open the PHP-FPM's www.conf file (`/usr/local/etc/php-fpm.d/www.conf` in our case) and check pm.max_children is set it at least to 2.
+
+It should be correctly set by default though, but make sure it is okay.
+
+"You must have at least two PHP-FPM processes running for Nginx, otherwise the loopback request ends up in a deadlock;
+the site health request waits on the result of the loopback request, but Nginx cannot process the loopback request
+until the site health request (that made the loopback request) terminates as there is only 1 PHP-FPM process running."
+https://siliconshards.net/how-to-fix-loopback-request-failures-on-wordpress-for-nginx-with-php-fpm/
+
+
+### 2. Point the IP of the Nginx container to the WordPress site URL
+
+The bug is patched in v1.0.1.
+
+Point the IP of the Nginx container to the WordPress site URL to make the loopback work!
+
+All the networks are bridge networks by default (if not specified), and I use the default,
+bridge network's IP address, because it is fixed: `172.17.0.1`. So there is no need to 
+modify the IP address everytime when restarting the docker network.
+
+
+WordPress tries to loopback to itself via a domain name (`localhost:8080` in our case), and 
+the request should make it back to the Nginx Docker container. Otherwise, it will fail miserably.
+
+Example:
+
+```plain
+wordpress
+    extra_hosts:
+      - localhost:172.17.0.1
+      - host.docker.internal:host-gateway
+```
+
+#### 2.1. Get the bridge network's IP address
+
+List the (running) Docker networks:
+
+```bash
+docker network ls
+```
+
+Get the details of your network including the IP address:
+
+```bash
+docker network inspect -v bridge
+```

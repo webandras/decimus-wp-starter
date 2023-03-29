@@ -19,7 +19,7 @@ services:
       - mysql
 
   mysql:
-    image: mariadb:10.2
+    image: mariadb:10.6
     container_name: ${APP_NAME}-mysql
     volumes: # data to map to the container
       - wordpress_data:/var/lib/mysql
