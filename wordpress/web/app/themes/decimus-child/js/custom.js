@@ -85,23 +85,30 @@ jQuery(document).ready(function ($) {
     });
 
     try {
-        // popup to show subsidy certificate enlarged
-        var showEnlargedSubsidyCertificateModal = new bootstrap.Modal(
-            document.getElementById("subsidy-modal"),
-            {keyboard: false}
-        );
-        $("#subsidy-certificate").on("click", function () {
-            showEnlargedSubsidyCertificateModal.show();
-        });
+        var subsidyModalElem = document.getElementById("subsidy-modal");
+        if (subsidyModalElem) {
+            // popup to show subsidy certificate enlarged
+            var showEnlargedSubsidyCertificateModal = new bootstrap.Modal(
+                subsidyModalElem,
+                {keyboard: false}
+            );
+            $("#subsidy-certificate").on("click", function () {
+                showEnlargedSubsidyCertificateModal.show();
+            });
+        }
 
-        // popup to show the newest Facebook events
-        var showFbEventsModal = new bootstrap.Modal(
-            document.getElementById("events-modal"),
-            {keyboard: false}
-        );
-        $("#show-fb-events-btn").on("click", function () {
-            showFbEventsModal.show();
-        });
+        var fbEventsModalElem = document.getElementById("events-modal");
+        if (fbEventsModalElem) {
+            // popup to show the newest Facebook events
+            var showFbEventsModal = new bootstrap.Modal(
+                fbEventsModalElem,
+                {keyboard: false}
+            );
+            $("#show-fb-events-btn").on("click", function () {
+                showFbEventsModal.show();
+            });
+        }
+
     } catch (error) {
     }
 

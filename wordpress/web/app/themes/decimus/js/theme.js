@@ -137,7 +137,7 @@ jQuery(document).ready(function ($) {
   var modalElem = document.getElementById("registerToEvent");
   if (modalElem) {
     var registrationModal = new bootstrap.Modal(
-        document.getElementById("registerToEvent"),
+        modalElem,
         {keyboard: false}
     );
 
