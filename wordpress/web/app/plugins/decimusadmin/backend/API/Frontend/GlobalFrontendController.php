@@ -13,7 +13,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-class GlobalFrontendController extends ParentController
+final class GlobalFrontendController extends ParentController
 {
 
     public function __construct(

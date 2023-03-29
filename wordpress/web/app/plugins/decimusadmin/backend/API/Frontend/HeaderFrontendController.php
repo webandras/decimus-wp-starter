@@ -13,7 +13,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-class HeaderFrontendController extends ParentController
+final class HeaderFrontendController extends ParentController
 {
 
     public function __construct(

@@ -13,7 +13,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-class WooCommerceFrontendController extends ParentController
+final class WooCommerceFrontendController extends ParentController
 {
 
     public function __construct(

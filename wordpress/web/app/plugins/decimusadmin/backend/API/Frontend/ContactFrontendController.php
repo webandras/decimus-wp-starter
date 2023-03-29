@@ -13,7 +13,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-class ContactFrontendController extends ParentController
+final class ContactFrontendController extends ParentController
 {
 
     public function __construct(
