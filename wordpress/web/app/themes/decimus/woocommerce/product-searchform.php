@@ -11,29 +11,24 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce\Templates
- * @version 3.3.0
+ * @version 7.0.1
  */
 
-if ( !defined('ABSPATH') ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 ?>
 <form role="search" method="get" class="searchform woocommerce-product-search"
-      action="<?php echo esc_url(home_url('/')); ?>">
+      action="<?php echo esc_url( home_url( '/' ) ); ?>">
     <div class="input-group">
-        <input class="form-control" type="search"
-               id="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>"
+        <input type="search" id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"
                class="search-field field form-control"
-               placeholder="<?php echo esc_attr__('Search products...', 'woocommerce'); ?>"
+               placeholder="<?php echo esc_attr__( 'Search products...', 'woocommerce' ); ?>"
                value="<?php echo get_search_query(); ?>" name="s"/>
-        <label class="sr-only"
-               for="woocommerce-product-search-field-<?php echo isset($index) ? absint($index) : 0; ?>"><?php esc_html_e('Search for:', 'woocommerce'); ?></label>
-        <input type="hidden" name="post_type" value="product"/>
-
-        <button class="input-group-text btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
-
+        <label class="screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
+        <button type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'woocommerce' ); ?>" class="input-group-text btn btn-secondary"><i class="fas fa-search"></i></button>
+        <input type="hidden" name="post_type" value="product" />
     </div>
 </form>

@@ -398,3 +398,13 @@ add_filter('gutenberg_use_widgets_block_editor', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
 
+/**
+ * Check if class is activated
+ */
+if ( ! function_exists( 'is_class_activated' ) ) {
+    function is_class_activated(string $class_name = 'Guland\DecimusAdmin\DecimusAdmin'): bool {
+        return class_exists( $class_name ?? '' );
+    }
+}
+
+

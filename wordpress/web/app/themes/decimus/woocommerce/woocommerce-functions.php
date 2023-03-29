@@ -434,5 +434,13 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 add_action('woocommerce_after_single_product', 'woocommerce_output_related_products', 20);
 
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+    function is_woocommerce_activated(): bool {
+        return class_exists( 'woocommerce' );
+    }
+}
 
 

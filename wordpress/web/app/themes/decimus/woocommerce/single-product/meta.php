@@ -23,20 +23,22 @@ global $product;
 ?>
 
 <?php
-$woocommerce_request = new WP_REST_Request('GET', '/decimus/v1/frontend/woocommerce');
-$woocommerce_response = rest_do_request($woocommerce_request);
-$woocommerce_data = rest_get_server()->response_to_data($woocommerce_response, true);
 
-// check if we received the data from the endpoint
-$have_woocommerce_data = isset($woocommerce_data) && isset($woocommerce_data['data']);
-$woocommerce_options = $have_woocommerce_data ? $woocommerce_data['data']['option_value'] : [];
+if ( is_class_activated() ) {
+    $woocommerce_request = new WP_REST_Request('GET', '/decimus/v1/frontend/woocommerce');
+    $woocommerce_response = rest_do_request($woocommerce_request);
+    $woocommerce_data = rest_get_server()->response_to_data($woocommerce_response, true);
 
-$show_single_product_meta = isset($woocommerce_options['show_single_product_meta']) ? intval($woocommerce_options['show_single_product_meta']) : null;
+    // check if we received the data from the endpoint
+    $have_woocommerce_data = isset($woocommerce_data) && isset($woocommerce_data['data']);
+    $woocommerce_options = $have_woocommerce_data ? $woocommerce_data['data']['option_value'] : [];
 
+    $show_single_product_meta = isset($woocommerce_options['show_single_product_meta']) ? intval($woocommerce_options['show_single_product_meta']) : null;
+}
 
 ?>
 
-<?php if ( $show_single_product_meta === 1 ) { ?>
+<?php if ( isset($show_single_product_meta) && $show_single_product_meta === 1 ) { ?>
     <div class="product_meta">
 
         <?php do_action('woocommerce_product_meta_start'); ?>
@@ -54,10 +56,11 @@ $show_single_product_meta = isset($woocommerce_options['show_single_product_meta
 
         <?php do_action('woocommerce_product_meta_end'); ?>
 
-        <?php
-        echo '<div class="pt-2 pb-4">';
-        echo '<p class="small-size mb-1"><b>' . __('Share:', 'decimus') . '</b></p>';
-        echo do_shortcode('[bs-share-buttons]');
-        echo '</div>'; ?>
+        <div class="pt-2 pb-4">;
+            <p class="small-size mb-1">
+                <b><?php echo __('Share:', 'decimus') ?></b>
+            </p>
+            <?php echo do_shortcode('[bs-share-buttons]'); ?>
+        </div>
     </div>
 <?php } ?>

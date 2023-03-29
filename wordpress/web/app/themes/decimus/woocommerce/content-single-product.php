@@ -74,18 +74,19 @@ if ( post_password_required() ) {
     ?>
 
     <?php
-    $contact_request = new WP_REST_Request('GET', '/decimus/v1/frontend/contact');
-    $contact_response = rest_do_request($contact_request);
-    $contact_data = rest_get_server()->response_to_data($contact_response, true);
+    if ( is_class_activated() ) {
+        $contact_request = new WP_REST_Request('GET', '/decimus/v1/frontend/contact');
+        $contact_response = rest_do_request($contact_request);
+        $contact_data = rest_get_server()->response_to_data($contact_response, true);
 
-    // check if we received the data from the endpoint
-    $have_contact_data = isset($contact_data) && isset($contact_data['data']);
-    $contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
+        // check if we received the data from the endpoint
+        $have_contact_data = isset($contact_data) && isset($contact_data['data']);
+        $contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
 
-    $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
-    $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
-    $messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
-
+        $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
+        $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
+        $messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
+    }
     ?>
 
     <div class="modal fade" tabindex="-1" id="registerToEvent" aria-labelledby="registerToEventLabel"
@@ -105,13 +106,13 @@ if ( post_password_required() ) {
 
                             <ul class="no-bullets mt-0">
                                 <li>
-                                    <a href="tel:<?php echo $phone ?>"><?php echo $phone ?></a>
+                                    <a href="tel:<?php echo $phone ?? '' ?>"><?php echo $phone ?></a>
                                 </li>
                                 <li>
-                                    <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a>
+                                    <a href="mailto:<?php echo $email ?? '' ?>"><?php echo $email ?></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo $messenger ?>">Messenger</a>
+                                    <a href="<?php echo $messenger ?? '' ?>">Messenger</a>
                                 </li>
                             </ul>
 
