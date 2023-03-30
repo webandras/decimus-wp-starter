@@ -113,7 +113,7 @@ if ( current_user_can('manage_options') ) {
         </table>
     </div>
     <?php
-    if ( current_user_can('manage_options') ) {
+/*    if ( current_user_can('manage_options') ) {
         $saver = new DataSaver();
 
         if (!get_option(self::EXPORT_FILENAME)) {
@@ -125,7 +125,7 @@ if ( current_user_can('manage_options') ) {
 
         $saver->save_to_json($filename, $json_data);
         $saver->save_to_csv($filename, $form_data);
-    }
+    }*/
     ?>
 </div>
 
