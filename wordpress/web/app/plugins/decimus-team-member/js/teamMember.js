@@ -20,7 +20,7 @@ jQuery(document).ready(function ($) {
 
         // noinspection JSUnresolvedVariable
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: DecimusTeamMemberData.ajaxurl,
             data: data,
         })
