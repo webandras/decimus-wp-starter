@@ -6,6 +6,7 @@ jQuery(document).ready(function ($) {
         .attr("data-bs-toggle", "offcanvas")
         .attr("data-bs-target", "#offcanvas-cart");
 
+
     // Add loading class to offcanvas-cart
     $("body").bind("adding_to_cart", function () {
         $("#offcanvas-cart").addClass("loading");
@@ -16,17 +17,20 @@ jQuery(document).ready(function ($) {
     });
     // Add loading class to offcanvas-cart End
 
+
     // Keep offcanvas-user open on reload if contains login or register error alert
     if ($("#offcanvas-user .alert").length > 0) {
         $("#offcanvas-user").offcanvas("show");
     }
     // Keep offcanvas-user open on reload if contains login or register error alert End
 
+
     // Review Checkbox Products
     $(".comment-form-cookies-consent").addClass("form-check");
     $("#wp-comment-cookies-consent").addClass("form-check-input");
     $(".comment-form-cookies-consent label").addClass("form-check-label");
     // Review Checkbox End
+
 
     // Custom Checkout checkbox validation
     // .form-row was used for validation, .form-row is removed in Bootstrap 5, use .custom-validation instead
@@ -56,16 +60,15 @@ jQuery(document).ready(function ($) {
         },
 
         validate_field: function (e) {
-            var $this = $(this),
-                $parent = $this.closest(".custom-validation"),
-                validated = true,
-                validate_required = $parent.is(".validate-required"),
-                event_type = e.type;
+            var $this = $(this);
+            var $parent = $this.closest(".custom-validation");
+            var validate_required = $parent.is(".validate-required");
+            var event_type = e.type;
 
             if ("input" === event_type) {
                 $parent.removeClass(
                     "woocommerce-invalid woocommerce-invalid-required-field woocommerce-validated"
-                ); // eslint-disable-line max-len
+                );
             }
 
             if ("validate" === event_type || "change" === event_type) {
@@ -76,14 +79,12 @@ jQuery(document).ready(function ($) {
                             .addClass(
                                 "woocommerce-invalid woocommerce-invalid-required-field"
                             );
-                        validated = false;
                     } else if ($this.val() === "") {
                         $parent
                             .removeClass("woocommerce-validated")
                             .addClass(
                                 "woocommerce-invalid woocommerce-invalid-required-field"
                             );
-                        validated = false;
                     }
                 }
             }
@@ -93,5 +94,8 @@ jQuery(document).ready(function ($) {
     wc_checkout_form.init();
     // Custom Checkout checkbox validation End
 
+
     $("#privacy_policy_field").css("display", "none !important");
+
+
 }); // jQuery End
