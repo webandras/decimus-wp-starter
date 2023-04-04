@@ -92,20 +92,20 @@
                         </div>
 
                         <!-- Search Toggler -->
-                        <button class="btn btn-outline-secondary ms-1 ms-md-2 top-nav-search-md" type="button"
+                        <button class="btn btn-outline-light ms-1 ms-md-2 top-nav-search-md" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false"
                                 aria-controls="collapse-search">
                             <i class="fas fa-search"></i>
                         </button>
 
                         <!-- User Toggler -->
-                        <button class="btn btn-outline-secondary ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas"
+                        <button class="btn btn-outline-light ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
                             <i class="fas fa-user"></i>
                         </button>
 
                         <!-- Mini Cart Toggler -->
-                        <button class="btn btn-outline-secondary ms-1 ms-md-2 position-relative" type="button"
+                        <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
                                 aria-controls="offcanvas-cart">
                             <i class="fas fa-shopping-bag"></i>
@@ -122,7 +122,7 @@
                         </button>
 
                         <!-- Navbar Toggler -->
-                        <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button"
+                        <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
                                 aria-controls="offcanvas-navbar">
                             <i class="fas fa-bars"></i>

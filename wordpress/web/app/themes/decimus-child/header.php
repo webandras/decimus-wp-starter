@@ -73,6 +73,9 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
 <div id="to-top"></div>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v16.0&appId=3480055112023634&autoLogAppEvents=1" nonce="v2t1n8Km"></script>
+
 <div id="page" class="site">
 
     <header id="masthead" class="site-header">
@@ -99,7 +102,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             <a href="<?php echo $messenger ?>"><i class="fab fa-facebook-messenger"></i></a>
 
                             <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                                <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+                                <?php if (is_active_sidebar('top-nav-search')) : ?>
                                     <div>
                                         <?php //dynamic_sidebar('top-nav-search'); ?>
                                     </div>
@@ -132,7 +135,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                     <!-- Offcanvas Navbar -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
                         <div class="offcanvas-header bg-primary text-white">
-                            <h5 class="mb-0"><?php esc_html_e('Menü', 'decimus'); ?></h5>
+                            <h5 class="mb-0 text-white lh-1"><?php esc_html_e('Menu', 'decimus'); ?></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                     aria-label="Close"></button>
                         </div>
@@ -152,24 +155,29 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                             <hr class="">
 
-                            <nav class="nav d-flex flex-column mb-3 text-center d-lg-none lh-lg">
-                                <a class="base-size" href="tel:<?php echo $phone ?>" rel="noreferrer noopener"
+                            <nav class="mobile-menu-contact-info nav d-flex flex-column mb-3 d-lg-none lh-lg">
+                                <a class="base-size text-left" href="tel:<?php echo $phone ?>" rel="noreferrer noopener"
                                    target="_blank"
-                                   title="Hívj fel!"><?php echo $phone ?></a>
-                                <a class="base-size" href="mailto:<?php echo $email ?>"
-                                   title="Üzenj nekünk!"><?php echo $email ?></a>
+                                   title="Hívj fel!">
+                                    <i class="fas fa-phone-alt me-1"></i>
+                                    <?php echo $phone ?></a>
+                                <a class="base-size text-left" href="mailto:<?php echo $email ?>"
+                                   title="Üzenj nekünk!">
+                                    <i class="fas fa-envelope me-1"></i>
+                                    <?php echo $email ?></a>
                             </nav>
 
-                            <div class="d-block d-lg-none">
-                                <div class="fb-page" data-href="https://www.facebook.com/example/" data-tabs=""
-                                     data-width="240" data-height="" data-small-header="false"
+                            <div class="d-block d-lg-none text-start">
+                                <div class="fb-page" data-href="https://www.facebook.com/saidadancekizomba" data-tabs=""
+                                     data-width="" data-height="" data-small-header="true"
                                      data-adapt-container-width="true" data-hide-cover="false"
                                      data-show-facepile="true">
-                                    <blockquote cite="<?php echo $facebook ?>"
+                                    <blockquote cite="https://www.facebook.com/saidadancekizomba"
                                                 class="fb-xfbml-parse-ignore"><a
-                                                href="<?php echo $facebook ?>">Example</a>
-                                    </blockquote>
+                                                href="https://www.facebook.com/saidadancekizomba">Saida Dance
+                                            Kizomba</a></blockquote>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -178,7 +186,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
                         <!-- Top Nav Widget -->
                         <div class="top-nav-widget">
-                            <?php if ( is_active_sidebar('top-nav') ) : ?>
+                            <?php if (is_active_sidebar('top-nav')) : ?>
                                 <div>
                                     <?php dynamic_sidebar('top-nav'); ?>
                                 </div>
@@ -187,41 +195,42 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
                         <!-- Searchform Large -->
                         <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                            <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+                            <?php if (is_active_sidebar('top-nav-search')) : ?>
                                 <div>
                                     <?php //dynamic_sidebar('top-nav-search'); ?>
                                 </div>
                             <?php endif; ?>
                         </div>
 
-                        <?php if ( $search === true ) { ?>
+                        <?php if ($search === true) { ?>
                             <!-- Search Toggler -->
-                            <button class="btn btn-outline-secondary ms-1 ms-md-2 " type="button"
+                            <button class="btn btn-outline-light ms-1 ms-md-2 " type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false"
                                     aria-controls="collapse-search">
                                 <i class="fas fa-search"></i>
                             </button>
                         <?php } ?>
-                        <?php if ( $account ) { ?>
+                        <?php if ($account) { ?>
                             <!-- User Toggler -->
-                            <button class="btn btn-outline-secondary ms-1 ms-md-2" type="button"
+                            <button class="btn btn-outline-light ms-1 ms-md-2" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user"
                                     aria-controls="offcanvas-user">
                                 <i class="fas fa-user"></i>
 
                             </button>
                         <?php } ?>
-                        <?php if ( $cart ) { ?>
+                        <?php if ($cart) { ?>
                             <!-- Mini Cart Toggler -->
-                            <button class="btn btn-outline-secondary ms-1 ms-md-2 position-relative" type="button"
+                            <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
                                     aria-controls="offcanvas-cart">
                                 <i class="fas fa-shopping-cart"></i>
-                                <?php if ( in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) ) {
+                                <?php if (in_array('woocommerce/woocommerce.php',
+                                    apply_filters('active_plugins', get_option('active_plugins')))) {
                                     $count = WC()->cart->cart_contents_count;
                                     ?>
                                     <span class="cart-content">
-                                            <?php if ( $count > 0 ) { ?>
+                                            <?php if ($count > 0) { ?>
                                                 <?php echo esc_html($count); ?>
                                                 <?php
                                             }
@@ -231,7 +240,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                         <?php } ?>
 
                         <!-- Navbar Toggler -->
-                        <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button"
+                        <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
                                 aria-controls="offcanvas-navbar">
                             <i class="fas fa-bars"></i>
@@ -246,7 +255,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
             <!-- Top Nav Search Collapse -->
             <div class="collapse container" id="collapse-search">
-                <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+                <?php if (is_active_sidebar('top-nav-search')) : ?>
                     <div class="mb-2 search-container">
                         <?php dynamic_sidebar('top-nav-search'); ?>
                     </div>
@@ -264,7 +273,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
-                    <?php include get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php'; ?>
+                    <?php include get_template_directory().'/woocommerce/myaccount/my-account-offcanvas.php'; ?>
                 </div>
             </div>
         </div>
@@ -284,8 +293,8 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                 </div>
                 <div class="cart-list">
                     <?php if (function_exists('woocommerce_mini_cart')) { ?>
-                    <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
-                    <?php  } ?>
+                        <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
