@@ -1,6 +1,6 @@
 <?php
 
-add_action('woocommerce_after_single_product_summary', 'decimus_child_add_share_to_products', 30);
+//add_action('woocommerce_after_single_product_summary', 'decimus_child_add_share_to_products', 30);
 function decimus_child_add_share_to_products(): void
 {
     echo '<div class="ps-2">';

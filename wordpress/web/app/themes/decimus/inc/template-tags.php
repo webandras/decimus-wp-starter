@@ -13,13 +13,12 @@ if ( ! function_exists( 'decimus_category_badge' ) ) :
 	function decimus_category_badge() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-            echo '<div class="category-badge mb-2">';
-            echo '<span class="text-muted small-size">' . __('Category: ', 'decimus') . '</span>';
+            echo '<div class="category-badge mb-1">';
             $thelist = '';
 			$i = 0;
             foreach( get_the_category() as $category ) {
 		      if ( 0 < $i ) $thelist .= ' ';
-						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge border text-body">' . $category->name.'</a>';
+						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-light text-dark">' . $category->name.'</a>';
 						    $i++;
             }
             echo $thelist;	

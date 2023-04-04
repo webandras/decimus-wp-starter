@@ -26,7 +26,7 @@ if ( post_password_required() ) {
     // You can start editing here -- including this comment!
     if ( have_comments() ) : ?>
 
-        <h2 class="comments-title h6">
+        <h2 class="comments-title h6 mb-0">
             <?php
             $comments_number = get_comments_number();
             if ( '1' === $comments_number ) {

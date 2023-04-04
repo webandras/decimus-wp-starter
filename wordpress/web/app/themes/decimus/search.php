@@ -26,7 +26,7 @@ get_header();
                                 <h1>
                                     <?php
                                     /* translators: %s: search query. */
-                                    printf(esc_html__('Search Results for: %s', 'decimus'), '<span class="text-secondary">' . get_search_query() . '</span>');
+                                    printf(esc_html__('Search Results for: %s', 'decimus'), '<span class="text-muted">"' . get_search_query() . '"</span>');
                                     ?>
                                 </h1>
                             </header>

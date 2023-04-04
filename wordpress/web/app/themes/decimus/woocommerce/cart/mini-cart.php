@@ -106,6 +106,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     <div class="cart-footer text-center position-absolute bottom-0 p-3 w-100">
 
         <p class="woocommerce-mini-cart__total total">
+
             <?php
             /**
              * Hook: woocommerce_widget_shopping_cart_total.
@@ -114,6 +115,7 @@ do_action('woocommerce_before_mini_cart'); ?>
              */
             do_action('woocommerce_widget_shopping_cart_total');
             ?>
+
         </p>
 
         <p class="small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'decimus'); ?></p>

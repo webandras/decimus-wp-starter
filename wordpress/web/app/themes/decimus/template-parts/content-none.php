@@ -12,7 +12,7 @@
 
     <header class="page-header mb-4">
         <h1 class="page-title"><?php esc_html_e('Nothing Found for', 'decimus'); ?> <span
-                    class="text-secondary"><?php echo $s ?></span></h1>
+                    class="text-muted"><?php echo $s ?></span></h1>
     </header>
 
     <!-- .page-header -->

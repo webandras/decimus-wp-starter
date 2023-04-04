@@ -179,6 +179,8 @@ do_action( 'woocommerce_before_cart' ); ?>
         </div>
 
         <div class="col-lg-6">
+
+
             <?php
             /**
              * Cart collaterals hook.
@@ -188,6 +190,8 @@ do_action( 'woocommerce_before_cart' ); ?>
              */
             do_action( 'woocommerce_cart_collaterals' );
             ?>
+
+
         </div>
 
     </div>

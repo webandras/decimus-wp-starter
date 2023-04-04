@@ -99,9 +99,6 @@ get_header();
                                                                                        href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                         </div>
 
-                                                        <hr>
-                                                        <!-- Tags -->
-                                                        <?php decimus_tags(); ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,8 +130,9 @@ get_header();
                                         <div class="col">
                                             <div class="card-body">
                                                 <!-- Category badge -->
+                                                <div class="post-badge">
                                                 <?php decimus_category_badge(); ?>
-
+                                                </div>
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
@@ -159,9 +157,6 @@ get_header();
                                                                                href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
 
-                                                <hr>
-                                                <!-- Tags -->
-                                                <?php decimus_tags(); ?>
                                             </div>
                                         </div>
                                     </div>
