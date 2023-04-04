@@ -1,32 +1,39 @@
-.content-area {
-    .woocommerce-MyAccount-navigation {
-        font-size: $medium-size;
-
-        .list-group {
-            .list-group-item.list-group-item-action {
-                padding: 0.5rem 1rem;
-            }
-        }
-    }
-}
-
 .woocommerce-account {
     h1 {
         font-size: 1.75rem;
     }
-}
 
-.woocommerce-MyAccount-content {
-    .alert {
-        font-size: $medium-size;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        width: fit-content;
-    }
-}
+    .content-area {
+        .woocommerce-MyAccount-navigation {
+            font-size: $medium-size;
 
-.woocommerce-form-row.woocommerce-form-row--wide.form-row {
-    em {
-        font-size: $small-size;
+            .list-group {
+                .list-group-item.list-group-item-action {
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
     }
+
+    .woocommerce-MyAccount-content {
+        .alert {
+            font-size: $medium-size;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        form {
+            a.woocommerce-button.btn.btn-sm {
+                font-size: 0.75em !important;
+            }
+        }
+    }
+
+    .woocommerce-form-row.woocommerce-form-row--wide.form-row {
+        em {
+            font-size: $small-size;
+        }
+    }
+
 }

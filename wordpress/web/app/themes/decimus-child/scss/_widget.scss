@@ -1,0 +1,37 @@
+/* Custom form over */
+.widget {
+    margin-bottom: 0;
+
+    .wp-block-group__inner-container {
+        h2 {
+            font-size: $base-size;
+        }
+
+        a {
+            font-size: $medium-size;
+        }
+
+        ol.wp-block-latest-comments {
+            padding-left: 0;
+        }
+
+        article {
+            .wp-block-latest-comments__comment-meta {
+                font-size: $small-size;
+            }
+        }
+    }
+
+    &.widget_block,
+    .widget-area {
+        section.widget {
+            margin-bottom: .5rem !important;
+        }
+    }
+
+
+    &.widget_block.widget_search {
+        padding-top: 0;
+    }
+}
+

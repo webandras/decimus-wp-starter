@@ -22,8 +22,9 @@
 }
 
 .form-row.woocommerce-invalid input.input-text {
-    box-shadow: inset 2px 0 0 purple !important;
+    box-shadow: inset 2px 0 0 $error !important;
 }
+
 
 /* WooCommerce my account */
 li.is-active > a {
@@ -101,7 +102,8 @@ p.stars a:hover:after,
 p.stars a:after,
 .star-rating span:before,
 #payment .payment_methods li input[type="radio"]:first-child:checked + label:before {
-    color: #96588a;
+    //color: #96588a;
+    color: goldenrod;
 }
 
 .woocommerce-checkout #payment div.payment_box::before {
@@ -148,7 +150,7 @@ i.sui.sui-user {
 .cart-empty.alert,
 .woocommerce-message.alert {
     width: fit-content;
-    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
     background-image: unset;
 
     /* &.alert-danger {
@@ -265,12 +267,4 @@ span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
     }
 }
 
-.modal-header {
-    .btn-close {
-        color: #000;
 
-        &:hover {
-            color: #000;
-        }
-    }
-}

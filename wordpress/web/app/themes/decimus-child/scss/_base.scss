@@ -1,3 +1,19 @@
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+::-moz-selection {
+}
+
+::selection {
+}
+
+html {
+    box-sizing: border-box;
+}
+
 body,
 html {
     font-size: $base-size;
@@ -11,7 +27,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body,
 p,
 blockquote,
 figure,
@@ -87,24 +102,49 @@ ul {
     font-size: 1rem;
 }
 
+
 input {
     height: 40px;
 }
 
+input[type="radio"] {
+    margin-top: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-top: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+input,
+select,
+optgroup,
+textarea {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+fieldset {
+    padding: 0 !important;
+}
+
+
 blockquote {
     font-style: italic;
-    padding: 0;
+    padding: 0 0 0 0.5em;
+    margin: 2.5em 0 !important;
+    border-left: 4px solid #ccc;
+
+    p {
+        font-size: 120%;
+    }
 }
 
-*,
-*::after,
-*::before {
-    box-sizing: inherit;
-}
-
-html {
-    box-sizing: border-box;
-}
 
 /* Clearfix hack to clear the floats */
 .clearfix:before,
@@ -124,13 +164,15 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
+    border: none;
+
+    th,
+    td {
+        border: none;
+        padding: 0.25rem 0.5rem;
+    }
 }
 
-table,
-th,
-td {
-    border: none;
-}
 
 figcaption {
     margin-bottom: 1.5rem;
@@ -166,60 +208,47 @@ iframe {
     margin-bottom: 0;
 }
 
-th,
-td {
-    padding: 0.25rem 0.5rem;
-}
-
-
 hr {
     margin: 0;
 }
 
+
 a {
     text-decoration: underline;
+
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline-width: 2px;
+        outline-color: inherit;
+    }
+
+
+    /*&:visited {
+        color: initial;
+    }*/
+
+    &.no-visited:visited {
+        color: #fff;
+    }
 }
 
-a:focus,
-a:hover {
-    text-decoration: none;
+
+article {
+    & > a {
+        text-decoration: none !important;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none !important;
+        }
+    }
 }
 
-article > a {
-    text-decoration: none !important;
-}
-
-article > a:hover,
-article > a:active,
-article > a:focus {
-    text-decoration: none !important;
-}
-
-input[type="radio"] {
-    margin-top: 0;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-input[type="checkbox"] {
-    margin-top: 0;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-}
-
-input,
-select,
-optgroup,
-textarea {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-fieldset {
-    padding: 0 !important;
-}
 
 .btn {
     font-size: $medium-size !important;
@@ -237,46 +266,27 @@ button[name="save_address"] {
 }
 
 
-@media screen and (max-width: 1920px) {
-    .side-padding {
+.side-padding {
+    @media screen and (max-width: 1920px) {
         padding: 0 45px !important;
     }
-}
 
-@media screen and (max-width: 1300px) {
-    .side-padding {
+    @media screen and (max-width: 1300px) {
         padding: 0 30px !important;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .side-padding {
+    @media screen and (max-width: 768px) {
         padding: 0 24px !important;
     }
-}
 
-@media screen and (max-width: 576px) {
-    .side-padding {
+    @media screen and (max-width: 576px) {
         padding: 0 16px !important;
     }
 }
 
-// a:visited {
-//   color: initial;
-// }
-
-.no-visited:visited {
-    color: #fff;
-}
-
-::-moz-selection {
-}
-
-::selection {
-}
 
 .narrow-content {
-    max-width: 1024px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -284,5 +294,3 @@ button[name="save_address"] {
     max-width: 1920px;
     margin: 0 auto;
 }
-
-

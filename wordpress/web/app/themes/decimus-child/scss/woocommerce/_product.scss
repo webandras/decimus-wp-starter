@@ -81,29 +81,41 @@ div.wc-block-grid__product-title {
 
 /* TAB PANELS */
 // Overwrite nav tabs at single product page
-.woocommerce-tabs ul.tabs li a {
-    padding: 0 1rem !important;
-    display: block;
-}
+.woocommerce {
+    .product {
+        .woocommerce-tabs {
+            ul.tabs {
+                li {
+                    padding: 0;
 
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-    padding: 0;
-}
+                    a {
+                        //padding: 0 1rem !important;
+                        display: block;
+                    }
+                }
+            }
 
-.woocommerce-tabs.wc-tabs-wrapper {
-    @media (min-width: 769px) {
-        margin-left: 45.5%;
-        max-width: 54.5%;
+            &.wc-tabs-wrapper {
+                @media (min-width: 769px) {
+                    margin-left: 45.5%;
+                    max-width: 54.5%;
+                }
+
+                @media (max-width: 576px) {
+                    overflow-x: scroll;
+                }
+
+                .tabs.wc-tabs {
+                    padding-left: 0.5em;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    width: 100vw;
+                    font-size: 0.875em;
+                }
+            }
+        }
     }
-
-    @media (max-width: 576px) {
-        overflow-x: scroll;
-    }
-
-    .tabs.wc-tabs {
-        width: fit-content;
-    }
-
 }
 
 
@@ -139,6 +151,10 @@ figure.woocommerce-product-gallery__wrapper img {
             padding: 0;
         }
     }
+}
+
+.woocommerce div.product div.summary {
+    margin-bottom: 1em;
 }
 
 

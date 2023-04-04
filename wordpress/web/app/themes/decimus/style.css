@@ -65,6 +65,10 @@ p:empty:before {
     z-index: 1020;
 }
 
+.top-button a {
+    padding: 0.5em;
+}
+
 /* Dropdown Search (replaced by Collapse component in 5.1.0.0. Fallback to old headers) */
 @media (max-width: 782px) {
     .logged-in.admin-bar .dropdown-search {
@@ -200,7 +204,7 @@ body {
 .alert.alert-warning,
 .alert.alert-info,
 .alert.alert-success {
-    padding-left: 3.25rem;
+    padding-left: 2.5rem;
 }
 
 .alert::before {
@@ -548,11 +552,13 @@ pre {
 }
 
 :focus {
-    outline: none !important;
-    outline: -webkit-focus-ring-color none !important;
-    outline-color: -webkit-focus-ring-color none !important;
-    outline-style: none !important;
-    outline-width: 0 !important;
+    /*outline: none !important;*/
+    /*outline: -webkit-focus-ring-color none !important;*/
+    /*outline-color: -webkit-focus-ring-color none !important;*/
+    /*outline-style: none !important;*/
+    /*outline-width: 0 !important;*/
+    outline-style: solid;
+    /*outline-color: #999 !important;*/
 }
 
 /*--------------------------------------------------------------

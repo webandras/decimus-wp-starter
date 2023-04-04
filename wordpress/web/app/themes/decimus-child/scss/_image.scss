@@ -1,0 +1,34 @@
+/* Images */
+.wp-block-image .alignleft {
+    float: none !important;
+}
+
+.no-list-image {
+    list-style-image: none;
+}
+
+.profile-img {
+    margin-left: 0.5rem;
+    width: 60px;
+    height: 60px;
+}
+
+.profile-img-small,
+.avatar {
+    width: 45px;
+    height: 45px;
+}
+
+.medium-img {
+    width: 50%;
+}
+
+.single {
+    .post-thumbnail {
+        img {
+            height: 340px;
+            width: auto;
+            object-fit: contain;
+        }
+    }
+}

@@ -40,10 +40,6 @@ button[name="save_address"] {
     width: 280px;
 }
 
-.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout {
-    margin-bottom: 30px;
-}
-
 .wc_payment_methods.payment_methods.methods {
     .form-check-label {
         font-weight: 700;
@@ -116,4 +112,10 @@ button[name="save_address"] {
         }
     }
 
+}
+
+.woocommerce-privacy-policy-text {
+    p {
+        font-size: 0.875em;
+    }
 }
