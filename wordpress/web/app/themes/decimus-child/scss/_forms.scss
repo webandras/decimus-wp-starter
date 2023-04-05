@@ -1,0 +1,100 @@
+.wpcf7-form-control.wpcf7-textarea textarea {
+    width: 100% !important;
+    height: auto !important;
+}
+
+span.wpcf7-not-valid-tip {
+    font-size: $small-size;
+}
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+    font-size: $medium-size;
+}
+
+form.wpcf7-form {
+    margin-bottom: 2rem;
+}
+
+form.wpcf7-form label {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem !important;
+}
+
+input.wpcf7-form-control.wpcf7-text {
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+input {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
+
+.form-check {
+    font-weight: bold;
+    padding-left: 0 !important;
+    margin-bottom: 15px;
+}
+
+textarea.wpcf7-textarea {
+    width: 100%;
+}
+
+input[type="radio"] {
+    margin-top: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    margin-top: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.form-row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.input-narrow {
+    width: 220px;
+}
+
+.input-wide {
+    width: 280px;
+}
+
+input,
+select,
+optgroup,
+textarea {
+    color: $black-body;
+    font-family: $body-font;
+    font-size: $base-size;
+    line-height: 1.5;
+}
+
+button {
+    color: $black-body;
+    font-family: $body-font;
+}
+
+fieldset {
+    padding: 0 !important;
+}
+
+.form-check {
+    font-weight: bold;
+    padding-left: 0 !important;
+    margin-bottom: 15px;
+}
+
+/* Hide variation description, hide event-notice form field */
+.single_variation_wrap > .woocommerce-variation.single_variation > .woocommerce-variation-description > p,
+.wpcf7-form input[name="event-notice"] {
+    display: none !important;
+}

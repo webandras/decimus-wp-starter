@@ -34,7 +34,7 @@ jQuery(document).ready(function ($) {
   });
 
   // Search collapse button hide if empty
-  if ($("#collapse-search .searchform").length != 1) {
+  if ($("#collapse-search .searchform").length !== 1) {
     $(".top-nav-search-md, .top-nav-search-lg").remove();
   }
 
@@ -136,26 +136,65 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
   var modalElem = document.getElementById("registerToEvent");
   if (modalElem) {
+    // instantiate registration form modal
     var registrationModal = new bootstrap.Modal(
         modalElem,
         {keyboard: false}
     );
 
-    console.log(registrationModal);
-
+    // Used to fill up registration form fields automatically
     function updateEventsDataForModal() {
       var eventName = $("#offcanvas-cart .item-name > strong > a").text().trim();
       var eventDetails = $(
           "#offcanvas-cart .item-name .item-quantity > .quantity"
       ).text();
 
+      // product variation description that serves as a custom text to be included in the registration emails
+      var eventNotice = $('.single_variation_wrap > .woocommerce-variation.single_variation > .woocommerce-variation-description > p');
+      var eventNoticeText = '';
+      if (eventNotice) {
+        eventNoticeText = eventNotice.text().trim();
+      }
+
+
       $('form.wpcf7-form input[name="event-name"]').val(eventName);
       $('form.wpcf7-form input[name="event-details"]').val(eventDetails);
+
+      // only overwrite event-notice field value if a variation description exists / for variable products only!
+      if (eventNoticeText !== '') {
+        $('form.wpcf7-form input[name="event-notice"]').val(eventNoticeText);
+      }
     }
 
+    // Show modal on click, fill fields with a delay
     $("#register-form-button").on("click", function () {
       setTimeout(updateEventsDataForModal, 4000);
       registrationModal.show();
+    });
+
+
+    /* Insert values from badges to form field values (see CF7 forms) */
+    var appointmentField = $("#registerToEvent input[name='your-appointment']");
+    function addBadgeValueToAppointmentField(val) {
+      appointmentField.val(val)
+    }
+    // for each badge
+    $("#registerToEvent .your-appointment-selection .badge").each(function() {
+      $(this).on('click', function() {
+        addBadgeValueToAppointmentField($(this).text());
+      });
+    });
+
+    /* Insert values from badges to form filed values (see CF7 forms) */
+    var dayField = $("#registerToEvent input[name='your-day']");
+    function addBadgeValueToDayField(val) {
+      dayField.val(val)
+    }
+    // for each badge
+    $("#registerToEvent .your-day-selection .badge").each(function() {
+      $(this).on('click', function() {
+        addBadgeValueToDayField($(this).text());
+      });
     });
 
   }

@@ -89,14 +89,33 @@ if ( post_password_required() ) {
     }
     ?>
 
+    <?php
+    if ( ! $product->is_downloadable() ) {
+
+        // Get registration type, use the event registration forms belonging to the specific reg type
+        $attributes = $product->get_attributes();
+        $reg_type = $attributes["pa_registration_type"] ?? null;
+
+        $reg_type_slug = ($reg_type !== null) ? $reg_type->get_slugs()[0] : 'basic';
+        $is_appointment = str_contains($reg_type_slug, 'appointment');
+        $is_basic = str_contains($reg_type_slug, 'basic');
+        $is_giftcard = str_contains($reg_type_slug, 'giftcard');
+    ?>
     <div class="modal fade" tabindex="-1" id="registerToEvent" aria-labelledby="registerToEventLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-sm-down modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title"><?php _e('Register to the event', 'decimus') ?></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                                class="fa fas fa-times"></i></button>
+                    <?php if ( $is_appointment ) { ?>
+                        <h5 class="modal-title"><?php _e('Book an appointment to use the service', 'decimus') ?></h5>
+                    <?php } else if ( $is_giftcard ) { ?>
+                        <h5 class="modal-title"><?php _e('Get a gift card', 'decimus') ?></h5>
+                    <?php } else { ?>
+                        <h5 class="modal-title"><?php _e('Register to the event', 'decimus') ?></h5>
+                    <?php } ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa fas fa-times"></i>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -120,9 +139,25 @@ if ( post_password_required() ) {
                         </div>
                     </div>
                     <?php
-                    echo do_shortcode(
-                        '[contact-form-7 id="180" title="Event Registration" event-name="' . get_the_title() . '" event-details=""]'
-                    );
+
+                    // for testing...
+                    // $available_variations = $product->get_available_variations();
+
+                    // the purchase note will end up in the email (provides extra information about the product)
+                    $purchase_note = $product->get_purchase_note() ?? '';
+
+                    if ( $reg_type_slug === 'appointment_lomi' ) {
+                        echo do_shortcode( '[contact-form-7 id="695" title="' . __('Appointment form 1', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
+                    } else if ( $reg_type_slug === 'appointment_thai' ) {
+                        echo do_shortcode( '[contact-form-7 id="717" title="' . __('Appointment form 1', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
+                    } else if ( $is_giftcard ) {
+                        echo do_shortcode( '[contact-form-7 id="742" title="' . __('Get a giftcard', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
+                    } else {
+                        echo do_shortcode(
+                            '[contact-form-7 id="180" title="' . __('Event Registration', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]'
+                        );
+                    }
+
                     ?>
 
                 </div>
@@ -133,4 +168,6 @@ if ( post_password_required() ) {
             </div>
         </div>
     </div>
+    <?php } ?>
+
     <?php do_action('woocommerce_after_single_product'); ?>

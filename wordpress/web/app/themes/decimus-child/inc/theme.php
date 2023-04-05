@@ -99,3 +99,31 @@ if ( !function_exists('the_breadcrumb') ) {
 // Add custom image size (with hard crop) 960*600px
 add_image_size('boritokep', 960, 600, true);
 
+
+// Custom shortcode attributes used as field values in CF7 forms
+add_filter('shortcode_atts_wpcf7', 'decimus_child_custom_shortcode_atts_wpcf7_filter', 10, 3);
+function decimus_child_custom_shortcode_atts_wpcf7_filter($out, $pairs, $atts)
+{
+    $new_attr = 'event-name';
+    if ( isset($atts[$new_attr]) ) {
+        $out[$new_attr] = $atts[$new_attr];
+    }
+
+    $new_attr = 'event-details';
+
+    if ( isset($atts[$new_attr]) ) {
+        $out[$new_attr] = $atts[$new_attr];
+    }
+
+    // this is used as extra notice, information in the emails
+    // fill out the purchase note field for the WooCommerce product
+    // $purchase_note = $product->get_purchase_note() ?? '';
+    $new_attr = 'event-notice';
+
+    if ( isset($atts[$new_attr]) ) {
+        $out[$new_attr] = $atts[$new_attr];
+    }
+
+    return $out;
+}
+
