@@ -47,6 +47,7 @@ if ( current_user_can('manage_options') ) {
                 <input type="hidden" name="id" value="<?php echo intval($id); ?>">
 
                 <?php wp_nonce_field('decimus_team_member_edit', 'decimus_team_member_edit_security'); ?>
+                <?php wp_nonce_field('decimus_team_member_delete', 'decimus_team_member_delete_security'); ?>
 
                 <div class="form-group mb-half">
                     <label for="last_name"><?php _e('Last name', self::TEXT_DOMAIN); ?></label><br/>
@@ -69,7 +70,7 @@ if ( current_user_can('manage_options') ) {
 
                 <div class="form-group mb-half">
                     <?php if ( $profile_photo ) { ?>
-                        <img class="team-member small-img mt1" src="<?php echo sanitize_url($profile_photo); ?>"
+                        <img class="team-member small-img mt1" src="<?php echo esc_url($profile_photo); ?>"
                              alt="<?php echo esc_html($first_name) . ' ' . esc_html($last_name); ?>">
                         <br>
                     <?php } ?>

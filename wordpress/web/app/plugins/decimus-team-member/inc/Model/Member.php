@@ -88,8 +88,7 @@ class Member extends Model implements MemberInterface
     {
         global $wpdb;
         // prepare get statement protect against SQL inject attacks!
-        /** @noinspection SqlNoDataSourceInspection */
-        $sql = $wpdb->prepare("DELETE FROM " . $wpdb->prefix . "self::TABLE_NAME WHERE id = %d", $id);
+        $sql = $wpdb->prepare("DELETE FROM " . $wpdb->prefix . self::TABLE_NAME . " WHERE id = %d", $id);
 
         // perform query
         return $wpdb->query($sql);

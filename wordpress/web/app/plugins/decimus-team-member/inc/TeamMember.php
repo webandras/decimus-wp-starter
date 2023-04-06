@@ -7,7 +7,6 @@ defined('ABSPATH') or die();
 use const ABSPATH;
 use Gulacsi\TeamMember\View\Shortcode;
 use Gulacsi\TeamMember\Controller\MemberController;
-use JetBrains\PhpStorm\NoReturn;
 use Gulacsi\TeamMember\Interface\MemberInterface;
 use const WP_LANG_DIR;
 
@@ -20,6 +19,7 @@ final class TeamMember implements MemberInterface
     private static $instance;
     private static MemberController $controller;
     private static Shortcode $shortcode;
+
 
     /**
      * Singleton instance
@@ -68,6 +68,7 @@ final class TeamMember implements MemberInterface
 
         // add ajax script
         add_action('wp_enqueue_scripts', function () {
+
             wp_enqueue_script('decimus-team-member', plugin_dir_url(dirname(__FILE__)) . 'js/teamMember.js', array('jquery'));
 
             // enable ajax on frontend
@@ -75,6 +76,7 @@ final class TeamMember implements MemberInterface
                 'ajaxurl' => admin_url('admin-ajax.php'),
                 'security' => wp_create_nonce(),
             ));
+
         });
 
         // connect AJAX request with PHP hooks
@@ -85,6 +87,7 @@ final class TeamMember implements MemberInterface
     public function __destruct()
     {
     }
+
 
     public static function load_text_domain(): void
     {
@@ -154,7 +157,7 @@ final class TeamMember implements MemberInterface
     }
 
 
-    #[NoReturn] public function team_member_ajax_handler()
+    public function team_member_ajax_handler()
     {
         if ( check_ajax_referer('decimus_team_member', 'security') ) {
             $args = $_REQUEST['args'];
@@ -219,7 +222,6 @@ final class TeamMember implements MemberInterface
         $table_name = $wpdb->prefix . self::TABLE_NAME;
         $team_member_option_name = self::TABLE_NAME . '_db_version';
 
-        /** @noinspection SqlNoDataSourceInspection */
         $wpdb->query("DROP TABLE IF EXISTS $table_name");
 
         // delete option if exists

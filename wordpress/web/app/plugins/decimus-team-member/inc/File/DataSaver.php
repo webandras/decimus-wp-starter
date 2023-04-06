@@ -6,11 +6,10 @@ defined('ABSPATH') or die();
 
 use Gulacsi\TeamMember\Exception\File\{FileCloseException, FileOpenException};
 use Gulacsi\TeamMember\Interface\MemberInterface;
-use Gulacsi\TeamMember\Log\Logger;
+
 
 final class DataSaver implements MemberInterface
 {
-    use Logger;
 
     private static $instance;
 
@@ -44,10 +43,19 @@ final class DataSaver implements MemberInterface
      */
     public function save_to_json(string $filename, string $json_data): void
     {
+        if (self::LOGGING) {
+            global $decimus_team_member_log;
+            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+        }
+        if (self::DEBUG) {
+            $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
+            echo '<div class="notice notice-info is-dismissible">'.$info_text.'</p></div>';
+        }
+
+
         if ( !current_user_can('manage_options') ) {
             return;
         }
-        $this->logger(self::DEBUG, self::LOGGING);
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
@@ -72,7 +80,11 @@ final class DataSaver implements MemberInterface
 
         } catch (FileOpenException|FileCloseException|\Exception $ex) {
             echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '. </p></div>';
-            $this->exception_logger(self::LOGGING, $ex);
+            if (self::LOGGING) {
+                global $decimus_team_member_log;
+                $decimus_team_member_log->logError(
+                    $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
+            }
         }
     }
 
@@ -86,10 +98,19 @@ final class DataSaver implements MemberInterface
      */
     public function save_to_csv(string $filename, array $form_data, string $delimiter = ';'): void
     {
+        if (self::LOGGING) {
+            global $decimus_team_member_log;
+            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+        }
+        if (self::DEBUG) {
+            $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
+            echo '<div class="notice notice-info is-dismissible">'.$info_text.'</p></div>';
+        }
+
+
         if ( !current_user_can('manage_options') ) {
             return;
         }
-        $this->logger(self::DEBUG, self::LOGGING);
 
         // remove illegal characters
         $filename = sanitize_file_name($filename);
@@ -99,6 +120,7 @@ final class DataSaver implements MemberInterface
 
         // Write to file
         try {
+
             // binary safe mode
             $result = fopen($filepath, 'w+');
 
@@ -143,9 +165,16 @@ final class DataSaver implements MemberInterface
                 . __('Download table in CSV', 'company-team') . '</a>';
 
             echo '<div><p>' . $success_message . '</p></div>';
+
         } catch (FileOpenException|FileCloseException|\Exception $ex) {
+
             echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '. </p></div>';
-            $this->exception_logger(self::LOGGING, $ex);
+            if (self::LOGGING) {
+                global $decimus_team_member_log;
+                $decimus_team_member_log->logError(
+                    $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
+            }
+
         }
     }
 }

@@ -32,7 +32,8 @@
 }
 
 #wpfooter {
-    display: none;
+    position: relative;
+    /*display: none;*/
 }
 
 /* delete button styling */

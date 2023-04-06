@@ -6,7 +6,6 @@ defined('\ABSPATH') or die();
 
 use Exception;
 use Gulacsi\TeamMember\Exception\Database\EmptyDBTableException as EmptyDBTableException;
-use Gulacsi\TeamMember\Log\Logger;
 use Gulacsi\TeamMember\Interface\MemberInterface;
 
 /**
@@ -14,7 +13,6 @@ use Gulacsi\TeamMember\Interface\MemberInterface;
  */
 class Shortcode implements MemberInterface
 {
-    use Logger;
 
 
     public function __construct()
@@ -27,37 +25,58 @@ class Shortcode implements MemberInterface
 
     /**
      * Get all members from the database argument passed by reference
-     * @param array|null $form_data
+     * @param  array|null  $form_data
      * @return bool
      */
     public function get_all_members(array|null &$form_data): bool
     {
-        $this->logger(self::DEBUG, self::LOGGING);
+        if (self::LOGGING) {
+            global $decimus_team_member_log;
+            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+        }
+        if (self::DEBUG) {
+            $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
+            echo '<div class="notice notice-info is-dismissible">'.$info_text.'</p></div>';
+        }
+
 
         try {
+
             // db abstraction layer
             global $wpdb;
             $valid = true;
 
-            /** @noinspection SqlNoDataSourceInspection */
-            $sql = "SELECT * FROM " . $wpdb->prefix . self::TABLE_NAME;
+            $sql = "SELECT * FROM ".$wpdb->prefix.self::TABLE_NAME;
 
             $form_data = $wpdb->get_results($sql);
 
-            // print_r($formData);
-
-            if ( !$form_data ) {
+            if (!$form_data) {
                 $valid = false;
                 throw new EmptyDBTableException('Warning: Table does not contain any records yet.');
             }
+
         } catch (EmptyDBTableException $ex) {
-            echo '<div class="notice notice-warning is-dismissible"><p>' . $ex->getMessage() . '</p></div>';
-            $this->exception_logger(self::LOGGING, $ex);
+
+            echo '<div class="notice notice-warning is-dismissible"><p>'.$ex->getMessage().'</p></div>';
+            if (self::LOGGING) {
+                global $decimus_team_member_log;
+                $decimus_team_member_log->logWarn(
+                    $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
+            }
+
         } catch (Exception $ex) {
-            echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '</p></div>';
-            $this->exception_logger(self::LOGGING, $ex);
+
+            echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
+            if (self::LOGGING) {
+                global $decimus_team_member_log;
+                $decimus_team_member_log->logError(
+                    $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
+            }
+
         } finally {
+
             return $valid;
+
         }
     }
 
@@ -69,14 +88,21 @@ class Shortcode implements MemberInterface
      * - type: 'list' or 'table'
      * - default: 'list'
      *
-     * @param array|string $attrs
+     * @param  array|string  $attrs
      * @return string
      */
     public function team_member_form(array|string $attrs): string
     {
-        $this->logger(self::DEBUG, self::LOGGING);
+        if (self::LOGGING) {
+            global $decimus_team_member_log;
+            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+        }
+        if (self::DEBUG) {
+            $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
+            echo '<div class="notice notice-info is-dismissible">'.$info_text.'</p></div>';
+        }
 
-        /** @noinspection PhpUnusedLocalVariableInspection */
+
         global $post;
 
         $form_data = null;
@@ -102,10 +128,12 @@ class Shortcode implements MemberInterface
 
         ob_start();
 
-        if ( $type === 'table' ) {
-            include DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/pages/member/shortcode_table.php';
-        } else if ( $type === 'list' ) {
-            include DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/pages/member/shortcode_list.php';
+        if ($type === 'table') {
+            include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/pages/member/shortcode_table.php';
+        } else {
+            if ($type === 'list') {
+                include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/pages/member/shortcode_list.php';
+            }
         }
 
         return ob_get_clean();

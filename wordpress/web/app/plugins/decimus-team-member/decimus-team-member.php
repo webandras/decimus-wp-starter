@@ -21,9 +21,9 @@ require_once 'autoload.php';
 use \Gulacsi\TeamMember\TeamMember;
 use \Gulacsi\TeamMember\Log\Klogger as Klogger;
 
-// path to folder where to store log files.
-$decimus_team_member_log_file_path = plugin_dir_path(__FILE__) . '/log';
-$decimus_team_member_log = new Klogger($decimus_team_member_log_file_path, Klogger::INFO);
+global $decimus_team_member_log;
+// pass the path to folder where to store log files.
+$decimus_team_member_log = new Klogger(plugin_dir_path(__FILE__) . '/log', Klogger::INFO);
 
 // singleton instance
 TeamMember::get_instance();
