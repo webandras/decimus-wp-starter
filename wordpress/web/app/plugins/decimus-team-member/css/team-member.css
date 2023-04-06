@@ -103,7 +103,7 @@ table.team-member td.medium-col {
 
 table.team-member td .small-image {
     width: 64px;
-    height: 64px;
+    height: auto;
 }
 
 table.team-member td .auto-image {
