@@ -2,9 +2,9 @@
 
 Images used for the services:
 
-- Wordpress: **wordpress:php8.0-fpm**
+- Wordpress: **wordpress:php8.1-fpm**
 - Nginx: **nginx:stable-alpine**
-- MariaDB: **mariadb:10.2**
+- MariaDB: **mariadb:10.6**
 - PhpMyAdmin: **phpmyadmin/phpmyadmin**
 
 `wp-cli` and `xdebug` support included.
@@ -17,7 +17,7 @@ Images used for the services:
 
 2. Create `wordpress` folder in root. Bedrock will be installed here.
 
-3. Run `set- a; source .env; docker-compose up --build`.
+3. Run `set -a; source .env; docker-compose up --build`.
 
 4. Create a new Bedrock project:
 
@@ -222,7 +222,7 @@ Authentication -> None.
 
 6. Access Mailcatcher UI at localhost:1081
 
-    
+
 ## Resolve WordPress loopback error
 
 It is breaking the scheduled events, and can cause WP REST API errors as well.
@@ -230,7 +230,6 @@ It is breaking the scheduled events, and can cause WP REST API errors as well.
 A loopback request is simply a request that WordPress is trying to make to itself.
 Loopback requests are used to run scheduled events (`wp-cron.php`).
 Loopback requests need to function correctly in order to ensure your website remains stable
-
 
 ### 1. PHP-FPM pm.max_children should be at least 2.
 
@@ -243,7 +242,6 @@ the site health request waits on the result of the loopback request, but Nginx c
 until the site health request (that made the loopback request) terminates as there is only 1 PHP-FPM process running."
 https://siliconshards.net/how-to-fix-loopback-request-failures-on-wordpress-for-nginx-with-php-fpm/
 
-
 ### 2. Point the IP of the Nginx container to the WordPress site URL
 
 The bug is patched in v1.0.1.
@@ -251,11 +249,10 @@ The bug is patched in v1.0.1.
 Point the IP of the Nginx container to the WordPress site URL to make the loopback work!
 
 All the networks are bridge networks by default (if not specified), and I use the default,
-bridge network's IP address, because it is fixed: `172.17.0.1`. So there is no need to 
+bridge network's IP address, because it is always the same: (for example, `172.17.0.1`). So there is no need to
 modify the IP address everytime when restarting the docker network.
 
-
-WordPress tries to loopback to itself via a domain name (`localhost:8080` in our case), and 
+WordPress tries to loopback to itself via a domain name (`localhost:8080` in our case), and
 the request should make it back to the Nginx Docker container. Otherwise, it will fail miserably.
 
 Example:
