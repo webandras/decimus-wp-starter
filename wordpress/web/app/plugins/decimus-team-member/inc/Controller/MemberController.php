@@ -40,8 +40,8 @@ class MemberController extends Member implements ControllerInterface
     public function form_action(): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -108,8 +108,8 @@ class MemberController extends Member implements ControllerInterface
     public function handle_insert(): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -142,8 +142,8 @@ class MemberController extends Member implements ControllerInterface
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
 
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -160,8 +160,8 @@ class MemberController extends Member implements ControllerInterface
     {
         // debug log and log to file
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -200,8 +200,8 @@ class MemberController extends Member implements ControllerInterface
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
 
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -217,8 +217,8 @@ class MemberController extends Member implements ControllerInterface
     public function handle_delete(): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -251,8 +251,8 @@ class MemberController extends Member implements ControllerInterface
 
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -268,8 +268,8 @@ class MemberController extends Member implements ControllerInterface
     public function add_form(): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -293,8 +293,8 @@ class MemberController extends Member implements ControllerInterface
 
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -309,8 +309,8 @@ class MemberController extends Member implements ControllerInterface
     public function list_table(): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -335,8 +335,8 @@ class MemberController extends Member implements ControllerInterface
 
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 

@@ -44,8 +44,8 @@ final class DataSaver implements MemberInterface
     public function save_to_json(string $filename, string $json_data): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -81,8 +81,8 @@ final class DataSaver implements MemberInterface
         } catch (FileOpenException|FileCloseException|\Exception $ex) {
             echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '. </p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
         }
@@ -99,8 +99,8 @@ final class DataSaver implements MemberInterface
     public function save_to_csv(string $filename, array $form_data, string $delimiter = ';'): void
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -170,8 +170,8 @@ final class DataSaver implements MemberInterface
 
             echo '<div class="notice notice-error"><p>' . $ex->getMessage() . '. </p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 

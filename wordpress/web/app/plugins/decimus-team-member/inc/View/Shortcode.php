@@ -31,8 +31,8 @@ class Shortcode implements MemberInterface
     public function get_all_members(array|null &$form_data): bool
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
@@ -59,8 +59,8 @@ class Shortcode implements MemberInterface
 
             echo '<div class="notice notice-warning is-dismissible"><p>'.$ex->getMessage().'</p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logWarn(
+                global $dtm_log;
+                $dtm_log->logWarn(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -68,8 +68,8 @@ class Shortcode implements MemberInterface
 
             echo '<div class="notice notice-error"><p>'.$ex->getMessage().'</p></div>';
             if (self::LOGGING) {
-                global $decimus_team_member_log;
-                $decimus_team_member_log->logError(
+                global $dtm_log;
+                $dtm_log->logError(
                     $ex->getMessage()." - ".__FILE__.":".__METHOD__.":".__LINE__);
             }
 
@@ -94,8 +94,8 @@ class Shortcode implements MemberInterface
     public function team_member_form(array|string $attrs): string
     {
         if (self::LOGGING) {
-            global $decimus_team_member_log;
-            $decimus_team_member_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
+            global $dtm_log;
+            $dtm_log->logInfo("Entering - ".__FILE__.":".__METHOD__.":".__LINE__);
         }
         if (self::DEBUG) {
             $info_text = "Entering - ".__FILE__.":".__METHOD__.":".__LINE__;
