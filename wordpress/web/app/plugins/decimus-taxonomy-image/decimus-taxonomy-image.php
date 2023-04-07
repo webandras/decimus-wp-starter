@@ -3,12 +3,12 @@
  * Plugin Name: Decimus Category and Taxonomy Image
  * Plugin URI: https://github.com/SalsaBoy990/decimus-wp-starter/tree/master/wordpress/web/app/plugins/decimus-taxonomy-image
  * Description: Decimus Category and Taxonomy Image Plugin allow you to add image with category/taxonomy. With REST API endpoint to get image from options table.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: András Gulácsi
  * Author URI: https://github.com/SalsaBoy990
- * License: GPLv2
+ * License: MIT
  * Text Domain: decimus-taxonomy-image
- * Domain Path: /lang
+ * Domain Path: /languages
  *
  * Original Plugin Name: Category and Taxonomy Image
  * Original Plugin URI: https://aftabhusain.wordpress.com/
@@ -21,19 +21,14 @@
 
 
 // Exit if accessed directly
-if ( !defined('ABSPATH') ) exit;
-
-require_once __DIR__ . '/autoload.php';
-
-use Guland\DecimusTaxonomyImage\DecimusTaxonomyImage as DecimusTaxonomyImage;
-
-add_action('plugins_loaded', 'decimus_taxonomy_image_init', 0);
-if ( !function_exists('decimus_taxonomy_image_init') ) {
-    function decimus_taxonomy_image_init(): void
-    {
-        // instantiate singleton
-        DecimusTaxonomyImage::get_instance();
-
-        register_uninstall_hook(__FILE__, '\Gulacsi\DecimusTaxonomyImage\DecimusTaxonomyImage::delete_plugin');
-    }
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
 }
+
+add_action( 'plugins_loaded', function () {
+
+    require_once __DIR__ . '/admin/Decimus_taxonomy_image.php';
+
+    register_uninstall_hook( __FILE__, '\Gulacsi\DecimusTaxonomyImage\DecimusTaxonomyImage::delete_plugin' );
+} );
+
