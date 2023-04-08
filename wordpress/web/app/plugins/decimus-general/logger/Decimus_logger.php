@@ -23,7 +23,7 @@ defined('ABSPATH') or die();
 /**
  * Class documentation
  */
-class Klogger
+final class Decimus_logger
 {
     /**
      * Error severity, from low to high. From BSD syslog RFC, secion 4.1.1
@@ -127,7 +127,7 @@ class Klogger
      *
      * @param string $logDirectory File path to the logging directory
      * @param integer $severity One of the pre-defined severity constants
-     * @return KLogger
+     * @return Decimus_logger
      */
     public static function instance($logDirectory = false, $severity = false)
     {

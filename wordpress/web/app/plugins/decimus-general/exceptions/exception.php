@@ -3,7 +3,7 @@
 defined( 'ABSPATH' ) or die();
 
 
-class Exception_base extends Exception
+class Decimus_exception_base extends Exception
 {
 
     public function __construct($message, $code = 0, Exception $previous = null)

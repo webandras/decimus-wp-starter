@@ -2,16 +2,16 @@
 
 require_once 'exception.php';
 
-class File_exception extends Exception_base
+class Decimus_file_exception extends Decimus_exception_base
 {
 }
 
 
-class File_open_exception extends File_exception
+class Decimus_file_open_exception extends Decimus_file_exception
 {
 }
 
 
-class File_close_exception extends File_exception
+class Decimus_file_close_exception extends Decimus_file_exception
 {
 }

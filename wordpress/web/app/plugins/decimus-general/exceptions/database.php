@@ -3,31 +3,31 @@
 require_once 'exception.php';
 
 
-class Query_exception extends Exception_base
+class Decimus_query_exception extends Decimus_exception_base
 {
 }
 
 
-class Delete_record_exception extends Query_exception
+class Decimus_delete_record_exception extends Decimus_query_exception
 {
 }
 
 
-class EmptyDBTableException extends Query_exception
+class Decimus_emptyDBTableException extends Decimus_query_exception
 {
 }
 
 
-class Insert_record_exception extends Query_exception
+class Decimus_insert_record_exception extends Decimus_query_exception
 {
 }
 
 
-class Permissions_exception extends Query_exception
+class Decimus_permissions_exception extends Decimus_query_exception
 {
 }
 
 
-class Update_record_exception extends Query_exception
+class Decimus_update_record_exception extends Decimus_query_exception
 {
 }

@@ -2,12 +2,12 @@
 
 require_once 'exception.php';
 
-class Image_exception extends Exception_base
+class Decimus_image_exception extends Decimus_exception_base
 {
 }
 
 
-class No_image_uploaded_exception extends Image_exception
+class Decimus_no_image_uploaded_exception extends Decimus_image_exception
 {
 }
 

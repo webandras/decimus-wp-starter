@@ -12,6 +12,6 @@ Text Domain: decimus-general
 Domain Path: /languages
 */
 
-require_once 'logger/Klogger.php';
+require_once 'logger/Decimus_logger.php';
 require_once 'exceptions/database.php';
 require_once 'exceptions/file.php';
