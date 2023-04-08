@@ -28,6 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 add_action( 'plugins_loaded', function () {
 
     require_once __DIR__ . '/admin/Decimus_taxonomy_image.php';
+    require_once __DIR__ . '/api/api.php';
 
     register_uninstall_hook( __FILE__, '\Gulacsi\DecimusTaxonomyImage\DecimusTaxonomyImage::delete_plugin' );
 } );
