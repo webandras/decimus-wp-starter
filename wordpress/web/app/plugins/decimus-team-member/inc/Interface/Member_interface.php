@@ -1,10 +1,10 @@
 <?php
 
-namespace Gulacsi\TeamMember\Interface;
+namespace Decimus\Team_member\Interface;
 
 defined('ABSPATH') or die();
 
-interface MemberInterface
+interface Member_interface
 {
     const TEXT_DOMAIN = 'decimus-team-member';
     const TABLE_NAME = 'decimus_team_member';

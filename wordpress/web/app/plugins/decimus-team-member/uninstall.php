@@ -1,12 +1,12 @@
 <?php
 
 // This code will only run when plugin is deleted
-if ( !defined('WP_UNINSTALL_PLUGIN') ) {
+if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
     exit();
 }
 /*
 global $wpdb;
-$table_name = $wpdb->prefix . 'gcompany_team';
+$table_name = $wpdb->prefix . 'company_team';
 $wpdb->query("DROP TABLE IF EXISTS $table_name");
 
 // check if option exists, then delete

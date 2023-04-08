@@ -1,12 +1,13 @@
 <?php
 
-namespace Gulacsi\TeamMember\Model;
+namespace Decimus\Team_member\Model;
 
 defined('ABSPATH') or die();
 
-use Gulacsi\TeamMember\Interface\MemberInterface;
+use Decimus\Team_member\Interface\Member_interface;
 
-class Member extends Model implements MemberInterface
+
+class Member extends Model implements Member_interface
 {
     public function __construct()
     {

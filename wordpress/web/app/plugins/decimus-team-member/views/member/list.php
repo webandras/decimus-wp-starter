@@ -45,7 +45,7 @@ if ( current_user_can('manage_options') ) {
             <tr>
                 <!-- <th scope="col">#</th> -->
                 <th scope="col"><?php _e('Action', self::TEXT_DOMAIN); ?></th>
-                <th scope="col"><?php _e('Profile img', self::TEXT_DOMAIN); ?></th>
+                <th scope="col"><?php _e('Image', self::TEXT_DOMAIN); ?></th>
                 <th scope="col"><?php _e('Last name', self::TEXT_DOMAIN); ?></th>
                 <th scope="col"><?php _e('First name', self::TEXT_DOMAIN); ?></th>
                 <th scope="col"><?php _e('Phone number', self::TEXT_DOMAIN); ?></th>

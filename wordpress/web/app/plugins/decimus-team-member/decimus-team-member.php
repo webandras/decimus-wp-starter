@@ -16,19 +16,16 @@ defined( 'ABSPATH' ) or die();
 require_once dirname( __FILE__, 2 ) . '/decimus-general/decimus-general.php';
 require_once 'autoload.php';
 
-use \Gulacsi\TeamMember\TeamMember;
-
+use \Decimus\Team_member\Team_member;
 
 define( 'DECIMUS_TEAM_MEMBER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-
 
 // logger instance
 global $dtm_log;
 $dtm_log = new Decimus_logger( DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/log', Decimus_logger::INFO );
 
-
 // main instance
-TeamMember::get_instance();
+Team_member::get_instance();
 
-register_activation_hook( __FILE__, '\Gulacsi\TeamMember\TeamMember::activate_plugin' );
-register_uninstall_hook( __FILE__, '\Gulacsi\TeamMember\TeamMember::delete_plugin' );
+register_activation_hook( __FILE__, '\Decimus\Team_member\Team_member::activate_plugin' );
+register_uninstall_hook( __FILE__, '\Decimus\Team_member\Team_member::delete_plugin' );

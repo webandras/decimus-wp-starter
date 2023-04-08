@@ -1,17 +1,18 @@
 <?php
 
-namespace Gulacsi\TeamMember\View;
+namespace Decimus\Team_member\View;
 
 defined('\ABSPATH') or die();
 
 use Exception;
-use Gulacsi\TeamMember\Exception\Database\EmptyDBTableException as EmptyDBTableException;
-use Gulacsi\TeamMember\Interface\MemberInterface;
+use Decimus\Team_member\Exception\Database\EmptyDBTableException as EmptyDBTableException;
+use Decimus\Team_member\Interface\Member_interface;
+
 
 /**
  * Shortcode functionality class
  */
-class Shortcode implements MemberInterface
+class Shortcode implements Member_interface
 {
 
 
@@ -104,7 +105,6 @@ class Shortcode implements MemberInterface
 
 
         global $post;
-
         $form_data = null;
         $valid = $this->get_all_members($form_data);
 
@@ -129,10 +129,10 @@ class Shortcode implements MemberInterface
         ob_start();
 
         if ($type === 'table') {
-            include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/pages/member/shortcode_table.php';
+            include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/views/member/shortcode_table.php';
         } else {
             if ($type === 'list') {
-                include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/pages/member/shortcode_list.php';
+                include DECIMUS_TEAM_MEMBER_PLUGIN_DIR.'/views/member/shortcode_list.php';
             }
         }
 

@@ -1,23 +1,25 @@
 <?php
 
-namespace Gulacsi\TeamMember;
+namespace Decimus\Team_member;
 
-defined('ABSPATH') or die();
+defined( 'ABSPATH' ) or die();
+
+require_once dirname( __FILE__, 3 ) . '/decimus-general/i18n/i18n.php';
 
 use const ABSPATH;
-use Gulacsi\TeamMember\View\Shortcode;
-use Gulacsi\TeamMember\Controller\MemberController;
-use Gulacsi\TeamMember\Interface\MemberInterface;
-use const WP_LANG_DIR;
+use Decimus\Team_member\View\Shortcode;
+use Decimus\Team_member\Controller\Member_controller;
+use Decimus\Team_member\Interface\Member_interface;
+
 
 /**
  * Team Members
  */
-final class TeamMember implements MemberInterface
+final class Team_member implements Member_interface
 {
     // injectables
     private static $instance;
-    private static MemberController $controller;
+    private static Member_controller $controller;
     private static Shortcode $shortcode;
 
 
@@ -29,7 +31,7 @@ final class TeamMember implements MemberInterface
     {
         if ( self::$instance == null ) {
             self::$instance = new self(
-                new MemberController(),
+                new Member_controller(),
                 new Shortcode()
             );
         }
@@ -42,46 +44,46 @@ final class TeamMember implements MemberInterface
      * @return void
      */
     private function __construct(
-        MemberController $controller,
-        Shortcode        $shortcode
-    )
-    {
+        Member_controller $controller,
+        Shortcode $shortcode
+    ) {
         self::$controller = $controller;
         self::$shortcode = $shortcode;
 
 
-        add_action('plugins_loaded', array($this, 'load_text_domain'));
+        add_action( 'plugins_loaded', array( $this, 'load_text_domain' ) );
 
         // register shortcode to list all members
-        add_shortcode('decimus_team_members', array(self::$shortcode, 'team_member_form'));
+        add_shortcode( 'decimus_team_members', array( self::$shortcode, 'team_member_form' ) );
 
         // add admin menu and page
-        add_action('admin_menu', array($this, 'admin_menu'));
+        add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
         // put the css into head (only admin page)
-        add_action('admin_head', array($this, 'admin_css'));
+        add_action( 'admin_head', array( $this, 'admin_css' ) );
         // add script on the backend
-        add_action('admin_enqueue_scripts', array($this, 'admin_load_scripts'));
+        add_action( 'admin_enqueue_scripts', array( $this, 'admin_load_scripts' ) );
 
         // put the css before end of </body>
-        add_action('wp_enqueue_scripts', array($this, 'admin_css'));
+        add_action( 'wp_enqueue_scripts', array( $this, 'admin_css' ) );
 
         // add ajax script
-        add_action('wp_enqueue_scripts', function () {
+        add_action( 'wp_enqueue_scripts', function () {
 
-            wp_enqueue_script('decimus-team-member', plugin_dir_url(dirname(__FILE__)) . 'js/teamMember.js', array('jquery'));
+            wp_enqueue_script( 'decimus-team-member', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/js/teamMember.js',
+                array( 'jquery' ) );
 
             // enable ajax on frontend
-            wp_localize_script('decimus-team-member', 'DecimusTeamMemberData', array(
-                'ajaxurl' => admin_url('admin-ajax.php'),
+            wp_localize_script( 'decimus-team-member', 'DecimusTeamMemberData', array(
+                'ajaxurl' => admin_url( 'admin-ajax.php' ),
                 'security' => wp_create_nonce(),
-            ));
+            ) );
 
-        });
+        } );
 
         // connect AJAX request with PHP hooks
-        add_action('wp_ajax_decimus_team_member_action', array($this, 'team_member_ajax_handler'));
-        add_action('wp_ajax_nopriv_decimus_team_member_action', array($this, 'team_member_ajax_handler'));
+        add_action( 'wp_ajax_decimus_team_member_action', array( $this, 'team_member_ajax_handler' ) );
+        add_action( 'wp_ajax_nopriv_decimus_team_member_action', array( $this, 'team_member_ajax_handler' ) );
     }
 
     public function __destruct()
@@ -91,12 +93,7 @@ final class TeamMember implements MemberInterface
 
     public static function load_text_domain(): void
     {
-        // modified slightly from https://gist.github.com/grappler/7060277#file-plugin-name-php
-        $domain = self::TEXT_DOMAIN;
-        $locale = apply_filters('plugin_locale', get_locale(), $domain);
-
-        load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');
-        load_plugin_textdomain($domain, false, basename(dirname(__FILE__, 2)) . '/languages/');
+        \Decimus_i18n::load_text_domain( self::TEXT_DOMAIN, __FILE__ );
     }
 
 
@@ -107,22 +104,22 @@ final class TeamMember implements MemberInterface
     public function admin_menu(): void
     {
         add_menu_page(
-            __('Team Members', self::TEXT_DOMAIN), // page title
-            __('Decimus Team Members', self::TEXT_DOMAIN), // menu title
+            __( 'Team Members', self::TEXT_DOMAIN ), // page title
+            __( 'Decimus Team Members', self::TEXT_DOMAIN ), // menu title
             'manage_options', // capability
             'team-member-list', // menu slug
-            array(self::$controller, 'list_table'), // callback
+            array( self::$controller, 'list_table' ), // callback
             'dashicons-groups', // icon
             4
         );
 
         add_submenu_page(
             'team-member-list', //parent slug
-            __('Add new team member', self::TEXT_DOMAIN), // page title
-            __('Add new', self::TEXT_DOMAIN),  // menu title
+            __( 'Add new team member', self::TEXT_DOMAIN ), // page title
+            __( 'Add new', self::TEXT_DOMAIN ),  // menu title
             'manage_options', // capability
             'team-member-insert', // menu slug
-            array(self::$controller, 'add_form') // callback
+            array( self::$controller, 'add_form' ) // callback
         );
     }
 
@@ -136,7 +133,7 @@ final class TeamMember implements MemberInterface
 
         wp_enqueue_style(
             'team_member_css',
-            plugin_dir_url(dirname(__FILE__)) . 'css/team-member.css'
+            plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/team-member.css'
         );
     }
 
@@ -151,7 +148,7 @@ final class TeamMember implements MemberInterface
 
         wp_enqueue_style(
             'decimus-team-member-admin-css',
-            plugin_dir_url(dirname(__FILE__)) . 'css/team-member.css'
+            plugin_dir_url( dirname( __FILE__ ) ) . 'assets/css/team-member.css'
         );
         // wp_enqueue_script('custom-js', plugins_url('js/custom.js', dirname(__FILE__, 2)));
     }
@@ -159,10 +156,10 @@ final class TeamMember implements MemberInterface
 
     public function team_member_ajax_handler()
     {
-        if ( check_ajax_referer('decimus_team_member', 'security') ) {
+        if ( check_ajax_referer( 'decimus_team_member', 'security' ) ) {
             $args = $_REQUEST['args'];
-            $content = self::$shortcode->team_member_form($args);
-            wp_send_json_success($content);
+            $content = self::$shortcode->team_member_form( $args );
+            wp_send_json_success( $content );
         } else {
             wp_send_json_error();
         }
@@ -193,17 +190,19 @@ final class TeamMember implements MemberInterface
             PRIMARY KEY (`id`)
         ) $charset_collate;";
 
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql);
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        dbDelta( $sql );
 
         // manage db version in options
         $team_member_option_name = self::TABLE_NAME . '_db_version';
-        $team_member_option = get_option($team_member_option_name);
+        $team_member_option = get_option( $team_member_option_name );
 
         if ( !$team_member_option ) {
-            add_option($team_member_option_name, self::DB_VERSION);
-        } else if ( $team_member_option !== self::DB_VERSION ) {
-            update_option($team_member_option_name, self::DB_VERSION);
+            add_option( $team_member_option_name, self::DB_VERSION );
+        } else {
+            if ( $team_member_option !== self::DB_VERSION ) {
+                update_option( $team_member_option_name, self::DB_VERSION );
+            }
         }
     }
 
@@ -214,7 +213,7 @@ final class TeamMember implements MemberInterface
      */
     public static function delete_plugin(): void
     {
-        if ( !defined('WP_UNINSTALL_PLUGIN') ) {
+        if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
             exit();
         }
 
@@ -222,11 +221,11 @@ final class TeamMember implements MemberInterface
         $table_name = $wpdb->prefix . self::TABLE_NAME;
         $team_member_option_name = self::TABLE_NAME . '_db_version';
 
-        $wpdb->query("DROP TABLE IF EXISTS $table_name");
+        $wpdb->query( "DROP TABLE IF EXISTS $table_name" );
 
         // delete option if exists
-        if ( get_option($team_member_option_name) ) {
-            delete_option($team_member_option_name);
+        if ( get_option( $team_member_option_name ) ) {
+            delete_option( $team_member_option_name );
         }
 
     }

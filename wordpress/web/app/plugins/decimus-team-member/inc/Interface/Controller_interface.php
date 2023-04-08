@@ -1,10 +1,11 @@
 <?php
 
-namespace Gulacsi\TeamMember\Interface;
+namespace Decimus\Team_member\Interface;
 
 defined('ABSPATH') or die();
 
-interface ControllerInterface
+
+interface Controller_interface
 {
     /**
      * Form action switcher

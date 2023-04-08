@@ -1,8 +1,9 @@
 <?php
 
-namespace Gulacsi\TeamMember\Model;
+namespace Decimus\Team_member\Model;
 
 defined('ABSPATH') or die();
+
 
 abstract class Model
 {
