@@ -4,7 +4,7 @@
     // Load media upload on click
     $('#tag-image').on('click', null,
         function () {
-            fileInput = jQuery('#tag-image');
+            fileInput = $('#tag-image');
             tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
             return false;
         });
