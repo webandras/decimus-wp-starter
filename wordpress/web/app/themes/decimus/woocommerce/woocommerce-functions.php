@@ -444,3 +444,25 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 }
 
 
+// Get active my account page menu item to add active state to side navigation menu
+if ( ! function_exists( 'get_active_account_menu_item' ) ) {
+    function get_active_account_menu_item()
+    {
+        global $wp;
+        $items = wc_get_account_menu_items();
+        $current = false;
+        foreach ( $items as $endpoint => $label ) {
+            // Set current item class.
+            $current = isset( $wp->query_vars[$endpoint] );
+            if ( 'dashboard' === $endpoint && ( isset( $wp->query_vars['page'] ) || empty( $wp->query_vars ) ) ) {
+                $current = true; // Dashboard is not an endpoint, so needs a custom check.
+            }
+
+            if ( $current ) {
+                $current = $endpoint;
+                break;
+            }
+        }
+        return $current;
+    }
+}
