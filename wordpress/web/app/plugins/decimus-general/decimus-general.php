@@ -15,3 +15,4 @@ Domain Path: /languages
 require_once 'logger/Decimus_logger.php';
 require_once 'exceptions/database.php';
 require_once 'exceptions/file.php';
+require_once 'i18n/i18n.php';
