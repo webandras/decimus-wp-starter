@@ -417,7 +417,7 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
             return !!$product;
         });
 
-        if ( count($order_products > 0) ) {
+        if (count( $order_products ) > 0) {
             // Check if each product is 'virtual'
             $is_virtual_order = array_reduce($order_products, function ($virtual_order_so_far, $product) {
                 return $virtual_order_so_far && $product->is_virtual();
