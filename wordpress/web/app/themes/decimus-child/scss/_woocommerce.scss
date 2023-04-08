@@ -147,6 +147,11 @@ i.sui.sui-user {
     width: fit-content;
 }
 
+.woocommerce-cart {
+    .woocommerce-message {
+        margin-left: 0;
+}
+
 .cart-empty.alert,
 .woocommerce-message.alert {
     width: fit-content;
@@ -265,6 +270,8 @@ span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
     .woocommerce-form-row {
         max-width: 400px;
     }
+}
+
 }
 
 

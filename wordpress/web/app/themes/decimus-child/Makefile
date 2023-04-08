@@ -1,7 +1,8 @@
 SHELL = /bin/bash
 
 
-SASSFLAGS = --style nested -M
+# SASSFLAGS = --style nested -M
+SASSFLAGS = --style compressed -M
 
 # sassc - a very fast SASS compiler written in C++
 #install-sass:
