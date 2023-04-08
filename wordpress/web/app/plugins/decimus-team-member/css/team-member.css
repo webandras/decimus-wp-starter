@@ -31,6 +31,10 @@
     margin-bottom: 0.75rem;
 }
 
+.notice {
+    display: none;
+}
+
 #wpfooter {
     position: relative;
     /*display: none;*/

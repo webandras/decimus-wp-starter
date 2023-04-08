@@ -24,7 +24,7 @@ define( 'DECIMUS_TEAM_MEMBER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 // logger instance
 global $dtm_log;
-$dtm_log = new Klogger( DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/log', Klogger::INFO );
+$dtm_log = new Decimus_logger( DECIMUS_TEAM_MEMBER_PLUGIN_DIR . '/log', Decimus_logger::INFO );
 
 
 // main instance
