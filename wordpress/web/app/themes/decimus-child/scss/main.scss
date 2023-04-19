@@ -1,18 +1,19 @@
 @charset "UTF-8";
 
-@import "variables";
-@import "base";
-@import "comment";
-@import "image";
-@import "widget";
-@import "modal";
-@import "header";
-@import "footer";
-@import "landing-page";
-@import "woocommerce";
-@import "navigation";
-@import "forms";
-@import "custom";
+@import "parts/variables";
+@import "parts/base";
+@import "parts/comment";
+@import "parts/image";
+@import "parts/widget";
+@import "parts/modal";
+@import "parts/header";
+@import "parts/footer";
+@import "parts/landing-page";
+@import "parts/woocommerce";
+@import "parts/navigation";
+@import "parts/forms";
+@import "parts/custom";
+
 @import "slick";
 @import "slick-theme";
 

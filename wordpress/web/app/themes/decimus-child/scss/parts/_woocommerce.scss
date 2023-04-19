@@ -1,0 +1,99 @@
+@import 'woocommerce/product';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+@import 'woocommerce/forms';
+@import 'woocommerce/notification';
+
+
+nav.woocommerce-pagination > ul.page-numbers {
+    display: none !important;
+}
+
+.star-rating span:before,
+.quantity .plus,
+.quantity .minus,
+p.stars a:hover:after,
+p.stars a:after,
+.star-rating span:before,
+#payment .payment_methods li input[type="radio"]:first-child:checked + label:before {
+    color: goldenrod; // #96588a
+}
+
+
+span.woocommerce-Price-amount.amount {
+    font-size: 16px;
+}
+
+i.sui.sui-user {
+    top: 0.5rem;
+    left: 0.5rem;
+}
+
+
+@media screen and (max-width: 1200px) {
+    table.variations > tbody > tr {
+        display: grid;
+    }
+}
+
+#add_payment_method table.cart img,
+.woocommerce-cart table.cart img,
+.woocommerce-checkout table.cart img {
+    width: 70px;
+}
+
+#add_payment_method table.cart .product-thumbnail,
+.woocommerce-cart table.cart .product-thumbnail,
+.woocommerce-checkout table.cart .product-thumbnail {
+    min-width: 70px;
+    max-width: 70px;
+}
+
+
+.woocommerce {
+    h2 {
+        margin-top: 1rem;
+        font-size: $h5-size;
+    }
+}
+
+
+.archive.tax-product_cat.woocommerce-page,
+.archive.post-type-archive.post-type-archive-product.woocommerce-shop {
+    h2.woocommerce-loop-product__title {
+        font-size: 1.25rem;
+    }
+
+    .term-description p {
+        padding-bottom: 1rem;
+    }
+
+    .price {
+        .woocommerce-Price-amount.amount {
+            bdi {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.woocommerce-ordering {
+    .orderby.form-select {
+        padding: .5rem 3.5rem .5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .form-select {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23555' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    }
+}
+
+#customer_details {
+    h3 {
+        font-size: $h6-size !important;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}

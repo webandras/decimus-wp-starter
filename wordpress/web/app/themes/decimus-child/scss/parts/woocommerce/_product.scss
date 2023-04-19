@@ -157,5 +157,31 @@ figure.woocommerce-product-gallery__wrapper img {
     margin-bottom: 1em;
 }
 
+.woocommerce-Reviews {
+    #review_form_wrapper {
+        #review_form {
+            #respond {
+                h3#reply-title {
+                    font-size: 1.2rem !important;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
 
+}
 
+.woocommerce-product-rating {
+    a.woocommerce-review-link {
+        font-size: $medium-size;
+    }
+}
+
+.product_meta {
+    border-top: 1px solid lightgray;
+    padding-top: .5rem;
+}
+
+span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
+    font-size: 1rem;
+}

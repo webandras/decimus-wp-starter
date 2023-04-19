@@ -27,7 +27,7 @@ $scroll_to_top_arrow = $have_global_data ? esc_attr(isset($global_options['enabl
 
 <footer>
 
-    <div class="decimus-footer bg-light">
+    <div class="decimus-footer bg-dark">
         <div class="container">
 
             <!-- Top Footer Widget -->
@@ -95,7 +95,7 @@ $scroll_to_top_arrow = $have_global_data ? esc_attr(isset($global_options['enabl
         </div>
     </div>
 
-    <div class="decimus-info text-muted border-top py-2 text-center bg-light">
+    <div class="decimus-info text-muted py-2 text-center bg-black">
         <div class="container">
             <small>&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
         </div>

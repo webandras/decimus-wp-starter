@@ -119,3 +119,17 @@ button[name="save_address"] {
         font-size: 0.875em;
     }
 }
+
+.checkout_coupon.woocommerce-form-coupon {
+    max-width: 500px;
+}
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+    color: #515151;
+}
+
+.woocommerce-checkout #payment div.payment_box::before {
+    border-bottom-color: rgb(33, 37, 41) !important;
+}

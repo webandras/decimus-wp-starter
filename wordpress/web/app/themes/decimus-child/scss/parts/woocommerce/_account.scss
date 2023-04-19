@@ -37,3 +37,16 @@
     }
 
 }
+
+.woocommerce-form-login {
+    .woocommerce-form-row {
+        max-width: 400px;
+    }
+}
+
+/* WooCommerce my account */
+li.is-active > a {
+    transition: 0.6s;
+    box-shadow: none;
+}
+

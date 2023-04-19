@@ -1,0 +1,43 @@
+/* Woocommerce errors */
+.woocommerce-error {
+    background-color: $error !important;
+}
+
+.woocommerce-message {
+    margin-top: 10px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: fit-content;
+}
+
+.cart-empty.alert,
+.woocommerce-message.alert {
+    width: fit-content;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+    background-image: unset;
+
+    /* &.alert-danger {
+         color: #984c0c;
+         background-color: #ffe5d0;
+         border-color: #fed8b9;
+     }
+
+     &.alert-warning {
+         color: #997404;
+         background-color: #fff3cd;
+         border-color: #ffecb5;
+     }
+
+     &.alert-success {
+         color: #278164;
+         background-color: #d9f7ed;
+         border-color: #c6f3e5;
+     }
+
+     &.alert-info {
+         color: #227a97;
+         background-color: #d7f5fe;
+         border-color: #c4effe;
+     }*/
+}
+

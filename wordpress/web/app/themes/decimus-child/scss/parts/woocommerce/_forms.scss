@@ -1,0 +1,64 @@
+.form-row.woocommerce-invalid input.input-text {
+    box-shadow: inset 2px 0 0 $error !important;
+}
+
+.woocommerce-form__input.woocommerce-form__input-checkbox.input-checkbox.form-check-input {
+    border: 1px solid gray;
+}
+
+.checkbox-position {
+    position: relative;
+    top: 3px;
+}
+
+/* Woocommerce add quantity buttons */
+.qty-button.plus,
+.qty-button.minus {
+    line-height: 1;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 40px;
+    width: 30px;
+    color: black;
+    background: #e2e2e2;
+    border-color: #cac9c9;
+    min-height: initial;
+    min-width: initial;
+    max-height: initial;
+    max-width: initial;
+    vertical-align: middle;
+    font-size: 16px;
+    letter-spacing: 0;
+    border-style: solid;
+    border-width: 1px;
+    transition: none;
+    border-radius: 0;
+}
+
+.input-text.qty.text {
+    line-height: 1;
+    background: none;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 40px;
+    width: 45px;
+    min-height: initial;
+    min-width: initial;
+    max-height: initial;
+    max-width: initial;
+    box-shadow: none;
+    font-size: 15px;
+    border-style: solid;
+    border-width: 1px 0;
+    border-radius: 0;
+}
+
+div.quantity {
+    display: inline-block;
+    min-width: 120px;
+}
