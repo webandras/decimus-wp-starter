@@ -273,7 +273,7 @@ if ( !class_exists( 'Decimus_taxonomy_image' ) ) {
 
 
         /** get taxonomy/category image */
-        public function get_wp_term_image($term_id)
+        public static function get_wp_term_image($term_id)
         {
             return get_option( '_category_image-' . $term_id );
         }
