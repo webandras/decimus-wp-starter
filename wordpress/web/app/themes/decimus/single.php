@@ -28,7 +28,7 @@ if (is_class_activated()) {
         <?php } ?>
 
         <!-- Hook to add something nice -->
-        <?php bs_after_primary(); ?>
+        <?php decimus_after_primary(); ?>
 
         <?php the_breadcrumb(); ?>
 
@@ -84,7 +84,10 @@ if (is_class_activated()) {
                         </nav>
                     </footer>
 
-                    <?php comments_template(); ?>
+	                <?php // If comments are open, or we have at least one comment, load up the comment template.
+	                if ( comments_open() || get_comments_number() ) {
+		                comments_template();
+	                } ?>
 
                 </main> <!-- #main -->
 

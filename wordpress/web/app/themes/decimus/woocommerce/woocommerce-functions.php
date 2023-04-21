@@ -326,6 +326,21 @@ if ( !function_exists('decimus_woocommerce_content') ) {
             ?>
             <div class="px-2 px-md-3">
 
+            <?php
+            if (is_tax() ) {
+                // movie_types
+                $term = get_queried_object();
+
+                $cat_id = $term->term_id;
+                $thumbnail_id = get_term_meta( $cat_id, 'thumbnail_id', true );
+
+                $meta_image        = wp_get_attachment_url( $thumbnail_id );
+                if ($meta_image) { ?>
+                    <img class="mb-2" style="height: 100px; width:100%; object-fit:cover;" src="<?php echo esc_url($meta_image) ?>" alt="<?php single_term_title( '', false ); ?>">
+                <?php }
+            }
+            ?>
+
             <?php if ( apply_filters('woocommerce_show_page_title', true) ) : ?>
                 <h1 class="page-title h2 mt-0"><?php woocommerce_page_title(); ?></h1>
 
@@ -434,15 +449,6 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 add_action('woocommerce_after_single_product', 'woocommerce_output_related_products', 20);
 
-/**
- * Check if WooCommerce is activated
- */
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
-    function is_woocommerce_activated(): bool {
-        return class_exists( 'woocommerce' );
-    }
-}
-
 
 // Get active my account page menu item to add active state to side navigation menu
 if ( ! function_exists( 'get_active_account_menu_item' ) ) {
@@ -466,3 +472,20 @@ if ( ! function_exists( 'get_active_account_menu_item' ) ) {
         return $current;
     }
 }
+
+
+/**
+ * Add a sidebar.
+ */
+function decimus_woocommerce_sidebar(): void {
+	register_sidebar( array(
+		'name'          => __( 'Woocommerce Sidebar', 'decimus' ),
+		'id'            => 'woocommerce',
+		'description'   => __( 'Widgets in this area will be shown on WooCommerce product list pages.', 'decimus' ),
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => '</h2>',
+	) );
+}
+add_action( 'widgets_init', 'decimus_woocommerce_sidebar' );

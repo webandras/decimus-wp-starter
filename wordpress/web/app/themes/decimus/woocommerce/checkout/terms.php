@@ -40,18 +40,17 @@ if ( apply_filters('woocommerce_checkout_show_terms', true) && function_exists('
 
                 <input type="hidden" name="terms-field" value="1"/>
             </p>
-            <p class="custom-validation validate-required">
-
-        <span class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox form-check">
-          <input type="checkbox" id="privacy_policy"
-                 class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox form-check-input"
-                 name="privacy_policy"/>
-          <label class="woocommerce-terms-and-conditions-checkbox-text form-check-label"
-                 for="privacy_policy"><?php _e('Elolvastam és elfogadom az <a href="/adatkezeles/" target="_blank">Adatkezelési tájékoztatót</a>', 'decimus'); ?>&nbsp;<span
-                      class="required">*</span></label>
-        </span>
+            <!--<p class="custom-validation validate-required">
+                 <span class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox form-check">
+                  <input type="checkbox" id="privacy_policy"
+                         class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox form-check-input"
+                         name="privacy_policy"/>
+                  <label class="woocommerce-terms-and-conditions-checkbox-text form-check-label"
+                         for="privacy_policy"><?php //_e('I have read and accepted the <a href="/adatkezeles/" target="_blank">Privacy policy</a>', 'decimus'); ?>&nbsp;<span
+                              class="required">*</span></label>
+                </span>
                 <input type="hidden" name="privacy_policy-field" value="1"/>
-            </p>
+            </p>-->
         <?php endif; ?>
 
     </div>

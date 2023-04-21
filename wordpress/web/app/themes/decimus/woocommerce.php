@@ -20,7 +20,7 @@ get_header();
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
-            <?php bs_after_primary(); ?>
+            <?php decimus_after_primary(); ?>
 
             <main id="main" class="site-main mt-2">
                 <!-- Breadcrumb -->
@@ -30,11 +30,20 @@ get_header();
                 }
                  ?>
                 <div class="row">
+
+                    <?php if ( is_archive() ) { ?>
+                    <div class="col-md-9 col-lg-9 col-xxl-9">
+                    <?php } else { ?>
                     <div class="col">
+                    <?php } ?>
                         <?php decimus_woocommerce_content(); ?>
                     </div>
+
                     <!-- sidebar -->
-                    <?php //get_sidebar();
+                    <?php
+                    if ( is_archive() ) {
+	                    get_sidebar( 'woocommerce' );
+                    }
                     ?>
                     <!-- row -->
                 </div>

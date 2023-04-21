@@ -18,7 +18,7 @@ get_header();
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
-            <?php bs_after_primary(); ?>
+            <?php decimus_after_primary(); ?>
 
             <main id="main" class="site-main">
 
@@ -117,6 +117,12 @@ get_header();
                 <!-- Post List -->
                 <div class="row">
                     <div class="col col-md-8 col-xxl-9">
+
+                        <!-- Pagination -->
+                        <div>
+		                    <?php decimus_pagination(); ?>
+                        </div>
+
                         <!-- Grid Layout -->
                         <?php if ( have_posts() ) : ?>
                             <?php while (have_posts()) : the_post(); ?>

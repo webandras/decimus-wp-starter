@@ -8,15 +8,7 @@ function decimus_child_enqueue_styles(): void
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
     // custom.js
-    wp_enqueue_script('slick-slider', get_stylesheet_directory_uri() . '/js/slick.min.js', false, '', true);
     wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', false, '', true);
-
-    // only compile to css in dev env
-    if ( WP_ENV === 'development' ) {
-        require_once get_stylesheet_directory() . '/_develop/scss-compiler.php';
-        decimus_compile_scss();
-    }
-
 }
 
 
@@ -43,14 +35,27 @@ function decimus_child_remove_scripts(): void
 }
 
 
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+	function is_woocommerce_activated(): bool {
+		return class_exists( 'woocommerce' );
+	}
+}
+
+
 // Theme and WooCommerce hooks and functions
-require_once get_template_directory() . '/woocommerce/woocommerce-functions.php';
 require_once get_stylesheet_directory() . '/inc/theme.php';
-require_once get_stylesheet_directory() . '/inc/woocommerce.php';
+
+if ( is_woocommerce_activated() ) {
+	require_once get_stylesheet_directory() . '/inc/woocommerce.php';
+	require_once get_template_directory() . '/woocommerce/woocommerce-functions.php';
+}
 
 
 //add_action('wp_footer', 'decimus_child_add_google_analytics');
-function decimus_child_add_google_analytics()
+function decimus_child_add_google_analytics(): void
 {
     $html = '<!-- Global site tag (gtag.js) - Google Analytics -->';
     $html .= '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170495324-1"></script>';
@@ -65,7 +70,3 @@ function decimus_child_add_google_analytics()
 
     echo $html;
 }
-
-
-
-

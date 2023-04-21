@@ -20,25 +20,12 @@ sass-watch:
 	done
 
 bootswatch:
-	sassc $(SASSFLAGS) css/lib/cosmo/cosmo.scss > css/lib/cosmo.css
+	sassc $(SASSFLAGS) ./../decimus/css/lib/cosmo/cosmo.scss > css/lib/cosmo.css
 
 
 # Watch changes in SASS files and compile the CSS bundle
 bootswatch-watch:
 	while true; do \
   		make bootswatch; \
-  		inotifywait -qre close_write ./css/lib/cosmo/; \
+  		inotifywait -qre close_write ./../decimus/css/lib/cosmo/; \
 	done
-
-
-
-# esbuild - a very fast JavaScript bundler written in Go
-install-esbuild:
-	npm install --save-exact esbuild
-
-# create bundle from the source
-esbuild:
-	./node_modules/.bin/esbuild modules/clean/_javascript/clean.js --bundle --sourcemap --target=es6 --outfile=modules/clean/assets/js/clean.js
-
-esbuild-watch:
-	./node_modules/.bin/esbuild modules/clean/_javascript/clean.js --bundle --sourcemap --outfile=modules/clean/assets/js/clean.js --watch

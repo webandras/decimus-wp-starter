@@ -98,7 +98,7 @@ if ( ! function_exists( 'decimus_comments' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function decimus_comments() {
+	function decimus_comments(): void {
 
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -130,7 +130,7 @@ if ( ! function_exists( 'decimus_edit' ) ) :
 	/**
 	 * Prints HTML with the comment count for the current post.
 	 */
-	function decimus_edit() {
+	function decimus_edit(): void {
 
 		edit_post_link(
 			sprintf(
@@ -158,7 +158,7 @@ if ( ! function_exists( 'decimus_comment_count' ) ) :
 	/**
 	 * Prints HTML with the comment count for the current post.
 	 */
-	function decimus_comment_count() {
+	function decimus_comment_count(): void {
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo ' | <i class="far fa-comments"></i> <span class="comments-link">';
 
@@ -179,7 +179,7 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function decimus_tags() {
+	function decimus_tags(): void {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 
@@ -194,7 +194,7 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 	}
     add_filter( "term_links-post_tag", 'decimus_add_tag_class');
 
-    function decimus_add_tag_class($links) {
+    function decimus_add_tag_class($links): string|array {
         return str_replace('<a href="', '<a class="badge border text-body" href="', $links);
     }
 endif;

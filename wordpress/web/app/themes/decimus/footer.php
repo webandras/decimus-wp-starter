@@ -85,7 +85,7 @@ $scroll_to_top_arrow = $have_global_data ? esc_attr(isset($global_options['enabl
                 'container' => false,
                 'menu_class' => '',
                 'fallback_cb' => '__return_false',
-                'items_wrap' => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
+                'items_wrap' => '<ul id="footer-menu" class="nav mt-3 %2$s">%3$s</ul>',
                 'depth' => 1,
                 'walker' => new bootstrap_5_wp_nav_menu_walker()
             ));

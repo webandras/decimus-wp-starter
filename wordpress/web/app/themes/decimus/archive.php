@@ -14,7 +14,7 @@ get_header();
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
-            <?php bs_after_primary(); ?>
+            <?php decimus_after_primary(); ?>
 
             <div class="row">
                 <div class="col">

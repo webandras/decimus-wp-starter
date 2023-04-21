@@ -1,7 +1,10 @@
 # Application
 web/app/plugins/*
 !web/app/plugins/decimusadmin/
+!web/app/plugins/decimus-general/
+!web/app/plugins/demo/
 !web/app/plugins/decimus-taxonomy-image/
+!web/app/plugins/decimus-movie-reviews/
 !web/app/plugins/vuecommerce/
 !web/app/plugins/decimus-team-member/
 !web/app/plugins/.gitkeep

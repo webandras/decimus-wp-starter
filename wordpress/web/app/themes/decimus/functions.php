@@ -65,9 +65,13 @@ function decimus_scripts(): void
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), $modificated, true);
 
     // Contact form script
-    wp_enqueue_script('bs5-contactform', get_template_directory_uri() . '/inc/components/bs5-contact-form-7/js/contactform-script.js', array(), $modificated, true);
+    wp_enqueue_script('bs5-contactform-js', get_template_directory_uri() . '/inc/components/bs5-contact-form-7/js/contactform-script.js', array(), $modificated, true);
 
-    // Theme JS
+	// Slick Slider
+	wp_enqueue_script('slick-slider-js', get_template_directory_uri() . '/js/slick.min.js', false, '', true);
+
+
+	// Theme JS
     wp_enqueue_script('decimus-script', get_template_directory_uri() . '/js/theme.js', array(), $modificated, true);
 
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
@@ -84,20 +88,36 @@ add_action('wp_enqueue_scripts', 'decimus_scripts');
  */
 require_once get_template_directory() . '/inc/theme.php';
 
+
+/**
+ * Widgets
+ */
+require_once get_template_directory() . '/inc/widgets.php';
+
+
+/**
+ * Navigation (pagination, breadcrumbs, post links, etc.)
+ */
+require_once get_template_directory() . '/inc/navigation.php';
+
+
 /**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+
 /**
  * Custom components
  */
 require_once get_template_directory() . '/inc/components.php';
+
 
 /**
  * Custom widgets

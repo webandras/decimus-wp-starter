@@ -14,7 +14,7 @@ get_header();
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
-            <?php bs_after_primary(); ?>
+            <?php decimus_after_primary(); ?>
 
             <div class="row">
                 <div class="col">
@@ -22,7 +22,25 @@ get_header();
                     <main id="main" class="site-main">
 
                         <!-- Title & Description -->
-                        <header class="page-header mb-4">
+                        <header class="page-header mb-5">
+
+                            <?php
+                            if (class_exists('Decimus_taxonomy_image'))
+                            {
+	                            $category = get_category( get_query_var( 'cat' ) );
+	                            $cat_id = $category->cat_ID;
+
+	                            $meta_image = Decimus_taxonomy_image::get_wp_term_image($cat_id);
+	                            //It will give category/term image url
+
+                                if ($meta_image) { ?>
+                                    <img class="mb-2" style="height: 100px; width:100%; object-fit:cover;" src="<?php echo esc_url($meta_image) ?>" alt="<?php single_cat_title(); ?>">
+                                <?php }
+                            }
+                            ?>
+
+
+
                             <h1><?php single_cat_title(); ?></h1>
                             <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
                         </header>
@@ -38,7 +56,6 @@ get_header();
                                         ?>
                                         <div class="col">
                                             <div class="card-body">
-                                                <?php decimus_category_badge(); ?>
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
@@ -62,9 +79,6 @@ get_header();
                                                                                href="<?php the_permalink(); ?>"><?php _e('Read more »', 'decimus'); ?></a>
                                                 </div>
 
-                                                <hr>
-                                                <!-- Tags -->
-                                                <?php decimus_tags(); ?>
                                             </div>
                                         </div>
                                     </div>

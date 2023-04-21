@@ -67,13 +67,13 @@ function decimus_child_new_product_tab_content(): void
 
 
 // Show notice if customer does not tick
-add_action('woocommerce_checkout_process', 'decimus_child_not_approved_privacy');
+/*add_action('woocommerce_checkout_process', 'decimus_child_not_approved_privacy');
 function decimus_child_not_approved_privacy(): void
 {
     if ( !(int)isset($_POST['privacy_policy']) ) {
         wc_add_notice(__('Kérjük az Adatkezelési Tájékoztató elolvasását és elfogadását a rendelés folytatásához.', 'decimus'), 'error');
     }
-}
+}*/
 
 
 add_filter('woocommerce_add_to_cart_validation', 'decimus_child_remove_cart_item_before_add_to_cart', 20, 3);

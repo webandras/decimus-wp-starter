@@ -210,7 +210,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                                 <i class="fas fa-search"></i>
                             </button>
                         <?php } ?>
-                        <?php if ($account) { ?>
+                        <?php if (is_woocommerce_activated() && $account ) { ?>
                             <!-- User Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user"
@@ -219,7 +219,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
                             </button>
                         <?php } ?>
-                        <?php if ($cart) { ?>
+                        <?php if (is_woocommerce_activated() && $cart ) { ?>
                             <!-- Mini Cart Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
@@ -273,7 +273,10 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
-                    <?php include get_template_directory().'/woocommerce/myaccount/my-account-offcanvas.php'; ?>
+                    <?php if ( is_woocommerce_activated() ) {
+                        require get_template_directory().'/woocommerce/myaccount/my-account-offcanvas.php';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -292,7 +295,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                     </div>
                 </div>
                 <div class="cart-list">
-                    <?php if (function_exists('woocommerce_mini_cart')) { ?>
+                    <?php if (is_woocommerce_activated() && function_exists('woocommerce_mini_cart')) { ?>
                         <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
                     <?php } ?>
                 </div>

@@ -112,7 +112,6 @@ add_filter('comment_form_default_fields', 'decimus_change_comment_form_cookies_c
 // Comment Cookie Checkbox End
 
 
-
 // Open comment author link in new tab
 add_filter('get_comment_author_link', 'decimus_open_comment_author_link_in_new_window');
 function decimus_open_comment_author_link_in_new_window(string $author_link): string
@@ -120,3 +119,25 @@ function decimus_open_comment_author_link_in_new_window(string $author_link): st
     return str_replace("<a", "<a target='_blank'", $author_link);
 }
 // Open comment author link in new tab End
+
+
+// Open links in comments in new tab
+if ( ! function_exists( 'decimus_comment_links_in_new_tab' ) ) :
+	function decimus_comment_links_in_new_tab( $text ): string {
+		return str_replace( '<a', '<a target="_blank" rel=”nofollow”', $text );
+	}
+
+	add_filter( 'comment_text', 'decimus_comment_links_in_new_tab' );
+endif;
+// Open links in comments in new tab END
+
+
+// Comment Button
+function decimus_comment_form( $args ): array {
+	$args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
+
+	return $args;
+}
+
+add_filter( 'comment_form_defaults', 'decimus_comment_form' );
+// Comment Button END

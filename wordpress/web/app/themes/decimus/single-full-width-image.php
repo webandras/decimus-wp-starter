@@ -23,7 +23,7 @@ get_header(); ?>
             <div class="container pb-5">
 
                 <!-- Hook to add something nice -->
-                <?php bs_after_primary(); ?>
+                <?php decimus_after_primary(); ?>
 
                 <?php the_breadcrumb(); ?>
 
