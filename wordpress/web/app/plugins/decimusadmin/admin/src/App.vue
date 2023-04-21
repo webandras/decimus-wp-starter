@@ -39,8 +39,8 @@ export default {
 }
 
 .toplevel_page_decimus-admin #wpwrap {
-  height: 0;
-  min-height: 0;
+/*  height: 0;
+  min-height: 0;*/
 }
 
 /* General styles */

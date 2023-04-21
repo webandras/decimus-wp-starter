@@ -12,9 +12,6 @@
  * Domain Path: /lang
  */
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ERROR);
 
 // Exit if accessed directly
 if ( !defined('ABSPATH') ) exit;
@@ -24,7 +21,7 @@ require_once __DIR__ . '/requires.php';
 
 use Guland\DecimusAdmin\DecimusAdmin as DecimusAdmin;
 
-require_once __DIR__ . '/vendor/autoload.php';
+//require_once __DIR__ . '/vendor/autoload.php';
 
 add_action(
     'plugins_loaded',
