@@ -25,6 +25,8 @@ trait S003
             return;
         }
 
+		global $wpdb;
+
         $key = 'woocommerce';
         $old_options = self::get_option_record($key);
         $new_options = $old_options;

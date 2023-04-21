@@ -28,9 +28,10 @@ trait AdminPage
             wp_register_script('decimus-js-admin-app', 'http://localhost:8081/js/app.js', [], false, true);
         } else {
             // register the Vue scripts
-            wp_enqueue_script('decimus-js-admin-chunk-vendors', plugins_url() . '/decimusadmin/admin/dist/js/chunk-vendors.js', [], false, true);
-            wp_register_script('decimus-js-admin-app', plugins_url() . '/decimusadmin/admin/dist/js/app.js', [], false, true);
-            wp_enqueue_style('decimus-admin-css', plugins_url() . '/decimusadmin/admin/dist/css/app.d27dbbec.css', [], DB_VERSION);
+            wp_enqueue_script('decimus-js-admin-chunk-vendors', plugins_url() . '/decimusadmin/admin/dist/js/chunk-vendors.c326f51a.js', [], false, true);
+            wp_register_script('decimus-js-admin-app', plugins_url() . '/decimusadmin/admin/dist/js/app.185163a9.js', [], false, true);
+            wp_enqueue_style('decimus-admin-css', plugins_url() . '/decimusadmin/admin/dist/css/app.4e19b7be.css', [], DB_VERSION);
+            wp_enqueue_style('decimus-admin-chunk-vendors-css', plugins_url() . '/decimusadmin/admin/dist/css/chunk-vendors.71a233fb.css', [], DB_VERSION);
         }
 
 
