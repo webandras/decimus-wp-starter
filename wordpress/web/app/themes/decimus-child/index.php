@@ -116,7 +116,7 @@ get_header();
                 <?php endif; ?>
                 <!-- Post List -->
                 <div class="row">
-                    <div class="col col-md-8 col-xxl-9">
+                    <div class="col col-md-8 col-lg-9 col-xxl-9">
 
                         <!-- Pagination -->
                         <div>

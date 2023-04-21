@@ -94,7 +94,7 @@ get_header();
                                                 </h2>
                                                 <!-- Meta -->
 												<?php if ( 'movie_review' === get_post_type() ) : ?>
-                                                    <small class="text-muted d-block mb-2">
+                                                    <small class="text-muted d-block mb-3">
 														<?php
 														decimus_date();
 														decimus_edit();

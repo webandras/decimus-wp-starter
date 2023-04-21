@@ -56,7 +56,7 @@ get_header();
                                                     </h2>
                                                     <!-- Meta -->
                                                     <?php if ('post' === get_post_type()) : ?>
-                                                        <small class="text-muted d-block mb-2">
+                                                        <small class="text-muted d-block mb-3">
                                                             <?php
                                                             decimus_date();
                                                             decimus_author();

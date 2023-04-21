@@ -69,8 +69,17 @@ if (is_class_activated()) {
                     <footer class="entry-footer clear-both">
                         <hr class="mb-1 mt-4">
                         <div class="mb-4">
-                            <?php decimus_category_badge(); ?>
-                            <?php decimus_tags(); ?>
+                            <div class="d-inline-block mb-2">
+                                <i class="far fa-folder"></i>
+                                <div class="d-inline-block">
+                                    <?php decimus_category_badge(); ?>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mb-2">
+                                    <?php decimus_tags(); ?>
+                                </div>
+                            </div>
                         </div>
                         <nav aria-label="Page navigation">
                             <ul class="pagination d-flex justify-content-between mb-5">

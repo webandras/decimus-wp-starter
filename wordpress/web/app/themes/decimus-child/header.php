@@ -205,8 +205,9 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                         <?php if ($search === true) { ?>
                             <!-- Search Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 " type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false"
-                                    aria-controls="collapse-search">
+                                    data-bs-toggle="modal" data-bs-target="#modal-search" aria-expanded="false"
+                                    aria-controls="modal-search"
+                            >
                                 <i class="fas fa-search"></i>
                             </button>
                         <?php } ?>
@@ -253,15 +254,6 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
             </nav><!-- .navbar -->
 
 
-            <!-- Top Nav Search Collapse -->
-            <div class="collapse container" id="collapse-search">
-                <?php if (is_active_sidebar('top-nav-search')) : ?>
-                    <div class="mb-2 search-container">
-                        <?php dynamic_sidebar('top-nav-search'); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-
         </div><!-- .fixed-top .bg-light -->
 
         <!-- offcanvas user -->
@@ -303,5 +295,24 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
         </div>
 
     </header><!-- #masthead -->
+
+    <!-- Top Nav Search Modal -->
+    <div class="modal fade" id="modal-search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<?php if (is_active_sidebar('top-nav-search')) : ?>
+            <div class="modal-dialog">
+
+                <div class="search-container modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Keresés a bejegyzésekben</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+						<?php dynamic_sidebar('top-nav-search'); ?>
+                    </div>
+                </div>
+            </div>
+		<?php endif; ?>
+    </div>
 
     <?php decimus_ie_alert(); ?>

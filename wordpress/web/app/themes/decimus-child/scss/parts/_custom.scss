@@ -13,9 +13,12 @@
             margin-bottom: 0;
         }
     }
+
+    .page-header.d-flex {
+        align-items: center;
+        margin-bottom: 0;
+    }
 }
-
-
 
 
 /* Notification bar */
@@ -28,25 +31,6 @@ ul.children {
     margin-top: 0;
 }
 
-.no-bullets {
-    list-style-image: none !important;
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
-    line-height: 1.5;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
-.no-underline {
-    text-decoration: none !important;
-}
-
-.align-center {
-    text-align: center;
-}
 
 .error-404.not-found {
     .alert {
@@ -54,56 +38,9 @@ ul.children {
     }
 }
 
-.btn-close {
-    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
-    opacity: .7;
-}
-
 .alert {
     font-size: $medium-size;
 }
-
-
-.author {
-    .page-header.d-flex {
-        align-items: center;
-        margin-bottom: 0;
-    }
-}
-
-.card.horizontal {
-    .row {
-
-        @media (max-width: 992px) {
-            .card-img-left-md {
-                img {
-                    height: 340px;
-                    object-fit: cover;
-                }
-            }
-        }
-
-        @media (max-width: 768px) {
-            .card-img-left-md {
-                img {
-                    height: 340px;
-                    object-fit: cover;
-                }
-            }
-        }
-
-        @media (max-width: 576px) {
-            .card-img-left-md {
-                img {
-                    height: 210px;
-                    object-fit: cover;
-                }
-            }
-        }
-
-    }
-}
-
 
 
 .tags-links {
@@ -116,6 +53,25 @@ ul.children {
     position: absolute;
     left: 0;
     top: 4px;
+
+    .category-badge {
+        margin-left: 1em;
+    }
+}
+
+.category-badge {
+    margin-top: 0.25em;
+
+    .badge {
+        border: 1px solid transparent;
+        padding: 0.5em 0.45em;
+
+        &:hover {
+            border: 1px solid #eee;
+            background-color: #444 !important;
+        }
+    }
+
 }
 
 
@@ -127,16 +83,4 @@ ul.children {
     margin-top: 2em;
     margin-bottom: 1em;
 }
-
-.widget-area {
-    .wp-block-heading {
-        margin-top: 0;
-        margin-bottom: 1em;
-    }
-}
-
-
-
-
-
 

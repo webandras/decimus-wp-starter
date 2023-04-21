@@ -223,7 +223,6 @@ a {
         outline-color: inherit;
     }
 
-
     /*&:visited {
         color: initial;
     }*/
@@ -290,4 +289,24 @@ button[name="save_address"] {
 .container-max-width {
     max-width: 1920px;
     margin: 0 auto;
+}
+
+.no-bullets {
+    list-style-image: none !important;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    line-height: 1.5;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.no-underline {
+    text-decoration: none !important;
+}
+
+.align-center {
+    text-align: center;
 }
