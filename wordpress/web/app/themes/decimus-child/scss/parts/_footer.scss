@@ -1,6 +1,16 @@
 footer {
     .decimus-footer {
         padding: 2rem 1rem 1.75rem;
+
+
+        .footer_widget {
+            color: #eee;
+            h2.widget-title {
+                color: #f1f1f1;
+            }
+        }
+
+
     }
 
     ul#footer-menu {
