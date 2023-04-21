@@ -1,0 +1,62 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Demo Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 14:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.2\n"
+"X-Domain: deci-demo"
+
+#: includes/classes/Deci_menu.php:44 includes/classes/Deci_menu.php:45
+msgid "Demo Page"
+msgstr ""
+
+#. Name of the plugin
+msgid "Demo Plugin"
+msgstr ""
+
+#: includes/classes/Deci_menu.php:118
+msgid "Demo plugin advertisement"
+msgstr ""
+
+#: includes/classes/Deci_menu.php:107
+msgid "Demo plugin title"
+msgstr ""
+
+#: includes/classes/Deci_menu.php:79
+msgid "Demo settings"
+msgstr ""
+
+#: includes/classes/Deci_menu.php:56 includes/classes/Deci_menu.php:57
+msgid "Demo Submenu"
+msgstr ""
+
+#. Author of the plugin
+msgid "Gulácsi András"
+msgstr ""
+
+#: includes/classes/Deci_menu.php:90
+msgid "Hide Admin bar in frontend"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://decimus.hu"
+msgstr ""
+
+#. Description of the plugin
+msgid "It is a demo plugin."
+msgstr ""
+
+#: includes/classes/Deci_menu.php:92
+msgid "Save"
+msgstr ""

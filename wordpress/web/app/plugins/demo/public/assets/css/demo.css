@@ -1,0 +1,10 @@
+.demo-border {
+    margin: 1.5em 0;
+    border: 2px dashed tomato;
+    background-color: lightyellow;
+}
+
+.demo-badge {
+    font-size: 40px !important;
+    margin: 2em;
+}
