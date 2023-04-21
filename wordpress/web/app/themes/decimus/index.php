@@ -102,7 +102,7 @@ get_header();
                 <?php endif; ?>
                 <!-- Post List -->
                 <div class="row">
-                    <div class="col col-md-8 col-xxl-9">
+                    <div class="col col-md-8 col-xxl-10">
                         <!-- Grid Layout -->
                         <?php if ( have_posts() ) : ?>
                             <?php while (have_posts()) : the_post(); ?>
