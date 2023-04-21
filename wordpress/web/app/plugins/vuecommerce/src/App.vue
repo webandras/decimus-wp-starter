@@ -24,4 +24,17 @@ export default {
 </script>
 
 <style>
+#vue-search-app .input-filters .form-check.form-switch {
+    padding-left: 2.5em !important;
+}
+
+#vue-search-app .form-check {
+  padding-left: 1.5em !important;
+}
+
+#vue-search-app .card img.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
 </style>

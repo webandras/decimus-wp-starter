@@ -89,8 +89,8 @@ if ( !class_exists( 'Vuecommerce_spa' ) ) {
                         true );
                 } else {
                     wp_enqueue_script( 'vuecommerce-js-chunk-vendors',
-                        plugins_url() . '/vuecommerce/dist/js/chunk-vendors.1fa3d7ca.js', [], self::VERSION, true );
-                    wp_register_script( 'vuecommerce-js-app', plugins_url() . '/vuecommerce/dist/js/app.de9040ea.js',
+                        plugins_url() . '/vuecommerce/dist/js/chunk-vendors.47079796.js', [], self::VERSION, true );
+                    wp_register_script( 'vuecommerce-js-app', plugins_url() . '/vuecommerce/dist/js/app.cfc97523.js',
                         [],
                         false, true );
                 }
@@ -98,7 +98,7 @@ if ( !class_exists( 'Vuecommerce_spa' ) ) {
                 // style.css
                 wp_enqueue_style( 'vuecommerce-css-chunk-vendors',
                     plugins_url() . '/vuecommerce/dist/css/chunk-vendors.71a233fb.css' );
-                wp_enqueue_style( 'vuecommerce-css-app', plugins_url() . '/vuecommerce/dist/css/app.08f1f743.css' );
+                wp_enqueue_style( 'vuecommerce-css-app', plugins_url() . '/vuecommerce/dist/css/app.d4e6fd0a.css' );
 
                 // make custom data available for the Vue frontend with wp_localize_script.
                 global $post;
