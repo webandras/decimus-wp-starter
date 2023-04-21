@@ -120,3 +120,13 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+
+.front-slider:not(.slick-initialized) {
+    visibility: hidden;
+    //display: none !important;
+}
+
+.front-slider.slick-initialized {
+    visibility: visible;
+    //display: none !important;
+}
