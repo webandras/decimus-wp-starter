@@ -20,11 +20,12 @@ $contact_data = rest_get_server()->response_to_data($contact_response, true);
 $have_contact_data = isset($contact_data) && isset($contact_data['data']);
 $contact_options = $have_contact_data && isset($contact_data['data']['option_value']) ? $contact_data['data']['option_value'] : [];
 
-$phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
+$phone_pretty = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
 $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
 $facebook = isset($contact_options['facebook']) ? sanitize_url($contact_options['facebook']) : '';
 $messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
 
+$phone_number = generate_phone_number($phone_pretty);
 
 $header_request = new WP_REST_Request('GET', '/decimus/v1/frontend/header');
 $header_response = rest_do_request($header_request);
@@ -87,12 +88,12 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 col-sm-6 contact-info">
-                            <a class="me-2" href="tel:<?php echo $phone ?>"
+                            <a class="me-2" href="tel:<?php echo $phone_number ?>"
                                rel="noreferrer noopener"
-                               target="_blank" title="<?php _e('Hívj fel minket!', 'decimus') ?>"><i
-                                        class="fas fa-phone-alt me-1"></i><?php echo $phone ?></a>
+                               target="_blank" title="<?php _e( 'Call us!', 'decimus-child' ) ?>"><i
+                                        class="fas fa-phone-alt me-1"></i><?php echo $phone_pretty ?></a>
                             <a class="" href="mailto:<?php echo $email ?>"
-                               title="<?php _e('Üzenj nekünk!', 'decimus') ?>"><i
+                               title="<?php _e( 'Message us!', 'decimus-child' ) ?>"><i
                                         class="fas fa-envelope me-1"></i><?php echo $email ?></a>
                         </div>
 
@@ -137,7 +138,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                         <div class="offcanvas-header bg-primary text-white">
                             <h5 class="mb-0 text-white lh-1"><?php esc_html_e('Menu', 'decimus'); ?></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
+                                    aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
                         </div>
                         <div class="offcanvas-body text-center">
                             <!-- Bootstrap 5 Nav Walker Main Menu -->
@@ -156,13 +157,13 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             <hr class="">
 
                             <nav class="mobile-menu-contact-info nav d-flex flex-column mb-3 d-lg-none lh-lg">
-                                <a class="base-size text-left" href="tel:<?php echo $phone ?>" rel="noreferrer noopener"
+                                <a class="base-size text-left" href="tel:<?php echo $phone_number ?>" rel="noreferrer noopener"
                                    target="_blank"
-                                   title="Hívj fel!">
+                                   title="<?php _e( 'Call us!', 'decimus-child' ) ?>">
                                     <i class="fas fa-phone-alt me-1"></i>
-                                    <?php echo $phone ?></a>
+                                    <?php echo $phone_pretty ?></a>
                                 <a class="base-size text-left" href="mailto:<?php echo $email ?>"
-                                   title="Üzenj nekünk!">
+                                   title="<?php _e( 'Message us!', 'decimus-child' ) ?>">
                                     <i class="fas fa-envelope me-1"></i>
                                     <?php echo $email ?></a>
                             </nav>
@@ -261,7 +262,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
             <div class="offcanvas-header bg-primary">
                 <h5 class="mb-0 text-white"><?php esc_html_e('Account', 'decimus'); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+                        aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
@@ -278,7 +279,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
             <div class="offcanvas-header bg-primary">
                 <h5 class="mb-0 text-white"><?php esc_html_e('Cart', 'decimus'); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
+                        aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
             </div>
             <div class="offcanvas-body p-0">
                 <div class="cart-loader bg-white position-absolute end-0 bottom-0 start-0 d-flex align-items-center justify-content-center">
@@ -297,14 +298,14 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
     </header><!-- #masthead -->
 
     <!-- Top Nav Search Modal -->
-    <div class="modal fade" id="modal-search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-search" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
 		<?php if (is_active_sidebar('top-nav-search')) : ?>
             <div class="modal-dialog">
 
                 <div class="search-container modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Keresés a bejegyzésekben</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="searchModalLabel">Keresés a bejegyzésekben</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?php _e( 'Close', 'decimus-child' ) ?>">
                         </button>
                     </div>
                     <div class="modal-body">

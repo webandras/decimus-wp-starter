@@ -142,6 +142,9 @@ add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 add_filter( 'use_widgets_block_editor', '__return_false' );
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
 
+// Disable auto wrapping input fields into paragraphs (Contact Form 7)
+add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
 /**
  * Check if class is activated
  */
@@ -191,4 +194,11 @@ function decimus_additional_headers( array $headers ): array {
 	}
 
 	return $headers;
+}
+
+// Removes some illegal characters (/, -, and whitespace) from phone numbers.
+// This allows us to write "pretty" phone numbers inside tags, like "+36 / 20 / 123 4567"
+// It is more readable, but the valid phone number in the link is going to be "+36201234567"
+function generate_phone_number($phone_pretty): string {
+	return preg_replace('/[\/\-\$]/', '', preg_replace('/\s+/', '', $phone_pretty) );
 }
