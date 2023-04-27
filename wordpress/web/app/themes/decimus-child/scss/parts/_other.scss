@@ -1,0 +1,86 @@
+/* Cookie bar */
+.pea_cook_wrapper p {
+    bottom: 30px !important;
+    font-size: $small-size !important;
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+
+
+.author {
+    .author-bio {
+        h1 {
+            margin-bottom: 0;
+        }
+    }
+
+    .page-header.d-flex {
+        align-items: center;
+        margin-bottom: 0;
+    }
+}
+
+
+/* Notification bar */
+.wpfront-message {
+    font-size: $small-size;
+}
+
+
+ul.children {
+    margin-top: 0;
+}
+
+
+.error-404.not-found {
+    .alert {
+        width: fit-content;
+    }
+}
+
+.alert {
+    font-size: $medium-size;
+}
+
+
+.tags-links {
+    a.badge {
+        font-size: $small-size;
+    }
+}
+
+.post-badge {
+    position: absolute;
+    left: 0;
+    top: 4px;
+
+    .category-badge {
+        margin-left: 1em;
+    }
+}
+
+.category-badge {
+    margin-top: 0.25em;
+
+    .badge {
+        border: 1px solid transparent;
+        padding: 0.5em 0.45em;
+
+        &:hover {
+            border: 1px solid #eee;
+            background-color: #444 !important;
+        }
+    }
+
+}
+
+
+/*.woocommerce-message.alert.alert-success {
+    margin-left: 0;
+}*/
+
+.wp-block-heading {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
