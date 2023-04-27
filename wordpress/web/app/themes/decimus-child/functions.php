@@ -7,8 +7,14 @@ function decimus_child_enqueue_styles(): void
     // style.css from the parent theme
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
 
-    // custom.js
+	// hammer.js is needed for the image comparison slider
+    // wp_enqueue_script('hammer', get_stylesheet_directory_uri() . '/js/hammerjs-2.0.8.js', array(), '', true);
+	// image comparison slider js
+    //wp_enqueue_script('jquery.images-compare', get_stylesheet_directory_uri() . '/js/jquery.images-compare.js', array('jquery'), '', true);
+
+	// custom.js
     wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', false, '', true);
+
 }
 
 
@@ -32,6 +38,9 @@ function decimus_child_remove_scripts(): void
 
     // Register your child bootstrap.min.css (from the bootswatch theme's pre-compiled bundle)
     wp_enqueue_style('child-theme-bootstrap', get_stylesheet_directory_uri() . '/css/lib/' . $skin . '.css', array('parent-style'));
+
+	// image comparison slider css
+	// wp_enqueue_style('image-compare', get_stylesheet_directory_uri() . '/css/image-compare.css');
 }
 
 

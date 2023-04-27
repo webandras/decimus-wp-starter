@@ -135,4 +135,9 @@ jQuery(document).ready(function ($) {
         slidesToScroll: 1
     });
 
+    // initialize image compare sliders
+    /*for (var i = 1; i <= 10; i++) {
+        $('#cleaningImageCompare' + i).imagesCompare(imageSliderOptions);
+    }*/
+
 });
