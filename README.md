@@ -277,3 +277,8 @@ Get the details of your network including the IP address:
 ```bash
 docker network inspect -v bridge
 ```
+
+
+### Other
+
+- bs-share-buttons component's css is included in main.scss of decimus-child

@@ -20,12 +20,12 @@ sass-watch:
 	done
 
 bootswatch:
-	sassc $(SASSFLAGS) ./../decimus/css/lib/cosmo/cosmo.scss > css/lib/cosmo.css
+	sassc $(SASSFLAGS) ./../decimus/scss/lib/cosmo/cosmo.scss > css/lib/cosmo.css
 
 
 # Watch changes in SASS files and compile the CSS bundle
 bootswatch-watch:
 	while true; do \
   		make bootswatch; \
-  		inotifywait -qre close_write ./../decimus/css/lib/cosmo/; \
+  		inotifywait -qre close_write ./../decimus/scss/lib/cosmo/; \
 	done
