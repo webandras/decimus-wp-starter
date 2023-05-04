@@ -127,6 +127,12 @@ require_once get_template_directory() . '/inc/widgets/post-categories.php';
 require_once get_template_directory() . '/inc/widgets/post-tags.php';
 require_once get_template_directory() . '/inc/widgets/recent-posts.php';
 
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+	function is_woocommerce_activated(): bool {
+		return class_exists( 'WooCommerce' );
+	}
+}
+
 
 /**
  * @param array $args

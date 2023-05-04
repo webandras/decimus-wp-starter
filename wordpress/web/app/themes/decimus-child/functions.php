@@ -49,7 +49,7 @@ function decimus_child_remove_scripts(): void
  */
 if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 	function is_woocommerce_activated(): bool {
-		return class_exists( 'woocommerce' );
+		return class_exists( 'WooCommerce' );
 	}
 }
 
