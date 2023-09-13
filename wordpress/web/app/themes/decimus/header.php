@@ -14,7 +14,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <!-- Favicons -->
@@ -30,8 +30,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <!-- Loads the internal WP jQuery. Required if a 3rd party plugin loads jQuery in header instead in footer -->
-    <?php wp_enqueue_script('jquery'); ?>
-    <?php wp_head(); ?>
+	<?php wp_enqueue_script( 'jquery' ); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -49,33 +49,33 @@
                 <div class="container">
 
                     <!-- Navbar Brand -->
-                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.jpg"
+                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url( home_url() ); ?>"><img
+                                src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.jpg"
                                 alt="logo" class="logo xs" style="max-height: 40px;"></a>
-                    <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.jpg"
+                    <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url( home_url() ); ?>"><img
+                                src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.jpg"
                                 alt="logo" class="logo md" style="max-height: 40px;"></a>
 
                     <!-- Offcanvas Navbar -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
                         <div class="offcanvas-header bg-light">
-                            <h5 class="mb-0"><?php esc_html_e('Menu', 'decimus'); ?></h5>
+                            <h5 class="mb-0"><?php esc_html_e( 'Menu', 'decimus' ); ?></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                     aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
                             <!-- Bootstrap 5 Nav Walker Main Menu -->
-                            <?php
-                            wp_nav_menu(array(
-                                'theme_location' => 'main-menu',
-                                'container' => false,
-                                'menu_class' => '',
-                                'fallback_cb' => '__return_false',
-                                'items_wrap' => '<ul id="decimus-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-                                'depth' => 2,
-                                'walker' => new bootstrap_5_wp_nav_menu_walker()
-                            ));
-                            ?>
+							<?php
+							wp_nav_menu( array(
+								'theme_location' => 'main-menu',
+								'container'      => false,
+								'menu_class'     => '',
+								'fallback_cb'    => '__return_false',
+								'items_wrap'     => '<ul id="decimus-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
+								'depth'          => 2,
+								'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+							) );
+							?>
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                         </div>
                     </div>
@@ -85,20 +85,20 @@
 
                         <!-- Top Nav Widget -->
                         <div class="top-nav-widget">
-                            <?php if ( is_active_sidebar('top-nav') ) : ?>
+							<?php if ( is_active_sidebar( 'top-nav' ) ) : ?>
                                 <div>
-                                    <?php dynamic_sidebar('top-nav'); ?>
+									<?php dynamic_sidebar( 'top-nav' ); ?>
                                 </div>
-                            <?php endif; ?>
+							<?php endif; ?>
                         </div>
 
                         <!-- Searchform Large -->
                         <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                            <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+							<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
                                 <div>
-                                    <?php dynamic_sidebar('top-nav-search'); ?>
+									<?php dynamic_sidebar( 'top-nav-search' ); ?>
                                 </div>
-                            <?php endif; ?>
+							<?php endif; ?>
                         </div>
 
                         <!-- Search Toggler Mobile -->
@@ -123,15 +123,15 @@
 
             <!-- Top Nav Search Mobile Collapse -->
             <div class="collapse container d-lg-none" id="collapse-search">
-                <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+				<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
                     <div class="mb-2">
-                        <?php dynamic_sidebar('top-nav-search'); ?>
+						<?php dynamic_sidebar( 'top-nav-search' ); ?>
                     </div>
-                <?php endif; ?>
+				<?php endif; ?>
             </div>
 
         </div><!-- .fixed-top .bg-light -->
 
     </header><!-- #masthead -->
 
-    <?php decimus_ie_alert(); ?>
+	<?php decimus_ie_alert(); ?>

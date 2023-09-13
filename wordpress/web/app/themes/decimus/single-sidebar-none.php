@@ -9,53 +9,53 @@ get_header(); ?>
     <div id="primary" class="content-area">
 
         <!-- Hook to add something nice -->
-        <?php decimus_after_primary(); ?>
+		<?php decimus_after_primary(); ?>
 
-        <?php the_breadcrumb(); ?>
+		<?php the_breadcrumb(); ?>
 
         <main id="main" class="site-main">
 
             <header class="entry-header">
-                <?php the_post(); ?>
+				<?php the_post(); ?>
 
-                <?php decimus_category_badge(); ?>
+				<?php decimus_category_badge(); ?>
 
-                <?php the_title('<h1>', '</h1>'); ?>
+				<?php the_title( '<h1>', '</h1>' ); ?>
                 <p class="entry-meta">
                     <small class="text-muted">
-                        <?php
-                        decimus_date();
-                        _e(' by ', 'decimus');
-                        the_author_posts_link();
-                        decimus_comment_count();
-                        ?>
+						<?php
+						decimus_date();
+						_e( ' by ', 'decimus' );
+						the_author_posts_link();
+						decimus_comment_count();
+						?>
                     </small>
                 </p>
-                <?php decimus_post_thumbnail(); ?>
+				<?php decimus_post_thumbnail(); ?>
             </header>
 
             <div class="entry-content">
-                <?php the_content(); ?>
+				<?php the_content(); ?>
             </div>
 
             <footer class="entry-footer clear-both">
                 <div class="mb-4">
-                    <?php decimus_tags(); ?>
+					<?php decimus_tags(); ?>
                 </div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <?php previous_post_link('%link'); ?>
+							<?php previous_post_link( '%link' ); ?>
                         </li>
                         <li class="page-item">
-                            <?php next_post_link('%link'); ?>
+							<?php next_post_link( '%link' ); ?>
                         </li>
                     </ul>
                 </nav>
 
             </footer>
 
-            <?php comments_template(); ?>
+			<?php comments_template(); ?>
 
         </main><!-- #main -->
 

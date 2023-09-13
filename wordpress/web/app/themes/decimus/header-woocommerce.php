@@ -14,7 +14,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <!-- Favicons -->
@@ -30,8 +30,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <!-- Loads the internal WP jQuery. Required if a 3rd party plugin loads jQuery in header instead in footer -->
-    <?php wp_enqueue_script('jquery'); ?>
-    <?php wp_head(); ?>
+	<?php wp_enqueue_script( 'jquery' ); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -49,33 +49,33 @@
                 <div class="container">
 
                     <!-- Navbar Brand -->
-                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg"
+                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url( home_url() ); ?>"><img
+                                src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo-sm.svg"
                                 alt="logo" class="logo xs"></a>
-                    <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg"
+                    <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url( home_url() ); ?>"><img
+                                src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.svg"
                                 alt="logo" class="logo md"></a>
 
                     <!-- Offcanvas Navbar -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
                         <div class="offcanvas-header bg-light">
-                            <h5 class="mb-0"><?php esc_html_e('Menu', 'decimus'); ?></h5>
+                            <h5 class="mb-0"><?php esc_html_e( 'Menu', 'decimus' ); ?></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                     aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
                             <!-- Bootstrap 5 Nav Walker Main Menu -->
-                            <?php
-                            wp_nav_menu(array(
-                                'theme_location' => 'main-menu',
-                                'container' => false,
-                                'menu_class' => '',
-                                'fallback_cb' => '__return_false',
-                                'items_wrap' => '<ul id="decimus-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-                                'depth' => 2,
-                                'walker' => new bootstrap_5_wp_nav_menu_walker()
-                            ));
-                            ?>
+							<?php
+							wp_nav_menu( array(
+								'theme_location' => 'main-menu',
+								'container'      => false,
+								'menu_class'     => '',
+								'fallback_cb'    => '__return_false',
+								'items_wrap'     => '<ul id="decimus-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
+								'depth'          => 2,
+								'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+							) );
+							?>
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                         </div>
                     </div>
@@ -84,11 +84,11 @@
 
                         <!-- Top Nav Widget -->
                         <div class="top-nav-widget">
-                            <?php if ( is_active_sidebar('top-nav') ) : ?>
+							<?php if ( is_active_sidebar( 'top-nav' ) ) : ?>
                                 <div>
-                                    <?php dynamic_sidebar('top-nav'); ?>
+									<?php dynamic_sidebar( 'top-nav' ); ?>
                                 </div>
-                            <?php endif; ?>
+							<?php endif; ?>
                         </div>
 
                         <!-- Search Toggler -->
@@ -109,16 +109,17 @@
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
                                 aria-controls="offcanvas-cart">
                             <i class="fas fa-shopping-bag"></i>
-                            <?php if ( in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))) ) {
-                                $count = WC()->cart->cart_contents_count;
-                                ?>
+							<?php if ( in_array( 'woocommerce/woocommerce.php',
+								apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+								$count = WC()->cart->cart_contents_count;
+								?>
                                 <span class="cart-content">
                                     <?php if ( $count > 0 ) { ?>
-                                        <?php echo esc_html($count); ?>
-                                        <?php
+	                                    <?php echo esc_html( $count ); ?>
+	                                    <?php
                                     }
                                     ?></span>
-                            <?php } ?>
+							<?php } ?>
                         </button>
 
                         <!-- Navbar Toggler -->
@@ -136,11 +137,11 @@
 
             <!-- Top Nav Search Collapse -->
             <div class="collapse container" id="collapse-search">
-                <?php if ( is_active_sidebar('top-nav-search') ) : ?>
+				<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
                     <div class="mb-2">
-                        <?php dynamic_sidebar('top-nav-search'); ?>
+						<?php dynamic_sidebar( 'top-nav-search' ); ?>
                     </div>
-                <?php endif; ?>
+				<?php endif; ?>
             </div>
 
         </div><!-- .fixed-top .bg-light -->
@@ -148,13 +149,13 @@
         <!-- offcanvas user -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
             <div class="offcanvas-header bg-light">
-                <h5 class="mb-0"><?php esc_html_e('Account', 'decimus'); ?></h5>
+                <h5 class="mb-0"><?php esc_html_e( 'Account', 'decimus' ); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
-                    <?php include get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php'; ?>
+					<?php include get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php'; ?>
                 </div>
             </div>
         </div>
@@ -162,7 +163,7 @@
         <!-- offcanvas cart -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
             <div class="offcanvas-header bg-light">
-                <h5 class="mb-0"><?php esc_html_e('Cart', 'decimus'); ?></h5>
+                <h5 class="mb-0"><?php esc_html_e( 'Cart', 'decimus' ); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
             </div>
@@ -174,13 +175,13 @@
                 </div>
                 <div class="cart-list">
                     <div class="widget_shopping_cart_content"><?php
-                        if (function_exists('woocommerce_mini_cart')) {
-	                        woocommerce_mini_cart();
-                        } ?></div>
+						if ( function_exists( 'woocommerce_mini_cart' ) ) {
+							woocommerce_mini_cart();
+						} ?></div>
                 </div>
             </div>
         </div>
 
     </header><!-- #masthead -->
 
-    <?php decimus_ie_alert(); ?>
+	<?php decimus_ie_alert(); ?>

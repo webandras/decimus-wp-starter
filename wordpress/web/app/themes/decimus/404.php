@@ -17,15 +17,17 @@ get_header();
                 <section class="error-404 not-found">
                     <div class="page-404 align-center">
 
-                        <h1 class="mb-3 h3 mt-2"><?php _e('The page you are looking for does not exist', 'decimus') ?></h1>
+                        <h1 class="mb-3 h3 mt-2"><?php _e( 'The page you are looking for does not exist',
+								'decimus' ) ?></h1>
                         <!-- Remove this line and place some widgets -->
-                        <p class="alert alert-info mb-4 py-1 mx-auto"><?php esc_html_e('Page not found.', 'decimus'); ?></p>
+                        <p class="alert alert-info mb-4 py-1 mx-auto"><?php esc_html_e( 'Page not found.',
+								'decimus' ); ?></p>
                         <!-- 404 Widget -->
-                        <?php if ( is_active_sidebar('404-page') ) : ?>
-                            <div><?php dynamic_sidebar('404-page'); ?></div>
-                        <?php endif; ?>
-                        <a class="btn btn-outline-primary" href="<?php echo esc_url(home_url()); ?>"
-                           role="button"><?php esc_html_e('Back Home &raquo;', 'decimus'); ?></a>
+						<?php if ( is_active_sidebar( '404-page' ) ) : ?>
+                            <div><?php dynamic_sidebar( '404-page' ); ?></div>
+						<?php endif; ?>
+                        <a class="btn btn-outline-primary" href="<?php echo esc_url( home_url() ); ?>"
+                           role="button"><?php esc_html_e( 'Back Home &raquo;', 'decimus' ); ?></a>
                     </div>
                 </section><!-- .error-404 -->
 

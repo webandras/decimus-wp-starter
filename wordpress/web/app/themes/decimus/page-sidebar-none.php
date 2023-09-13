@@ -13,33 +13,33 @@ get_header();
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
-            <?php decimus_after_primary(); ?>
+			<?php decimus_after_primary(); ?>
 
             <main id="main" class="site-main">
 
                 <header class="entry-header">
-                    <?php the_post(); ?>
+					<?php the_post(); ?>
                     <!-- Title -->
-                    <?php the_title('<h1 class="mb1">', '</h1>'); ?>
+					<?php the_title( '<h1 class="mb1">', '</h1>' ); ?>
                     <!-- Featured Image-->
-                    <?php decimus_post_thumbnail(); ?>
+					<?php decimus_post_thumbnail(); ?>
                     <!-- .entry-header -->
                 </header>
                 <div class="entry-content">
                     <!-- Content -->
-                    <?php the_content(); ?>
+					<?php the_content(); ?>
                     <!-- .entry-content -->
-                    <?php wp_link_pages(array(
-                        'before' => '<div class="page-links">' . esc_html__('Pages:', 'decimus'),
-                        'after' => '</div>',
-                    ));
-                    ?>
+					<?php wp_link_pages( array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'decimus' ),
+						'after'  => '</div>',
+					) );
+					?>
                 </div>
                 <footer class="entry-footer">
 
                 </footer>
                 <!-- Comments -->
-                <?php comments_template(); ?>
+				<?php comments_template(); ?>
 
             </main><!-- #main -->
 

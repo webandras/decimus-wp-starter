@@ -23,21 +23,21 @@ get_header();
 
                         <!-- Title & Description -->
                         <header class="page-header mb-5">
-	                        <?php
-	                        if (class_exists('Decimus_taxonomy_image'))
-	                        {
-                                // movie_types
-                                $term = get_queried_object();
-		                        $cat_id = $term->term_id;
+							<?php
+							if ( class_exists( 'Decimus_taxonomy_image' ) ) {
+								// movie_types
+								$term   = get_queried_object();
+								$cat_id = $term->term_id;
 
-		                        //It will give category/term image url
-		                        $meta_image = Decimus_taxonomy_image::get_wp_term_image($cat_id);
+								//It will give category/term image url
+								$meta_image = Decimus_taxonomy_image::get_wp_term_image( $cat_id );
 
-		                        if ($meta_image) { ?>
-                                    <img class="mb-2" style="height: 100px; width:100%; object-fit:cover;" src="<?php echo esc_url($meta_image) ?>" alt="<?php the_archive_title(); ?>">
-		                        <?php }
-	                        }
-	                        ?>
+								if ( $meta_image ) { ?>
+                                    <img class="mb-2" style="height: 100px; width:100%; object-fit:cover;"
+                                         src="<?php echo esc_url( $meta_image ) ?>" alt="<?php the_archive_title(); ?>">
+								<?php }
+							}
+							?>
 
                             <h1><?php the_archive_title(); ?></h1>
 							<?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
@@ -104,7 +104,9 @@ get_header();
                                                 <!-- Excerpt & Read more -->
                                                 <div class="card-text mt-auto">
 													<?php the_excerpt(); ?>
-                                                    <a class="read-more" href="<?php the_permalink(); ?>"><?php _e( 'Read more »', 'decimus' ); ?></a>
+                                                    <a class="read-more"
+                                                       href="<?php the_permalink(); ?>"><?php _e( 'Read more »',
+															'decimus' ); ?></a>
                                                 </div>
                                                 <hr>
 

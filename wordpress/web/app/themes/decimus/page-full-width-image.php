@@ -15,7 +15,7 @@ get_header();
 
             <main id="main" class="site-main">
 
-                <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+				<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
                 <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3"
                         style="background-image: url('<?php echo $thumb['0']; ?>')">
                     <div class="container entry-header h-100 d-flex align-items-end pb-3">
@@ -26,17 +26,17 @@ get_header();
                 <div class="container pb-5">
 
                     <!-- Hook to add something nice -->
-                    <?php decimus_after_primary(); ?>
+					<?php decimus_after_primary(); ?>
 
                     <div class="entry-content">
-                        <?php the_content(); ?>
+						<?php the_content(); ?>
                     </div>
 
                     <footer class="entry-footer">
 
                     </footer>
 
-                    <?php comments_template(); ?>
+					<?php comments_template(); ?>
 
                 </div><!-- container -->
 

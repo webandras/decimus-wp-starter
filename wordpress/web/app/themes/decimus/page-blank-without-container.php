@@ -15,13 +15,13 @@ get_header();
             <main id="main" class="site-main">
 
                 <div class="entry-content">
-                    <?php the_post(); ?>
-                    <?php the_content(); ?>
-                    <?php wp_link_pages(array(
-                        'before' => '<div class="page-links">' . esc_html__('Pages:', 'decimus'),
-                        'after' => '</div>',
-                    ));
-                    ?>
+					<?php the_post(); ?>
+					<?php the_content(); ?>
+					<?php wp_link_pages( array(
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'decimus' ),
+						'after'  => '</div>',
+					) );
+					?>
                 </div>
 
             </main><!-- #main -->
