@@ -5,20 +5,22 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
-require_once __DIR__ . '/Vuecommerce_rest_extend.php';
+require_once __DIR__ . '/VuecommerceRestApiExtend.php';
 
 
-if ( !class_exists( 'Vuecommerce_spa' ) ) {
+interface VuecommerceSpaInterface {
+	const TEXT_DOMAIN = 'vuecommerce';
+	const VERSION = '1.0.0';
+}
+
+
+if ( !class_exists( 'VuecommerceSpa' ) ) {
 
     /**
      * Implements the backend for our Vue.js SPA
      */
-    final class Vuecommerce_spa
+    final class VuecommerceSpa implements VuecommerceSpaInterface
     {
-
-        private const TEXT_DOMAIN = 'vuecommerce';
-        private const VERSION = '1.0.0';
-
 
         // class instance
         private static $instance;
@@ -52,7 +54,7 @@ if ( !class_exists( 'Vuecommerce_spa' ) ) {
 
 
             // Extend REST API for additional post meta
-            $this->api = new Vuecommerce_rest_extend;
+            $this->api = new VuecommerceRestApiExtend();
             add_action( 'rest_api_init', array( $this->api, 'extend_posts_api_response' ) );
         }
 

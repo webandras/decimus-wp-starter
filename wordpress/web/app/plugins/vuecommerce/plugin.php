@@ -17,11 +17,8 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// require autoloader
-require_once 'autoload.php';
-
-require_once __DIR__ . '/backend/Vuecommerce_spa.php';
+require_once __DIR__ . '/backend/VuecommerceSpa.php';
 
 add_action( 'plugins_loaded', function () {
-    Vuecommerce_spa::get_instance();
+	VuecommerceSpa::get_instance();
 } );
