@@ -1,15 +1,15 @@
-=== bS5 Contact Form 7 ===
+=== bS Contact Form 7 ===
 
-Contributors: craftwerk
+Contributors: The bootScore Contributors, Bastian Kreiter, Johannes Reiter
 
 Requires at least: 4.5
-Tested up to: 5.6.2
+Tested up to: 6.2.2
 Requires PHP: 5.6
-Stable tag: 5.0.0.2
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 5.1.1
+License: MIT License
+License URI: https://github.com/bootscore/bs-contact-form-7/blob/main/LICENSE
 
-This plugin adds Bootstrap 5 alerts, custom radio and checkboxes to Contact Form 7, Copyright 2021 Bastian Kreiter.
+This plugin adds Bootstrap 5 alerts, custom radio and checkboxes to Contact Form 7, Copyright 2021 The bootScore Contributors.
 
 == Installation ==
 
@@ -22,6 +22,25 @@ This plugin adds Bootstrap 5 alerts, custom radio and checkboxes to Contact Form
 Use HTML Markup like here https://bootscore.me/plugins/bs-contact-form-7/
 
 == Changelog ==
+
+    = 5.1.1 - July 06 2023 =
+    
+        * [BUGFIX] Wrong class bug on type checkox
+
+    = 5.1.0 - June 09 2023 =
+    
+        * [FEATURE] Add composer.json
+
+    = 5.0.0.4 - December 11 2022 =
+    
+        * [BUGFIX ]Add filter to remove autop (CF7 5.7)
+        * [IMPROVEMENT]Refactored ajax-loader spinner
+
+    = 5.0.0.3 - November 03 2021 =
+    
+        * [IMPROVEMENT] Reformatted all files
+        * [NEW] Added README.md
+        * [NEW] Included Update Checker
 
     = 5.0.0.2 - February 26 2021 =
     

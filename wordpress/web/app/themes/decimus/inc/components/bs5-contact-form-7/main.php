@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: bS5 Contact Form 7
+ * Plugin Name: bS Contact Form 7
  * Plugin URI: https://bootscore.me/plugins/bs-contact-form-7/
- * Description: Note: This is for Contact Form 7 version 5.4. If you use older version of CF7, use <a href="https://github.com/craftwerkberlin/bs5-contact-form-7/tree/2ec60be85f6bdc53420033b131fd821e3ff9fdc2">version 5.0.0.1</a>. Adds Bootstrap 5 alerts and checkboxes to Contact Form 7. It´s an additional plugin and needs <a href="https://wordpress.org/plugins/contact-form-7/">CF7</a> to work.
- * Author: Bastian Kreiter
- * Author URI: https://crftwrk.de
- * Version: 5.0.0.2
+ * Description: Adds Bootstrap 5 alerts and checkboxes to Contact Form 7. It´s an additional plugin and needs <a href="https://wordpress.org/plugins/contact-form-7/">CF7</a> to work.
+ * Author: bootScore
+ * Author URI: https://bootscore.me
+ * Version: 5.1.1
  */
 
 
@@ -22,6 +22,9 @@ if ( ! function_exists( 'decimus_change_cf7_form_elements' ) ) :
 		$content = preg_replace( '/<label><input type="(checkbox|radio)" name="(.*?)" value="(.*?)" \/><span class="wpcf7-list-item-label">/i',
 			'<label class="form-check form-check-inline form-check-\1"><input type="\1" name="\2" value="\3" class="form-check-input"><span class="wpcf7-list-item-label form-check-label">',
 			$content );
+		$content = preg_replace( '/wpcf7-checkbox\sform-check-input/i',
+			'',
+			$content ); //removes wrong classes on type=checkbox
 
 		return $content;
 	}
@@ -44,6 +47,8 @@ if ( ! function_exists( 'decimus_cf7_deregister_styles' ) ) :
 endif;
 add_action( 'wp_print_styles', 'decimus_cf7_deregister_styles', 100 );
 
+// Remove <p> tags (CF7 5.7)
+//add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
 if ( ! function_exists( 'decimus_load_session_data_for_checkout' ) ) :
 
