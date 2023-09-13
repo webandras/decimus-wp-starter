@@ -19,7 +19,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="ms-3">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="widget-title d-none">',
-			'after_title'   => '</div>'
+			'after_title'   => '</div>',
 		) );
 		// Top Nav End
 
@@ -31,7 +31,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="top-nav-search">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<div class="widget-title d-none">',
-			'after_title'   => '</div>'
+			'after_title'   => '</div>',
 		) );
 		// Top Nav Search End
 
@@ -55,7 +55,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="footer_widget mb-5">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>'
+			'after_title'   => '</h2>',
 		) );
 		// Top Footer End
 
@@ -67,7 +67,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="footer_widget mb-4">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title h4">',
-			'after_title'   => '</h2>'
+			'after_title'   => '</h2>',
 		) );
 		// Footer 1 End
 
@@ -79,7 +79,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="footer_widget mb-4">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title h4">',
-			'after_title'   => '</h2>'
+			'after_title'   => '</h2>',
 		) );
 		// Footer 2 End
 
@@ -91,7 +91,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="footer_widget mb-4">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title h4">',
-			'after_title'   => '</h2>'
+			'after_title'   => '</h2>',
 		) );
 		// Footer 3 End
 
@@ -103,7 +103,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="footer_widget mb-4">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widget-title h4">',
-			'after_title'   => '</h2>'
+			'after_title'   => '</h2>',
 		) );
 		// Footer 4 End
 
@@ -115,7 +115,7 @@ if ( ! function_exists( 'decimus_widgets_init' ) ) :
 			'before_widget' => '<div class="mb-4">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h1 class="widget-title">',
-			'after_title'   => '</h1>'
+			'after_title'   => '</h1>',
 		) );
 		// 404 Page End
 
