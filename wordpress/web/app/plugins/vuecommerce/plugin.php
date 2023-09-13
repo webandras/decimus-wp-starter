@@ -17,6 +17,9 @@ if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
+// require autoloader
+require_once 'autoload.php';
+
 require_once __DIR__ . '/backend/Vuecommerce_spa.php';
 
 add_action( 'plugins_loaded', function () {

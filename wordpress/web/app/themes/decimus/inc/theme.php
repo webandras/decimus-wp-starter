@@ -1,6 +1,7 @@
 <?php
 
 if ( ! function_exists( 'decimus_setup' ) ) :
+
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,6 +51,7 @@ if ( ! function_exists( 'decimus_setup' ) ) :
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 	}
+
 endif;
 add_action( 'after_setup_theme', 'decimus_setup' );
 
@@ -80,7 +82,8 @@ add_filter( 'style_loader_tag', 'decimus_style_loader_tag' );
 
 function decimus_style_loader_tag( $tag ) {
 
-	$tag = preg_replace( "/id='font-awesome-css'/", "id='font-awesome-css' online=\"if(media!='all')media='all'\"",
+	$tag = preg_replace( "/id='font-awesome-css'/",
+		"id='font-awesome-css' online=\"if(media!='all')media='all'\"",
 		$tag );
 
 	return $tag;
@@ -199,6 +202,6 @@ function decimus_additional_headers( array $headers ): array {
 // Removes some illegal characters (/, -, and whitespace) from phone numbers.
 // This allows us to write "pretty" phone numbers inside tags, like "+36 / 20 / 123 4567"
 // It is more readable, but the valid phone number in the link is going to be "+36201234567"
-function generate_phone_number($phone_pretty): string {
-	return preg_replace('/[\/\-\$]/', '', preg_replace('/\s+/', '', $phone_pretty) );
+function generate_phone_number( $phone_pretty ): string {
+	return preg_replace( '/[\/\-\$]/', '', preg_replace( '/\s+/', '', $phone_pretty ) );
 }

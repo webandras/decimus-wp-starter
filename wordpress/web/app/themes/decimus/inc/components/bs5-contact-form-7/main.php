@@ -9,28 +9,51 @@
  */
 
 
-//Adjust contact form 7 radios and checkboxes to match bootstrap 4 custom radio structure.
-add_filter('wpcf7_form_elements', function ($content) {
-    $content = preg_replace('/<label><input type="(checkbox|radio)" name="(.*?)" value="(.*?)" \/><span class="wpcf7-list-item-label">/i', '<label class="form-check form-check-inline form-check-\1"><input type="\1" name="\2" value="\3" class="form-check-input"><span class="wpcf7-list-item-label form-check-label">', $content);
+if ( ! function_exists( 'decimus_change_cf7_form_elements' ) ) :
 
-    return $content;
-});
+	/**
+	 * Adjust contact form 7 radios and checkboxes to match bootstrap 5 custom radio structure.
+	 *
+	 * @param $content
+	 *
+	 * @return array|string|string[]|null
+	 */
+	function decimus_change_cf7_form_elements( $content ): array|string|null {
+		$content = preg_replace( '/<label><input type="(checkbox|radio)" name="(.*?)" value="(.*?)" \/><span class="wpcf7-list-item-label">/i',
+			'<label class="form-check form-check-inline form-check-\1"><input type="\1" name="\2" value="\3" class="form-check-input"><span class="wpcf7-list-item-label form-check-label">',
+			$content );
+
+		return $content;
+	}
+
+endif;
+add_filter( 'wpcf7_form_elements', 'decimus_change_cf7_form_elements' );
 
 
-// Disable Contact Form 7 Styles
-add_action('wp_print_styles', 'wps_deregister_styles', 100);
-function wps_deregister_styles(): void
-{
-    wp_deregister_style('contact-form-7');
-}
+if ( ! function_exists( 'decimus_cf7_deregister_styles' ) ) :
 
-add_action('wp_footer', 'decimus_load_session_data_for_checkout', 9999);
+	/**
+	 * Disable Contact Form 7 Styles
+	 *
+	 * @return void
+	 */
+	function decimus_cf7_deregister_styles(): void {
+		wp_deregister_style( 'contact-form-7' );
+	}
 
-function decimus_load_session_data_for_checkout(): void
-{
-    global $wp;
-    if ( function_exists('is_checkout') && is_checkout() && empty($wp->query_vars['order-pay']) && !isset($wp->query_vars['order-received']) ) {
-        echo '<script>/* put data to inputs from session */
+endif;
+add_action( 'wp_print_styles', 'decimus_cf7_deregister_styles', 100 );
+
+
+if ( ! function_exists( 'decimus_load_session_data_for_checkout' ) ) :
+
+	/**
+	 * @return void
+	 */
+	function decimus_load_session_data_for_checkout(): void {
+		global $wp;
+		if ( function_exists( 'is_checkout' ) && is_checkout() && empty( $wp->query_vars['order-pay'] ) && ! isset( $wp->query_vars['order-received'] ) ) {
+			echo '<script>/* put data to inputs from session if exists */
         jQuery(document).ready(function ($) {
             var userDataFromSession = sessionStorage.getItem("currentUserData");
             if (userDataFromSession) {
@@ -40,5 +63,8 @@ function decimus_load_session_data_for_checkout(): void
             }
         });
       </script>';
-    }
-}
+		}
+	}
+
+endif;
+add_action( 'wp_footer', 'decimus_load_session_data_for_checkout', 9999 );
