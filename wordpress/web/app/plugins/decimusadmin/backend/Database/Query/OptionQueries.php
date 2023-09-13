@@ -58,7 +58,7 @@ trait OptionQueries
         $succeed = $wpdb->query($prepared_query);
 
         if ( $wpdb->last_error !== '' ) {
-           return $wpdb->last_error;
+           return false;
         }
 
         return true;
