@@ -30,8 +30,8 @@ trait AdminPage
             // register the Vue scripts
             wp_enqueue_script('decimus-js-admin-chunk-vendors', plugins_url() . '/decimusadmin/admin/dist/js/chunk-vendors.c326f51a.js', [], false, true);
             wp_register_script('decimus-js-admin-app', plugins_url() . '/decimusadmin/admin/dist/js/app.4e64fcd7.js', [], false, true);
-            wp_enqueue_style('decimus-admin-css', plugins_url() . '/decimusadmin/admin/dist/css/app.41c06b16.css', [], DB_VERSION);
-            wp_enqueue_style('decimus-admin-chunk-vendors-css', plugins_url() . '/decimusadmin/admin/dist/css/chunk-vendors.71a233fb.css', [], DB_VERSION);
+            wp_enqueue_style('decimus-admin-css', plugins_url() . '/decimusadmin/admin/dist/css/app.41c06b16.css', [], self::DB_VERSION);
+            wp_enqueue_style('decimus-admin-chunk-vendors-css', plugins_url() . '/decimusadmin/admin/dist/css/chunk-vendors.71a233fb.css', [], self::DB_VERSION);
         }
 
 
@@ -62,8 +62,8 @@ trait AdminPage
     public function add_admin_menu(): void
     {
         add_menu_page(
-            __('Decimus Theme Settings', DECIMUS_ADMIN_TEXT_DOMAIN), // page title
-            __('Decimus Theme Settings', DECIMUS_ADMIN_TEXT_DOMAIN), // menu title
+            __('Decimus Theme Settings', self::TEXT_DOMAIN), // page title
+            __('Decimus Theme Settings', self::TEXT_DOMAIN), // menu title
             'manage_options', // capability
             'decimus-admin', // menu slug
             array($this, 'add_admin_entrypoint'), // callback

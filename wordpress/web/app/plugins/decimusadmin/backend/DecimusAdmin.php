@@ -5,6 +5,7 @@ namespace Guland\DecimusAdmin;
 use Exception;
 
 // WP Core / WooCommerce / Utils methods
+use Guland\DecimusAdmin\Interfaces\DecimusAdminInterface;
 use Guland\DecimusAdmin\Utils\Utils as Utils;
 use Guland\DecimusAdmin\Core\Core as Core;
 use Guland\DecimusAdmin\WooCommerce\WooCommerce as WooCommerce;
@@ -35,7 +36,7 @@ if ( !defined('ABSPATH') ) exit;
 /**
  * Implements Admin for Decimus WordPress Theme
  */
-final class DecimusAdmin
+final class DecimusAdmin implements DecimusAdminInterface
 {
     // Plugin modules
     use Utils;
@@ -50,10 +51,6 @@ final class DecimusAdmin
     use S001;
     use S002;
     use S003;
-
-
-    // Text domain for i18n
-    private const TEXT_DOMAIN = 'decimus-admin';
 
     private static array $allowed_html_tags = [
         'p' => [],
@@ -85,7 +82,6 @@ final class DecimusAdmin
 
     // DB version
     private const DB_VERSION_NAME = 'decimus_admin_db_version';
-    private const DB_VERSION = 1002;
     private const DB_MIGRATIONS_RUN = 'decimus_migrations_run';
     protected array $migrations = [];
 
@@ -167,13 +163,13 @@ final class DecimusAdmin
 
         }
 
-        if ( intval(get_option(self::DB_VERSION_NAME)) < self::DB_VERSION ) {
+        if ( intval(get_option(self::DB_VERSION_NAME)) < self::DB_TABLE_VERSION ) {
 
             // execute sql migrations not yet run in case of plugin updates
             try {
 
                 // iterate through all versions, run migrations if needed
-                for ($i = 1000; $i <= self::DB_VERSION; $i++) {
+                for ($i = 1000; $i <= self::DB_TABLE_VERSION; $i++) {
                     $migrations_run_already = $this->get_migrations_run();
 
                     if (empty($migrations_run_already)) {
@@ -272,7 +268,7 @@ final class DecimusAdmin
         self::delete_theme_options_table_001();
     }
 
-    private static function update_db_version(int $version = self::DB_VERSION): void
+    private static function update_db_version(int $version = self::DB_TABLE_VERSION): void
     {
         $option_name = self::DB_VERSION_NAME;
 
@@ -285,7 +281,7 @@ final class DecimusAdmin
         }
     }
 
-    private static function update_migrations_run($version_number = self::DB_VERSION): array
+    private static function update_migrations_run($version_number = self::DB_TABLE_VERSION): array
     {
         $option_name = self::DB_MIGRATIONS_RUN;
 

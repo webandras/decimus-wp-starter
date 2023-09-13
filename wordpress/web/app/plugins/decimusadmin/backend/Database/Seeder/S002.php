@@ -25,7 +25,7 @@ trait S002
         }
 
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
 
         $key = 'contact_social';
         $default_theme_options = [

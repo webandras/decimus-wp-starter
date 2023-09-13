@@ -18,7 +18,7 @@ trait S001
     public static function seed_theme_options_table(): void
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
 
         $sections = ['global', 'contact', 'header', 'woocommerce', 'admin'];
         $default_theme_options = [

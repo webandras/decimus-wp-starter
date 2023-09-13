@@ -18,7 +18,7 @@ trait Utils
     public function load_text_domain(): void
     {
         // modified slightly from https://gist.github.com/grappler/7060277#file-plugin-name-php
-        $domain = DECIMUS_ADMIN_TEXT_DOMAIN;
+        $domain = self::TEXT_DOMAIN;
         $locale = apply_filters('plugin_locale', get_locale(), $domain);
 
         load_textdomain($domain, trailingslashit(WP_LANG_DIR) . $domain . '/' . $domain . '-' . $locale . '.mo');

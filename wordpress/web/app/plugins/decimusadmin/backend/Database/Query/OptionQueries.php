@@ -17,7 +17,7 @@ trait OptionQueries
     public static function get_option_record(string $key = 'ROUTE'): array
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
 
         $prepared_query = $wpdb->prepare(
             "SELECT * FROM $table_name WHERE option_key = %s LIMIT 1",
@@ -47,7 +47,7 @@ trait OptionQueries
         global $wpdb;
         $serialized_content = serialize($value);
 
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
 
         $prepared_query = $wpdb->prepare(
             "UPDATE $table_name SET option_value = %s WHERE option_key = %s",

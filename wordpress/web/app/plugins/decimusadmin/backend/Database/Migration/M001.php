@@ -17,7 +17,7 @@ trait M001
     public static function create_theme_options_table_001(): void
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
         $charset_collate = $wpdb->get_charset_collate();
 
         $sql = "CREATE TABLE IF NOT EXISTS $table_name (
@@ -38,7 +38,7 @@ trait M001
     public static function delete_theme_options_table_001(): void
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
         $wpdb->query("DROP TABLE IF EXISTS $table_name");
     }
 }

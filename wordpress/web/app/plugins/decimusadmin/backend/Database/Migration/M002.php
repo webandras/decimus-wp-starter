@@ -18,7 +18,7 @@ trait M002
     public static function alter_theme_options_table_002(): void
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . DECIMUS_ADMIN_OPTIONS_TABLE;
+        $table_name = $wpdb->prefix . self::ADMIN_OPTIONS_TABLE;
 
         $sql = "ALTER TABLE $table_name ADD UNIQUE KEY (option_key);";
 
