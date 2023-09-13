@@ -12,32 +12,32 @@
 
 ?>
 <?php
-$contact_request = new WP_REST_Request('GET', '/decimus/v1/frontend/contact');
-$contact_response = rest_do_request($contact_request);
-$contact_data = rest_get_server()->response_to_data($contact_response, true);
+$contact_request  = new WP_REST_Request( 'GET', '/decimus/v1/frontend/contact' );
+$contact_response = rest_do_request( $contact_request );
+$contact_data     = rest_get_server()->response_to_data( $contact_response, true );
 
 // check if we received the data from the endpoint
-$have_contact_data = isset($contact_data) && isset($contact_data['data']);
-$contact_options = $have_contact_data && isset($contact_data['data']['option_value']) ? $contact_data['data']['option_value'] : [];
+$have_contact_data = isset( $contact_data ) && isset( $contact_data['data'] );
+$contact_options   = $have_contact_data && isset( $contact_data['data']['option_value'] ) ? $contact_data['data']['option_value'] : [];
 
-$phone_pretty = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
-$email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
-$facebook = isset($contact_options['facebook']) ? sanitize_url($contact_options['facebook']) : '';
-$messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
+$phone_pretty = isset( $contact_options['phone_number'] ) ? esc_html( $contact_options['phone_number'] ) : '';
+$email        = isset( $contact_options['email_address'] ) ? sanitize_email( $contact_options['email_address'] ) : '';
+$facebook     = isset( $contact_options['facebook'] ) ? sanitize_url( $contact_options['facebook'] ) : '';
+$messenger    = isset( $contact_options['messenger'] ) ? sanitize_url( $contact_options['messenger'] ) : '';
 
-$phone_number = generate_phone_number($phone_pretty);
+$phone_number = generate_phone_number( $phone_pretty );
 
-$header_request = new WP_REST_Request('GET', '/decimus/v1/frontend/header');
-$header_response = rest_do_request($header_request);
-$header_data = rest_get_server()->response_to_data($header_response, true);
+$header_request  = new WP_REST_Request( 'GET', '/decimus/v1/frontend/header' );
+$header_response = rest_do_request( $header_request );
+$header_data     = rest_get_server()->response_to_data( $header_response, true );
 
 // check if we received the data from the endpoint
-$have_header_data = isset($header_data) && isset($header_data['data']);
-$header_options = $have_header_data && isset($header_data['data']['option_value']) ? $header_data['data']['option_value'] : [];
+$have_header_data = isset( $header_data ) && isset( $header_data['data'] );
+$header_options   = $have_header_data && isset( $header_data['data']['option_value'] ) ? $header_data['data']['option_value'] : [];
 
-$cart = isset($header_options['cart_button']) && intval($header_options['cart_button']);
-$account = isset($header_options['account_button']) && intval($header_options['account_button']);
-$search = isset($header_options['search_button']) && intval($header_options['search_button']);
+$cart    = isset( $header_options['cart_button'] ) && intval( $header_options['cart_button'] );
+$account = isset( $header_options['account_button'] ) && intval( $header_options['account_button'] );
+$search  = isset( $header_options['search_button'] ) && intval( $header_options['search_button'] );
 
 
 ?>
@@ -46,7 +46,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 <html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
 
@@ -66,16 +66,18 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     <!-- Loads the internal WP jQuery. Required if a 3rd party plugin loads jQuery in header instead in footer -->
-    <?php wp_enqueue_script('jquery'); ?>
-    <?php wp_head(); ?>
+	<?php wp_enqueue_script( 'jquery' ); ?>
+	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class('container-max-width'); ?>>
+<body <?php body_class( 'container-max-width' ); ?>>
 
 <div id="to-top"></div>
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v16.0&appId=3480055112023634&autoLogAppEvents=1" nonce="v2t1n8Km"></script>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v16.0&appId=3480055112023634&autoLogAppEvents=1"
+        nonce="v2t1n8Km"></script>
 
 <div id="page" class="site">
 
@@ -103,11 +105,11 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             <a href="<?php echo $messenger ?>"><i class="fab fa-facebook-messenger"></i></a>
 
                             <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                                <?php if (is_active_sidebar('top-nav-search')) : ?>
+								<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
                                     <div>
-                                        <?php //dynamic_sidebar('top-nav-search'); ?>
+										<?php //dynamic_sidebar('top-nav-search'); ?>
                                     </div>
-                                <?php endif; ?>
+								<?php endif; ?>
                             </div>
 
                         </div>
@@ -120,13 +122,13 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                 <div class="container-fluid">
 
                     <!-- Navbar Brand -->
-                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img
-                                src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.png"
+                    <a class="navbar-brand xs d-md-none" href="<?php echo esc_url( home_url() ); ?>"><img
+                                src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.png"
                                 alt="logo small" style="width: 120px; height: auto;"
                                 class="logo xs d-inline-block mr-1"></a>
 
-                    <a class="navbar-brand md d-none d-md-block " href="<?php echo esc_url(home_url()); ?>">
-                        <img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.png"
+                    <a class="navbar-brand md d-none d-md-block " href="<?php echo esc_url( home_url() ); ?>">
+                        <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.png"
                              alt="logo normal"
                              class="logo md d-inline-block mr-3">
                         <div class="brand-text"><?php //bloginfo('name'); ?></div>
@@ -136,36 +138,37 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                     <!-- Offcanvas Navbar -->
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
                         <div class="offcanvas-header bg-primary text-white">
-                            <h5 class="mb-0 text-white lh-1"><?php esc_html_e('Menu', 'decimus'); ?></h5>
+                            <h5 class="mb-0 text-white lh-1"><?php esc_html_e( 'Menu', 'decimus' ); ?></h5>
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                     aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
                         </div>
                         <div class="offcanvas-body text-center">
                             <!-- Bootstrap 5 Nav Walker Main Menu -->
-                            <?php
-                            wp_nav_menu(array(
-                                'theme_location' => 'main-menu',
-                                'container' => false,
-                                'menu_class' => '',
-                                'fallback_cb' => '__return_false',
-                                'items_wrap' => '<ul id="decimus-navbar" class="navbar-nav medium-size ms-auto %2$s">%3$s</ul>',
-                                'depth' => 2,
-                                'walker' => new bootstrap_5_wp_nav_menu_walker()
-                            ));
-                            ?>
+							<?php
+							wp_nav_menu( array(
+								'theme_location' => 'main-menu',
+								'container'      => false,
+								'menu_class'     => '',
+								'fallback_cb'    => '__return_false',
+								'items_wrap'     => '<ul id="decimus-navbar" class="navbar-nav medium-size ms-auto %2$s">%3$s</ul>',
+								'depth'          => 2,
+								'walker'         => new bootstrap_5_wp_nav_menu_walker(),
+							) );
+							?>
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                             <hr class="">
 
                             <nav class="mobile-menu-contact-info nav d-flex flex-column mb-3 d-lg-none lh-lg">
-                                <a class="base-size text-left" href="tel:<?php echo $phone_number ?>" rel="noreferrer noopener"
+                                <a class="base-size text-left" href="tel:<?php echo $phone_number ?>"
+                                   rel="noreferrer noopener"
                                    target="_blank"
                                    title="<?php _e( 'Call us!', 'decimus-child' ) ?>">
                                     <i class="fas fa-phone-alt me-1"></i>
-                                    <?php echo $phone_pretty ?></a>
+									<?php echo $phone_pretty ?></a>
                                 <a class="base-size text-left" href="mailto:<?php echo $email ?>"
                                    title="<?php _e( 'Message us!', 'decimus-child' ) ?>">
                                     <i class="fas fa-envelope me-1"></i>
-                                    <?php echo $email ?></a>
+									<?php echo $email ?></a>
                             </nav>
 
                             <div class="d-block d-lg-none text-start">
@@ -187,23 +190,23 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
                         <!-- Top Nav Widget -->
                         <div class="top-nav-widget">
-                            <?php if (is_active_sidebar('top-nav')) : ?>
+							<?php if ( is_active_sidebar( 'top-nav' ) ) : ?>
                                 <div>
-                                    <?php dynamic_sidebar('top-nav'); ?>
+									<?php dynamic_sidebar( 'top-nav' ); ?>
                                 </div>
-                            <?php endif; ?>
+							<?php endif; ?>
                         </div>
 
                         <!-- Searchform Large -->
                         <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                            <?php if (is_active_sidebar('top-nav-search')) : ?>
+							<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
                                 <div>
-                                    <?php //dynamic_sidebar('top-nav-search'); ?>
+									<?php //dynamic_sidebar('top-nav-search'); ?>
                                 </div>
-                            <?php endif; ?>
+							<?php endif; ?>
                         </div>
 
-                        <?php if ($search === true) { ?>
+						<?php if ( $search === true ) { ?>
                             <!-- Search Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 " type="button"
                                     data-bs-toggle="modal" data-bs-target="#modal-search" aria-expanded="false"
@@ -211,8 +214,8 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                             >
                                 <i class="fas fa-search"></i>
                             </button>
-                        <?php } ?>
-                        <?php if (is_woocommerce_activated() && $account ) { ?>
+						<?php } ?>
+						<?php if ( is_woocommerce_activated() && $account ) { ?>
                             <!-- User Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user"
@@ -220,26 +223,26 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                                 <i class="fas fa-user"></i>
 
                             </button>
-                        <?php } ?>
-                        <?php if (is_woocommerce_activated() && $cart ) { ?>
+						<?php } ?>
+						<?php if ( is_woocommerce_activated() && $cart ) { ?>
                             <!-- Mini Cart Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
                                     aria-controls="offcanvas-cart">
                                 <i class="fas fa-shopping-cart"></i>
-                                <?php if (in_array('woocommerce/woocommerce.php',
-                                    apply_filters('active_plugins', get_option('active_plugins')))) {
-                                    $count = WC()->cart->cart_contents_count;
-                                    ?>
+								<?php if ( in_array( 'woocommerce/woocommerce.php',
+									apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+									$count = WC()->cart->cart_contents_count;
+									?>
                                     <span class="cart-content">
-                                            <?php if ($count > 0) { ?>
-                                                <?php echo esc_html($count); ?>
-                                                <?php
+                                            <?php if ( $count > 0 ) { ?>
+	                                            <?php echo esc_html( $count ); ?>
+	                                            <?php
                                             }
                                             ?></span>
-                                <?php } ?>
+								<?php } ?>
                             </button>
-                        <?php } ?>
+						<?php } ?>
 
                         <!-- Navbar Toggler -->
                         <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
@@ -260,16 +263,16 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
         <!-- offcanvas user -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
             <div class="offcanvas-header bg-primary">
-                <h5 class="mb-0 text-white"><?php esc_html_e('Account', 'decimus'); ?></h5>
+                <h5 class="mb-0 text-white"><?php esc_html_e( 'Account', 'decimus' ); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
-                    <?php if ( is_woocommerce_activated() ) {
-                        require get_template_directory().'/woocommerce/myaccount/my-account-offcanvas.php';
-                    }
-                    ?>
+					<?php if ( is_woocommerce_activated() ) {
+						require get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php';
+					}
+					?>
                 </div>
             </div>
         </div>
@@ -277,7 +280,7 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
         <!-- offcanvas cart -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
             <div class="offcanvas-header bg-primary">
-                <h5 class="mb-0 text-white"><?php esc_html_e('Cart', 'decimus'); ?></h5>
+                <h5 class="mb-0 text-white"><?php esc_html_e( 'Cart', 'decimus' ); ?></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="<?php _e( 'Close', 'decimus-child' ) ?>"></button>
             </div>
@@ -288,9 +291,9 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
                     </div>
                 </div>
                 <div class="cart-list">
-                    <?php if (is_woocommerce_activated() && function_exists('woocommerce_mini_cart')) { ?>
+					<?php if ( is_woocommerce_activated() && function_exists( 'woocommerce_mini_cart' ) ) { ?>
                         <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
-                    <?php } ?>
+					<?php } ?>
                 </div>
             </div>
         </div>
@@ -299,21 +302,22 @@ $search = isset($header_options['search_button']) && intval($header_options['sea
 
     <!-- Top Nav Search Modal -->
     <div class="modal fade" id="modal-search" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-		<?php if (is_active_sidebar('top-nav-search')) : ?>
+		<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
             <div class="modal-dialog">
 
                 <div class="search-container modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="searchModalLabel">Keresés a bejegyzésekben</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?php _e( 'Close', 'decimus-child' ) ?>">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="<?php _e( 'Close', 'decimus-child' ) ?>">
                         </button>
                     </div>
                     <div class="modal-body">
-						<?php dynamic_sidebar('top-nav-search'); ?>
+						<?php dynamic_sidebar( 'top-nav-search' ); ?>
                     </div>
                 </div>
             </div>
 		<?php endif; ?>
     </div>
 
-    <?php decimus_ie_alert(); ?>
+	<?php decimus_ie_alert(); ?>
