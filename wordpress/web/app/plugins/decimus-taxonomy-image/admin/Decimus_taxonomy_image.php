@@ -279,7 +279,7 @@ if ( !class_exists( 'Decimus_taxonomy_image' ) ) {
         }
 
 
-        public function delete_plugin(): void
+        public static function delete_plugin(): void
         {
             delete_option( self::DECIMUS_TAXONOMY_IMAGE_OPTIONS );
         }
