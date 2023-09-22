@@ -31,9 +31,7 @@ do_action('woocommerce_before_account_navigation');
             <div class="list-group mb-4">
                 <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
                     <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"
-                       class="list-group-item list-group-item-action<?php echo get_active_account_menu_item() === $endpoint ? ' myaccount-active-link' : '' ?>">
-                        <?php echo esc_html($label); ?>
-                    </a>
+                       class="list-group-item list-group-item-action"><?php echo esc_html($label); ?></a>
                 <?php endforeach; ?>
             </div>
         </nav>

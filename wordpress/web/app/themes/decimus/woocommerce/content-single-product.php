@@ -74,48 +74,28 @@ if ( post_password_required() ) {
     ?>
 
     <?php
-    if ( is_class_activated() ) {
-        $contact_request = new WP_REST_Request('GET', '/decimus/v1/frontend/contact');
-        $contact_response = rest_do_request($contact_request);
-        $contact_data = rest_get_server()->response_to_data($contact_response, true);
+    $contact_request = new WP_REST_Request('GET', '/decimus/v1/frontend/contact');
+    $contact_response = rest_do_request($contact_request);
+    $contact_data = rest_get_server()->response_to_data($contact_response, true);
 
-        // check if we received the data from the endpoint
-        $have_contact_data = isset($contact_data) && isset($contact_data['data']);
-        $contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
+    // check if we received the data from the endpoint
+    $have_contact_data = isset($contact_data) && isset($contact_data['data']);
+    $contact_options = $have_contact_data ? $contact_data['data']['option_value'] : [];
 
-        $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
-        $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
-        $messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
-    }
+    $phone = isset($contact_options['phone_number']) ? esc_html($contact_options['phone_number']) : '';
+    $email = isset($contact_options['email_address']) ? sanitize_email($contact_options['email_address']) : '';
+    $messenger = isset($contact_options['messenger']) ? sanitize_url($contact_options['messenger']) : '';
+
     ?>
 
-    <?php
-    if ( ! $product->is_downloadable() ) {
-
-        // Get registration type, use the event registration forms belonging to the specific reg type
-        $attributes = $product->get_attributes();
-        $reg_type = $attributes["pa_registration_type"] ?? null;
-
-        $reg_type_slug = ($reg_type !== null) ? $reg_type->get_slugs()[0] : 'basic';
-        $is_appointment = str_contains($reg_type_slug, 'appointment');
-        $is_basic = str_contains($reg_type_slug, 'basic');
-        $is_giftcard = str_contains($reg_type_slug, 'giftcard');
-    ?>
     <div class="modal fade" tabindex="-1" id="registerToEvent" aria-labelledby="registerToEventLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-fullscreen-sm-down modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <?php if ( $is_appointment ) { ?>
-                        <h5 class="modal-title"><?php _e('Book an appointment to use the service', 'decimus') ?></h5>
-                    <?php } else if ( $is_giftcard ) { ?>
-                        <h5 class="modal-title"><?php _e('Get a gift card', 'decimus') ?></h5>
-                    <?php } else { ?>
-                        <h5 class="modal-title"><?php _e('Register to the event', 'decimus') ?></h5>
-                    <?php } ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa fas fa-times"></i>
-                    </button>
+                    <h5 class="modal-title"><?php _e('Register to the event', 'decimus') ?></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                                class="fa fas fa-times"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -125,13 +105,13 @@ if ( post_password_required() ) {
 
                             <ul class="no-bullets mt-0">
                                 <li>
-                                    <a href="tel:<?php echo $phone ?? '' ?>"><?php echo $phone ?></a>
+                                    <a href="tel:<?php echo $phone ?>"><?php echo $phone ?></a>
                                 </li>
                                 <li>
-                                    <a href="mailto:<?php echo $email ?? '' ?>"><?php echo $email ?></a>
+                                    <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo $messenger ?? '' ?>">Messenger</a>
+                                    <a href="<?php echo $messenger ?>">Messenger</a>
                                 </li>
                             </ul>
 
@@ -139,25 +119,9 @@ if ( post_password_required() ) {
                         </div>
                     </div>
                     <?php
-
-                    // for testing...
-                    // $available_variations = $product->get_available_variations();
-
-                    // the purchase note will end up in the email (provides extra information about the product)
-                    $purchase_note = $product->get_purchase_note() ?? '';
-
-                    if ( $reg_type_slug === 'appointment_lomi' ) {
-                        echo do_shortcode( '[contact-form-7 id="695" title="' . __('Appointment form 1', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
-                    } else if ( $reg_type_slug === 'appointment_thai' ) {
-                        echo do_shortcode( '[contact-form-7 id="717" title="' . __('Appointment form 1', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
-                    } else if ( $is_giftcard ) {
-                        echo do_shortcode( '[contact-form-7 id="742" title="' . __('Get a giftcard', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]' );
-                    } else {
-                        echo do_shortcode(
-                            '[contact-form-7 id="180" title="' . __('Event Registration', 'decimus') . '" event-name="' . get_the_title() . '" event-details="" event-notice="' . esc_html($purchase_note) . '"]'
-                        );
-                    }
-
+                    echo do_shortcode(
+                        '[contact-form-7 id="180" title="Event Registration" event-name="' . get_the_title() . '" event-details=""]'
+                    );
                     ?>
 
                 </div>
@@ -168,6 +132,4 @@ if ( post_password_required() ) {
             </div>
         </div>
     </div>
-    <?php } ?>
-
     <?php do_action('woocommerce_after_single_product'); ?>

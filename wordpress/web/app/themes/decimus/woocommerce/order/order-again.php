@@ -11,14 +11,13 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.5.0
+ * @package WooCommerce\Templates
+ * @version 7.8.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <p class="order-again">
-    <a href="<?php echo esc_url($order_again_url); ?>"
-       class="btn btn-primary"><?php esc_html_e('Order again', 'woocommerce'); ?></a>
+	<a href="<?php echo esc_url( $order_again_url ); ?>" class="btn btn-primary button<?php echo esc_attr( $wp_button_class ); ?>"><?php esc_html_e( 'Order again', 'woocommerce' ); ?></a>
 </p>

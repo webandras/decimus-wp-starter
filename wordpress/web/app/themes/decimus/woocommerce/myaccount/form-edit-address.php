@@ -27,23 +27,23 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
 	<form method="post">
 
-        <div class="mb-4">
+        <div class="mb-2">
             <a href="<?php echo wc_get_page_permalink( 'myaccount' ) . 'edit-address' ?>"
                class="woocommerce-button btn btn-sm btn-outline-primary"><?php _e( '&laquo; Go back', 'decimus' ) ?></a>
         </div>
 
         <h3><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h3><?php // @codingStandardsIgnoreLine ?>
 
-		<div class="woocommerce-address-fields">
-			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
+        <div class="woocommerce-address-fields">
+            <?php do_action("woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
-			<div class="woocommerce-address-fields__field-wrapper">
-				<?php
-				foreach ( $address as $key => $field ) {
-					woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );
-				}
-				?>
-			</div>
+            <div class="woocommerce-address-fields__field-wrapper">
+                <?php
+                foreach ( $address as $key => $field ) {
+                    woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );
+                }
+                ?>
+            </div>
 
 			<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 

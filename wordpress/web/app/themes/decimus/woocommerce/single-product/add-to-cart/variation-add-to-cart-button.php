@@ -29,28 +29,26 @@ global $product;
 	?>
 
     <?php
-    if ( is_class_activated() ) {
-        $woocommerce_request = new WP_REST_Request('GET', '/decimus/v1/frontend/woocommerce');
-        $woocommerce_response = rest_do_request($woocommerce_request);
-        $woocommerce_data = rest_get_server()->response_to_data($woocommerce_response, true);
+    $woocommerce_request = new WP_REST_Request('GET', '/decimus/v1/frontend/woocommerce');
+    $woocommerce_response = rest_do_request($woocommerce_request);
+    $woocommerce_data = rest_get_server()->response_to_data($woocommerce_response, true);
 
-        // check if we received the data from the endpoint
-        $have_woocommerce_data = isset($woocommerce_data) && isset($woocommerce_data['data']);
-        $woocommerce_options = $have_woocommerce_data ? $woocommerce_data['data']['option_value'] : [];
+    // check if we received the data from the endpoint
+    $have_woocommerce_data = isset($woocommerce_data) && isset($woocommerce_data['data']);
+    $woocommerce_options = $have_woocommerce_data ? $woocommerce_data['data']['option_value'] : [];
 
-        $event_registration = isset($woocommerce_options['event_registration']) ? intval($woocommerce_options['event_registration']) : null;
-    }
+    $event_registration = isset($woocommerce_options['event_registration']) ? intval($woocommerce_options['event_registration']) : null;
     ?>
 
-    <?php if ( $event_registration ?? false ) { ?>
+    <?php if ( $event_registration ) { ?>
         <button type="submit"
-                class="single_add_to_cart_button btn btn-primary"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+                class="single_add_to_cart_button btn btn-primary"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
     <?php } else { ?>
         <button type="submit" data-bs-toggle="modal" data-bs-target="#registerToEvent"
                 class="single_add_to_cart_button btn btn-primary"><?php echo esc_html('Register'); ?></button>
     <?php } ?>
 
-	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+    <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 
 	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
 	<input type="hidden" name="product_id" value="<?php echo absint( $product->get_id() ); ?>" />

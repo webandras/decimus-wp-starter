@@ -277,7 +277,7 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 
 function decimus_woocommerce_widget_shopping_cart_button_view_cart(): void
 {
-    echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-warning d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
+    echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-outline-primary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
 function decimus_woocommerce_widget_shopping_cart_proceed_to_checkout(): void
@@ -378,10 +378,9 @@ if ( !function_exists('decimus_woocommerce_content') ) {
 /**
  * Reorder product data tabs
  */
-// add_filter( 'woocommerce_product_tabs', 'decimus_woocommerce_reorder_tabs', 98 );
+add_filter( 'woocommerce_product_tabs', 'decimus_woocommerce_reorder_tabs', 98 );
 function decimus_woocommerce_reorder_tabs($tabs): array
 {
-
     // Additional information first
     $tabs['additional_information']['priority'] = 5;
     // Description second
@@ -402,10 +401,10 @@ function decimus_woocommerce_reorder_tabs($tabs): array
  * https://woocommerce.com/document/woocommerce-order-status-control/
  * */
 add_action('woocommerce_payment_complete_order_status', 'decimus_auto_complete_virtual_paid_order', 10, 3);
-/*function wc_auto_complete_order($status, $order_id, $order)
+function wc_auto_complete_order($status, $order_id, $order)
 {
     return 'completed';
-}*/
+}
 
 /*
  * See https://quadlayers.com/autocomplete-woocommerce-orders/
@@ -432,7 +431,9 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
             return !!$product;
         });
 
-        if (count( $order_products ) > 0) {
+//        var_dump($order_products);
+
+        if ( count($order_products > 0) ) {
             // Check if each product is 'virtual'
             $is_virtual_order = array_reduce($order_products, function ($virtual_order_so_far, $product) {
                 return $virtual_order_so_far && $product->is_virtual();
@@ -447,8 +448,7 @@ function decimus_auto_complete_virtual_paid_order($payment_status, $order_id, $o
 }
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
-add_action('woocommerce_after_single_product', 'woocommerce_output_related_products', 20);
-
+//add_action('woocommerce_after_single_product', 'woocommerce_output_related_products', 20);
 
 // Get active my account page menu item to add active state to side navigation menu
 if ( ! function_exists( 'get_active_account_menu_item' ) ) {
