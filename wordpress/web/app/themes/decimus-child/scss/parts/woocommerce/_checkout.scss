@@ -28,8 +28,16 @@ button[name="save_address"] {
 }
 
 .form-row {
+    padding-left: 0;
     margin-right: 0;
     margin-left: 0;
+}
+
+.woocommerce form .form-row .input-checkbox {
+    margin: 0 !important;
+}
+.woocommerce form .form-row .form-check .form-check-input {
+    margin-left: -1.5em !important;
 }
 
 .input-narrow {
