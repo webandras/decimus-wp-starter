@@ -72,7 +72,10 @@ function decimus_product_page_ajax_add_to_cart_js()
                         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
                         // Add new notices
-                        form.closest('.product').before(response.fragments.notices_html)
+                        // form.closest('.product').before(response.fragments.notices_html)
+
+                        // Add new notices to offcanvas
+                        $('.woocommerce-mini-cart').prepend(response.fragments.notices_html);
 
                         form.unblock();
 
@@ -128,3 +131,6 @@ function decimus_ajax_add_to_cart_add_fragments($fragments)
 
 add_filter('woocommerce_add_to_cart_fragments', 'decimus_ajax_add_to_cart_add_fragments');
 // Add fragments for notices End
+
+// Stop redirecting after stock error
+add_filter( 'woocommerce_cart_redirect_after_error', '__return_false' );

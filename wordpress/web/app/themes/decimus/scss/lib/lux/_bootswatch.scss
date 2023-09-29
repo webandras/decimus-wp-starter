@@ -55,7 +55,7 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;6
   text-transform: uppercase;
 
   &-sm {
-    font-size: 10px;
+    font-size: 14px;
   }
 
   &-warning {
@@ -96,8 +96,8 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;6
 // Typography
 
 body {
-  font-weight: 200;
-  letter-spacing: 1px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
 h1,
