@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------
+1. Header
+--------------------------------------------------------------*/
+
+/* Since 5.1.0.0 logo is on the left in new header. Fallback to old header */
+@media (max-width: 991px) {
+    #nav-main .navbar-brand:not(#nav-main .navbar-brand.xs, #nav-main .navbar-brand.md) {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0px);
+    }
+}
+
+/* Fallback to old header End */
+
+
+@media (max-width: 991px) {
+    #nav-main {
+        min-height: 56px;
+    }
+
+    .navbar-toggler.left, .top-nav-search-md #dropdown-search {
+        padding-left: 0;
+        border: none;
+    }
+
+    .user-toggler.right, .cart-toggler.right {
+        padding-right: 0;
+        border: none;
+    }
+
+    .navbar-toggler.left:focus {
+        box-shadow: none;
+    }
+
+    .user-toggler.right:hover, .user-toggler.right.active, .cart-toggler.right:hover, .cart-toggler.right.active {
+        color: currentColor;
+        background-color: transparent;
+        border-color: transparent;
+    }
+}

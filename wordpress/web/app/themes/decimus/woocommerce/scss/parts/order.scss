@@ -1,0 +1,58 @@
+.place-order div {
+    width: 100%;
+}
+
+
+button#place_order {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+#order_review .legal label {
+    display: block !important
+}
+
+
+.woocommerce ul.order_details::before {
+    content: '\f058';
+}
+
+
+@media (max-width: 991px) {
+    a.btn.btn-outline-primary.btn-sm.invoice {
+        margin-top: .25rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+    a.btn.btn-outline-primary.btn-sm.invoice {
+        margin-left: .25rem;
+    }
+}
+
+
+@media (max-width: 767px) {
+    .woocommerce ul.order_details li {
+        border-right: none;
+    }
+
+    li.woocommerce-order-overview__order.order,
+    li.woocommerce-order-overview__date.date,
+    li.woocommerce-order-overview__email.email {
+        margin-bottom: 1rem;
+    }
+
+    .woocommerce ul.order_details li {
+        float: none;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .woocommerce ul.order_details li {
+        border-right: 1px solid;
+    }
+}
+

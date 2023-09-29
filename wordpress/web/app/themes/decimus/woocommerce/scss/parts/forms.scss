@@ -1,0 +1,67 @@
+.woocommerce form .form-row {
+    padding: 0;
+    margin: 0 0 1rem;
+
+    label {
+        line-height: 1.5;
+    }
+}
+
+
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    border-radius: 0
+}
+
+
+.woocommerce-input-wrapper {
+    width: 100%
+}
+
+
+.woocommerce form .form-row .required,
+.woocommerce form .form-row.woocommerce-invalid label,
+.woocommerce form .custom-validation.woocommerce-invalid label {
+    color: var(--bs-danger)
+}
+
+
+.woocommerce form .form-row.woocommerce-invalid .select2-container,
+.woocommerce form .form-row.woocommerce-invalid input.input-text,
+.woocommerce form .form-row.woocommerce-invalid select {
+    border-color: var(--bs-danger)
+}
+
+
+.woocommerce form .form-row.woocommerce-validated .select2-container,
+.woocommerce form .form-row.woocommerce-validated input.input-text,
+.woocommerce form .form-row.woocommerce-validated select {
+    border-color: var(--bs-success)
+}
+
+
+.woocommerce form .show-password-input,
+.woocommerce-page form .show-password-input {
+    top: .3em;
+}
+
+
+span.password-input {
+    width: 100%
+}
+
+
+form.cart .blockUI.blockOverlay {
+    display: none !important;
+}
+
+label.custom-control-label {
+    line-height: 1.5 !important
+}
+
+

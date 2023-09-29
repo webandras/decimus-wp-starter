@@ -1,0 +1,31 @@
+@media (min-width: 769px) {
+    /* Block buttons download breakpoint WooCommerce is 769 px! */
+    a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
+        display: block;
+    }
+}
+
+.woocommerce-account {
+    .woocommerce-MyAccount-navigation {
+        float: none;
+        width: 100%;
+
+        .list-group a.myaccount-active-link {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+    }
+
+    .woocommerce-MyAccount-content {
+        float: none;
+        width: 100%
+    }
+
+}
+
+
+.woocommerce .woocommerce-customer-details address {
+    border: 0;
+    width: 100%;
+    padding: 0
+}

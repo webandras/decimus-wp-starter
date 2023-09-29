@@ -1,0 +1,155 @@
+@import "parts/header";
+@import "parts/sidebar";
+@import "parts/account";
+@import "parts/cart";
+@import "parts/checkout";
+@import "parts/forms";
+@import "parts/mini-cart";
+@import "parts/order";
+@import "parts/product";
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.  Header
+2.  WooCommerce display none
+3.  WooCommerce
+4.  Colors
+
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+2. WooCommerce Display none
+--------------------------------------------------------------*/
+
+a.added_to_cart.wc-forward {
+    display: none;
+}
+
+
+ul.tabs.wc-tabs li:after {
+    display: none;
+}
+
+
+a.about_paypal {
+    display: none;
+}
+
+.woocommerce-message.alert .button.wc-forward {
+    display: none;
+}
+
+
+/*--------------------------------------------------------------
+3. WooCommerce
+--------------------------------------------------------------*/
+
+.group_table .add-to-cart-container {
+    width: 130px;
+}
+
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1 {
+    float: none;
+    width: 100%
+}
+
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+    float: none;
+    width: 100%
+}
+
+
+.woocommerce-variation.single_variation {
+    margin-bottom: 2rem
+}
+
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    border-radius: .25rem;
+    border: 1px solid;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+
+.restore-item {
+    font-weight: bold;
+}
+
+
+/*--------------------------------------------------------------
+4. Colors
+--------------------------------------------------------------*/
+
+@media (max-width: 992px) {
+    #nav-main .btn.focus, #nav-main .btn:focus {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+
+
+.woocommerce-terms-and-conditions {
+    background: var(--bs-light)
+}
+
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-color: var(--bs-primary);
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+    color: #fff;
+    background-color: var(--bs-primary);
+}
+
+
+.woocommerce .blockUI.blockOverlay,
+.woocommerce .loader,
+#offcanvas-cart .blockUI.blockOverlay,
+#offcanvas-cart .loader {
+    background-color: #fff !important;
+    opacity: 1 !important;
+}
+
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+    color: var(--bs-primary);
+}
+
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+    background-color: var(--bs-dark);
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {
+    background-color: var(--bs-primary);
+}
+
+.woocommerce-info::before,
+.woocommerce-message::before,
+.restore-item,
+.restore-item:hover {
+    color: inherit;
+}
