@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-    <div id="content" class="site-content container-fluid narrow-content side-padding py-5 mt-4">
+    <div id="content" class="site-content container-fluid  side-padding py-5 mt-4">
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
