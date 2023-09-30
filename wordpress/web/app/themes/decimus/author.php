@@ -51,6 +51,11 @@ get_header();
                                             <div class="col">
                                                 <div class="card-body">
 
+                                                    <!-- Category badge -->
+                                                    <div class="post-badge">
+                                                        <?php decimus_category_badge(); ?>
+                                                    </div>
+
                                                     <!-- Title -->
                                                     <h2 class="blog-post-title">
                                                         <a href="<?php the_permalink(); ?>">
@@ -75,17 +80,11 @@ get_header();
 																'decimus' ); ?></a>
                                                     </div>
 
+                                                    <div class="mt-4">
+                                                        <!-- Tags -->
+                                                        <?php decimus_tags(); ?>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row card-body" style="padding-top: 0; padding-bottom: 0;">
-                                            <hr class="my-2">
-                                            <div class="d-flex flex-wrap" style="column-gap: 1em;">
-                                                <!-- Categories -->
-												<?php decimus_category_badge(); ?>
-
-                                                <!-- Tags -->
-												<?php decimus_tags(); ?>
                                             </div>
                                         </div>
                                     </div>
