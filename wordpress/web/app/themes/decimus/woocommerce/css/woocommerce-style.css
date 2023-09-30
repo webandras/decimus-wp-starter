@@ -297,18 +297,13 @@ label.custom-control-label {
 }
 
 .woocommerce .blockUI.blockOverlay:before, .woocommerce .loader:before, #offcanvas-cart .blockUI.blockOverlay:before, #offcanvas-cart .loader:before {
-    height: 3em;
-    width: 3em;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -.5em;
     margin-top: -.5em;
-    display: block;
     content: "";
-    -webkit-animation: none;
     -moz-animation: none;
-    animation: none;
     background: none;
     background-size: cover;
     line-height: 1;
@@ -713,7 +708,7 @@ ul.tabs.wc-tabs {
 }
 
 .custom-validation.validate-required {
-    margin-left: 1.5em;
+    margin-left: 0;
 }
 
 .woocommerce-MyAccount-navigation .list-group a.myaccount-active-link {
@@ -729,3 +724,12 @@ ul.tabs.wc-tabs {
 #woocommerce-sidebar aside li h2.widgettitle {
     margin-top: 1.25em;
 }
+
+.offcanvas.offcanvas-end.show .offcanvas-body #decimus-navbar .menu-item .dropdown-menu.show {
+    width: 100%;
+}
+
+.offcanvas.offcanvas-end.show .offcanvas-body #decimus-navbar .menu-item .dropdown-menu.show li.menu-item.nav-item {
+    margin-right: 0;
+}
+
