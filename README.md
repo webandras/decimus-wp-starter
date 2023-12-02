@@ -6,6 +6,7 @@ Images used for the services:
 - Nginx: **nginx:stable-alpine**
 - MariaDB: **mariadb:10.6**
 - PhpMyAdmin: **phpmyadmin/phpmyadmin**
+- Mailcatcher: **sj26/mailcatcher:v0.8.2**
 
 `wp-cli` and `xdebug` support included.
 
@@ -38,9 +39,9 @@ Run `bin/wp` to enter the `wordpress` container. Simply run `wp` here.
 The wp-cli is run by the www-data user, not by root (otherwise, it would be a security risk).
 
 After testing some wp commands, it turns out that the user creation (wp user create ...) is not working and produces an
-error. TODO: need to find cause. Maybe caused by Bedrock.
+error.  TODO: need to find cause. Maybe caused by Bedrock.
 
-*Note: There are other useful shell commands in `bin` folder as well.*
+*Note: There are other useful shell commands in `bin` folder.*
 
 ## DB
 
@@ -50,7 +51,7 @@ Add your sql dump files into the db folder to be imported.
 
 Copy the sql file inside the mysql container:
 
-`docker cp ./db/dump.sql container_id:/var/dump.sql`
+`docker cp ./db/dump.sql 1c5e4fa61afb:/var/dump.sql`
 
 After that, import the sql to the database inside the mysql container:
 
@@ -58,18 +59,17 @@ After that, import the sql to the database inside the mysql container:
 
 Replace urls:
 
-`wp search-replace 'https://example.com' 'http://localhost:8080/wp' --skip-columns=guid`
+`wp search-replace 'http://localhost:8080' 'https://decimus.local' --skip-columns=guid`
 
 Or use PhpMyAdmin for a small database.
 
-*Note: `bin/mysql-import` is not working.*
-
-## PHP 8.0/8.1
-
-There are deprecation and other warnings which will be eventually fixed in future WordPress and Bedrock releases...
+*Note: `bin/mysql-import` is now working. See the comments in the bash script.*
 
 ## Change table prefixes
 
+**Easier to use phpmyadmin for replacing the prefixes!**
+
+More complicated approach:
 Generate queries for all tables:
 
 ```sql
@@ -78,7 +78,7 @@ SET
 SET
 @oldprefix = "wp_";
 SET
-@newprefix = "customwp_";
+@newprefix = "se3e_";
 
 SELECT concat(
                "RENAME TABLE ",
@@ -122,8 +122,7 @@ You may need to change permissions for wordpress folder. However, for production
 ### Docker notes
 
 For Linux, you may have to use sudo if your Docker is not configured to be used as a non-root user.
-
-There are useful bash scripts in bin folder (bin/start, bin/down, etc.)
+There are useful bash scripts in bin folder (bin/start, bin/down, etc.).
 
 ## Change Language
 
@@ -277,8 +276,3 @@ Get the details of your network including the IP address:
 ```bash
 docker network inspect -v bridge
 ```
-
-
-### Other
-
-- bs-share-buttons component's css is included in main.scss of decimus-child

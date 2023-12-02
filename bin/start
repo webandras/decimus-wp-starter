@@ -2,7 +2,8 @@
 set -a
 source .env
 
-sudo systemctl stop apache2 mysql
+# use if it applies to you
+#systemctl stop apache2
 
 if [ "${SSL}" == "on" ]; then
   docker-compose -f docker-compose-ssl.yml up "$@"

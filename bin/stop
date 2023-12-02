@@ -7,5 +7,3 @@ if [ "${SSL}" == "on" ]; then
 else
   docker-compose -f docker-compose.yml stop "$@"
 fi
-
-sudo systemctl start apache2 mysql

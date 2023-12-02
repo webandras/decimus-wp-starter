@@ -16,21 +16,23 @@ services:
       - "./.docker/nginx/ssl/${APP_DOMAIN}-key.pem:/etc/nginx/${APP_DOMAIN}-key.pem"
     depends_on:
       - wordpress
-      - mysql
+    links:
+      - wordpress
 
-  mysql:
+
+  db:
     image: mariadb:10.6
-    container_name: ${APP_NAME}-mysql
+    container_name: ${APP_NAME}-db
     volumes: # data to map to the container
-      - wordpress_data:/var/lib/mysql
+      - decimus_ssl_wordpress_data:/var/lib/mysql
       #- ./db/db.sql:/docker-entrypoint-initdb.d/db.sql
     restart: unless-stopped
     environment: # mysql options
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-      MYSQL_ROOT_PASSWORD: wordpress
-      MYSQL_RANDOM_ROOT_PASSWORD: 1
+      #- MYSQL_RANDOM_ROOT_PASSWORD: 1
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     ports:
       - "33060:3306"
 
@@ -44,26 +46,34 @@ services:
       - ./wordpress:/var/www/html:cached
       - ./.docker/php/php.ini:/usr/local/etc/php/php.ini
     depends_on:
-      - mysql
+      - db
     environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DEBUG: 1
+      - WORDPRESS_DB_HOST=db:${MYSQL_PORT}
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASSWORD} # matches the password set in the db container
+      - WORDPRESS_DB_NAME=${DB_NAME}
+      - WORDPRESS_DEBUG=true
+    # Point the IP of the Nginx container to the WordPress site URL to make the loopback work
+    # https://devops.stackexchange.com/questions/12957/wordpress-site-health-errors-when-using-docker-and-nginx
+    # Use the bridge network's IP address instead:
+    # 172.17.0.1 -> docker network inspect -v bridge
     extra_hosts:
+      - localhost:172.17.0.1
+      - decimus.local:172.17.0.1
       - host.docker.internal:host-gateway
+
 
   phpmyadmin:
     depends_on:
-      - mysql
+      - db
     image: phpmyadmin/phpmyadmin
     container_name: "${APP_NAME}-phpmyadmin"
     restart: unless-stopped
     environment:
-      PMA_HOST: mysql:${MYSQL_PORT}
+      PMA_HOST: db:${MYSQL_PORT}
     ports:
       - ${PHPMYADMIN_PORT}:80
+
 
   mailcatcher:
     restart: on-failure
@@ -73,4 +83,4 @@ services:
       - "1026:1025"
 
 volumes:
-  wordpress_data: {} # persist db data in native named volume
+  decimus_ssl_wordpress_data: {} # persist db data in native named volume

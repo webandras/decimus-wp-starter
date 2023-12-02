@@ -3,3 +3,5 @@ db/*.sql*
 .env
 .idea
 important.txt
+.docker/nginx/ssl/*pem
+
