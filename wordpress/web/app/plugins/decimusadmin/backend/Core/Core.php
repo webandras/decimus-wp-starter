@@ -6,11 +6,10 @@ use Guland\DecimusAdmin\Core\AdminPage as AdminPage;
 
 
 // Exit if accessed directly
-if ( !defined('ABSPATH') ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-trait Core
-{
-    use AdminPage;
+trait Core {
+	use AdminPage;
 }

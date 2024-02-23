@@ -9,65 +9,60 @@ use WP_REST_Response;
 use Guland\DecimusAdmin\API\ParentController as ParentController;
 
 // Exit if accessed directly
-if ( !defined('ABSPATH') ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-class GlobalAdminController extends ParentController
-{
+class GlobalAdminController extends ParentController {
 
-    public function __construct(
-        string $route = 'global',
-        string $name_space = 'admin',
-        string $get_settings_route_handle = 'get_global_settings_route_handle',
-        string $put_settings_route_handle = 'put_global_settings_route_handle')
-    {
-        parent::__construct();
-        $this->route = $route;
-        $this->name_space = $name_space;
-        $this->get_settings_route_handle = $get_settings_route_handle;
-        $this->put_settings_route_handle = $put_settings_route_handle;
-    }
-
-
-    /**
-     * Get global settings for Decimus Theme
-     *
-     * @return void
-     */
-    public function get_global_settings_route(): void
-    {
-        $this->get_settings_route();
-    }
-
-    /**
-     * @param WP_REST_Request $request
-     *
-     * @return WP_REST_Response
-     */
-    public function get_global_settings_route_handle(WP_REST_Request $request): WP_REST_Response
-    {
-        return $this->get_settings_route_handle($request);
-    }
+	public function __construct(
+		string $route = 'global',
+		string $name_space = 'admin',
+		string $get_settings_route_handle = 'get_global_settings_route_handle',
+		string $put_settings_route_handle = 'put_global_settings_route_handle'
+	) {
+		parent::__construct();
+		$this->route                     = $route;
+		$this->name_space                = $name_space;
+		$this->get_settings_route_handle = $get_settings_route_handle;
+		$this->put_settings_route_handle = $put_settings_route_handle;
+	}
 
 
-    /**
-     * Update global settings
-     *
-     * @return void
-     */
-    public function put_global_settings_route(): void
-    {
-        $this->put_settings_route();
-    }
+	/**
+	 * Get global settings for Decimus Theme
+	 *
+	 * @return void
+	 */
+	public function get_global_settings_route(): void {
+		$this->get_settings_route();
+	}
 
-    /**
-     * @param WP_REST_Request $request
-     *
-     * @return WP_REST_Response
-     */
-    public function put_global_settings_route_handle(WP_REST_Request $request): WP_REST_Response
-    {
-        return $this->put_settings_route_handle($request);
-    }
+	/**
+	 * @param WP_REST_Request $request
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function get_global_settings_route_handle( WP_REST_Request $request ): WP_REST_Response {
+		return $this->get_settings_route_handle( $request );
+	}
+
+
+	/**
+	 * Update global settings
+	 *
+	 * @return void
+	 */
+	public function put_global_settings_route(): void {
+		$this->put_settings_route();
+	}
+
+	/**
+	 * @param WP_REST_Request $request
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function put_global_settings_route_handle( WP_REST_Request $request ): WP_REST_Response {
+		return $this->put_settings_route_handle( $request );
+	}
 }
