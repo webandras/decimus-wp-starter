@@ -32,9 +32,9 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu {
 
 
 	/**
-	 * @param  mixed  $output
-	 * @param  int  $depth
-	 * @param  null  $args
+	 * @param mixed $output
+	 * @param int $depth
+	 * @param null $args
 	 *
 	 * @return void
 	 */

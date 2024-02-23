@@ -11,7 +11,7 @@ if ( ! function_exists( 'decimus_body_classes' ) ) :
 	/**
 	 * Adds custom classes to the array of body classes.
 	 *
-	 * @param  array  $classes  Classes for the body element.
+	 * @param array $classes Classes for the body element.
 	 *
 	 * @return array
 	 */

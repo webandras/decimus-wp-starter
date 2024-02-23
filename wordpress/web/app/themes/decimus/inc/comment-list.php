@@ -132,7 +132,7 @@ if ( ! function_exists( 'decimus_custom_reply_title' ) ) :
 	/**
 	 * h2 Reply Title
 	 *
-	 * @param  array  $defaults
+	 * @param array $defaults
 	 *
 	 * @return array
 	 */
@@ -153,12 +153,12 @@ if ( ! function_exists( 'decimus_change_comment_form_cookies_consent' ) ) :
 	/**
 	 * Comment Cookie Checkbox
 	 *
-	 * @param  array  $fields
+	 * @param array $fields
 	 *
 	 * @return array
 	 */
 	function decimus_change_comment_form_cookies_consent( array $fields ): array {
-		$consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
+		$consent           = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
 		$fields['cookies'] = '<p class="comment-form-cookies-consent custom-control form-check mb-3">' .
 		                     '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
 		                     '<label for="wp-comment-cookies-consent" class="form-check-label">' . __(
@@ -180,7 +180,7 @@ if ( ! function_exists( 'decimus_open_comment_author_link_in_new_window' ) ) :
 	/**
 	 * Open comment author link in new tab
 	 *
-	 * @param  string  $author_link
+	 * @param string $author_link
 	 *
 	 * @return string
 	 */

@@ -109,15 +109,15 @@ add_filter( 'previous_post_link', 'decimus_post_link_attributes' );
 // Pagination Buttons Single Posts END
 
 
-if ( ! function_exists( 'the_breadcrumb' ) ) :
+if ( ! function_exists( 'decimus_the_breadcrumb' ) ) :
 
 	/**
 	 * Breadcrumb
 	 * @return void
 	 */
-	function the_breadcrumb(): void {
+	function decimus_the_breadcrumb(): void {
 		if ( ! is_home() ) {
-			echo '<nav class="breadcrumb mb-4 mt-2 bg-light py-2 px-3 small rounded">';
+			echo '<nav class="breadcrumb mb-1 mt-3 bg-light py-2 ps-0 pe-3 small rounded">';
 			echo '<a href="' . home_url( '/' ) . '">' . ( '<i class="fas fa-home"></i>' ) . '</a><span class="divider">&nbsp;/&nbsp;</span>';
 			if ( is_category() || is_single() ) {
 				the_category( ' <span class="divider">&nbsp;/&nbsp;</span> ' );

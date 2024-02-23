@@ -172,19 +172,19 @@ require_once get_template_directory() . '/inc/widgets/post-tags.php';
 require_once get_template_directory() . '/inc/widgets/recent-posts.php';
 
 
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+if ( ! function_exists( 'decimus_is_woocommerce_activated' ) ) {
 
 	/**
 	 * @return bool
 	 */
-	function is_woocommerce_activated(): bool {
+	function decimus_is_woocommerce_activated(): bool {
 		return class_exists( 'WooCommerce' );
 	}
 }
 
 
 /**
- * @param  array  $args
+ * @param array $args
  *
  * @return string
  *
@@ -196,7 +196,7 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
  * $pwd_length
  * @throws Exception
  */
-function generate_safe_password( array $args ): string {
+function decimus_generate_safe_password( array $args ): string {
 
 	extract( $args );
 
@@ -262,9 +262,10 @@ function generate_safe_password( array $args ): string {
 
 /**
  *
+ * @throws Exception
  */
-function generate_unique_filename( $filename_length ): string {
-	return generate_safe_password( [
+function decimus_generate_unique_filename( $filename_length ): string {
+	return decimus_generate_safe_password( [
 			'pwd_length' => $filename_length,
 			'lowercase'  => 1,
 			'uppercase'  => 1,
