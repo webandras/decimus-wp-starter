@@ -21,14 +21,14 @@
 
 
 // Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
 add_action( 'plugins_loaded', function () {
 
-    require_once __DIR__ . '/admin/Decimus_taxonomy_image.php';
-    require_once __DIR__ . '/api/api.php';
+	require_once __DIR__ . '/admin/Decimus_taxonomy_image.php';
+	require_once __DIR__ . '/api/api.php';
 
 //    register_uninstall_hook( __FILE__, 'Decimus_taxonomy_image::delete_plugin' );
 } );

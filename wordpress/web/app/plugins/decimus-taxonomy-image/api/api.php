@@ -1,6 +1,6 @@
 <?php
 
-!defined( ABSPATH ) || exit;
+! defined( ABSPATH ) || exit;
 
 require_once 'Taxonomy_image_routes.php';
 
