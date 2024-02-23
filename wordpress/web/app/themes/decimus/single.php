@@ -30,7 +30,7 @@ if ( is_class_activated() ) {
                 <!-- Hook to add something nice -->
 				<?php decimus_after_primary(); ?>
 
-				<?php the_breadcrumb(); ?>
+				<?php decimus_the_breadcrumb(); ?>
 
 				<?php if ( isset( $enable_blog_sidebar ) && ! $enable_blog_sidebar ) { ?>
             </div>
@@ -39,7 +39,7 @@ if ( is_class_activated() ) {
 
         <div class="row">
 			<?php if ( isset( $enable_blog_sidebar ) && $enable_blog_sidebar ) { ?>
-            <div class="col-md-8 col-xxl-9">
+            <div class="col-md-12 col-lg-9 col-xxl-9">
 				<?php } else { ?>
                 <div class="col-md-10 offset-md-1 col-xxl-8 offset-xxl-2">
 					<?php } ?>

@@ -11,7 +11,7 @@ get_header(); ?>
         <!-- Hook to add something nice -->
 		<?php decimus_after_primary(); ?>
 
-		<?php the_breadcrumb(); ?>
+		<?php decimus_the_breadcrumb(); ?>
 
         <main id="main" class="site-main">
 

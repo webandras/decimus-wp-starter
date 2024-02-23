@@ -111,9 +111,8 @@
                             <i class="fas fa-shopping-bag"></i>
 							<?php if ( in_array( 'woocommerce/woocommerce.php',
 								apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-								$count = WC()->cart->cart_contents_count;
-								?>
-                                <span class="cart-content">
+								$count = WC()->cart->cart_contents_count; ?>
+                                <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
                                     <?php if ( $count > 0 ) { ?>
 	                                    <?php echo esc_html( $count ); ?>
 	                                    <?php

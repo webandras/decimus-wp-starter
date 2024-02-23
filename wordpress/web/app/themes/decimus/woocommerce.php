@@ -31,6 +31,13 @@ get_header();
 				?>
                 <div class="row">
 
+                    <!-- sidebar -->
+	                <?php
+	                if ( is_archive() ) {
+		                get_sidebar( 'woocommerce', [ 'sidebarType' => 'desktop'] );
+	                }
+	                ?>
+
 					<?php if ( is_archive() ) { ?>
                     <div class="col-md-9 col-lg-9 col-xxl-9">
 						<?php } else { ?>
@@ -42,7 +49,7 @@ get_header();
                         <!-- sidebar -->
 						<?php
 						if ( is_archive() ) {
-							get_sidebar( 'woocommerce' );
+							include( get_template_directory() . '/sidebar-woocommerce.php' );
 						}
 						?>
                         <!-- row -->

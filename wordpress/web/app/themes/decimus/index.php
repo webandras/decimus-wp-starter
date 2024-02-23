@@ -34,8 +34,8 @@ get_header();
                         <div class="col">
 							<?php
 							$args      = array(
-								'posts_per_page' => 2,
-								'post__in' => get_option( 'sticky_posts' ),
+								'posts_per_page'      => 2,
+								'post__in'            => get_option( 'sticky_posts' ),
 								'ignore_sticky_posts' => 2,
 							);
 							$the_query = new WP_Query( $args );

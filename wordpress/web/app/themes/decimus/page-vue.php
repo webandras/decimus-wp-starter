@@ -28,7 +28,7 @@ get_header();
 
                         <header class="entry-header">
 							<?php the_post(); ?>
-							<?php the_breadcrumb(); ?>
+							<?php decimus_the_breadcrumb(); ?>
                             <!-- Title -->
 							<?php the_title( '<h1 class="mt-0">', '</h1>' ); ?>
                             <!-- Featured Image-->

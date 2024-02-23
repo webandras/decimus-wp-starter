@@ -53,7 +53,7 @@ get_header();
 
                                                     <!-- Category badge -->
                                                     <div class="post-badge">
-                                                        <?php decimus_category_badge(); ?>
+														<?php decimus_category_badge(); ?>
                                                     </div>
 
                                                     <!-- Title -->
@@ -82,7 +82,7 @@ get_header();
 
                                                     <div class="mt-4">
                                                         <!-- Tags -->
-                                                        <?php decimus_tags(); ?>
+														<?php decimus_tags(); ?>
                                                     </div>
                                                 </div>
                                             </div>

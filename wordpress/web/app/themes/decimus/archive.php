@@ -40,9 +40,10 @@ get_header();
 										?>
                                         <div class="col">
                                             <div class="card-body">
-
-												<?php decimus_category_badge(); ?>
-
+                                                <!-- Category badge -->
+                                                <div class="post-badge">
+		                                            <?php decimus_category_badge(); ?>
+                                                </div>
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">

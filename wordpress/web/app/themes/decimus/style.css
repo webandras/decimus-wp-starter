@@ -4,9 +4,9 @@ Theme URI: https://decimus.hu/
 Author: András Gulácsi
 Author URI: https://decimus.hu/
 Description: A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme (version 5.1.0.0) with WooCommerce Support.
-Version: 1.0.0
-Tested up to: 6.0.3
-Requires PHP: 5.6
+Version: 1.0.1
+Tested up to: 6.4.3
+Requires PHP: 8.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: decimus
@@ -112,6 +112,7 @@ p:empty:before {
         box-shadow: none;
     }
 }
+
 /* Dropdown Search Fallback End */
 
 
@@ -123,6 +124,7 @@ p:empty:before {
 .offcanvas-backdrop {
     cursor: pointer;
 }
+
 /* Offcanvas Backdrop END */
 
 
@@ -130,6 +132,7 @@ p:empty:before {
 a.badge {
     text-decoration: none;
 }
+
 /* Badges End */
 
 
@@ -138,7 +141,7 @@ a.badge {
 --------------------------------------------------------------*/
 
 @media (max-width: 782px) {
-    
+
     #wpadminbar {
         position: fixed;
     }
@@ -148,11 +151,11 @@ a.badge {
     .logged-in.admin-bar .modal {
         top: 46px;
     }
-    
+
     .logged-in.admin-bar .modal-fullscreen {
         height: calc(100% - 46px);
     }
-    
+
 }
 
 @media (min-width: 783px) {
@@ -162,11 +165,11 @@ a.badge {
     .logged-in.admin-bar .modal {
         top: 32px;
     }
-    
+
     .logged-in.admin-bar .modal-fullscreen {
         height: calc(100% - 32px);
     }
-    
+
 }
 
 #nav-main .menu-item:last-child .nav-link {
