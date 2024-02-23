@@ -256,6 +256,11 @@ button[name="save_address"] {
     padding: $small-size;
 }
 
+.btn-close:focus,
+button:focus:not(:focus-visible){
+    outline: 2px solid inherit !important;
+}
+
 .btn.a i {
     width: 24px;
     height: 24px;
@@ -282,7 +287,7 @@ button[name="save_address"] {
 
 
 .narrow-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 

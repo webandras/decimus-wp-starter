@@ -62,8 +62,8 @@ add_action( 'wp_enqueue_scripts', 'decimus_child_remove_scripts', 20 );
 /**
  * Check if WooCommerce is activated
  */
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
-	function is_woocommerce_activated(): bool {
+if ( ! function_exists( 'decimus_is_woocommerce_activated' ) ) {
+	function decimus_is_woocommerce_activated(): bool {
 		return class_exists( 'WooCommerce' );
 	}
 }
@@ -72,7 +72,7 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 // Theme and WooCommerce hooks and functions
 require_once get_stylesheet_directory() . '/inc/theme.php';
 
-if ( is_woocommerce_activated() ) {
+if ( decimus_is_woocommerce_activated() ) {
 	require_once get_stylesheet_directory() . '/inc/woocommerce.php';
 	require_once get_template_directory() . '/woocommerce/woocommerce-functions.php';
 }

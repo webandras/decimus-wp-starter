@@ -97,3 +97,28 @@ i.sui.sui-user {
         margin-bottom: 1rem;
     }
 }
+
+
+#woocommerce-sidebar {
+    margin-top: 1em !important;
+}
+
+.woocommerce .woocommerce-loop-product__title {
+    margin-top: 0;
+}
+
+.woocommerce .widget.woocommerce .widgettitle {
+    font-weight: 500 !important;
+    font-size: 1.1em;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.woocommerce-account .woocommerce-info.alert.alert-info {
+    display: flex;
+    align-items: center;
+}
+
+.woocommerce-account .list-group-item-action:active {
+    background-color: var(--bs-list-group-action-hover-bg) !important;
+    color: white !important;
+}

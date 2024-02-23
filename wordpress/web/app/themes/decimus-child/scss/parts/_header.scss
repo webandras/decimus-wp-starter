@@ -169,4 +169,30 @@ header {
         }
     }
 
+
+    @media screen and (max-width: 767px) {
+        #nav-main .navbar-brand.xs.d-md-none {
+            display: flex !important;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        #nav-main .navbar-brand.d-md-block {
+            display: flex !important;
+            align-items: center;
+        }
+    }
+
+
+    #decimus-navbar li.menu-item.nav-item .dropdown-menu.depth_0 li {
+        margin-right: 0;
+    }
+
+    .fixed-top .top-navigation > .container-fluid,
+    .navbar > .container-fluid {
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+
 }

@@ -215,7 +215,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                                 <i class="fas fa-search"></i>
                             </button>
 						<?php } ?>
-						<?php if ( is_woocommerce_activated() && $account ) { ?>
+						<?php if ( decimus_is_woocommerce_activated() && $account ) { ?>
                             <!-- User Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user"
@@ -224,7 +224,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
 
                             </button>
 						<?php } ?>
-						<?php if ( is_woocommerce_activated() && $cart ) { ?>
+						<?php if ( decimus_is_woocommerce_activated() && $cart ) { ?>
                             <!-- Mini Cart Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
@@ -234,12 +234,14 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
 									apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 									$count = WC()->cart->cart_contents_count;
 									?>
-                                    <span class="cart-content">
-                                            <?php if ( $count > 0 ) { ?>
-	                                            <?php echo esc_html( $count ); ?>
-	                                            <?php
-                                            }
-                                            ?></span>
+                                    <span class="cart-content"><?php
+									if ( $count > 0 ) {
+										?>
+                                        <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"><?php echo esc_html( $count ); ?></span>
+                                        <span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+										<?php
+									}
+									?></span>
 								<?php } ?>
                             </button>
 						<?php } ?>
@@ -269,7 +271,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
             </div>
             <div class="offcanvas-body">
                 <div class="my-offcancas-account">
-					<?php if ( is_woocommerce_activated() ) {
+					<?php if ( decimus_is_woocommerce_activated() ) {
 						require get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php';
 					}
 					?>
@@ -291,7 +293,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                     </div>
                 </div>
                 <div class="cart-list">
-					<?php if ( is_woocommerce_activated() && function_exists( 'woocommerce_mini_cart' ) ) { ?>
+					<?php if ( decimus_is_woocommerce_activated() && function_exists( 'woocommerce_mini_cart' ) ) { ?>
                         <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
 					<?php } ?>
                 </div>

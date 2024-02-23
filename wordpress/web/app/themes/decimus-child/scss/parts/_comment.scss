@@ -77,3 +77,9 @@ p.logged-in-as {
         }
     }
 }
+
+.comment-form-cookies-consent.custom-control {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+}

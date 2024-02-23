@@ -14,32 +14,31 @@
 
 get_header();
 ?>
-    <div id="content" class="site-content container-fluid narrow-content py-5 mt-2">
+    <div class="front-slider bg-light mb-6">
+        <!-- Header -->
+        <div class="decimus-header pt-5 text-center">
+            <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
+            <p class="lead"><?php bloginfo( 'description' ); ?></p>
+        </div>
+
+        <div class="decimus-header pt-5 text-center">
+            <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
+            <p class="lead">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme</p>
+        </div>
+
+        <div class="decimus-header pt-5 text-center">
+            <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
+            <p class="lead">...with Vue.js Theme Admin Settings</p>
+        </div>
+    </div>
+
+    <div id="content" class="site-content container-fluid narrow-content pb-5 mt-2">
         <div id="primary" class="content-area">
 
             <!-- Hook to add something nice -->
 			<?php decimus_after_primary(); ?>
 
             <main id="main" class="site-main">
-
-                <div class="front-slider bg-light mb-6">
-
-                    <!-- Header -->
-                    <div class="decimus-header pt-5 text-center">
-                        <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-                        <p class="lead"><?php bloginfo( 'description' ); ?></p>
-                    </div>
-
-                    <div class="decimus-header pt-5 text-center">
-                        <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-                        <p class="lead">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme</p>
-                    </div>
-
-                    <div class="decimus-header pt-5 text-center">
-                        <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-                        <p class="lead">...with Vue.js Theme Admin Settings</p>
-                    </div>
-                </div>
 
                 <!-- Sticky Post -->
 				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>

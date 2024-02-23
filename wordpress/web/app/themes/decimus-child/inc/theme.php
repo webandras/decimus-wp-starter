@@ -6,7 +6,7 @@ if ( ! function_exists( 'decimus_child_excerpt_length' ) ) {
 	/**
 	 * Filter the except length to 30 words.
 	 *
-	 * @param  int  $length  Excerpt length.
+	 * @param int $length Excerpt length.
 	 *
 	 * @return int (Maybe) modified excerpt length.
 	 */

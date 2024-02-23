@@ -45,7 +45,7 @@ if ( ! function_exists( 'decimus_child_product_video_field_save' ) ) {
 	/**
 	 * hooks to the product data tab
 	 *
-	 * @param  int  $post_id
+	 * @param int $post_id
 	 *
 	 * @return void
 	 */
@@ -66,7 +66,7 @@ if ( ! function_exists( 'decimus_child_new_product_tab' ) ) {
 	/**
 	 * Add a custom product data tab for featured video
 	 *
-	 * @param  array  $tabs
+	 * @param array $tabs
 	 *
 	 * @return array
 	 */
@@ -125,8 +125,8 @@ if ( ! function_exists( 'decimus_child_remove_cart_item_before_add_to_cart' ) ) 
 
 	/**
 	 * @param $passed
-	 * @param  int  $product_id
-	 * @param  int  $quantity
+	 * @param int $product_id
+	 * @param int $quantity
 	 *
 	 * @return mixed
 	 */

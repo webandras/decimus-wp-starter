@@ -141,3 +141,12 @@ button[name="save_address"] {
 .woocommerce-checkout #payment div.payment_box::before {
     border-bottom-color: rgb(33, 37, 41) !important;
 }
+
+.woocommerce-checkout .breadcrumb,
+.woocommerce-cart .breadcrumb {
+    padding-left: 0 !important;
+}
+
+.woocommerce-checkout .woocommerce-message.alert {
+    margin-left: 0;
+}

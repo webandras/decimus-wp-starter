@@ -84,3 +84,39 @@ ul.children {
     margin-bottom: 1em;
 }
 
+
+aside .widget.widget_search {
+    max-width: 500px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .desktop-sidebar {
+        display: block;
+    }
+    .mobile-sidebar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .desktop-sidebar {
+        display: none;
+    }
+    .mobile-sidebar {
+        display: block;
+    }
+}
+
+.single {
+    h1 {
+        line-height: 100%;
+        font-size: 3.5rem;
+    }
+
+    .breadcrumb {
+        margin-top: 2em;
+        padding-left: 0;
+    }
+}
+
