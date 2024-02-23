@@ -18,11 +18,11 @@
  * @version 7.0.1
  */
 
-if ( !defined('ABSPATH') ) {
-    exit; // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 ?>
 
-<a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn btn-primary btn-lg d-block">
-    <?php esc_html_e('Proceed to checkout', 'woocommerce'); ?>
+<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn-primary btn-lg d-block">
+	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
 </a>

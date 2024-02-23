@@ -19,5 +19,5 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <p>
-    <?php wc_print_notice( esc_html__( 'No products were found matching your selection.', 'woocommerce' ), 'notice' ); ?>
+	<?php wc_print_notice( esc_html__( 'No products were found matching your selection.', 'woocommerce' ), 'notice' ); ?>
 </p>

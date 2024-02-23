@@ -16,26 +16,26 @@
  * @version 3.3.0
  */
 
-if ( !defined('ABSPATH') ) {
-    exit; // Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 
 global $post;
 ?>
 
 <div class="woocommerce-product-details__short-description">
-    <?php
-    $product_tabs = apply_filters('woocommerce_product_tabs', array());
+	<?php
+	$product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
-    if ( !empty($product_tabs) ) {
+	if ( ! empty( $product_tabs ) ) {
 
-        foreach ($product_tabs as $key => $product_tab) {
-            if ( $key === 'description' ) {
-                if ( isset($product_tab['callback']) ) {
-                    call_user_func($product_tab['callback'], $key, $product_tab);
-                }
-            }
-        }
-    }
-    ?>
+		foreach ( $product_tabs as $key => $product_tab ) {
+			if ( $key === 'description' ) {
+				if ( isset( $product_tab['callback'] ) ) {
+					call_user_func( $product_tab['callback'], $key, $product_tab );
+				}
+			}
+		}
+	}
+	?>
 </div>

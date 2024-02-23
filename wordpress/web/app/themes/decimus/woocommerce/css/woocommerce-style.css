@@ -187,8 +187,8 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link, a.woocommerce-Loo
 
 span.badge.bg-danger.sale {
     position: absolute;
-    left: 1rem;
-    top: 1rem
+    left: 0.5rem;
+    top: 0.5rem
 }
 
 span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
@@ -704,7 +704,7 @@ ul.tabs.wc-tabs {
 }
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .custom-validation.validate-required {
@@ -717,8 +717,8 @@ ul.tabs.wc-tabs {
 }
 
 #woocommerce-sidebar aside li {
-     list-style-type: none;
-     padding-left: 0;
+    list-style-type: none;
+    padding-left: 0;
 }
 
 #woocommerce-sidebar aside li h2.widgettitle {

@@ -17,23 +17,23 @@
  * @version 3.6.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if ( !$product_attributes ) {
-    return;
+if ( ! $product_attributes ) {
+	return;
 }
 ?>
 <table style="border: none;" class="woocommerce-product-attributes shop_attributes table">
-    <?php foreach ($product_attributes as $product_attribute_key => $product_attribute) : ?>
-        <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--<?php echo esc_attr($product_attribute_key); ?>">
-            <th class="woocommerce-product-attributes-item__label"><?php echo wp_kses_post($product_attribute['label']); ?></th>
-            <?php if ( $product_attribute['label'] !== "Event link" ) : ?>
-                <td class="woocommerce-product-attributes-item__value"><?php echo wp_kses_post($product_attribute['value']); ?></td>
-            <?php else : ?>
+	<?php foreach ( $product_attributes as $product_attribute_key => $product_attribute ) : ?>
+        <tr class="woocommerce-product-attributes-item woocommerce-product-attributes-item--<?php echo esc_attr( $product_attribute_key ); ?>">
+            <th class="woocommerce-product-attributes-item__label"><?php echo wp_kses_post( $product_attribute['label'] ); ?></th>
+			<?php if ( $product_attribute['label'] !== "Event link" ) : ?>
+                <td class="woocommerce-product-attributes-item__value"><?php echo wp_kses_post( $product_attribute['value'] ); ?></td>
+			<?php else : ?>
                 <td class="woocommerce-product-attributes-item__value"><p><a
-                                href="<?php echo strip_tags(wp_kses_post($product_attribute['value'])); ?>"><?php _e('Event link', 'decimus') ?></a>
+                                href="<?php echo strip_tags( wp_kses_post( $product_attribute['value'] ) ); ?>"><?php _e( 'Event link', 'decimus' ) ?></a>
                     </p></td>
-            <?php endif; ?>
+			<?php endif; ?>
         </tr>
-    <?php endforeach; ?>
+	<?php endforeach; ?>
 </table>

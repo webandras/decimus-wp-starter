@@ -23,12 +23,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 <form role="search" method="get" class="searchform woocommerce-product-search"
       action="<?php echo esc_url( home_url( '/' ) ); ?>">
     <div class="input-group">
-        <label class="sr-only screen-reader-text" for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
+        <label class="sr-only screen-reader-text"
+               for="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"><?php esc_html_e( 'Search for:', 'woocommerce' ); ?></label>
         <input class="search-field form-control" type="search"
                id="woocommerce-product-search-field-<?php echo isset( $index ) ? absint( $index ) : 0; ?>"
                placeholder="<?php echo esc_attr__( 'Search products&hellip;', 'woocommerce' ); ?>"
                value="<?php echo get_search_query(); ?>" name="s"/>
-        <button class="input-group-text btn-sm btn-secondary" type="submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'woocommerce' ); ?>"><i class="fas fa-search"></i></button>
+        <button class="input-group-text btn-sm btn-secondary" type="submit"
+                value="<?php echo esc_attr_x( 'Search', 'submit button', 'woocommerce' ); ?>"><i
+                    class="fas fa-search"></i></button>
         <input type="hidden" name="post_type" value="product"/>
     </div>
 </form>

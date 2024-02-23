@@ -15,15 +15,15 @@
  * @version 7.0.1
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if ( !wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
-    return;
+if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
+	return;
 }
 
 ?>
 <div class="woocommerce-form-coupon-toggle">
-    <?php wc_print_notice(apply_filters('woocommerce_checkout_coupon_message', esc_html__('Have a coupon?', 'woocommerce') . ' <a href="#" class="showcoupon">' . esc_html__('Click here to enter your code', 'woocommerce') . '</a>'), 'notice'); ?>
+	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', esc_html__( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . esc_html__( 'Click here to enter your code', 'woocommerce' ) . '</a>' ), 'notice' ); ?>
 </div>
 
 <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display:none">
@@ -32,17 +32,18 @@ if ( !wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 
         <div class="card-body">
 
-            <p><?php esc_html_e('If you have a coupon code, please apply it below.', 'woocommerce'); ?></p>
+            <p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'woocommerce' ); ?></p>
 
             <div class="input-group">
-                <label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
+                <label for="coupon_code"
+                       class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
                 <input type="text" name="coupon_code" class="form-control" id="coupon_code" value=""
-                       placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>"/>
+                       placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>"/>
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-primary" name="apply_coupon"
-                            value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_attr_e('Apply coupon', 'woocommerce'); ?></button>
+                            value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
                 </div>
-                <?php do_action('woocommerce_cart_coupon'); ?>
+				<?php do_action( 'woocommerce_cart_coupon' ); ?>
             </div>
 
 
