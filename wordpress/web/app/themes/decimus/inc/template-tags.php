@@ -24,7 +24,7 @@ if ( ! function_exists( 'decimus_category_badge' ) ) :
 				if ( 0 < $i ) {
 					$thelist .= ' ';
 				}
-				$thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-primary text-white">' . $category->name . '</a>';
+				$thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge btn btn-primary btn-sm">' . $category->name . '</a>';
 				$i ++;
 			}
 			echo $thelist;

@@ -67,9 +67,7 @@ get_header();
                                                                                href="<?php the_permalink(); ?>"><?php _e( 'Read more »',
 															'decimus' ); ?></a>
                                                 </div>
-                                                <hr>
-                                                <!-- Tags -->
-												<?php decimus_tags(); ?>
+
                                             </div>
                                         </div>
                                     </div>

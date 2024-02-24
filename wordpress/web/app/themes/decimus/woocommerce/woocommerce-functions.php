@@ -199,7 +199,7 @@ if ( ! function_exists( 'decimus_woocommerce_breadcrumbs' ) ) :
 	function decimus_woocommerce_breadcrumbs(): array {
 		return array(
 			'delimiter'   => ' &nbsp;&#47;&nbsp; ',
-			'wrap_before' => '<nav class="breadcrumb small-size mb-0 mt-0 pt-3 ps-3 pb-2 small rounded" itemprop="breadcrumb">',
+			'wrap_before' => '<nav class="breadcrumb small-size mb-0 mt-0 pt-3 ps-0 pb-2 small rounded" itemprop="breadcrumb">',
 			'wrap_after'  => '</nav>',
 			'before'      => '',
 			'after'       => '',
@@ -311,7 +311,7 @@ if ( ! function_exists( 'decimus_woocommerce_content' ) ) {
 
 		} else {
 			?>
-            <div class="px-2 px-md-3">
+            <div class="ps-0 ps-md-3">
 
 			<?php
 			if ( is_tax() ) {

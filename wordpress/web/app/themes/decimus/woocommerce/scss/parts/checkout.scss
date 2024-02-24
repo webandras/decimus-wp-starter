@@ -1,16 +1,6 @@
-#add_payment_method .cart-collaterals .cart_totals tr td,
-#add_payment_method .cart-collaterals .cart_totals tr th,
-.woocommerce-cart .cart-collaterals .cart_totals tr td,
-.woocommerce-cart .cart-collaterals .cart_totals tr th,
-.woocommerce-checkout .cart-collaterals .cart_totals tr td,
-.woocommerce-checkout .cart-collaterals .cart_totals tr th {
-    /*border-color: rgba(0, 0, 0, .125)*/
-}
-
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
-    /*background-color: var(--bs-light);*/
     color: currentColor
 }
 

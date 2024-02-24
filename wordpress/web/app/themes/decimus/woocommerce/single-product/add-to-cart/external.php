@@ -23,7 +23,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
     <button type="submit"
-            class="single_add_to_cart_button btn btn-primary<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $button_text ); ?></button>
+            class="single_add_to_cart_button btn btn-outline-primary<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $button_text ); ?></button>
 
 	<?php wc_query_string_form_fields( $product_url ); ?>
 

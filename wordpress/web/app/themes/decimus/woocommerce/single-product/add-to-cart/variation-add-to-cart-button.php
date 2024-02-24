@@ -43,10 +43,10 @@ global $product;
 
 	<?php if ( $event_registration ) { ?>
         <button type="submit"
-                class="single_add_to_cart_button btn btn-primary"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+                class="single_add_to_cart_button btn btn-outline-primary"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 	<?php } else { ?>
         <button type="submit" data-bs-toggle="modal" data-bs-target="#registerToEvent"
-                class="single_add_to_cart_button btn btn-primary"><?php echo esc_html( 'Register' ); ?></button>
+                class="single_add_to_cart_button btn btn-outline-primary"><?php echo esc_html( 'Register' ); ?></button>
 	<?php } ?>
 
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>

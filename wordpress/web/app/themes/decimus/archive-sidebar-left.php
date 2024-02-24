@@ -69,9 +69,6 @@ get_header();
 															'decimus' ); ?></a>
                                                 </div>
 
-                                                <hr>
-                                                <!-- Tags -->
-												<?php decimus_tags(); ?>
                                             </div>
                                         </div>
                                     </div>

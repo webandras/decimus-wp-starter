@@ -65,9 +65,6 @@ get_header();
 															'decimus' ); ?></a>
                                                 </div>
 
-                                                <hr>
-												<?php decimus_tags(); ?>
-
                                             </div>
                                         </div><!-- card -->
                                     </div><!-- col -->

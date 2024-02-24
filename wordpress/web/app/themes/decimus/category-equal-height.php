@@ -80,8 +80,6 @@ get_header();
 													'decimus' ); ?></a>
                                         </div>
 
-                                        <hr>
-										<?php decimus_tags(); ?>
 
                                     </div><!-- card-body -->
 

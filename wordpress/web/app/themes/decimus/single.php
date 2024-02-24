@@ -82,7 +82,7 @@ if ( is_class_activated() ) {
                                 </div>
                             </div>
                             <nav aria-label="Page navigation">
-                                <ul class="pagination d-flex justify-content-between mb-5">
+                                <ul class="pagination d-flex justify-content-between mt-5 mb-5">
                                     <li class="page-item">
 										<?php previous_post_link( '%link' ); ?>
                                     </li>
