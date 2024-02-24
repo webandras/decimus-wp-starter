@@ -1,11 +1,18 @@
 .card.horizontal {
     .row {
-
         @media (max-width: 992px) {
             .card-img-left-md {
                 img {
                     height: 340px;
                     object-fit: cover;
+                }
+            }
+        }
+
+        @media (min-width: 993px) {
+            .col {
+                .card-body {
+                    padding-left: 0;
                 }
             }
         }

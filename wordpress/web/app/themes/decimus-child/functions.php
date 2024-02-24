@@ -48,9 +48,10 @@ if ( ! function_exists( 'decimus_child_remove_scripts' ) ) :
 		wp_deregister_style( 'bootstrap' );
 
 		// Register your child bootstrap.min.css (from the bootswatch theme's pre-compiled bundle)
-		wp_enqueue_style( 'child-theme-bootstrap',
+		/*	wp_enqueue_style( 'child-theme-bootstrap',
 			get_stylesheet_directory_uri() . '/css/lib/' . $skin . '.css',
 			array( 'parent-style' ) );
+		*/
 
 		// image comparison slider css
 		// wp_enqueue_style('image-compare', get_stylesheet_directory_uri() . '/css/image-compare.css');

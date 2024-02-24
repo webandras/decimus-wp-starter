@@ -63,21 +63,12 @@ ul.children {
     margin-top: 0.25em;
 
     .badge {
+        text-transform: none;
+        font-size: 14px;
         border: 1px solid transparent;
         padding: 0.5em 0.45em;
-
-        &:hover {
-            border: 1px solid #eee;
-            background-color: #444 !important;
-        }
     }
-
 }
-
-
-/*.woocommerce-message.alert.alert-success {
-    margin-left: 0;
-}*/
 
 .wp-block-heading {
     margin-top: 2em;
@@ -87,6 +78,23 @@ ul.children {
 
 aside .widget.widget_search {
     max-width: 500px;
+}
+
+.sidebar-area aside.widget-area {
+    padding-top: 0;
+
+    .widget {
+        padding-left: 0;
+        padding-right: 0;
+
+        ol.wp-block-latest-comments {
+            margin-bottom: 0;
+
+            li.wp-block-latest-comments__comment:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 
@@ -117,6 +125,18 @@ aside .widget.widget_search {
     .breadcrumb {
         margin-top: 2em;
         padding-left: 0;
+    }
+}
+
+.single:not(.single-product) .entry-content {
+    p, ul, ol, div {
+        font-size: 18px;
+    }
+}
+
+.entry-header {
+    h1 {
+        margin-bottom: 0.5em;
     }
 }
 

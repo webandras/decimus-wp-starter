@@ -23,6 +23,8 @@ header {
         }
 
         .contact-info {
+            display: flex;
+            align-items: center;
             text-align: left;
 
             a {
@@ -32,7 +34,12 @@ header {
     }
 
     #decimus-navbar {
+        margin-top: 0;
         li.menu-item.nav-item {
+            .dropdown-menu.depth_0 li {
+                margin-right: 0;
+            }
+
             display: flex;
             align-items: center;
             margin-right: 1rem;
@@ -123,9 +130,9 @@ header {
         font-weight: 600;
 
         @media (min-width: 992px) {
-            border-bottom: 10px solid rgba(255, 255, 255, 0.3);
-            padding-top: 20px;
-            border-bottom: 10px solid rgba(255, 255, 255, 0.3);
+            padding-top: 4px;
+            padding-bottom: 0;
+            border-bottom: 5px solid rgba(255, 255, 255, 0.3);
         }
     }
 
@@ -182,11 +189,6 @@ header {
             display: flex !important;
             align-items: center;
         }
-    }
-
-
-    #decimus-navbar li.menu-item.nav-item .dropdown-menu.depth_0 li {
-        margin-right: 0;
     }
 
     .fixed-top .top-navigation > .container-fluid,

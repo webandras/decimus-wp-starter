@@ -15,17 +15,9 @@ sass:
 # Watch changes in SASS files and compile the CSS bundle
 sass-watch:
 	while true; do \
-  		make; \
+  		make bootswatch; \
   		inotifywait -qre close_write ./scss; \
 	done
 
 bootswatch:
-	sassc $(SASSFLAGS) ./../decimus/scss/lib/lux/lux.scss > css/lib/lux.css
-
-
-# Watch changes in SASS files and compile the CSS bundle
-bootswatch-watch:
-	while true; do \
-  		make bootswatch; \
-  		inotifywait -qre close_write ./../decimus/scss/lib/lux/; \
-	done
+	sassc $(SASSFLAGS) ./scss/main.scss > css/main.css

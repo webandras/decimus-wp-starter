@@ -54,7 +54,7 @@ div.wc-block-grid__product-title {
 /* PRODUCT CONTENT */
 .woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
     width: 43%;
-    margin-left: 16px;
+    margin-left: 0;
 
     @media (max-width: 768px) {
         width: 60%;
@@ -62,15 +62,15 @@ div.wc-block-grid__product-title {
     }
 
     @media (max-width: 692px) {
-        width: 92%;
-        max-width: 92%;
+        width: 100%;
+        max-width: 100%;
     }
 }
 
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
     width: 54%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -89,7 +89,6 @@ div.wc-block-grid__product-title {
                     padding: 0;
 
                     a {
-                        //padding: 0 1rem !important;
                         display: block;
                     }
                 }
@@ -126,7 +125,7 @@ figure.woocommerce-product-gallery__wrapper img {
 
 .woocommerce-variation-price span.woocommerce-Price-amount.amount,
 .woocommerce div.product p.price .woocommerce-Price-amount.amount {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .woocommerce div.product .product_title {
@@ -159,6 +158,8 @@ figure.woocommerce-product-gallery__wrapper img {
 
 .woocommerce-Reviews {
     #review_form_wrapper {
+        padding-top: 1em;
+
         #review_form {
             #respond {
                 h3#reply-title {
@@ -185,3 +186,20 @@ figure.woocommerce-product-gallery__wrapper img {
 span.badge.bg-danger.sale, span.badge.bg-danger.sale-product {
     font-size: 1rem;
 }
+
+.woocommerce-product-details__short-description {
+    h2 {
+        font-size: 1rem !important;
+    }
+}
+
+.woocommerce-Tabs-panel {
+    h2 {
+        font-size: $h4-size !important;
+    }
+}
+
+.product_title {
+    margin-bottom: 0.5em;
+}
+

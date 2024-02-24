@@ -121,11 +121,6 @@ get_header();
                 <div class="row">
                     <div class="col col-md-8 col-lg-9 col-xxl-9">
 
-                        <!-- Pagination -->
-                        <div>
-							<?php decimus_pagination(); ?>
-                        </div>
-
                         <!-- Grid Layout -->
 						<?php if ( have_posts() ) : ?>
 							<?php while ( have_posts() ) : the_post(); ?>

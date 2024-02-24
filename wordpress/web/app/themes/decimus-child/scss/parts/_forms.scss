@@ -87,6 +87,13 @@ input[type="checkbox"] {
 .form-check {
     font-weight: bold;
     margin-bottom: 15px;
+    display: flex;
+    column-gap: 0.5em;
+    align-items: center;
+}
+
+.form-control {
+    padding: 0.5em;
 }
 
 /* Hide variation description, hide event-notice form field */

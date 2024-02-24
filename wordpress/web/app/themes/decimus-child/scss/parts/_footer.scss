@@ -2,18 +2,24 @@ footer {
     .decimus-footer {
         padding: 2rem 1rem 1.75rem;
 
-
         .footer_widget {
             color: #eee;
             h2.widget-title {
                 color: #f1f1f1;
             }
         }
-
-
     }
 
     ul#footer-menu {
+        margin-top: 0 !important;
+
+        li.menu-item a {
+            color: #bbb;
+            &:hover {
+                color: #fff;
+            }
+        }
+
         font-size: $medium-size !important;
         display: flex;
         justify-content: center;
@@ -70,12 +76,4 @@ footer {
         margin-top: 0;
     }
 
-}
-
-#footer-menu li.menu-item a {
-    color: #bbb;
-}
-
-#footer-menu li.menu-item a:hover {
-    color: #fff;
 }

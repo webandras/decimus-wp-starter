@@ -15,7 +15,7 @@ body,
 html {
     font-size: $base-size;
     font-family: $base-fonts;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -39,8 +39,15 @@ h4,
 h5,
 h6 {
     font-weight: 700 !important;
-    margin: 2rem 0 $baseline 0;
+    //margin: 2rem 0 $baseline 0;
     line-height: 1;
+}
+
+.offcanvas-header h5 {
+    margin: 0;
+}
+.blog-post-title {
+    margin: 0 0 0.5em;
 }
 
 h1 a,
@@ -57,6 +64,7 @@ h1,
 .h1 {
     font-size: $h1-size;
     margin-top: 0;
+    margin-bottom: 1em;
 }
 
 h2,
@@ -251,10 +259,6 @@ article {
     text-transform: uppercase;
 }
 
-.btn,
-button[name="save_address"] {
-    padding: $small-size;
-}
 
 .btn-close:focus,
 button:focus:not(:focus-visible){
@@ -269,19 +273,23 @@ button:focus:not(:focus-visible){
 
 .side-padding {
     @media screen and (max-width: 1920px) {
-        padding: 0 45px !important;
+        padding-left: 45px !important;
+        padding-right: 45px !important;
     }
 
     @media screen and (max-width: 1300px) {
-        padding: 0 30px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
     }
 
     @media screen and (max-width: 768px) {
-        padding: 0 24px !important;
+        padding-left: 24px !important;
+        padding-right: 24px !important;
     }
 
     @media screen and (max-width: 576px) {
-        padding: 0 16px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 }
 
@@ -314,4 +322,26 @@ button:focus:not(:focus-visible){
 
 .align-center {
     text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    h1, .h1 {
+        font-size: 32px !important;
+    }
+
+    h2, .h2 {
+        font-size: 24px !important;
+    }
+
+    h3, .h3 {
+        font-size: 22px !important;
+    }
+
+    h4, .h4 {
+        font-size: 18px !important;
+    }
+
+    h5, .h5 {
+        font-size: 16px !important;
+    }
 }

@@ -1,0 +1,12 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "bootswatch";
+
+
+.light-link {
+    color: $accent;
+
+    &:hover, &:focus {
+        color: $accent-active;
+    };
+}

@@ -1,8 +1,4 @@
 .woocommerce-account {
-    h1 {
-        font-size: 1.75rem;
-    }
-
     .content-area {
         .woocommerce-MyAccount-navigation {
             font-size: $medium-size;
@@ -12,6 +8,15 @@
                     padding: 0.5rem 1rem;
                 }
             }
+        }
+    }
+
+    .woocommerce {
+        h2 {
+            font-size: $h4-size;
+        }
+        .card {
+            max-width: 465px;
         }
     }
 

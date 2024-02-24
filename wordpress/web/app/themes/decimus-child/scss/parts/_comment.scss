@@ -1,12 +1,9 @@
 /* COMMENTS */
 .comment-form {
-    #commentsubmit {
-        padding-top: 0.5em !important;
-    }
-
     .comment-form-cookies-consent {
         .form-check-label {
-            font-size: $small-size;
+            font-weight: 400;
+            font-size: $medium-size;
         }
     }
 }
@@ -17,7 +14,7 @@
 
 .comment-respond {
     h2 {
-        font-size: $base-size;
+        font-size: $h4-size;
     }
 }
 

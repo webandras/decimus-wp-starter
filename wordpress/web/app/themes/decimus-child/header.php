@@ -158,7 +158,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                             <!-- Bootstrap 5 Nav Walker Main Menu End -->
                             <hr class="">
 
-                            <nav class="mobile-menu-contact-info nav d-flex flex-column mb-3 d-lg-none lh-lg">
+                            <nav class="mobile-menu-contact-info nav d-flex flex-column my-3 d-lg-none lh-lg">
                                 <a class="base-size text-left" href="tel:<?php echo $phone_number ?>"
                                    rel="noreferrer noopener"
                                    target="_blank"
