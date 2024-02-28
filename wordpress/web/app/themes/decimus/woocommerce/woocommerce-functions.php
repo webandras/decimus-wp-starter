@@ -43,7 +43,7 @@ function decimus_wc_scripts(): void {
 	$modificated = date( 'YmdHi', filemtime( get_template_directory() . '/woocommerce/js/woocommerce.js' ) );
 
 	// WooCommerce CSS
-	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style2.css', array(), $modificated );
+	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css', array(), $modificated );
 
 	// WooCommerce JS
 	wp_enqueue_script( 'woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated, true );

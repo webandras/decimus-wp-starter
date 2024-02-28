@@ -66,15 +66,15 @@ ul.tabs.wc-tabs {
 .woocommerce div.product .woocommerce-tabs ul.tabs li::before {
     border-bottom-right-radius: 0;
     border-width: 0;
-    box-shadow: none
+    box-shadow: none;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
-    border-radius: .25rem .25rem 0 0
+    border-radius: .25rem .25rem 0 0;
 }
 
 button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
-    cursor: not-allowed
+    cursor: not-allowed;
 }
 
 .woocommerce div.product form.cart .variations select {
