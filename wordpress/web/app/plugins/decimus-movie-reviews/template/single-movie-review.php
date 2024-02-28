@@ -30,7 +30,7 @@ if ( is_class_activated() ) {
                 <!-- Hook to add something nice -->
 				<?php decimus_after_primary(); ?>
 
-				<?php the_breadcrumb(); ?>
+				<?php decimus_the_breadcrumb(); ?>
 
 				<?php if ( isset( $enable_blog_sidebar ) && ! $enable_blog_sidebar ) { ?>
             </div>

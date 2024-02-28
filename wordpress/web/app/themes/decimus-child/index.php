@@ -18,17 +18,17 @@ get_header();
         <!-- Header -->
         <div class="decimus-header pt-5 text-center">
             <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead"><?php bloginfo( 'description' ); ?></p>
+            <p class="lead px-4 px-lg-0"><?php bloginfo( 'description' ); ?></p>
         </div>
 
         <div class="decimus-header pt-5 text-center">
             <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme</p>
+            <p class="lead px-4 px-lg-0">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme</p>
         </div>
 
         <div class="decimus-header pt-5 text-center">
             <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead">...with Vue.js Theme Admin Settings</p>
+            <p class="lead px-4 px-lg-0">...with Vue.js Theme Admin Settings</p>
         </div>
     </div>
 
@@ -46,8 +46,8 @@ get_header();
                         <div class="col">
 							<?php
 							$args      = array(
-								'posts_per_page' => 2,
-								'post__in' => get_option( 'sticky_posts' ),
+								'posts_per_page'      => 2,
+								'post__in'            => get_option( 'sticky_posts' ),
 								'ignore_sticky_posts' => 2,
 							);
 							$the_query = new WP_Query( $args );
@@ -57,54 +57,56 @@ get_header();
                                         <div class="card horizontal mb-4">
                                             <div class="row">
                                                 <!-- Featured Image-->
-												<?php if ( has_post_thumbnail() ) {
-													echo '<div class="card-img-left col-md-6 col-lg-4">' . get_the_post_thumbnail( null,
-															'medium' ) . '</div>';
-												}
-												?>
-                                                <div class="col">
-                                                    <div class="card-body">
-                                                        <div class="row mb-2">
-                                                            <div class="col-10">
+												<?php if ( has_post_thumbnail() ) { ?>
+                                                <div class="card-img-left col-md-6 col-lg-4">
+                                                    <!-- Featured -->
+                                                    <div class="badge bg-danger position-absolute"><span class=""><i
+                                                                    class="fas fa-star"></i></i></span></div>
+													<?php echo get_the_post_thumbnail( null, 'medium' ) . '</div>';
+													} ?>
+                                                    <div class="col">
+                                                        <div class="card-body <?php echo has_post_thumbnail() === true ? '' : 'ps-4' ?>"">
+
+															<?php if ( has_post_thumbnail() === true ) { ?>
                                                                 <!-- Category badge -->
-																<?php decimus_category_badge(); ?>
-                                                            </div>
-                                                            <div class="col-2 text-end">
-                                                                <!-- Featured -->
-                                                                <div class="badge bg-danger"><span class=""><i
-                                                                                class="fas fa-star"></i></i></span>
+                                                                <div class="post-badge">
+																	<?php decimus_category_badge(); ?>
                                                                 </div>
+															<?php } ?>
+
+                                                            <!-- Title -->
+                                                            <h2 class="blog-post-title mt-0 mt-lg-4">
+                                                                <a href="<?php the_permalink(); ?>">
+																	<?php the_title(); ?>
+                                                                </a>
+                                                            </h2>
+
+                                                            <!-- Meta -->
+															<?php if ( 'post' === get_post_type() ) : ?>
+                                                                <small class="disabled text-muted mb-3 d-inline-block">
+																	<?php
+																	decimus_date();
+																	decimus_author();
+																	decimus_comments();
+																	decimus_edit();
+																	?>
+                                                                </small>
+															<?php endif; ?>
+                                                            <!-- Excerpt & Read more -->
+                                                            <div class="card-text mt-auto">
+																<?php the_excerpt(); ?> <a class="read-more"
+                                                                                           href="<?php the_permalink(); ?>"><?php _e( 'Read more »',
+																		'decimus' ); ?></a>
                                                             </div>
+
+                                                            <div class="mt-4">
+                                                                <!-- Tags -->
+																<?php decimus_tags(); ?>
+                                                            </div>
+
                                                         </div>
-
-                                                        <!-- Title -->
-                                                        <h2 class="blog-post-title">
-                                                            <a href="<?php the_permalink(); ?>">
-																<?php the_title(); ?>
-                                                            </a>
-                                                        </h2>
-
-                                                        <!-- Meta -->
-														<?php if ( 'post' === get_post_type() ) : ?>
-                                                            <small class="disabled text-muted mb-3 d-inline-block">
-																<?php
-																decimus_date();
-																decimus_author();
-																decimus_comments();
-																decimus_edit();
-																?>
-                                                            </small>
-														<?php endif; ?>
-                                                        <!-- Excerpt & Read more -->
-                                                        <div class="card-text mt-auto">
-															<?php the_excerpt(); ?> <a class="read-more"
-                                                                                       href="<?php the_permalink(); ?>"><?php _e( 'Read more »',
-																	'decimus' ); ?></a>
-                                                        </div>
-
                                                     </div>
                                                 </div>
-                                            </div>
 
                                     </article>
 								<?php
@@ -137,10 +139,13 @@ get_header();
 										?>
                                         <div class="col">
                                             <div class="card-body">
-                                                <!-- Category badge -->
-                                                <div class="post-badge">
-													<?php decimus_category_badge(); ?>
-                                                </div>
+												<?php if ( has_post_thumbnail() === true ) { ?>
+                                                    <!-- Category badge -->
+                                                    <div class="post-badge">
+														<?php decimus_category_badge(); ?>
+                                                    </div>
+												<?php } ?>
+
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
                                                     <a href="<?php the_permalink(); ?>">
@@ -164,6 +169,11 @@ get_header();
 													<?php the_excerpt(); ?> <a class="read-more"
                                                                                href="<?php the_permalink(); ?>"><?php _e( 'Read more »',
 															'decimus' ); ?></a>
+                                                </div>
+
+                                                <div class="mt-4">
+                                                    <!-- Tags -->
+													<?php decimus_tags(); ?>
                                                 </div>
 
                                             </div>

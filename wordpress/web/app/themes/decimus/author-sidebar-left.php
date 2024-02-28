@@ -24,17 +24,20 @@ get_header();
                     <main id="main" class="site-main">
 
                         <!-- Author & Bio -->
-                        <header class="page-header mb-4 d-flex">
-                            <div class="flex-shrink-0 me-3">
-								<?php echo get_avatar( get_the_author_meta( 'email' ),
-									'80',
-									$default = '',
-									$alt = '',
-									array( 'class' => array( 'img-thumbnail rounded-circle' ) ) ); ?>
+                        <header class="page-header mb-4">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="me-3">
+				                    <?php echo get_avatar( get_the_author_meta( 'email' ),
+					                    96,
+					                    $default = '',
+					                    $alt = '',
+					                    array( 'class' => array( 'img-thumbnail rounded-circle' ) ) ); ?>
+                                </div>
+                                <h1 class="h2"><?php the_author(); ?></h1>
                             </div>
+
                             <div class="author-bio">
-                                <h1><?php the_author(); ?></h1>
-								<?php the_author_meta( 'description' ); ?>
+                                <div class="author-bio__description"><?php the_author_meta( 'description' ); ?></div>
                             </div>
                         </header>
 
@@ -52,6 +55,12 @@ get_header();
 										?>
                                         <div class="col">
                                             <div class="card-body">
+	                                            <?php if(has_post_thumbnail() === true) { ?>
+                                                    <!-- Category badge -->
+                                                    <div class="post-badge">
+			                                            <?php decimus_category_badge(); ?>
+                                                    </div>
+	                                            <?php } ?>
 
                                                 <!-- Title -->
                                                 <h2 class="blog-post-title">
@@ -78,8 +87,6 @@ get_header();
                                                 </div>
 
                                                 <hr>
-                                                <!-- Categories -->
-												<?php decimus_category_badge(); ?>
 
                                                 <!-- Tags -->
 												<?php decimus_tags(); ?>
