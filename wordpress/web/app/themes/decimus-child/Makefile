@@ -9,7 +9,7 @@ SASSFLAGS = --style compressed -M
 #	sudo apt install sassc
 
 sass:
-	sassc $(SASSFLAGS) scss/main.scss > css/main.css
+	sassc $(SASSFLAGS) scss/main.scss > css/lib/decimus.css
 
 
 # Watch changes in SASS files and compile the CSS bundle
@@ -20,4 +20,4 @@ sass-watch:
 	done
 
 bootswatch:
-	sassc $(SASSFLAGS) ./scss/main.scss > css/main.css
+	sassc $(SASSFLAGS) ./scss/main.scss > css/lib/decimus.css

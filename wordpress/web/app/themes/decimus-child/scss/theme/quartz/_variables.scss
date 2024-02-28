@@ -39,7 +39,7 @@ $danger:        $orange !default;
 $light:         $gray-200 !default;
 $dark:          $gray-900 !default;
 
-$min-contrast-ratio:   1.5 !default;
+$min-contrast-ratio:   4.5 !default;
 
 // Spacing
 
@@ -83,8 +83,8 @@ $table-bg-scale:              0% !default;
 
 // Buttons + Forms
 
-$input-btn-padding-y:         .75rem !default;
-$input-btn-padding-x:         1.5rem !default;
+$input-btn-padding-y:         .5rem !default;
+$input-btn-padding-x:         1rem !default;
 
 // Buttons
 
@@ -169,7 +169,7 @@ $pagination-disabled-bg:            $pagination-bg !default;
 
 // Cards
 
-$card-spacer-y:                     1.75rem !default;
+$card-spacer-y:                     1rem !default;
 $card-spacer-x:                     2rem !default;
 $card-border-color:                 $border-color !default;
 $card-cap-bg:                       transparent !default;
