@@ -13,8 +13,8 @@
     height: 60px;
 }
 
-.profile-img-small,
-.avatar {
+/* .avatar */
+.profile-img-small {
     width: 45px;
     height: 45px;
 }
@@ -29,6 +29,21 @@
             height: 340px;
             width: auto;
             object-fit: contain;
+
+            @media screen and (max-width: 576px) {
+                height: auto;
+                width: 100%;
+                object-fit: cover;
+            }
         }
+    }
+}
+
+.card-img-left {
+    .badge.bg-danger.position-absolute {
+        margin-right: 1em;
+        margin-top: 0.75em;
+        right: 0;
+        top: 0;
     }
 }

@@ -111,3 +111,12 @@ input[type="checkbox"] {
 #modal-search .btn-close {
     line-height: 1;
 }
+
+.form-switch .form-check-input {
+    position: relative;
+    top: 6px;
+}
+
+.form-range {
+    border: none !important;
+}

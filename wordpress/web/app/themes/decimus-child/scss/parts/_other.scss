@@ -9,6 +9,10 @@
 
 .author {
     .author-bio {
+        margin-bottom: 3rem;
+        .author-bio__description {
+            margin-top: 0.5rem;
+        }
         h1 {
             margin-bottom: 0;
         }
@@ -84,8 +88,8 @@ aside .widget.widget_search {
     padding-top: 0;
 
     .widget {
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
 
         ol.wp-block-latest-comments {
             margin-bottom: 0;
@@ -137,6 +141,15 @@ aside .widget.widget_search {
 .entry-header {
     h1 {
         margin-bottom: 0.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    article.sticky .card-img-left {
+        img {
+            height: 340px;
+            object-fit: cover;
+        }
     }
 }
 

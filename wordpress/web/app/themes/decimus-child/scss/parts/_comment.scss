@@ -25,7 +25,7 @@
 
     .comment {
         h3.h5 {
-            font-size: $medium-size !important;
+            font-size: 0.875rem !important;
             margin-bottom: 0;
             padding-left: 0.5em;
         }
@@ -33,7 +33,7 @@
         .comment-content {
             .card {
                 .card-body {
-                    & > div {
+                    & > div:first-child {
                         display: flex;
                         align-items: center;
                     }
@@ -60,17 +60,17 @@ p.logged-in-as {
     }
 
     a.comment-edit-link {
-        font-size: 0.875em;
+        font-size: 0.875rem;
         padding-left: 0.5em;
     }
 
     a.comment-reply-link {
-        font-size: 0.875em;
+        font-size: 0.875rem;
     }
 
     .card-block {
         p {
-            font-size: 0.875em;
+            font-size: 1rem;
         }
     }
 }
