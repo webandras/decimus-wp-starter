@@ -84,7 +84,7 @@ if ( !class_exists( 'VuecommerceSpa' ) ) {
             if ( is_page_template( 'page-vue.php' ) ) {
 
                 // only compile to css in dev env
-                if ( WP_ENV !== 'development' ) {
+                if ( WP_ENV === 'development' ) {
                     wp_enqueue_script( 'vuecommerce-js-chunk-vendors', 'https://172.28.119.227:8081/js/chunk-vendors.js', [],
                         false, true );
                     wp_register_script( 'vuecommerce-js-app', 'https://172.28.119.227:8080/js/app.js', [], self::VERSION,
