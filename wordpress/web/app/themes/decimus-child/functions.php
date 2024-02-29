@@ -41,17 +41,14 @@ if ( ! function_exists( 'decimus_child_remove_scripts' ) ) :
 		$have_global_data = isset( $global_data ) && isset( $global_data['data'] );
 		$global_options   = $have_global_data && isset( $global_data['data']['option_value'] ) ? $global_data['data']['option_value'] : [];
 
-		$skin = $have_global_data && isset( $global_options['skin'] ) ? esc_attr( $global_options['skin'] ) : 'lux';
+		$skin = $have_global_data && isset( $global_options['skin'] ) ? esc_attr( $global_options['skin'] ) : 'decimus';
 
 		// Dequeue parent bootstrap.min.css
 		wp_dequeue_style( 'bootstrap' );
 		wp_deregister_style( 'bootstrap' );
 
 		// Register your child bootstrap.min.css (from the bootswatch theme's pre-compiled bundle)
-		/*	wp_enqueue_style( 'child-theme-bootstrap',
-			get_stylesheet_directory_uri() . '/css/lib/' . $skin . '.css',
-			array( 'parent-style' ) );
-		*/
+		wp_enqueue_style( 'child-theme-bootstrap', get_stylesheet_directory_uri() . '/css/lib/' . $skin . '.css', array('parent-style'));
 
 		// image comparison slider css
 		// wp_enqueue_style('image-compare', get_stylesheet_directory_uri() . '/css/image-compare.css');
