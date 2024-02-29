@@ -21,7 +21,7 @@ trait S001 {
 		$sections              = [ 'global', 'contact', 'header', 'woocommerce', 'admin' ];
 		$default_theme_options = [
 			'global'      => [
-				'skin'                       => 'lux',
+				'skin'                       => 'decimus',
 				'enable_scroll_to_top_arrow' => 1,
 				'enable_social_share_links'  => 1,
 				'enable_blog_sidebar'        => 0,
@@ -29,20 +29,20 @@ trait S001 {
 			],
 			'contact'     => [
 				'phone_number'  => '+36201234567',
-				'email_address' => 'hello@example.com',
-				'facebook'      => 'https://facebook.com/',
+				'email_address' => 'webandras@proton.me',
+				'facebook'      => 'https://facebook.com/webandras',
 				'messenger'     => 'https://m.me/',
 				'instagram'     => 'https://instagram.com/',
 				'youtube'       => 'https://youtube.com/',
 			],
 			'header'      => [
 				'account_button' => 1,
-				'cart_button'    => 1,
+				'cart_button'    => 0,
 				'search_button'  => 1,
 			],
 			'woocommerce' => [
-				'show_single_product_meta' => 1,
-				'enable_product_videos'    => 1,
+				'show_single_product_meta' => 0,
+				'enable_product_videos'    => 0,
 			],
 			'admin'       => [
 				'enable_gutenberg_block_editor_in_widgets' => 0,
