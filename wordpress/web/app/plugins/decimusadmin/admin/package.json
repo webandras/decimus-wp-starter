@@ -49,6 +49,10 @@
     },
     "rules": {}
   },
+  "engines": {
+    "node": ">=16.14.0 <=16.20.2",
+    "npm": ">=8.0.0 <=8.19.4"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",

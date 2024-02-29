@@ -25,6 +25,7 @@
                         <option value="cosmo">Cosmo</option>
                         <option value="cyborg">Cyborg</option>
                         <option value="darkly">Darkly</option>
+                        <option value="decimus">Decimus (default)</option>
                         <option value="flatly">Flatly</option>
                         <option value="journal">Journal</option>
                         <option value="litera">Litera</option>
