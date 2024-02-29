@@ -3,7 +3,7 @@
         <div class="row mt-4">
             <div v-if="screenWidth >= 768" class="col-3 col-md-3 col-lg-3 col-xxl-2">
                 <!-- Filter Posts by Categories -->
-                <h2 class="h5">{{ $t("postsPage.filterByCategories") }}</h2>
+                <h2 class="h5 mb-3">{{ $t("postsPage.filterByCategories") }}</h2>
 
                 <FilterCategorySwitches
                     :categories="wpCategories"
@@ -12,7 +12,7 @@
                 <!-- End Filter Posts by Categories -->
 
                 <!-- Sort Posts by Date -->
-                <h2 class="h5 mt-4">{{ $t("postsPage.sortByDateOrder") }}</h2>
+                <h2 class="h5 mt-4 mb-3">{{ $t("postsPage.sortByDateOrder") }}</h2>
 
                 <Order @onOrderToggle="order = $event"/>
                 <!-- End Sort Posts by Date -->
@@ -47,7 +47,7 @@
 
                     <div id="collapseDetailedSearch" class="collapse">
                         <!-- Filter Posts by Categories -->
-                        <h2 class="h5">{{ $t("postsPage.filterByCategories") }}</h2>
+                        <h2 class="h5 mb-3">{{ $t("postsPage.filterByCategories") }}</h2>
 
                         <FilterCategorySwitches
                             :categories="wpCategories"
@@ -56,7 +56,7 @@
                         <!-- End Filter Posts by Categories -->
 
                         <!-- Sort Posts by Date -->
-                        <h2 class="h5 mt-4">{{ $t("postsPage.sortByDateOrder") }}</h2>
+                        <h2 class="h5 mt-4 mb-3">{{ $t("postsPage.sortByDateOrder") }}</h2>
 
                         <Order @onOrderToggle="order = $event"/>
                         <!-- End Sort Posts by Date -->

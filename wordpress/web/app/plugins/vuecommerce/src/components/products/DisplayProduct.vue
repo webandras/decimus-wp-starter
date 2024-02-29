@@ -22,7 +22,7 @@
                     <a
                         v-if="product.external_url"
                         :href="product.external_url"
-                        class="btn btn-primary"
+                        class="btn btn-outline-primary"
                     >{{ product.button_text }}</a
                     >
                     <a
@@ -40,7 +40,7 @@
                         class="
               wp-block-button__link
               add_to_cart_button
-              btn btn-primary
+              btn btn-outline-primary
               ajax_add_to_cart
               single_add_to_cart_button
             "
@@ -50,13 +50,13 @@
                         rel="nofollow"
                     >{{ "Add to cart" }}</a
                     >
-                    <a v-else :href="product.permalink" class="btn btn-primary">{{
+                    <a v-else :href="product.permalink" class="btn btn-outline-primary">{{
                             $t("productsPage.selectOptions")
                         }}</a>
                 </div>
             </div>
             <span
-                :style="{ position: 'absolute', top: '10px', right: '10px' }"
+                :style="{ position: 'absolute', top: '1em', right: '1em' }"
                 class="badge bg-secondary"
             >{{ productDate }}</span
             >

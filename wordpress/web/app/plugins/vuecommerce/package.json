@@ -1,10 +1,10 @@
 {
   "name": "vuecommerce",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --openssl-legacy-provider",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -47,6 +47,10 @@
       "parser": "babel-eslint"
     },
     "rules": {}
+  },
+  "engines": {
+    "node": ">=16.14.0 <=16.20.2",
+    "npm": ">=8.0.0 <=8.19.4"
   },
   "browserslist": [
     "> 1%",

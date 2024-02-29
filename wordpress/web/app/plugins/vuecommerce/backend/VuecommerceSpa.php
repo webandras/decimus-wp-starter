@@ -84,15 +84,15 @@ if ( !class_exists( 'VuecommerceSpa' ) ) {
             if ( is_page_template( 'page-vue.php' ) ) {
 
                 // only compile to css in dev env
-                if ( WP_ENV === 'development' ) {
-                    wp_enqueue_script( 'vuecommerce-js-chunk-vendors', 'http://localhost:8081/js/chunk-vendors.js', [],
+                if ( WP_ENV !== 'development' ) {
+                    wp_enqueue_script( 'vuecommerce-js-chunk-vendors', 'https://172.28.119.227:8081/js/chunk-vendors.js', [],
                         false, true );
-                    wp_register_script( 'vuecommerce-js-app', 'http://localhost:8081/js/app.js', [], self::VERSION,
+                    wp_register_script( 'vuecommerce-js-app', 'https://172.28.119.227:8080/js/app.js', [], self::VERSION,
                         true );
                 } else {
                     wp_enqueue_script( 'vuecommerce-js-chunk-vendors',
-                        plugins_url() . '/vuecommerce/dist/js/chunk-vendors.47079796.js', [], self::VERSION, true );
-                    wp_register_script( 'vuecommerce-js-app', plugins_url() . '/vuecommerce/dist/js/app.cfc97523.js',
+                        plugins_url() . '/vuecommerce/dist/js/chunk-vendors.661f3476.js', [], self::VERSION, true );
+                    wp_register_script( 'vuecommerce-js-app', plugins_url() . '/vuecommerce/dist/js/app.b105959f.js',
                         [],
                         false, true );
                 }
@@ -100,7 +100,7 @@ if ( !class_exists( 'VuecommerceSpa' ) ) {
                 // style.css
                 wp_enqueue_style( 'vuecommerce-css-chunk-vendors',
                     plugins_url() . '/vuecommerce/dist/css/chunk-vendors.71a233fb.css' );
-                wp_enqueue_style( 'vuecommerce-css-app', plugins_url() . '/vuecommerce/dist/css/app.d4e6fd0a.css' );
+                wp_enqueue_style( 'vuecommerce-css-app', plugins_url() . '/vuecommerce/dist/css/app.eb9d05f3.css' );
 
                 // make custom data available for the Vue frontend with wp_localize_script.
                 global $post;

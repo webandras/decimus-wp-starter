@@ -9,7 +9,7 @@
                 class="form-control"
                 type="text"
             />
-            <button id="button-search" class="btn btn-secondary" type="button">
+            <button id="button-search" class="btn btn-outline-primary" type="button">
                 <font-awesome-icon :icon="['fas', 'search']" :size="'md'">
                 </font-awesome-icon>
                 {{ $t("shared.search") }}

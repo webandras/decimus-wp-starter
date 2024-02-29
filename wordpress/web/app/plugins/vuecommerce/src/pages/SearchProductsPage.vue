@@ -3,13 +3,13 @@
         <div class="row mt-4">
             <div v-if="screenWidth >= 768" class="col-3 col-md-3 col-lg-3 col-xxl-2">
                 <!-- Filter Products by some Props -->
-                <h3 class="h5">{{ $t("productsPage.filterByCategory") }}</h3>
+                <h3 class="h5 mb-3">{{ $t("productsPage.filterByCategory") }}</h3>
                 <FilterCategorySwitches
                     :categories="productCategories"
                     @onSelectCategory="categoryIdsFilter = $event"
                 />
 
-                <h3 class="h5 mt-4">{{ $t("productsPage.filterByPrice") }}</h3>
+                <h3 class="h5 mt-4 mb-3">{{ $t("productsPage.filterByPrice") }}</h3>
                 <FilterPrice
                     :highestPrice="highestPrice"
                     :lowestPrice="lowestPrice"
@@ -17,13 +17,13 @@
                     @onMinPriceSelect="minPrice = parseInt($event, 10)"
                 />
 
-                <h3 class="h5 mt-4">{{ $t("productsPage.filterByOnSale") }}</h3>
+                <h3 class="h5 mt-4 mb-3">{{ $t("productsPage.filterByOnSale") }}</h3>
                 <FilterOnSale @onSaleToggle="onSale = $event"/>
 
                 <!-- End Filter Products by some Props -->
 
                 <!-- Sort Products by Date -->
-                <h3 class="h5 mt-4">{{ $t("productsPage.sortByProps") }}</h3>
+                <h3 class="h5 mt-4 mb-3">{{ $t("productsPage.sortByProps") }}</h3>
                 <SortProducts @onSelectOrderBy="orderBy = $event"/>
 
                 <!-- End Sort Products -->
