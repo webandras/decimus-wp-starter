@@ -4,7 +4,7 @@
  * Plugin Name: Decimus Theme Admin Plugin
  * Plugin URI: https://github.com/SalsaBoy990/decimus-wp-starter/tree/master/wordpress/web/app/plugins/decimusadmin
  * Description: Decimus Theme Admin Plugin
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: András Gulácsi
  * Author URI: https://github.com/SalsaBoy990
  * License: LGPL 3.0
@@ -17,6 +17,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+const WP_ENV = 'production';
 
 // require all requires once
 require_once __DIR__ . '/requires.php';
