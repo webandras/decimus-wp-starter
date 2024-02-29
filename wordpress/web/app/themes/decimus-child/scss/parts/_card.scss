@@ -11,7 +11,7 @@
 
         @media (min-width: 993px) {
             .col {
-                .card-body {
+                .card-body:not(.card__without_cover) {
                     padding-left: 0;
                 }
             }

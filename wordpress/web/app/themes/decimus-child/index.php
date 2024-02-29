@@ -65,7 +65,7 @@ get_header();
 													<?php echo get_the_post_thumbnail( null, 'medium' ) . '</div>';
 													} ?>
                                                     <div class="col">
-                                                        <div class="card-body <?php echo has_post_thumbnail() === true ? '' : 'ps-4' ?>"">
+                                                        <div class="card-body <?php echo has_post_thumbnail() === true ? '' : 'card__without_cover' ?>">
 
 															<?php if ( has_post_thumbnail() === true ) { ?>
                                                                 <!-- Category badge -->
@@ -138,7 +138,7 @@ get_header();
 										}
 										?>
                                         <div class="col">
-                                            <div class="card-body">
+                                            <div class="card-body <?php echo has_post_thumbnail() === true ? '' : 'card__without_cover' ?>">
 												<?php if ( has_post_thumbnail() === true ) { ?>
                                                     <!-- Category badge -->
                                                     <div class="post-badge">
