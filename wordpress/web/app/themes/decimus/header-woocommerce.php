@@ -94,20 +94,26 @@
                         <!-- Search Toggler -->
                         <button class="btn btn-outline-light ms-1 ms-md-2 top-nav-search-md" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false"
-                                aria-controls="collapse-search">
+                                aria-controls="collapse-search"
+                                aria-label="<?php _e( 'Open the search modal window', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-search"></i>
                         </button>
 
                         <!-- User Toggler -->
                         <button class="btn btn-outline-light ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas"
-                                data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
+                                data-bs-target="#offcanvas-user" aria-controls="offcanvas-user"
+                                aria-label="<?php _e( 'Open your account / login offcanvas area', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-user"></i>
                         </button>
 
                         <!-- Mini Cart Toggler -->
                         <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
-                                aria-controls="offcanvas-cart">
+                                aria-controls="offcanvas-cart"
+                                aria-label="<?php _e( 'Open your shopping cart offcanvas area', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-shopping-bag"></i>
 							<?php if ( in_array( 'woocommerce/woocommerce.php',
 								apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -124,7 +130,9 @@
                         <!-- Navbar Toggler -->
                         <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
-                                aria-controls="offcanvas-navbar">
+                                aria-controls="offcanvas-navbar"
+                                aria-label="<?php _e( 'Open the sidebar mobile menu', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-bars"></i>
                         </button>
 

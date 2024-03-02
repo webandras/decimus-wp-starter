@@ -71,7 +71,7 @@ get_header();
 
                                                             <!-- Meta -->
 															<?php if ( 'post' === get_post_type() ) : ?>
-                                                                <small class="disabled text-muted mb-3 d-inline-block">
+                                                                <small class="disabled mb-3 d-inline-block">
 																	<?php
 																	decimus_date();
 																	decimus_author();
@@ -140,7 +140,7 @@ get_header();
                                                 </h2>
                                                 <!-- Meta -->
 												<?php if ( 'post' === get_post_type() ) : ?>
-                                                    <small class="disabled text-muted mb-3 d-inline-block">
+                                                    <small class="disabled mb-3 d-inline-block">
 														<?php
 														decimus_date();
 														decimus_author();

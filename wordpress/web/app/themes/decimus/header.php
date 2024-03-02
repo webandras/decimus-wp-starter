@@ -104,14 +104,18 @@
                         <!-- Search Toggler Mobile -->
                         <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false"
-                                aria-controls="collapse-search">
+                                aria-controls="collapse-search"
+	                            aria-label="<?php _e( 'Open the search modal window', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-search"></i>
                         </button>
 
                         <!-- Navbar Toggler -->
                         <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
-                                aria-controls="offcanvas-navbar">
+                                aria-controls="offcanvas-navbar"
+                                aria-label="<?php _e( 'Open the sidebar mobile menu', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-bars"></i>
                         </button>
 

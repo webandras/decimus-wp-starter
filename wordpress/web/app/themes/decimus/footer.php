@@ -105,7 +105,7 @@ $scroll_to_top_arrow = $have_global_data ? esc_attr( isset( $global_options['ena
 
 <?php if ( $scroll_to_top_arrow ) { ?>
     <div class="top-button position-fixed zi-1020">
-        <a href="#to-top" class="btn btn-primary shadow"><i class="fas fa-chevron-up"></i></a>
+        <a href="#to-top" class="btn btn-primary shadow" role="button" aria-label="Go to the top of the page"><i class="fas fa-chevron-up"></i></a>
     </div>
 <?php } ?>
 

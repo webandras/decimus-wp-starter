@@ -211,7 +211,7 @@ if ( ! function_exists( 'decimus_tags' ) ) :
 			$tags_list = get_the_tag_list( '', ' ' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links text-muted small-size">' . esc_html__( 'Tagged %1$s',
+				printf( '<div class="tags-links small-size">' . esc_html__( 'Tagged %1$s',
 						'decimus' ) . '</div>',
 					$tags_list ); // WPCS: XSS OK.
 			}

@@ -101,8 +101,8 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
 
                         <div class="d-none d-sm-block col-sm-6 text-end">
 
-                            <a href="<?php echo $facebook ?>" class="me-1"><i class="fab fa-facebook-square"></i></a>
-                            <a href="<?php echo $messenger ?>"><i class="fab fa-facebook-messenger"></i></a>
+                            <a href="<?php echo $facebook ?>" class="me-1" aria-label="<?php _e( 'Facebook page link', 'decimus-child' ) ?>"><i class="fab fa-facebook-square"></i></a>
+                            <a href="<?php echo $messenger ?>" aria-label="<?php _e( 'Messenger app link', 'decimus-child' ) ?>"><i class="fab fa-facebook-messenger"></i></a>
 
                             <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
 								<?php if ( is_active_sidebar( 'top-nav-search' ) ) : ?>
@@ -124,12 +124,15 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                     <!-- Navbar Brand -->
                     <a class="navbar-brand xs d-md-none" href="<?php echo esc_url( home_url() ); ?>"><img
                                 src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.png"
-                                alt="logo small" style="width: 120px; height: auto;"
+                                alt="logo small" width="120"
+                                height="17" style="width: 120px; height: auto;"
                                 class="logo xs d-inline-block mr-1"></a>
 
                     <a class="navbar-brand md d-none d-md-block " href="<?php echo esc_url( home_url() ); ?>">
                         <img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/img/logo/logo.png"
                              alt="logo normal"
+                             width="180"
+                             height="25"
                              class="logo md d-inline-block mr-3">
                         <div class="brand-text"><?php //bloginfo('name'); ?></div>
                     </a>
@@ -172,14 +175,13 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                             </nav>
 
                             <div class="d-block d-lg-none text-start">
-                                <div class="fb-page" data-href="https://www.facebook.com/saidadancekizomba" data-tabs=""
+                                <div class="fb-page" data-href="<?php echo $facebook ?>" data-tabs=""
                                      data-width="" data-height="" data-small-header="true"
                                      data-adapt-container-width="true" data-hide-cover="false"
                                      data-show-facepile="true">
-                                    <blockquote cite="https://www.facebook.com/saidadancekizomba"
+                                    <blockquote cite="<?php echo $facebook ?>"
                                                 class="fb-xfbml-parse-ignore"><a
-                                                href="https://www.facebook.com/saidadancekizomba">Saida Dance
-                                            Kizomba</a></blockquote>
+                                                href="<?php echo $facebook ?>">WebAndrás</a></blockquote>
                                 </div>
 
                             </div>
@@ -211,6 +213,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                             <button class="btn btn-outline-light ms-1 ms-md-2 " type="button"
                                     data-bs-toggle="modal" data-bs-target="#modal-search" aria-expanded="false"
                                     aria-controls="modal-search"
+                                    aria-label="<?php _e( 'Open the search modal window', 'decimus-child' ) ?>"
                             >
                                 <i class="fas fa-search"></i>
                             </button>
@@ -219,7 +222,9 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                             <!-- User Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user"
-                                    aria-controls="offcanvas-user">
+                                    aria-controls="offcanvas-user"
+                                    aria-label="<?php _e( 'Open your account / login offcanvas area', 'decimus-child' ) ?>"
+                            >
                                 <i class="fas fa-user"></i>
 
                             </button>
@@ -228,20 +233,22 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                             <!-- Mini Cart Toggler -->
                             <button class="btn btn-outline-light ms-1 ms-md-2 position-relative" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart"
-                                    aria-controls="offcanvas-cart">
+                                    aria-controls="offcanvas-cart"
+                                    aria-label="<?php _e( 'Open your shopping cart offcanvas area', 'decimus-child' ) ?>"
+                            >
                                 <i class="fas fa-shopping-cart"></i>
 								<?php if ( in_array( 'woocommerce/woocommerce.php',
 									apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 									$count = WC()->cart->cart_contents_count;
 									?>
                                     <span class="cart-content"><?php
-									if ( $count > 0 ) {
-										?>
-                                        <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"><?php echo esc_html( $count ); ?></span>
-                                        <span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
-										<?php
-									}
-									?></span>
+										if ( $count > 0 ) {
+											?>
+                                            <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"><?php echo esc_html( $count ); ?></span>
+                                            <span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+											<?php
+										}
+										?></span>
 								<?php } ?>
                             </button>
 						<?php } ?>
@@ -249,7 +256,9 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
                         <!-- Navbar Toggler -->
                         <button class="btn btn-outline-light d-lg-none ms-1 ms-md-2" type="button"
                                 data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
-                                aria-controls="offcanvas-navbar">
+                                aria-controls="offcanvas-navbar"
+                                aria-label="<?php _e( 'Open the sidebar mobile menu', 'decimus-child' ) ?>"
+                        >
                             <i class="fas fa-bars"></i>
                         </button>
 
