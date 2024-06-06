@@ -153,7 +153,7 @@ $search  = isset( $header_options['search_button'] ) && intval( $header_options[
 								'container'      => false,
 								'menu_class'     => '',
 								'fallback_cb'    => '__return_false',
-								'items_wrap'     => '<ul id="decimus-navbar" class="navbar-nav medium-size ms-auto %2$s">%3$s</ul>',
+								'items_wrap'     => '<ul id="decimus-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
 								'depth'          => 2,
 								'walker'         => new bootstrap_5_wp_nav_menu_walker(),
 							) );

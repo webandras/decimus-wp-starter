@@ -165,9 +165,9 @@ do_action( 'woocommerce_before_cart' ); ?>
                         <div class="input-group">
                             <label for="coupon_code"
                                    class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
-                            <input type="text" name="coupon_code" class="form-control" id="coupon_code" value=""
+                            <input type="text" name="coupon_code" class="form-control form-control-sm" id="coupon_code" value=""
                                    placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>"/>
-                            <button type="submit" class="input-group-text btn btn-outline-primary" name="apply_coupon"
+                            <button type="submit" class="input-group-text btn btn-sm btn-outline-primary" name="apply_coupon"
                                     value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
                         </div>

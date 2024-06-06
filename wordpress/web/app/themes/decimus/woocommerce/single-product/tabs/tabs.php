@@ -53,7 +53,7 @@ if ( ! empty( $product_tabs ) ) : ?>
                     <li class="<?php echo esc_attr( $key ); ?>_tab" id="tab-title-<?php echo esc_attr( $key ); ?>"
                         role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
                         <a href="#tab-<?php echo esc_attr( $key ); ?>">
-							<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
+							<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', array_key_exists('title', $product_tab) ? $product_tab['title'] : '', $key ) ); ?>
                         </a>
                     </li>
 				<?php } ?>

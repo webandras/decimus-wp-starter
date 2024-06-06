@@ -18,12 +18,13 @@ get_header();
         <!-- Header -->
         <div class="decimus-header pt-5 text-center">
             <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead px-4 px-lg-0"><?php bloginfo( 'description' ); ?></p>
+            <p class="lead px-4 px-lg-0">
+                A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme. <?php bloginfo( 'description' ); ?></p>
         </div>
 
         <div class="decimus-header pt-5 text-center">
             <h1 class="display-1"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead px-4 px-lg-0">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme</p>
+            <p class="lead px-4 px-lg-0">A Bootstrap 5 WordPress Theme based on the Bootscore 5 theme 2</p>
         </div>
 
         <div class="decimus-header pt-5 text-center">
