@@ -257,7 +257,7 @@ if ( ! class_exists( 'Decimus_movie_reviews' ) ) {
 					'featured_image'        => __( 'Featured Image', self::TEXT_DOMAIN ),
 					'set_featured_image'    => __( 'Set featured image', self::TEXT_DOMAIN ),
 					'remove_featured_image' => __( 'Remove featured image', self::TEXT_DOMAIN ),
-					'use_featured_image'    => __( 'Use as featred image', self::TEXT_DOMAIN ),
+					'use_featured_image'    => __( 'Use as featured image', self::TEXT_DOMAIN ),
 					'insert_into_item'      => __( 'Insert into movie review', self::TEXT_DOMAIN ),
 					'uploaded_to_this_item' => __( 'Uploaded to this movie review', self::TEXT_DOMAIN ),
 					'views'                 => __( 'Filter movie reviews list', self::TEXT_DOMAIN ),
